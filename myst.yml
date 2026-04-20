@@ -1,0 +1,70 @@
+version: 1
+
+project:
+  id: llm-early-church-history
+  title: LLM Evaluation in Early Church History
+  description: >
+    A comparative evaluation of large language models on their knowledge
+    of women in early Christianity, with focus on accuracy, depth, and gender bias.
+  authors:
+    - name: Eric Araujo
+      email: eric.araujo@calvin.edu
+  keywords:
+    - LLM evaluation
+    - early church history
+    - women in early Christianity
+    - AI bias
+    - gender bias
+    - historical knowledge
+    - natural language processing
+  license: CC-BY-4.0
+  bibliography:
+    - references.bib
+  toc:
+    - file: index.md
+    - title: Background
+      children:
+        - file: background/historical-context.md
+        - file: background/llm-evaluation-context.md
+    - title: Methodology
+      children:
+        - file: methodology/index.md
+        - file: methodology/evaluation-paradigms.md
+        - file: methodology/rubric.md
+        - file: methodology/annotation-protocol.md
+        - file: methodology/agreement-metrics.md
+    - title: Known LLM Biases
+      children:
+        - file: biases/index.md
+        - file: biases/hallucination.md
+        - file: biases/androcentric-bias.md
+        - file: biases/contested-scholarship.md
+    - title: Figures
+      children:
+        - file: figures/index.md
+        - file: figures/macrina.md
+        - file: figures/olympias.md
+    - title: Data Collection
+      children:
+        - file: data-collection/index.md
+        - file: data-collection/setup.md
+        - file: data-collection/claude.ipynb
+        - file: data-collection/openai.ipynb
+        - file: data-collection/gemini.ipynb
+        - file: data-collection/grok.ipynb
+        - file: data-collection/batch-collection.ipynb
+    - title: Benchmark
+      children:
+        - file: benchmark/index.md
+        - file: benchmark/by-model.md
+        - file: benchmark/by-dimension.md
+        - file: benchmark/by-figure.md
+    - file: replicate/index.md
+    - file: about.md
+    - file: glossary.md
+    - file: references.md
+
+site:
+  template: book-theme
+  title: LLM Evaluation in Early Church History
+  description: Comparing how AI models handle knowledge of women in early Christianity

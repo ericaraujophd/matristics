@@ -1,0 +1,56 @@
+---
+title: Environment Setup
+description: How to set up your Python environment and API keys to run the data collection notebooks.
+---
+
+# Environment Setup
+
+## Requirements
+
+- Python 3.10 or higher
+- `pip` or `conda`
+
+## Installation
+
+```bash
+pip install anthropic openai google-generativeai jupyter pandas tqdm
+```
+
+## API Keys
+
+Each provider requires an API key. Store keys as environment variables — never hardcode them in notebooks.
+
+```bash
+# Add to your ~/.bashrc, ~/.zshrc, or .env file
+export ANTHROPIC_API_KEY="your-key-here"
+export OPENAI_API_KEY="your-key-here"
+export GOOGLE_API_KEY="your-key-here"
+export XAI_API_KEY="your-key-here"
+```
+
+In notebooks, load with:
+
+```python
+import os
+api_key = os.environ["ANTHROPIC_API_KEY"]
+```
+
+## Response Storage
+
+All responses are saved to `data/responses/` as newline-delimited JSON (`.jsonl`), one file per model:
+
+```
+data/
+└── responses/
+    ├── claude.jsonl
+    ├── openai.jsonl
+    ├── gemini.jsonl
+    └── grok.jsonl
+```
+
+Each line in a `.jsonl` file is one JSON object following the format described in [](index).
+
+## Costs and Rate Limits
+
+<!-- TODO: Add current pricing estimates for running the full 42-question bank on each model,
+and rate limit notes for each API. -->

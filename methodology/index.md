@@ -1,0 +1,25 @@
+---
+title: Methodology Overview
+description: Overview of the evaluation methodology used in this project.
+---
+
+# Methodology Overview
+
+This project uses a hybrid human-evaluation methodology designed for a specialized historical domain. The core design decisions are:
+
+1. **Hybrid evaluation paradigm**: pairwise comparison for relative model ranking, combined with reference-guided pointwise scoring for factual accuracy. See [](evaluation-paradigms).
+
+2. **Seven-dimension rubric**: responses are scored on Factual Accuracy, Completeness, Gender Bias, Hallucination, Anachronism, Source Awareness, and Depth & Nuance. See [](rubric).
+
+3. **Three-phase annotation protocol**: onboarding, pilot round, and production annotation with at least three raters per item. See [](annotation-protocol).
+
+4. **Krippendorff's alpha** as the primary inter-annotator agreement metric, reported per dimension. See [](agreement-metrics).
+
+A key principle: **LLM-as-judge pipelines are not used for the Gender Bias dimension**. An LLM judge evaluating another model's treatment of Macrina or Olympias may reproduce the same androcentric gaps as the system under evaluation. Human adjudication by scholars with patristics expertise is required for that dimension.
+
+## Sections
+
+- [](evaluation-paradigms) — Pairwise, pointwise, and reference-guided approaches
+- [](rubric) — The seven scoring dimensions with definitions and examples
+- [](annotation-protocol) — The three-phase annotation workflow
+- [](agreement-metrics) — How inter-annotator reliability is measured and reported

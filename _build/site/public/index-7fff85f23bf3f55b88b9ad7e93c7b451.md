@@ -1,0 +1,16 @@
+---
+title: Known LLM Biases in Early Church History
+description: Overview of the bias patterns LLMs exhibit when asked about early church history, particularly regarding women.
+---
+
+# Known LLM Biases in Early Church History
+
+Before collecting any data, it is possible to predict — from the structure of LLM training and from prior research on bias — the types of errors models are likely to make when asked about women in early Christianity. Documenting these patterns in advance serves two purposes: it informs the design of the rubric and question bank, and it establishes a baseline for comparing what is found against what was expected.
+
+Three categories of bias are addressed in this section:
+
+- [](hallucination) — Confident invention in sparse historical domains
+- [](androcentric-bias) — Systematic underrepresentation and distortion rooted in training data
+- [](contested-scholarship) — Premature resolution of open historical and textual debates
+
+These categories are not mutually exclusive. A response about Junia that invents a male identity for her (hallucination), frames her as Paul's assistant rather than a co-apostle (androcentric bias), and treats the scholarly debate as settled (contested scholarship) exhibits all three simultaneously.
