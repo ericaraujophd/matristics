@@ -6,9 +6,9 @@ execute:
   enabled: false
 
 website:
-  title: "LLM Evaluation in Early Church History"
-  site-url: https://ericaraujophd.github.io/matristics
-  description: "Comparing how AI models handle knowledge of women in early Christianity"
+  title: "Matristics"
+  site-url: https://ericaraujo.com/matristics
+  description: "Evaluating large language models on the women of the early church"
   favicon: _static/fractio_panis.jpg
   search:
     location: navbar
@@ -37,6 +37,7 @@ website:
       - index.qmd
       - section: "Background"
         contents:
+          - background/project-overview.qmd
           - background/historical-context.qmd
           - background/llm-evaluation-context.qmd
       - section: "Methodology"
@@ -78,20 +79,18 @@ website:
       - references.qmd
   page-footer:
     center: |
-      LLM Evaluation in Early Church History · Eric Araújo, Calvin University · CC-BY-4.0
+      Matristics · Eric Araújo, Calvin University · CC-BY-4.0
 
 bibliography: references.bib
 
 format:
   html:
     theme: [theme.scss]
-    toc: true
-    toc-depth: 3
-    toc-title: "On this page"
+    toc: false
     number-sections: false
     link-external-newwindow: true
     smooth-scroll: true
     grid:
       sidebar-width: 290px
-      body-width: 780px
-      margin-width: 250px
+      body-width: 1000px
+      margin-width: 0px

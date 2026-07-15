@@ -205,6 +205,159 @@ dl dt {
 }
 dl dd { margin-left: 1.25rem; }
 
+// ---------- Readability guard on the wide layout ----------
+// Page is 1000px wide for cards/tables/carousel, but running prose
+// stays capped near ~75 characters per line.
+#quarto-document-content > p,
+#quarto-document-content > ol,
+#quarto-document-content > ul,
+#quarto-document-content > blockquote {
+  max-width: 46rem;
+}
+
+// ---------- Quick-link cards ----------
+.ql-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0 2rem;
+}
+.ql-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  padding: 1.1rem 1.15rem 1.2rem;
+  background: #FFFDF9;
+  border: 1px solid #E7DECD;
+  border-top: 3px solid $gold;
+  border-radius: 8px;
+  text-decoration: none !important;
+  color: $ink;
+  box-shadow: 0 1px 4px rgba(44, 36, 29, 0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  &:hover, &:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(44, 36, 29, 0.14);
+    border-top-color: $tyrian;
+    color: $ink;
+  }
+}
+.ql-icon {
+  color: $tyrian;
+  svg { width: 34px; height: 34px; }
+}
+.ql-title {
+  font-family: $font-family-sans-serif;
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: $tyrian-deep;
+}
+.ql-desc {
+  font-family: $font-family-sans-serif;
+  font-size: 0.83rem;
+  line-height: 1.45;
+  color: $ink-soft;
+}
+
+// ---------- Figures carousel ----------
+.fig-carousel-wrap {
+  display: flex;
+  align-items: stretch;
+  gap: 0.4rem;
+  margin: 1.25rem 0 2rem;
+}
+.fig-carousel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0.35rem 0.2rem 0.85rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba($gold, 0.6) transparent;
+  flex: 1;
+}
+.fig-card {
+  scroll-snap-align: start;
+  flex: 0 0 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.45rem;
+  padding: 1.25rem 0.9rem 1.1rem;
+  background: #FFFDF9;
+  border: 1px solid #E7DECD;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(44, 36, 29, 0.06);
+  text-decoration: none !important;
+  color: $ink;
+}
+a.fig-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  &:hover, &:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(44, 36, 29, 0.14);
+    color: $ink;
+    .fig-name { color: $tyrian; text-decoration: underline; }
+  }
+}
+.fig-card.planned { opacity: 0.72; }
+.fig-medallion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, #6E2B52, $tyrian-deep);
+  border: 2.5px solid $gold;
+  color: #F3E8D8;
+  font-family: $font-family-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.fig-name {
+  font-family: $font-family-sans-serif;
+  font-weight: 600;
+  font-size: 0.92rem;
+  line-height: 1.3;
+  color: $tyrian-deep;
+}
+.fig-period {
+  font-family: $font-family-sans-serif;
+  font-size: 0.78rem;
+  color: $ink-soft;
+}
+.fig-status {
+  font-family: $font-family-sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.15rem 0.55rem;
+  border-radius: 20px;
+  margin-top: 0.15rem;
+}
+.status-active { background: rgba($tyrian, 0.12); color: $tyrian; }
+.status-planned { background: rgba($ink-soft, 0.12); color: $ink-soft; }
+.fig-nav {
+  align-self: center;
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #E7DECD;
+  background: #FFFDF9;
+  color: $tyrian;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(44, 36, 29, 0.08);
+  &:hover { background: rgba($tyrian, 0.08); }
+}
+
 // Footer
 .nav-footer {
   font-family: $font-family-sans-serif;
