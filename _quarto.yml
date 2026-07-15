@@ -38,21 +38,13 @@ website:
       - section: "Background"
         contents:
           - background/project-overview.qmd
-          - background/historical-context.qmd
-          - background/llm-evaluation-context.qmd
+          - background/context.qmd
       - section: "Methodology"
         contents:
           - methodology/index.qmd
-          - methodology/evaluation-paradigms.qmd
           - methodology/rubric.qmd
-          - methodology/annotation-protocol.qmd
-          - methodology/agreement-metrics.qmd
-      - section: "Known LLM Biases"
-        contents:
-          - biases/index.qmd
-          - biases/hallucination.qmd
-          - biases/androcentric-bias.qmd
-          - biases/contested-scholarship.qmd
+      - text: "Known LLM Biases"
+        href: biases/index.qmd
       - section: "Figures"
         contents:
           - figures/index.qmd
@@ -67,12 +59,8 @@ website:
           - data-collection/gemini.ipynb
           - data-collection/grok.ipynb
           - data-collection/batch-collection.ipynb
-      - section: "Benchmark"
-        contents:
-          - benchmark/index.qmd
-          - benchmark/by-model.qmd
-          - benchmark/by-dimension.qmd
-          - benchmark/by-figure.qmd
+      - text: "Benchmark"
+        href: benchmark/index.qmd
       - replicate/index.qmd
       - about.qmd
       - glossary.qmd

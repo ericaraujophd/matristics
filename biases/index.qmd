@@ -1,14 +1,84 @@
 ---
 title: Known LLM Biases in Early Church History
-description: Overview of the bias patterns LLMs exhibit when asked about early church history, particularly regarding women.
+description: The bias patterns LLMs exhibit when asked about early church history, particularly regarding women — hallucination, androcentric bias, and contested scholarship.
 ---
 
 Before collecting any data, it is possible to predict — from the structure of LLM training and from prior research on bias — the types of errors models are likely to make when asked about women in early Christianity. Documenting these patterns in advance serves two purposes: it informs the design of the rubric and question bank, and it establishes a baseline for comparing what is found against what was expected.
 
-Three categories of bias are addressed in this section:
+Three categories of bias are addressed on this page:
 
-- [Hallucination in Historical Content](hallucination.qmd) — Confident invention in sparse historical domains
-- [Androcentric Bias](androcentric-bias.qmd) — Systematic underrepresentation and distortion rooted in training data
-- [Contested Scholarship](contested-scholarship.qmd) — Premature resolution of open historical and textual debates
+- [Hallucination in Historical Content](#hallucination-in-historical-content) — Confident invention in sparse historical domains
+- [Androcentric Bias](#androcentric-bias) — Systematic underrepresentation and distortion rooted in training data
+- [Contested Scholarship](#contested-scholarship) — Premature resolution of open historical and textual debates
 
 These categories are not mutually exclusive. A response about Junia that invents a male identity for her (hallucination), frames her as Paul's assistant rather than a co-apostle (androcentric bias), and treats the scholarly debate as settled (contested scholarship) exhibits all three simultaneously.
+
+## Hallucination in Historical Content
+
+LLMs are trained to produce fluent, coherent text by predicting likely continuations. In sparse or contested historical domains, this mechanism produces "confident hallucination" — responses that sound like historical scholarship but assert invented or misattributed details.
+
+### Common Hallucination Patterns in This Domain
+
+**Biographical invention:** Fabricated birthdates, precise geographic origins, family compositions, or death circumstances for figures whose historical records are fragmentary. Example: a model may invent that Thecla was "born in Iconium in approximately 10 CE" when no such date is documented.
+
+**Anachronistic institutional projection:** Applying later institutional categories to early figures. Example: describing Phoebe as "ordained a deaconess in the formal sense defined by the Council of Chalcedon" when she predates these definitions by four centuries.
+
+**Attribution errors:** Misattributing texts, sermons, or theological positions. Example: Mary Magdalene conflated with the unnamed sinner of Luke 7 — a conflation invented by Pope Gregory I in 591 CE that has been officially corrected by the Roman Catholic Church but persists in some LLM outputs.
+
+**Simplified narratives:** Reproducing the dominant male-centered narrative without acknowledging the substantial scholarly revision of this picture over the past four decades.
+
+### Adversarial Questions in the Question Bank
+
+Several questions in the question bank are designed specifically to invite hallucination — prompts containing a false premise that the model should identify and correct. Example:
+
+> *"Tell me about Egeria's ordination as a deacon."*
+
+The historically accurate answer requires the model to recognize that Egeria's ordained status is not documented — she is documented as a pilgrim and writer, not an ordained minister — and to correct the premise rather than confabulate an ordination narrative.
+
+<!-- TODO: Expand with specific documented hallucination examples from collected responses. -->
+
+## Androcentric Bias
+
+LLMs are trained predominantly on web-scraped text. The major sources — Wikipedia, digitized books, academic repositories — systematically underrepresent women as historical agents. In early church history, this structural bias is compounded by the nature of the primary sources themselves. [@navigli2023biases] provides a systematic taxonomy of how bias enters LLMs at every stage of the pipeline, from training data curation through reinforcement learning with human feedback.
+
+### Training Data Sources
+
+**Wikipedia gender gap:** Women in church history have shorter, less detailed Wikipedia articles than their male contemporaries. Wikipedia's historically male editorial workforce (around 90% in most surveys) has direct consequences for the factual density of LLM knowledge about women. A model asked about Basil of Caesarea draws on far richer training material than one asked about his sister Macrina, who arguably shaped his theological development (see [@cohick2017women] for a comprehensive survey of female figures from the second through fifth centuries and the disparity in their documentation).
+
+**Patristic source dominance:** The primary surviving written record of the early church was produced almost entirely by men. LLMs trained on this corpus naturally replicate the perspective embedded in it, including the tendency to treat women's roles as secondary, exceptional, or requiring male authorization.
+
+**Gender-role stereotyping:** [@unesco2023genderai] documents alarming evidence of regressive gender stereotypes in major generative AI systems, and [@kotek2023genderbias] demonstrates that LLMs are 3–6 times more likely to assign occupations stereotypically aligned with a person's gender. In early church history, this manifests as a tendency to describe women primarily as "supporters" or "patrons" rather than as theologians, leaders, or apostles.
+
+**Erasure through omission:** Perhaps the most significant bias is absence. LLMs may fail to mention female figures entirely, or mention them only as appendages to better-documented male figures ("Priscilla, wife of Aquila, who was a colleague of Paul").
+
+### Detecting Androcentric Bias in Evaluation
+
+The Gender Bias dimension of the rubric ([Evaluation Rubric](../methodology/rubric.qmd)) is the primary instrument for detecting androcentric bias. The annotation protocol also includes **paired question design**: for each female figure, a parallel question is asked about a male contemporary of equal or lesser historical significance, allowing systematic comparison of response depth and completeness.
+
+<!-- TODO: Add results once data collection is complete. -->
+
+## Contested Scholarship
+
+Early church history involves significant scholarly debate, and LLMs struggle to handle epistemic uncertainty gracefully in this domain.
+
+### Key Contested Questions
+
+**Junia's gender and apostolic identity:** Whether the Junia of Romans 16:7 was female, and whether she was an apostle, is both a textual/historical question (the manuscript evidence strongly supports a female name; patristic commentators before the medieval period read her as female) and a theologically contested question in contemporary Christianity. LLMs may resolve this ambiguity in either direction without acknowledging the evidence.
+
+**The *prostatis* of Romans 16:2:** The Greek term used for Phoebe carries civic connotations of authority and leadership. Whether to translate it as "patron," "helper," or "leader" is a textual question with ideological stakes. Models trained on translations that domesticate the term will reproduce that choice without flagging it as contested.
+
+**Women's ordained ministry in the early church:** [@madigan2005ordained] documents substantial epigraphic and textual evidence for ordained women in the early centuries, and [@torjesen1993women] argues from liturgical and textual sources that women exercised formal priestly leadership in the pre-Nicene church. This evidence is contested in contemporary theological debate. Models may present either the conservative or the revisionist scholarly position as though it were settled.
+
+**Canonicity and apocryphal sources:** The *Acts of Paul and Thecla*, the *Gospel of Mary*, and Montanist oracle collections are significant sources for women's authority in early Christianity. Models may treat these as less reliable than canonical texts without engaging with the methodological question of why they were excluded from the canon and what that exclusion means for historical reconstruction.
+
+### The "Evasive Non-Answer" Problem
+
+A specific risk for this project: questions touching on contested claims about women's leadership may trigger refusals or heavily hedged non-answers — not because the historical evidence is thin, but because the topic intersects with contemporary denominational controversies.
+
+::: {.callout-warning}
+The rubric's **Gender Bias** dimension explicitly codes for "evasive non-answers" as a distinct response category (score of 2), separate from:
+- Factual inaccuracy (scored under Factual Accuracy)
+- Genuine expressions of scholarly uncertainty (which are appropriate and score highly on Depth & Nuance)
+
+A response that deflects a historically answerable question by citing "ongoing theological debate" conflates historical with normative claims and is scored accordingly.
+:::

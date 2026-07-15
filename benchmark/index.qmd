@@ -3,18 +3,11 @@ title: Benchmark
 description: Comparative panel showing how each LLM performed across models, rubric dimensions, and figures.
 ---
 
-This section presents the evaluation results as a comparative panel. Results are organized across three views: by model, by rubric dimension, and by figure. Together, they allow readers to see not only which model performed best overall, but where each model's weaknesses lie and which historical figures are most poorly represented.
+This page presents the evaluation results as a comparative panel. Results are organized across three views — by model, by rubric dimension, and by figure. Together, they allow readers to see not only which model performed best overall, but where each model's weaknesses lie and which historical figures are most poorly represented.
 
 ::: {.callout-note}
 Data collection and annotation are in progress. Results will populate automatically as annotation is completed.
 :::
-
-
-## Views
-
-- [Results by Model](by-model.qmd) — Overall model ranking and per-question score distributions
-- [Results by Dimension](by-dimension.qmd) — Which models hallucinate least? Which have the worst gender bias scores?
-- [Results by Figure](by-figure.qmd) — Which figures are most poorly represented across all models?
 
 ## How to Read the Results
 
@@ -31,3 +24,57 @@ Each LLM response is scored on seven dimensions (1–5 scale):
 | Depth & Nuance | Scholarly debate acknowledged |
 
 Average scores are reported per model, per dimension, and per figure. Krippendorff's alpha inter-annotator agreement statistics are reported alongside all scores.
+
+## Results
+
+::: {.panel-tabset}
+
+### By Model
+
+Overall model ranking and per-dimension score distributions.
+
+::: {.callout-note}
+Placeholder — results will appear here once annotation is complete.
+:::
+
+<!--
+This tab will contain:
+- Overall ranking table (model × average score across all dimensions and questions)
+- Elo-style tournament results from pairwise comparisons
+- Per-model radar charts showing dimension profiles
+- Distribution plots for each model's scores
+-->
+
+### By Dimension
+
+Which models score highest and lowest on each rubric dimension.
+
+::: {.callout-note}
+Placeholder — results will appear here once annotation is complete.
+:::
+
+<!--
+This tab will contain:
+- Heatmap: model (rows) × rubric dimension (columns), cells = average score
+- Highlight: which dimension shows the greatest variance across models
+- Specific focus on Gender Bias dimension — expected to show most interesting variation
+- Inter-annotator alpha per dimension
+-->
+
+### By Figure
+
+Which historical figures are most and least well represented across all LLMs.
+
+::: {.callout-note}
+Placeholder — results will appear here once annotation is complete.
+:::
+
+<!--
+This tab will contain:
+- Heatmap: figure (rows) × model (columns), cells = average score
+- Ranking of figures by average score across all models (which figures are most poorly known)
+- Stratification by documentation level: well-known vs. moderately documented vs. lesser-known
+- Breakdown by difficulty level within each figure
+-->
+
+:::

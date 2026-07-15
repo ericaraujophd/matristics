@@ -9,7 +9,7 @@ All materials needed to replicate this evaluation are published openly. This pag
 
 1. **API access** to the models you want to evaluate. See [Data Collection](../data-collection/index.qmd) for setup.
 2. **Python 3.10+** and the packages listed in [Environment Setup](../data-collection/setup.qmd).
-3. **Domain-expert annotators** — at minimum two with graduate-level knowledge of early Christianity. See [Annotation Protocol](../methodology/annotation-protocol.qmd) for annotator requirements and training materials.
+3. **Domain-expert annotators** — at minimum two with graduate-level knowledge of early Christianity. See [Annotation Protocol](../methodology/index.qmd#annotation-protocol) for annotator requirements and training materials.
 4. **The rubric** — download from [Evaluation Rubric](../methodology/rubric.qmd).
 5. **The question bank** — download from [Figures & Question Bank](../figures/index.qmd).
 
@@ -18,7 +18,7 @@ All materials needed to replicate this evaluation are published openly. This pag
 - The full question bank (42 questions, [CSV](../figures/question_bank.csv))
 - The rubric definitions and scoring sheet template ([Evaluation Rubric](../methodology/rubric.qmd))
 - All data collection notebooks ([Data Collection](../data-collection/index.qmd))
-- The annotation protocol ([Annotation Protocol](../methodology/annotation-protocol.qmd))
+- The annotation protocol ([Annotation Protocol](../methodology/index.qmd#annotation-protocol))
 - The reference answer document *(to be published when annotation is complete)*
 
 ## What May Require Adaptation
