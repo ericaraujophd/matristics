@@ -8,7 +8,7 @@ description: >
 
 ![*Fractio Panis* (Breaking of Bread), Greek Chapel, Catacomb of Priscilla, Rome, 2nd–4th century CE. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Catacombe_di_Priscilla,_Rome_-_Fresco_of_a_Christian_Agape_feast_-_Fractio_panis_-_Greek_chapel_-_2nd_-_4th_century.jpg) — public domain.](_static/fractio_panis.jpg){fig-alt="Fractio Panis — fresco from the Greek Chapel of the Catacomb of Priscilla, Rome, 2nd–4th century CE. Seven figures share bread and fish at a communal table."}
 
-**Matristics** — from *mater*, by analogy with *patristics* — asks how well large language models know the women who shaped Christianity's first five centuries. We evaluate Claude, ChatGPT, Gemini, and Grok not only for factual accuracy, but for whether they reproduce the androcentric silences of the historical record itself. Read more in the [Project Overview](background/project-overview.qmd).
+**Matristics** — from *mater*, by analogy with *patristics* — asks how well large language models know the women who shaped Christianity's first five centuries. We evaluate Claude, ChatGPT, Gemini, and Grok not only for factual accuracy, but for whether they reproduce the androcentric silences of the historical record itself. Read more in the [Background](background/index.qmd).
 
 ## Explore the project
 

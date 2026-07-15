@@ -35,10 +35,8 @@ website:
     collapse-level: 1
     contents:
       - index.qmd
-      - section: "Background"
-        contents:
-          - background/project-overview.qmd
-          - background/context.qmd
+      - text: "Background"
+        href: background/index.qmd
       - section: "Methodology"
         contents:
           - methodology/index.qmd
