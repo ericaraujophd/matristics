@@ -43,20 +43,20 @@ The following works are foundational for contextualizing the figures under study
 
 | Work | Focus |
 |------|-------|
-| [@cohick2017women] | The most comprehensive recent survey of female figures from the second through fifth centuries. |
-| [@madigan2005ordained] | Primary sources in translation with critical commentary on ordained women. |
-| [@kraemer1999women] | Foundational feminist historiography of the period. |
-| [@kraemer1992blessings] | Women's religious lives among pagans, Jews, and Christians across the Greco-Roman world. |
-| [@cooper2013band] | Accessible synthesis recovering the world of ordinary early Christian women. |
-| [@elm1994virgins] | Scholarly analysis of female asceticism in late antiquity. |
-| [@clark1986ascetic] | Essays on women, asceticism, and piety in late ancient Christianity. |
-| [@torjesen1993women] | Argument for women's formal priestly leadership in early Christianity. |
-| [@clark1983women] | Patristic primary sources on women in translation, with commentary. |
-| [@clark1979jerome] | Essays and translations on the women in Jerome's and Chrysostom's circles, including the *Life of Olympias*. |
-| [@hartney2004chrysostom] | Chrysostom's preaching and its urban context — the Constantinople of Olympias. |
-| [@swan2001desert] | Sayings, lives, and stories of early Christian women in the desert tradition. |
-| [@oden1994words] | Anthology of women's writings across the history of Christian thought. |
-| [@paintner2012desert] | Annotated introduction to the sayings of the desert fathers and mothers. |
+| [Cohick & Hughes 2017](../references.qmd#ref-cohick2017women) | The most comprehensive recent survey of female figures from the second through fifth centuries. |
+| [Madigan & Osiek 2005](../references.qmd#ref-madigan2005ordained) | Primary sources in translation with critical commentary on ordained women. |
+| [Kraemer & D'Angelo 1999](../references.qmd#ref-kraemer1999women) | Foundational feminist historiography of the period. |
+| [Kraemer 1992](../references.qmd#ref-kraemer1992blessings) | Women's religious lives among pagans, Jews, and Christians across the Greco-Roman world. |
+| [Cooper 2013](../references.qmd#ref-cooper2013band) | Accessible synthesis recovering the world of ordinary early Christian women. |
+| [Elm 1994](../references.qmd#ref-elm1994virgins) | Scholarly analysis of female asceticism in late antiquity. |
+| [Clark 1986](../references.qmd#ref-clark1986ascetic) | Essays on women, asceticism, and piety in late ancient Christianity. |
+| [Torjesen 1993](../references.qmd#ref-torjesen1993women) | Argument for women's formal priestly leadership in early Christianity. |
+| [Clark 1983](../references.qmd#ref-clark1983women) | Patristic primary sources on women in translation, with commentary. |
+| [Clark 1979](../references.qmd#ref-clark1979jerome) | Essays and translations on the women in Jerome's and Chrysostom's circles, including the *Life of Olympias*. |
+| [Hartney 2004](../references.qmd#ref-hartney2004chrysostom) | Chrysostom's preaching and its urban context — the Constantinople of Olympias. |
+| [Swan 2001](../references.qmd#ref-swan2001desert) | Sayings, lives, and stories of early Christian women in the desert tradition. |
+| [Oden 1994](../references.qmd#ref-oden1994words) | Anthology of women's writings across the history of Christian thought. |
+| [Paintner 2012](../references.qmd#ref-paintner2012desert) | Annotated introduction to the sayings of the desert fathers and mothers. |
 
 : {tbl-colwidths="[38,62]"}
 
