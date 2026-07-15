@@ -94,5 +94,8 @@ On the bias side, @unesco2023genderai documents alarming evidence of regressive 
 
 ### What This Project Adds
 
-<!-- TODO: Articulate the contribution: a domain-specific benchmark for early church history
-with a gender-bias focus, a replicable methodology, and a public question bank. -->
+Existing evaluation frameworks measure general capability, and existing bias studies measure stereotyping in contemporary contexts; neither addresses how LLMs represent *historical* women in a domain where the training data itself inherits two millennia of androcentric selection. This project contributes three things that sit at that intersection:
+
+1. **A domain-specific benchmark** for early church history with an explicit gender-bias focus, comparing multiple frontier models on the same 42-question bank across 14 female figures.
+2. **A replicable methodology** — rubric, annotation protocol, reference answers, and agreement metrics — designed so that other researchers can apply the same design to other underdocumented historical populations.
+3. **A public question bank and dataset**: all prompts, raw model responses, and annotations are released openly, allowing the benchmark to be rerun as models evolve.
