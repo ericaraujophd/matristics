@@ -1,6 +1,6 @@
 ---
 title: Methodology
-description: The full evaluation methodology — evaluation paradigms, annotation protocol, and inter-annotator agreement metrics. The scoring rubric has its own page.
+subtitle: Evaluation paradigms, annotation protocol, and agreement metrics
 ---
 
 This project uses a hybrid human-evaluation methodology designed for a specialized historical domain. The core design decisions are:
@@ -53,7 +53,7 @@ gaps as the system under evaluation. Human adjudication by domain experts is req
 
 ## Annotation Protocol
 
-The quality of human evaluation is only as strong as the annotation protocol. This project follows a three-phase workflow based on best practices from the evaluation literature ([@chen2024llmjudges]).
+The quality of human evaluation is only as strong as the annotation protocol. This project follows a three-phase workflow based on best practices from the evaluation literature [@chen2024llmjudges].
 
 ### Annotator Requirements
 
@@ -77,7 +77,7 @@ Annotators receive:
 Before production annotation begins:
 
 1. All annotators independently score a **pilot set of 10 items** (drawn from the question bank, covering general and figure-specific questions across all difficulty levels).
-2. Krippendorff's alpha ([@krippendorff2011agreement]) is calculated per dimension.
+2. Krippendorff's alpha [@krippendorff2011agreement] is calculated per dimension.
 3. Annotators discuss all disagreements together to identify rubric ambiguities.
 4. The rubric is revised if necessary, and a second pilot round is conducted if alpha falls below 0.60 on any dimension.
 
@@ -92,11 +92,11 @@ Before production annotation begins:
 
 ### Quality Control
 
-<!-- TODO: Add details on:
-- Blinding: annotators do not know which model produced a response
-- Response randomization: order of model responses is randomized per item
-- Fatigue management: maximum items per session
--->
+Three safeguards protect annotation quality throughout production:
+
+- **Blinding:** annotators do not know which model produced a response; model identifiers are stripped from all items before annotation.
+- **Response randomization:** the order in which model responses are presented is randomized per item, so no model benefits from position or ordering effects.
+- **Fatigue management:** annotation sessions are capped at a fixed number of items, keeping late-session judgments as reliable as early ones.
 
 ## Inter-Annotator Agreement Metrics
 
@@ -104,7 +104,7 @@ Measuring annotator reliability is a core validity requirement, not an optional 
 
 ### Krippendorff's Alpha (α)
 
-Krippendorff's alpha ([@krippendorff2011agreement]) is the primary metric for this project. It is preferred over Cohen's kappa because:
+Krippendorff's alpha [@krippendorff2011agreement] is the primary metric for this project. It is preferred over Cohen's kappa because:
 
 - It handles **any number of annotators** (this project uses three or more).
 - It is appropriate for **ordinal scales** (the 1–5 Likert scales used in the rubric), treating a disagreement between scores of 1 and 5 as worse than a disagreement between 3 and 4.

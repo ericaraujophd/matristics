@@ -205,16 +205,6 @@ dl dt {
 }
 dl dd { margin-left: 1.25rem; }
 
-// ---------- Readability guard on the wide layout ----------
-// Page is 1000px wide for cards/tables/carousel, but running prose
-// stays capped near ~75 characters per line.
-#quarto-document-content > p,
-#quarto-document-content > ol,
-#quarto-document-content > ul,
-#quarto-document-content > blockquote {
-  max-width: 46rem;
-}
-
 // ---------- Quick-link cards ----------
 .ql-grid {
   display: grid;
