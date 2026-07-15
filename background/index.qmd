@@ -27,47 +27,38 @@ This section provides the historical background necessary for understanding both
 
 ### The Documentary Problem
 
-<!-- TODO: Expand with discussion of:
-- Survival of sources: which texts survived and why
-- The patristic canon and its gendered composition
-- Apocryphal and Gnostic materials as alternative sources
-- Hagiography: conventions and critical reading
-- Archaeological evidence (inscriptions, graffiti) as a corrective
--->
+The sources for women's lives in early Christianity survive unevenly and almost never in women's own words: of the vast surviving corpus, only a handful of texts — Perpetua's prison diary, Egeria's travel journal — are plausibly female-authored. What survives was copied, edited, and canonized by male ecclesiastical institutions, so hagiographic conventions and theological agendas shape even sympathetic portraits such as Gregory of Nyssa's *Life of Macrina*. Apocryphal literature, funerary inscriptions naming women as deacons and patrons, and other archaeological evidence provide an important corrective, but they are fragmentary and contested.
 
 ### Women's Roles in the First Three Centuries
 
-<!-- TODO: Expand with discussion of:
-- House church leaders (Priscilla, Lydia, Nympha, Chloe)
-- Apostles and missionaries (Junia, Mary Magdalene, Thecla)
-- Prophets (Philip's daughters, Ammia of Philadelphia, Maximilla, Priscilla)
-- Deacons (Phoebe, the women of 1 Tim 3:11)
-- Martyrs and confessors (Perpetua, Felicitas, Blandina)
--->
+In the earliest communities women appear across the full range of leadership roles: house-church leaders (Priscilla, Lydia, Nympha, Chloe), a deacon and patron (Phoebe), apostles and missionaries (Junia, Mary Magdalene, Thecla), and prophets (Philip's daughters, Ammia of Philadelphia, the Montanist prophetesses Maximilla and Priscilla). Martyrdom accounts such as that of Perpetua and Felicitas preserve some of the most vivid — and most nearly first-person — evidence of women's religious agency. The overall picture is one of genuine but contested authority, already being narrowed by the household codes of the later New Testament writings.
 
 ### Women's Roles in the Fourth and Fifth Centuries
 
-<!-- TODO: Expand with discussion of:
-- The institutionalization of the diaconate
-- Deaconesses: Olympias, Marthana, the Didascalia and Apostolic Constitutions
-- Monastic founders: Macrina, Melania the Elder, Melania the Younger, Paula
-- Intellectual patrons: Marcella, Paula, Fabiola
-- The narrowing of women's roles after Nicaea and its contested interpretation
--->
+With imperial patronage came institutionalization: the female diaconate was formalized in church orders such as the *Didascalia* and the *Apostolic Constitutions* — Olympias of Constantinople is its best-documented holder — while aristocratic women such as Macrina, Melania the Elder, and Paula founded monasteries, and intellectual patrons like Marcella turned Roman households into centers of scholarship. At the same time, conciliar legislation and episcopal writing progressively restricted the public roles women had exercised in earlier centuries. Whether this period represents a flourishing of women's religious life (through asceticism) or a narrowing (through exclusion from office) remains a central debate in the scholarship.
 
 ### Key Scholarly Literature
 
 The following works are foundational for contextualizing the figures under study.
 
-- [@cohick2017women] — The most comprehensive recent survey of female figures from the second through fifth centuries.
-- [@madigan2005ordained] — Primary sources in translation with critical commentary on ordained women.
-- [@kraemer1999women] — Foundational feminist historiography of the period.
-- [@elm1994virgins] — Scholarly analysis of female asceticism in late antiquity.
-- [@torjesen1993women] — Argument for women's formal priestly leadership in early Christianity.
-- [@clark1983women] — Patristic primary sources on women in translation, with commentary.
-- [@swan2001desert] — Sayings, lives, and stories of early Christian women in the desert tradition.
-- [@oden1994words] — Anthology of women's writings across the history of Christian thought.
-- [@paintner2012desert] — Annotated introduction to the sayings of the desert fathers and mothers.
+| Work | Focus |
+|------|-------|
+| [@cohick2017women] | The most comprehensive recent survey of female figures from the second through fifth centuries. |
+| [@madigan2005ordained] | Primary sources in translation with critical commentary on ordained women. |
+| [@kraemer1999women] | Foundational feminist historiography of the period. |
+| [@kraemer1992blessings] | Women's religious lives among pagans, Jews, and Christians across the Greco-Roman world. |
+| [@cooper2013band] | Accessible synthesis recovering the world of ordinary early Christian women. |
+| [@elm1994virgins] | Scholarly analysis of female asceticism in late antiquity. |
+| [@clark1986ascetic] | Essays on women, asceticism, and piety in late ancient Christianity. |
+| [@torjesen1993women] | Argument for women's formal priestly leadership in early Christianity. |
+| [@clark1983women] | Patristic primary sources on women in translation, with commentary. |
+| [@clark1979jerome] | Essays and translations on the women in Jerome's and Chrysostom's circles, including the *Life of Olympias*. |
+| [@hartney2004chrysostom] | Chrysostom's preaching and its urban context — the Constantinople of Olympias. |
+| [@swan2001desert] | Sayings, lives, and stories of early Christian women in the desert tradition. |
+| [@oden1994words] | Anthology of women's writings across the history of Christian thought. |
+| [@paintner2012desert] | Annotated introduction to the sayings of the desert fathers and mothers. |
+
+: {tbl-colwidths="[38,62]"}
 
 ## LLM Evaluation Context
 
