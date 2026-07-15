@@ -28,10 +28,10 @@ All responses are stored as JSON with the following structure:
 
 ```json
 {
-  "question_id": "Q19",
+  "question_id": "M1",
   "model": "claude-opus-4-6",
   "model_version": "claude-opus-4-6-20250514",
-  "prompt": "Who was Macrina the Younger and what was her relationship...",
+  "prompt": "Who was Macrina the Younger, and what is she primarily known for in early Christianity?",
   "response": "...",
   "temperature": 0.0,
   "timestamp": "2026-04-19T16:00:00Z",

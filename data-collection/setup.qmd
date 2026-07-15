@@ -50,5 +50,5 @@ Each line in a `.jsonl` file is one JSON object following the format described i
 
 ## Costs and Rate Limits
 
-<!-- TODO: Add current pricing estimates for running the full 42-question bank on each model,
+<!-- TODO: Add current pricing estimates for running the full question bank on each model,
 and rate limit notes for each API. -->

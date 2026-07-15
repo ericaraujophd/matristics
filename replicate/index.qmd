@@ -15,7 +15,7 @@ All materials needed to replicate this evaluation are published openly. This pag
 
 ## What You Can Reuse Without Modification
 
-- The full question bank (42 questions, [CSV](../figures/question_bank.csv))
+- The full question bank (11 general questions per figure plus 6–7 figure-specific ones, [CSV](../figures/question_bank.csv))
 - The rubric definitions and scoring sheet template ([Evaluation Rubric](../methodology/rubric.qmd))
 - All data collection notebooks ([Data Collection](../data-collection/index.qmd))
 - The annotation protocol ([Annotation Protocol](../methodology/index.qmd#annotation-protocol))

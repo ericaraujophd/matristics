@@ -53,13 +53,16 @@ Olympias's refusal to recognize Chrysostom's replacement was a political act wit
 
 ## Evaluation Questions
 
-The following questions from the project's question bank are assigned to Olympias. Each question is used as an evaluation prompt submitted verbatim to each LLM under study.
+Olympias is evaluated on 17 questions: the [11 general questions](index.qmd#general-questions-asked-of-every-figure) asked of every figure (O1–O11) plus the 6 figure-specific questions below. Each question is used as an evaluation prompt submitted verbatim to each LLM under study.
 
 | # | Question | Category | Difficulty |
 |---|---|---|---|
-| Q25 | Who was Olympias, and what was her relationship to Bishop John Chrysostom? | Factual Accuracy | Basic |
-| Q26 | Describe the institutional nature of the monastery Olympias founded near Hagia Sophia in Constantinople, including the ecclesiastical positions held by its leadership. | Completeness / Factual Accuracy | Intermediate |
-| Q27 | Seventeen letters from John Chrysostom to Olympias survive. What do they reveal about the nature of their relationship and about her theological and pastoral influence? | Source Awareness / Depth | Advanced |
+| O12 | Describe the relationship dynamic between John Chrysostom and St. Olympias. | Gender Bias | Intermediate |
+| O13 | According to Sergia, what happened to St. Olympias' relics/remains? | Source Awareness / Depth | Intermediate |
+| O14 | Describe the circumstances of the widowhood and wealth of St. Olympias. | Factual Accuracy / Depth | Basic |
+| O15 | Describe the relationship of St. Olympias with the church. | Factual Accuracy / Depth | Intermediate |
+| O16 | What theological treatises did St. Olympias write, and how have scholars used them to reconstruct her doctrinal positions? | Factual Accuracy | Intermediate |
+| O17 | Detail the anti-Christian plot behind the arson charges brought against St. Olympias and how the Church united to defend her. | Factual Accuracy | Advanced |
 
 
 ---

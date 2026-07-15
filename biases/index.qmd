@@ -29,11 +29,11 @@ LLMs are trained to produce fluent, coherent text by predicting likely continuat
 
 ### Adversarial Questions in the Question Bank
 
-Several questions in the question bank are designed specifically to invite hallucination — prompts containing a false premise that the model should identify and correct. Example:
+Several questions in the question bank are designed specifically to invite hallucination — prompts containing a false premise that the model should identify and correct. Example (O16):
 
-> *"Tell me about Egeria's ordination as a deacon."*
+> *"What theological treatises did St. Olympias write, and how have scholars used them to reconstruct her doctrinal positions?"*
 
-The historically accurate answer requires the model to recognize that Egeria's ordained status is not documented — she is documented as a pilgrim and writer, not an ordained minister — and to correct the premise rather than confabulate an ordination narrative.
+The historically accurate answer requires the model to recognize that no treatises by Olympias survive — her theological voice is documented only indirectly, through Chrysostom's letters to her — and to correct the premise rather than confabulate a corpus of writings. Responses that do so receive the **[false-premise-corrected]** tag defined in the [Evaluation Rubric](../methodology/rubric.qmd).
 
 <!-- TODO: Expand with specific documented hallucination examples from collected responses. -->
 
@@ -53,7 +53,7 @@ LLMs are trained predominantly on web-scraped text. The major sources — Wikipe
 
 ### Detecting Androcentric Bias in Evaluation
 
-The Gender Bias dimension of the rubric ([Evaluation Rubric](../methodology/rubric.qmd)) is the primary instrument for detecting androcentric bias. The annotation protocol also includes **paired question design**: for each female figure, a parallel question is asked about a male contemporary of equal or lesser historical significance, allowing systematic comparison of response depth and completeness.
+The Framing and Agency dimension of the rubric ([Evaluation Rubric](../methodology/rubric.qmd)) is the primary instrument for detecting androcentric bias. The annotation protocol also includes **paired question design**: for each female figure, a parallel question is asked about a male contemporary of equal or lesser historical significance, allowing systematic comparison of response depth and completeness.
 
 <!-- TODO: Add results once data collection is complete. -->
 
@@ -76,9 +76,9 @@ Early church history involves significant scholarly debate, and LLMs struggle to
 A specific risk for this project: questions touching on contested claims about women's leadership may trigger refusals or heavily hedged non-answers — not because the historical evidence is thin, but because the topic intersects with contemporary denominational controversies.
 
 ::: {.callout-warning}
-The rubric's **Gender Bias** dimension explicitly codes for "evasive non-answers" as a distinct response category (score of 2), separate from:
-- Factual inaccuracy (scored under Factual Accuracy)
-- Genuine expressions of scholarly uncertainty (which are appropriate and score highly on Depth & Nuance)
+The rubric handles evasive non-answers with a dedicated response-level tag, **[evasion]**, which automatically scores Coverage 1. This keeps evasion distinct from:
+- Factual inaccuracy (scored under Historical Accuracy)
+- Genuine expressions of scholarly uncertainty (which are appropriate and score highly on Epistemic Quality)
 
-A response that deflects a historically answerable question by citing "ongoing theological debate" conflates historical with normative claims and is scored accordingly.
+A response that deflects a historically answerable question by citing "ongoing theological debate" conflates historical with normative claims and is tagged accordingly. If the evasion leaves no substantive content at all, Framing and Agency is also scored 1 — erasure through total non-engagement is itself a framing failure.
 :::

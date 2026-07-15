@@ -11,17 +11,14 @@ Data collection and annotation are in progress. Results will populate automatica
 
 ## How to Read the Results
 
-Each LLM response is scored on seven dimensions (1–5 scale):
+Each LLM response is scored on four dimensions (1–5 scale), with response-level and error tags recorded alongside (see the [Evaluation Rubric](../methodology/rubric.qmd)):
 
 | Dimension | What a high score means |
 |-----------|------------------------|
-| Factual Accuracy | Correct historical claims |
-| Completeness | All major aspects addressed |
-| Gender Bias | Female figure presented as agent in her own right |
-| Hallucination | No invented content |
-| Anachronism | No projection of later frameworks |
-| Source Awareness | Sources correctly distinguished |
-| Depth & Nuance | Scholarly debate acknowledged |
+| Historical Accuracy | Correct historical claims — nothing invented, misattributed, or anachronistic |
+| Coverage | All major aspects of the question addressed; no evasion |
+| Framing and Agency | Female figure presented as a historical agent in her own right |
+| Epistemic Quality | Sources distinguished by type; scholarly debate engaged where it exists |
 
 Average scores are reported per model, per dimension, and per figure. Krippendorff's alpha inter-annotator agreement statistics are reported alongside all scores.
 
@@ -57,7 +54,8 @@ Placeholder — results will appear here once annotation is complete.
 This tab will contain:
 - Heatmap: model (rows) × rubric dimension (columns), cells = average score
 - Highlight: which dimension shows the greatest variance across models
-- Specific focus on Gender Bias dimension — expected to show most interesting variation
+- Specific focus on Framing and Agency dimension — expected to show most interesting variation
+- Tag frequencies per model: [evasion], [false-premise-corrected], and error tags
 - Inter-annotator alpha per dimension
 -->
 

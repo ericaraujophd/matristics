@@ -7,13 +7,15 @@ This project uses a hybrid human-evaluation methodology designed for a specializ
 
 1. **Hybrid evaluation paradigm**: pairwise comparison for relative model ranking, combined with reference-guided pointwise scoring for factual accuracy. See [Evaluation Paradigms](#evaluation-paradigms).
 
-2. **Seven-dimension rubric**: responses are scored on Factual Accuracy, Completeness, Gender Bias, Hallucination, Anachronism, Source Awareness, and Depth & Nuance. See [Evaluation Rubric](rubric.qmd).
+2. **Four-dimension rubric with tags**: responses are scored on Historical Accuracy, Coverage, Framing and Agency, and Epistemic Quality, with response-level tags ([evasion], [false-premise-corrected]) and per-dimension error tags. See [Evaluation Rubric](rubric.qmd).
 
-3. **Three-phase annotation protocol**: onboarding, pilot round, and production annotation with at least three raters per item. See [Annotation Protocol](#annotation-protocol).
+3. **Two-tier question bank**: 11 general questions asked of every figure, plus 6–7 questions specific to each figure's own context — including adversarial items built on a false premise the model should correct. See [Figures & Question Bank](../figures/index.qmd).
 
-4. **Krippendorff's alpha** as the primary inter-annotator agreement metric, reported per dimension. See [Inter-Annotator Agreement Metrics](#inter-annotator-agreement-metrics).
+4. **Three-phase annotation protocol**: onboarding, pilot round, and production annotation with at least three raters per item. See [Annotation Protocol](#annotation-protocol).
 
-A key principle: **LLM-as-judge pipelines are not used for the Gender Bias dimension**. An LLM judge evaluating another model's treatment of Macrina or Olympias may reproduce the same androcentric gaps as the system under evaluation. Human adjudication by scholars with patristics expertise is required for that dimension.
+5. **Krippendorff's alpha** as the primary inter-annotator agreement metric, reported per dimension. See [Inter-Annotator Agreement Metrics](#inter-annotator-agreement-metrics).
+
+A key principle: **LLM-as-judge pipelines are not used for the Framing and Agency dimension**. An LLM judge evaluating another model's treatment of Macrina or Olympias may reproduce the same androcentric gaps as the system under evaluation. Human adjudication by scholars with patristics expertise is required for that dimension.
 
 ## Evaluation Paradigms
 
@@ -29,22 +31,22 @@ Two LLM responses to the same prompt are shown side by side. Human judges select
 
 A single response is rated on a 1–5 scale along each rubric dimension independently. This allows fine-grained comparison across models, questions, and figures, and produces data suitable for quantitative analysis.
 
-**Used in this project for**: all seven rubric dimensions (see [Evaluation Rubric](rubric.qmd)).
+**Used in this project for**: all four rubric dimensions (see [Evaluation Rubric](rubric.qmd)).
 
 ### Reference-Guided Scoring
 
 Annotators compare an LLM response against a gold-standard reference answer prepared by domain experts. The reference provides a shared factual baseline and reduces the burden on annotators who may not independently know the correct answer.
 
-**Used in this project for**: Factual Accuracy, Source Awareness, and Anachronism dimensions. Reference answers for all 42 questions are prepared in advance by the project team and validated against peer-reviewed scholarship.
+**Used in this project for**: the Historical Accuracy and Epistemic Quality dimensions. Reference answers for every question in the bank are prepared in advance by the project team and validated against peer-reviewed scholarship.
 
 ### Why a Hybrid Approach?
 
 @zheng2023judging introduced the LLM-as-judge paradigm and demonstrated that pairwise comparison achieves the highest consistency with human preference rankings — but pairwise comparison alone does not produce the dimension-level scores needed to diagnose *where* a model fails. @liu2023geval addressed this by proposing G-Eval, a rubric-based pointwise scoring framework using chain-of-thought reasoning, which achieves better correlation with human judgments than older string-overlap metrics. The hybrid design here draws on both: pairwise comparison for overall model ranking, and pointwise Likert scoring for per-dimension diagnosis.
 
-Reference-guided scoring is added as a third component because the domain-expert knowledge required to evaluate responses on Factual Accuracy, Anachronism, and Source Awareness cannot be assumed of all annotators. Gold-standard reference answers reduce annotator burden and improve reliability on dimensions where the correct answer is determinable from the historical record. @wang2024survey provides a comprehensive survey of this combined methodology as of 2024.
+Reference-guided scoring is added as a third component because the domain-expert knowledge required to evaluate responses on Historical Accuracy and Epistemic Quality cannot be assumed of all annotators. Gold-standard reference answers reduce annotator burden and improve reliability on dimensions where the correct answer is determinable from the historical record. @wang2024survey provides a comprehensive survey of this combined methodology as of 2024.
 
 ::: {.callout-note}
-A key constraint on this project: LLM-as-judge pipelines are not used for the **Gender Bias** dimension.
+A key constraint on this project: LLM-as-judge pipelines are not used for the **Framing and Agency** dimension.
 An LLM judge evaluating another model's treatment of Macrina may reproduce the same androcentric
 gaps as the system under evaluation. Human adjudication by domain experts is required for this dimension.
 :::
@@ -55,9 +57,9 @@ The quality of human evaluation is only as strong as the annotation protocol. Th
 
 ### Annotator Requirements
 
-**Expert annotators (minimum two):** Graduate-level training in early Christianity, patristics, or feminist historiography of religion. They annotate all items for all seven dimensions.
+**Expert annotators (minimum two):** Graduate-level training in early Christianity, patristics, or feminist historiography of religion. They annotate all items for all four dimensions.
 
-**Secondary annotators (optional):** Graduate students in history or religious studies, trained on the rubric. May be used for Completeness and Hallucination dimensions after a calibration round.
+**Secondary annotators (optional):** Graduate students in history or religious studies, trained on the rubric. May be used for the Coverage dimension after a calibration round.
 
 No crowdsourcing platforms (Mechanical Turk, Prolific) are used for this project. Agreement rates between LLM judges and domain experts drop to 64–68% on expert-knowledge tasks; non-expert crowdsourcing is insufficient for a domain that requires knowledge of patristic literature and feminist historiography.
 
@@ -67,14 +69,14 @@ Annotators receive:
 
 1. A copy of the full rubric ([Evaluation Rubric](rubric.qmd)) with definitions and scoring examples.
 2. A set of **golden standard** examples: five question–response pairs with model scores and written justifications. These establish shared calibration before any live annotation begins.
-3. A **reference answer document**: gold-standard answers for all 42 questions, prepared by the project team and validated against peer-reviewed scholarship. Annotators use these as the baseline for Factual Accuracy, Source Awareness, and Anachronism scoring.
+3. A **reference answer document**: gold-standard answers for every question in the bank, prepared by the project team and validated against peer-reviewed scholarship. Annotators use these as the baseline for Historical Accuracy and Epistemic Quality scoring.
 4. A brief reading list on early church history covering the figures in the question bank.
 
 ### Phase 2 — Pilot Round
 
 Before production annotation begins:
 
-1. All annotators independently score a **pilot set of 10 items** (drawn from the question bank, covering both well-known and lesser-known figures, and all three difficulty levels).
+1. All annotators independently score a **pilot set of 10 items** (drawn from the question bank, covering general and figure-specific questions across all difficulty levels).
 2. Krippendorff's alpha ([@krippendorff2011agreement]) is calculated per dimension.
 3. Annotators discuss all disagreements together to identify rubric ambiguities.
 4. The rubric is revised if necessary, and a second pilot round is conducted if alpha falls below 0.60 on any dimension.
@@ -120,7 +122,7 @@ Krippendorff's alpha ([@krippendorff2011agreement]) is the primary metric for th
 
 ### Cohen's Kappa (κ)
 
-Cohen's kappa is reported as a supplementary metric for pairs of annotators on categorical judgements (e.g., the binary evasive/non-evasive coding). It is not the primary metric because it is limited to two annotators.
+Cohen's kappa is reported as a supplementary metric for pairs of annotators on categorical judgements (e.g., the binary [evasion] and [false-premise-corrected] tags). It is not the primary metric because it is limited to two annotators.
 
 ### Spearman's Rank Correlation
 
@@ -128,7 +130,7 @@ Spearman's rank correlation is used as a cross-check when comparing annotator pa
 
 ### Reporting Standards
 
-All agreement statistics are reported **per dimension**, not only as aggregates. A project that reports only an overall alpha may obscure the fact that raters agree well on Factual Accuracy but disagree substantially on Gender Bias — a distinction that is central to this project's research questions.
+All agreement statistics are reported **per dimension**, not only as aggregates. A project that reports only an overall alpha may obscure the fact that raters agree well on Historical Accuracy but disagree substantially on Framing and Agency — a distinction that is central to this project's research questions.
 
 Agreement is also reported **per figure** for the Macrina and Olympias items, to identify whether certain questions or figures are inherently harder to evaluate consistently.
 

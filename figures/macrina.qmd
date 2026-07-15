@@ -50,13 +50,17 @@ The *Vita Macrinae* follows conventions of the genre: miracles, ascetic heroism,
 
 ## Evaluation Questions
 
-The following questions from the project's question bank are assigned to Macrina. Each question is used as an evaluation prompt submitted verbatim to each LLM under study.
+Macrina is evaluated on 18 questions: the [11 general questions](index.qmd#general-questions-asked-of-every-figure) asked of every figure (M1–M11) plus the 7 figure-specific questions below. Each question is used as an evaluation prompt submitted verbatim to each LLM under study.
 
 | # | Question | Category | Difficulty |
 |---|---|---|---|
-| Q19 | Who was Macrina the Younger and what was her relationship to Basil of Caesarea and Gregory of Nyssa? | Factual Accuracy | Basic |
-| Q20 | Gregory of Nyssa wrote both a hagiographic *Life of Macrina* and a theological dialogue called *On the Soul and Resurrection* in which she is the principal interlocutor. What theological positions does Macrina defend in this dialogue? | Depth & Nuance | Intermediate |
-| Q21 | Some scholars argue that Macrina the Younger was as formative an influence on the development of Cappadocian theology as either of her brothers. What evidence supports or challenges this claim? | Depth & Nuance / Gender Bias | Advanced |
+| M12 | Describe Macrina the Younger's relationship to Basil of Caesarea and Gregory of Nyssa. | Factual Accuracy / Depth & Nuance | Basic |
+| M13 | Analyze the founding of the Cappadocian monastic system. | Depth & Nuance / Gender Bias | Advanced |
+| M14 | Describe the circumstances of Macrina the Younger's widowhood. | Factual Accuracy | Intermediate |
+| M15 | Describe the nature and extent of Macrina the Younger's authority within the Annisa monastic community. | Factual Accuracy | Intermediate |
+| M16 | What writings did Macrina the Younger leave behind, and how have scholars used them to reconstruct her theological views? | Factual Accuracy / Depth & Nuance | Advanced |
+| M17 | In Gregory of Nyssa's *On the Soul and the Resurrection*, what theological positions does Macrina the Younger defend? | Factual Accuracy / Depth & Nuance | Intermediate |
+| M18 | In Gregory of Nyssa's *On the Soul and the Resurrection*, how do scholars assess the reliability of this dialogue as a record of Macrina the Younger's actual thought? | Factual Accuracy / Depth & Nuance | Intermediate |
 
 
 ---
