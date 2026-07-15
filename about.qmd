@@ -37,3 +37,27 @@ All content on this site is published under [CC BY 4.0](https://creativecommons.
 ## Acknowledgements
 
 <!-- Add collaborators, annotators, funding sources here as the project develops. -->
+
+## Image Credits
+
+Portraits in the figures carousel are sourced from [Wikimedia Commons](https://commons.wikimedia.org):
+
+| Figure | Source file | License |
+|---|---|---|
+| Macrina the Younger | [Macrina the Younger (cropped)](https://commons.wikimedia.org/wiki/File:Macrina_the_Younger_(cropped).jpg) | Public domain |
+| Olympias | [Olimpiada diakonissa (cropped)](https://commons.wikimedia.org/wiki/File:Olimpiada_diakonissa_(cropped).jpg) | Public domain |
+| Mary Magdalene | [Mary Magdalene by Konstantinos Tzanes, 17th c.](https://commons.wikimedia.org/wiki/File:Mary_Magdalene_by_Constantin_Tzanes_(17th_c.).jpg) | Public domain |
+| Phoebe of Cenchreae | [Saint Paul confiant la lettre à Phébée](https://commons.wikimedia.org/wiki/File:Saint_Paul_confiant_la_lettre_%C3%A0_Ph%C3%A9b%C3%A9e.jpg) | CC BY 4.0 |
+| Perpetua & Felicitas | [Menologion of Basil II](https://commons.wikimedia.org/wiki/File:Perpetua,_Felicitas,_Revocatus,_Saturninus_and_Secundulus_(Menologion_of_Basil_II).jpg) | Public domain |
+| Thecla | [Saint Thecla, Lebanon, 14th c.](https://commons.wikimedia.org/wiki/File:Saint_Thecla,_Lebanon_(14_Century).jpg) | Public domain |
+| Junia | [Andronicus, Athanasius of Christianoupolis and Junia (cropped)](https://commons.wikimedia.org/wiki/File:Andronicus,_Athanasius_of_Christianoupolis_and_Junia_(cropped).jpg) | Public domain |
+| Priscilla / Prisca | [St. Aquila and St. Priscilla, His Wife (Met)](https://commons.wikimedia.org/wiki/File:St._Aquila_and_St._Priscilla,_His_Wife_Met_DP891022.jpg) | CC0 |
+| Egeria | [Egeria (Fayum-style portrait)](https://commons.wikimedia.org/wiki/File:Egeria.jpg) | Public domain |
+| Melania the Elder | [Melania the Elder (cropped)](https://commons.wikimedia.org/wiki/File:Melania_the_Elder_(cropped).jpg) | Public domain |
+| Marcella of Rome | [Marcella of Rome](https://commons.wikimedia.org/wiki/File:Marcella_of_Rome.jpg) | Public domain |
+| Nino of Cappadocia | [Saint Nino (Palekh icon)](https://commons.wikimedia.org/wiki/File:Saint_Nino_(Palekh,_20th_c.,_priv.coll).jpg) | Public domain |
+| Monica of Thagaste | [Ary Scheffer, Saint Augustine and Saint Monica](https://commons.wikimedia.org/wiki/File:Scheffer_Saint_Augustine_and_Saint_Monica.jpg) | Public domain |
+
+No historical depiction of the Montanist prophetesses Maximilla & Priscilla is available; a typographic medallion is used instead.
+
+The homepage hero image is the *Fractio Panis* fresco, Catacomb of Priscilla, Rome ([Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Catacombe_di_Priscilla,_Rome_-_Fresco_of_a_Christian_Agape_feast_-_Fractio_panis_-_Greek_chapel_-_2nd_-_4th_century.jpg), public domain).
