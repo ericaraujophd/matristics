@@ -39,7 +39,7 @@ The historically accurate answer requires the model to recognize that Egeria's o
 
 ## Androcentric Bias
 
-LLMs are trained predominantly on web-scraped text. The major sources — Wikipedia, digitized books, academic repositories — systematically underrepresent women as historical agents. In early church history, this structural bias is compounded by the nature of the primary sources themselves. [@navigli2023biases] provides a systematic taxonomy of how bias enters LLMs at every stage of the pipeline, from training data curation through reinforcement learning with human feedback.
+LLMs are trained predominantly on web-scraped text. The major sources — Wikipedia, digitized books, academic repositories — systematically underrepresent women as historical agents. In early church history, this structural bias is compounded by the nature of the primary sources themselves. @navigli2023biases provides a systematic taxonomy of how bias enters LLMs at every stage of the pipeline, from training data curation through reinforcement learning with human feedback.
 
 ### Training Data Sources
 
@@ -47,7 +47,7 @@ LLMs are trained predominantly on web-scraped text. The major sources — Wikipe
 
 **Patristic source dominance:** The primary surviving written record of the early church was produced almost entirely by men. LLMs trained on this corpus naturally replicate the perspective embedded in it, including the tendency to treat women's roles as secondary, exceptional, or requiring male authorization.
 
-**Gender-role stereotyping:** [@unesco2023genderai] documents alarming evidence of regressive gender stereotypes in major generative AI systems, and [@kotek2023genderbias] demonstrates that LLMs are 3–6 times more likely to assign occupations stereotypically aligned with a person's gender. In early church history, this manifests as a tendency to describe women primarily as "supporters" or "patrons" rather than as theologians, leaders, or apostles.
+**Gender-role stereotyping:** @unesco2023genderai documents alarming evidence of regressive gender stereotypes in major generative AI systems, and @kotek2023genderbias demonstrates that LLMs are 3–6 times more likely to assign occupations stereotypically aligned with a person's gender. In early church history, this manifests as a tendency to describe women primarily as "supporters" or "patrons" rather than as theologians, leaders, or apostles.
 
 **Erasure through omission:** Perhaps the most significant bias is absence. LLMs may fail to mention female figures entirely, or mention them only as appendages to better-documented male figures ("Priscilla, wife of Aquila, who was a colleague of Paul").
 
@@ -67,7 +67,7 @@ Early church history involves significant scholarly debate, and LLMs struggle to
 
 **The *prostatis* of Romans 16:2:** The Greek term used for Phoebe carries civic connotations of authority and leadership. Whether to translate it as "patron," "helper," or "leader" is a textual question with ideological stakes. Models trained on translations that domesticate the term will reproduce that choice without flagging it as contested.
 
-**Women's ordained ministry in the early church:** [@madigan2005ordained] documents substantial epigraphic and textual evidence for ordained women in the early centuries, and [@torjesen1993women] argues from liturgical and textual sources that women exercised formal priestly leadership in the pre-Nicene church. This evidence is contested in contemporary theological debate. Models may present either the conservative or the revisionist scholarly position as though it were settled.
+**Women's ordained ministry in the early church:** @madigan2005ordained documents substantial epigraphic and textual evidence for ordained women in the early centuries, and @torjesen1993women argues from liturgical and textual sources that women exercised formal priestly leadership in the pre-Nicene church. This evidence is contested in contemporary theological debate. Models may present either the conservative or the revisionist scholarly position as though it were settled.
 
 **Canonicity and apocryphal sources:** The *Acts of Paul and Thecla*, the *Gospel of Mary*, and Montanist oracle collections are significant sources for women's authority in early Christianity. Models may treat these as less reliable than canonical texts without engaging with the methodological question of why they were excluded from the canon and what that exclusion means for historical reconstruction.
 

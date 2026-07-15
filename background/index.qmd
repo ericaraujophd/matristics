@@ -75,7 +75,7 @@ Early church history is a particularly revealing test case for several reasons t
 
 ### Prior Work on LLM Evaluation
 
-The foundational methodology for this project draws on several key papers. [@zheng2023judging] introduced the LLM-as-judge paradigm and the MT-Bench benchmark, establishing pairwise comparison as a scalable evaluation approach. [@liu2023geval] proposed G-Eval, a rubric-based scoring framework using chain-of-thought reasoning that informs our own dimension rubric. [@wang2024survey] and [@chen2024llmjudges] provide comprehensive surveys of the field as of 2024, covering the strengths and failure modes of automated evaluation.
+The foundational methodology for this project draws on several key papers. @zheng2023judging introduced the LLM-as-judge paradigm and the MT-Bench benchmark, establishing pairwise comparison as a scalable evaluation approach. @liu2023geval proposed G-Eval, a rubric-based scoring framework using chain-of-thought reasoning that informs our own dimension rubric. @wang2024survey and @chen2024llmjudges provide comprehensive surveys of the field as of 2024, covering the strengths and failure modes of automated evaluation.
 
 <!-- TODO: Expand with discussion of:
 - General LLM evaluation frameworks (HELM, BIG-Bench, MMLU)
@@ -84,7 +84,7 @@ The foundational methodology for this project draws on several key papers. [@zhe
 
 ### Prior Work on LLM Bias
 
-On the bias side, [@unesco2023genderai] documents alarming evidence of regressive gender stereotypes in major generative AI systems. [@kotek2023genderbias] demonstrates that LLMs are 3–6 times more likely to assign occupations stereotypically aligned with a person's gender. [@navigli2023biases] provides a systematic taxonomy of bias origins in large language models, from training data selection through reinforcement learning with human feedback.
+On the bias side, @unesco2023genderai documents alarming evidence of regressive gender stereotypes in major generative AI systems. @kotek2023genderbias demonstrates that LLMs are 3–6 times more likely to assign occupations stereotypically aligned with a person's gender. @navigli2023biases provides a systematic taxonomy of bias origins in large language models, from training data selection through reinforcement learning with human feedback.
 
 <!-- TODO: Expand with discussion of:
 - Cultural and religious bias (differential treatment across traditions)

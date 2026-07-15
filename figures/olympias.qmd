@@ -38,13 +38,13 @@ Her friendship with John Chrysostom, who became Patriarch of Constantinople in 3
 ## Scholarly Debates
 
 **The nature of Olympias's ordained role**
-Olympias was formally ordained a deacon (*diakonissa*) by Bishop Nectarius. Scholars debate the precise scope of this ordination: whether it was primarily liturgical (assisting with baptism of women), pastoral (visiting sick women), institutional (governing the monastery), or some combination. The *Life* and Chrysostom's letters suggest a pastoral and theological authority that exceeds a narrowly liturgical role. [@madigan2005ordained] includes documentary evidence for ordained women in Constantinople and provides the essential scholarly context for evaluating the scope of Olympias's diaconal authority.
+Olympias was formally ordained a deacon (*diakonissa*) by Bishop Nectarius. Scholars debate the precise scope of this ordination: whether it was primarily liturgical (assisting with baptism of women), pastoral (visiting sick women), institutional (governing the monastery), or some combination. The *Life* and Chrysostom's letters suggest a pastoral and theological authority that exceeds a narrowly liturgical role. @madigan2005ordained includes documentary evidence for ordained women in Constantinople and provides the essential scholarly context for evaluating the scope of Olympias's diaconal authority.
 
 **Authority over men**
 The anonymous *Life* and Egeria's contemporaneous account of the deaconess Marthana at the shrine of Thecla both document women exercising governing authority over mixed-gender monastic communities. Whether Olympias's monastery was technically a "double monastery" (housing both women and men) is uncertain, but her institutional authority was clearly not confined to women alone.
 
 **Olympias as theologian**
-Chrysostom's letters treat Olympias as a capable theological interlocutor, not merely a pious patron. He commends her understanding of scripture, addresses doctrinal questions to her, and responds to her theological anxieties at length. [@hartney2004chrysostom] argues that this epistolary theology constitutes Olympias's own theological contribution, mediated through the letters but initiated by her questions and responses.
+Chrysostom's letters treat Olympias as a capable theological interlocutor, not merely a pious patron. He commends her understanding of scripture, addresses doctrinal questions to her, and responds to her theological anxieties at length. @hartney2004chrysostom argues that this epistolary theology constitutes Olympias's own theological contribution, mediated through the letters but initiated by her questions and responses.
 
 **The politics of holiness**
 Olympias's refusal to recognize Chrysostom's replacement was a political act with ecclesiastical consequences. Her subsequent trial and exile demonstrate that women in prominent diaconal roles could be targeted for institutional dissent — a dimension often omitted from accounts that treat her primarily as a "patron saint of generosity."

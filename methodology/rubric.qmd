@@ -5,7 +5,7 @@ description: The seven-dimension rubric used to score LLM responses, with defini
 
 Each LLM response is scored on seven dimensions using a 1–5 Likert scale. Dimensions are scored independently; a response can score high on Factual Accuracy but low on Gender Bias if it gets the facts right while framing them in an androcentric way.
 
-The rubric design follows the G-Eval framework of [@liu2023geval], which uses explicit scoring criteria per dimension to improve alignment between annotators and reduce reliance on annotator background knowledge alone. The seven dimensions were developed through iterative piloting informed by the broader evaluation literature ([@zheng2023judging]).
+The rubric design follows the G-Eval framework of @liu2023geval, which uses explicit scoring criteria per dimension to improve alignment between annotators and reduce reliance on annotator background knowledge alone. The seven dimensions were developed through iterative piloting informed by the broader evaluation literature ([@zheng2023judging]).
 
 Annotators score each response after reading it against the gold-standard reference answer for the question.
 

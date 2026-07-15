@@ -35,13 +35,13 @@ Macrina died around 379 CE. Gregory, who had not seen her for some years, arrive
 ## Scholarly Debates
 
 **Did Macrina shape Cappadocian theology?**
-The traditional account subordinates Macrina's intellectual role to those of her brothers. A revisionist reading — supported by scholars including Verna Harrison and Anna Silvas — argues that the *De anima et resurrectione* preserves genuine Macrinian theology and that Basil's monastic rules reflect her prior practice at Annisa. [@cohick2017women] provides the most comprehensive recent treatment of Macrina's intellectual legacy in the context of female figures of the patristic period. This is a live methodological debate: how much weight should we give to Gregory's literary mediation?
+The traditional account subordinates Macrina's intellectual role to those of her brothers. A revisionist reading — supported by scholars including Verna Harrison and Anna Silvas — argues that the *De anima et resurrectione* preserves genuine Macrinian theology and that Basil's monastic rules reflect her prior practice at Annisa. @cohick2017women provides the most comprehensive recent treatment of Macrina's intellectual legacy in the context of female figures of the patristic period. This is a live methodological debate: how much weight should we give to Gregory's literary mediation?
 
 **Macrina as philosopher**
 The *De anima* places Macrina in the role of the philosopher who corrects and instructs Gregory. Feminist scholars (e.g., Margaret Mitchell, Verna Harrison) have argued that this is not merely a literary device but reflects Macrina's actual standing as a theological thinker. More conservative readers treat her role in the dialogue as a rhetorical topos.
 
 **Macrina and female asceticism**
-Macrina's founding of the Annisa community places her among the most significant figures in the history of female asceticism in late antiquity. [@elm1994virgins] situates her alongside other monastic founders of the period and analyzes how women like Macrina established forms of religious life that were subsequently institutionalized under male authority.
+Macrina's founding of the Annisa community places her among the most significant figures in the history of female asceticism in late antiquity. @elm1994virgins situates her alongside other monastic founders of the period and analyzes how women like Macrina established forms of religious life that were subsequently institutionalized under male authority.
 
 **The hagiographic problem**
 The *Vita Macrinae* follows conventions of the genre: miracles, ascetic heroism, a holy death. Separating historical fact from hagiographic construction is a standard methodological challenge, but it is heightened in Macrina's case because Gregory is the sole narrative source and had strong reasons — personal, rhetorical, and theological — to shape her portrait.
