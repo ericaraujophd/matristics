@@ -1,0 +1,213 @@
+/*-- scss:defaults --*/
+
+// ============================================================
+// Palette — "Tyrian purple + parchment"
+// Rationale (HCI):
+//  - Warm off-white background reduces glare vs. pure white for
+//    long-form reading sessions.
+//  - Warm near-black text gives ~13:1 contrast (WCAG AAA).
+//  - Tyrian purple (#66023C) for links/primary: ~9.5:1 on the
+//    parchment background (AAA), distinct from body text, and
+//    thematically tied to Lydia the purple-dye seller and
+//    Byzantine manuscript culture.
+//  - Gold is decorative only (borders, rules) — never used for
+//    text, where its contrast would be insufficient.
+// ============================================================
+
+$parchment:      #FAF7F1;
+$parchment-dark: #F4EEE3;
+$ink:            #2C241D;
+$ink-soft:       #5A4F45;
+$tyrian:         #66023C;
+$tyrian-bright:  #8E2159;
+$tyrian-deep:    #4A1233;
+$gold:           #B08A3E;
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=Inter:wght@400..700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+$font-family-sans-serif: "Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
+$font-family-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+$font-family-monospace: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+// Body text is serif for sustained reading; UI/navigation stays sans.
+$font-family-base: $font-family-serif;
+
+// 18px base + generous leading: comfortable measure for long-form
+// academic prose; ~66–72 characters per line at the 780px body width.
+$font-size-root: 18px;
+$line-height-base: 1.65;
+
+$body-bg: $parchment;
+$body-color: $ink;
+
+$primary: $tyrian;
+$link-color: $tyrian;
+$link-decoration: underline;
+
+$code-bg: #F0E9DD;
+$code-color: #703B14;
+
+$headings-font-family: $font-family-serif;
+$headings-font-weight: 600;
+$headings-color: #241B12;
+
+$table-border-color: #E2D8C8;
+
+$navbar-bg: $tyrian-deep;
+$navbar-fg: #F5EFE6;
+$navbar-hl: #E8C77D;
+
+$sidebar-bg: $parchment-dark;
+$sidebar-fg: $ink;
+
+$footer-bg: $parchment-dark;
+$footer-fg: $ink-soft;
+
+/*-- scss:rules --*/
+
+// ---------- Headings: clear hierarchy, extra space above ----------
+h1, .title {
+  font-size: 2rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+}
+h2 {
+  font-size: 1.5rem;
+  margin-top: 2.25rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid rgba($gold, 0.45);
+}
+h3 { font-size: 1.2rem; margin-top: 1.75rem; }
+h4 { font-size: 1.05rem; font-family: $font-family-sans-serif; font-weight: 600; }
+
+.subtitle {
+  color: $ink-soft;
+  font-style: italic;
+}
+
+// ---------- Links: underlined (don't rely on color alone) ----------
+p a, li a, td a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  &:hover { color: $tyrian-bright; }
+}
+
+// Visible keyboard focus for accessibility
+a:focus-visible, button:focus-visible {
+  outline: 3px solid $tyrian-bright;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+// ---------- Navigation is sans-serif: crisper at small sizes ----------
+.navbar, .sidebar, .quarto-secondary-nav,
+nav#TOC, .page-navigation, .breadcrumb {
+  font-family: $font-family-sans-serif;
+}
+
+.navbar .navbar-brand {
+  font-weight: 600;
+  font-size: 1.02rem;
+}
+.navbar .nav-link {
+  font-size: 0.93rem;
+  font-weight: 500;
+}
+
+// Sidebar: slightly smaller, roomy line spacing for scanning
+.sidebar-navigation {
+  font-size: 0.9rem;
+  .sidebar-item { margin-bottom: 0.15rem; }
+  .sidebar-item-section > .sidebar-item-container .menu-text {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    color: $ink-soft;
+  }
+  .active {
+    font-weight: 600;
+    color: $tyrian !important;
+  }
+}
+
+// Right-hand page TOC
+nav#TOC {
+  font-size: 0.85rem;
+  a.active { color: $tyrian; font-weight: 600; }
+}
+
+// ---------- Reading aids ----------
+blockquote {
+  border-left: 3px solid $gold;
+  background: rgba($gold, 0.07);
+  padding: 0.6rem 1rem;
+  color: $ink-soft;
+  font-style: italic;
+}
+
+// Tables: sans-serif headers, zebra striping for row tracking
+table {
+  font-size: 0.95rem;
+  thead th {
+    font-family: $font-family-sans-serif;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: $ink-soft;
+    border-bottom: 2px solid $gold;
+  }
+  tbody tr:nth-child(even) { background: rgba($gold, 0.05); }
+}
+
+// Code: readable size, soft warm background
+pre {
+  background: $code-bg;
+  border: 1px solid #E4DACA;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+p code, li code, td code {
+  font-size: 0.85em;
+  background: $code-bg;
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+// Callouts: align with palette
+.callout {
+  border-radius: 6px;
+  font-size: 0.97rem;
+}
+.callout-note { border-left-color: $tyrian !important; }
+.callout-warning { border-left-color: $gold !important; }
+
+// Figures
+figure figcaption {
+  font-family: $font-family-sans-serif;
+  font-size: 0.85rem;
+  color: $ink-soft;
+  margin-top: 0.5rem;
+}
+figure img {
+  border-radius: 4px;
+  box-shadow: 0 2px 12px rgba(44, 36, 29, 0.12);
+}
+
+// Definition lists (glossary)
+dl dt {
+  font-family: $font-family-sans-serif;
+  font-weight: 600;
+  color: $tyrian-deep;
+  margin-top: 1rem;
+}
+dl dd { margin-left: 1.25rem; }
+
+// Footer
+.nav-footer {
+  font-family: $font-family-sans-serif;
+  font-size: 0.83rem;
+  border-top: 1px solid #E2D8C8;
+}

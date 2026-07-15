@@ -1,0 +1,40 @@
+---
+title: Replicate This Study
+description: Everything you need to run this evaluation yourself — with your own models, annotators, or question bank extensions.
+---
+
+All materials needed to replicate this evaluation are published openly. This page describes what you need, what you can reuse as-is, and where adaptation may be required.
+
+## What You Need
+
+1. **API access** to the models you want to evaluate. See [Data Collection](../data-collection/index.qmd) for setup.
+2. **Python 3.10+** and the packages listed in [Environment Setup](../data-collection/setup.qmd).
+3. **Domain-expert annotators** — at minimum two with graduate-level knowledge of early Christianity. See [Annotation Protocol](../methodology/annotation-protocol.qmd) for annotator requirements and training materials.
+4. **The rubric** — download from [Evaluation Rubric](../methodology/rubric.qmd).
+5. **The question bank** — download from [Figures & Question Bank](../figures/index.qmd).
+
+## What You Can Reuse Without Modification
+
+- The full question bank (42 questions, [CSV](../figures/question_bank.csv))
+- The rubric definitions and scoring sheet template ([Evaluation Rubric](../methodology/rubric.qmd))
+- All data collection notebooks ([Data Collection](../data-collection/index.qmd))
+- The annotation protocol ([Annotation Protocol](../methodology/annotation-protocol.qmd))
+- The reference answer document *(to be published when annotation is complete)*
+
+## What May Require Adaptation
+
+- **New models**: add a new notebook following the pattern of the existing API tutorials. The shared system prompt and data format should be used unchanged for comparability.
+- **New figures**: add a new page to the Figures section following the template of [Macrina the Younger](../figures/macrina.qmd). Add three questions (Basic / Intermediate / Advanced) to the question bank CSV.
+- **Different annotators**: re-run the pilot round with your annotators to establish local calibration. Report your inter-annotator alpha alongside any results.
+
+## Submitting Results
+
+<!-- TODO: Add instructions for submitting results to a shared dataset repository
+(e.g., Hugging Face Datasets or Zenodo) so that results across research groups
+can be aggregated into the benchmark panel. -->
+
+## Citing This Work
+
+If you use the question bank, rubric, or methodology from this project, please cite:
+
+> Araujo, Eric. *LLM Evaluation in Early Church History*. 2026.
