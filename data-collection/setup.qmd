@@ -1,6 +1,6 @@
 ---
 title: Environment Setup
-description: How to set up your Python environment and API keys to run the data collection notebooks.
+description: How to set up your Python environment and OpenRouter API key to run the data collection pipeline.
 ---
 
 ## Requirements
@@ -10,28 +10,40 @@ description: How to set up your Python environment and API keys to run the data 
 
 ## Installation
 
+Collection goes through OpenRouter's OpenAI-compatible API, so a single client library covers every model:
+
 ```bash
-pip install anthropic openai google-generativeai jupyter pandas tqdm
+pip install openai pandas tqdm
 ```
 
-## API Keys
+## API Key
 
-Each provider requires an API key. Store keys as environment variables — never hardcode them in notebooks.
+One OpenRouter key covers all models under evaluation. Store it as an environment variable — never hardcode it:
 
 ```bash
 # Add to your ~/.bashrc, ~/.zshrc, or .env file
-export ANTHROPIC_API_KEY="your-key-here"
-export OPENAI_API_KEY="your-key-here"
-export GOOGLE_API_KEY="your-key-here"
-export XAI_API_KEY="your-key-here"
+export OPENROUTER_API_KEY="your-key-here"
 ```
 
-In notebooks, load with:
+In Python, point the client at OpenRouter:
 
 ```python
 import os
-api_key = os.environ["ANTHROPIC_API_KEY"]
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://openrouter.ai/api/v1",
+    api_key=os.environ["OPENROUTER_API_KEY"],
+)
+
+response = client.chat.completions.create(
+    model="anthropic/claude-sonnet-5-20260630",  # pinned, dated version string
+    temperature=0.0,
+    messages=[{"role": "user", "content": question_text}],
+)
 ```
+
+Always request **pinned, dated model versions** (e.g., `anthropic/claude-sonnet-5-20260630`, not `anthropic/claude-sonnet-5`) so collected responses stay attributable to an exact model snapshot.
 
 ## Response Storage
 
@@ -43,12 +55,13 @@ data/
     ├── claude.jsonl
     ├── openai.jsonl
     ├── gemini.jsonl
-    └── grok.jsonl
+    ├── grok.jsonl
+    ├── deepseek.jsonl
+    └── glm.jsonl
 ```
 
 Each line in a `.jsonl` file is one JSON object following the format described in [Data Collection](index.qmd).
 
 ## Costs and Rate Limits
 
-<!-- TODO: Add current pricing estimates for running the full question bank on each model,
-and rate limit notes for each API. -->
+Running the full 35-question bank across all six models (210 responses at temperature 0) is inexpensive — well under typical academic budget thresholds — because prompts are short and responses average a few hundred to ~1,000 tokens. OpenRouter applies each provider's pricing per token and handles provider-side rate limits; a modest delay between requests is sufficient for a bank of this size.

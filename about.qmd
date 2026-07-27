@@ -3,8 +3,6 @@ title: About
 description: About this project, its goals, and how to get in touch.
 ---
 
-# About This Project
-
 This project sits at the intersection of two fields: the study of women in early Christianity, and the evaluation of large language models for factual accuracy and fairness.
 
 ## Motivation
@@ -17,7 +15,7 @@ Early church history is an especially revealing test case. The women who led hou
 
 1. Build a rigorous, replicable evaluation methodology for assessing LLM responses in specialized historical domains.
 2. Document the specific bias patterns that emerge when LLMs are asked about women in early Christianity.
-3. Produce a public benchmark comparing major LLMs across a question bank of 42+ items spanning figures of varying obscurity and questions of varying difficulty.
+3. Produce a public benchmark comparing six major LLMs across a two-tier question bank (11 general questions per figure plus 6–7 figure-specific ones) spanning figures of varying obscurity and questions of varying difficulty.
 4. Make all materials openly available so other researchers can replicate, extend, or critique the evaluation.
 
 ## Author
@@ -28,7 +26,7 @@ Contact: [eric.araujo@calvin.edu](mailto:eric.araujo@calvin.edu)
 
 ## How to Cite
 
-> Araujo, Eric; Rylaarsdam, D. *LLM Evaluation in Early Church History*. 2026.
+> Araujo, Eric; Rylaarsdam, D.; Holtrop, Nathan; Hawthorne, Ian. *Matristics: LLM Evaluation in Early Church History*. 2026.
 
 ## License
 
@@ -36,7 +34,11 @@ All content on this site is published under [CC BY 4.0](https://creativecommons.
 
 ## Acknowledgements
 
-<!-- Add collaborators, annotators, funding sources here as the project develops. -->
+**Nathan Holtrop** and **Ian Hawthorne** (McGregor Fellows, summer 2026) carried out the project's first research phase: an extensive reading program in the primary and secondary literature, researched and fact-checked profiles of Macrina the Younger and Olympias of Constantinople, the redesign of the question bank and evaluation rubric, and the full data collection run of 210 responses across six models.
+
+This work is supported by the **McGregor Summer Research Fellowship** at Calvin University.
+
+<!-- Add annotators and further collaborators here as the project develops. -->
 
 ## Image Credits
 

@@ -52,11 +52,6 @@ website:
         contents:
           - data-collection/index.qmd
           - data-collection/setup.qmd
-          - data-collection/claude.ipynb
-          - data-collection/openai.ipynb
-          - data-collection/gemini.ipynb
-          - data-collection/grok.ipynb
-          - data-collection/batch-collection.ipynb
       - text: "Benchmark"
         href: benchmark/index.qmd
       - replicate/index.qmd

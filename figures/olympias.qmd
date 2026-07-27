@@ -13,13 +13,13 @@ Olympias of Constantinople is one of the best-documented female figures of the l
 
 ## Historical Profile
 
-Olympias was born around 360–368 CE in Constantinople into a family of immense wealth and social prominence; her father Seleucus was related to the praetorian prefect Ablabius, a close associate of the Emperor Constantine. Orphaned young, she was raised in a devout Christian household and received an exceptional education.
+Olympias was born around 362–365 CE in Constantinople into the upper aristocracy: her paternal grandfather Ablabius was a praetorian prefect, consul, and senator under Constantine the Great, whose stupendous fortune eventually passed down to her. Orphaned young, she was raised as a Christian under the guardianship of her uncle Procopius and educated by her governess Theodosia, sister of Bishop Amphilochius of Iconium — an upbringing that left her well-suited for theological debate.
 
-She married Nebridius, the prefect of Constantinople, but he died within twenty months. The Emperor Theodosius I, wishing her to remarry politically, attempted to arrange a new marriage; Olympias refused and distributed much of her wealth to the church and the poor. Around 390 CE she was ordained a [deaconess](../glossary.qmd) by Nectarius, the Bishop of Constantinople.
+At twenty-one she married Nebridius, the prefect of Constantinople, but he died within twenty months. The Emperor Theodosius I attempted to coerce her into a second marriage to his kinsman Elpidius; when she refused, he ordered her inheritance held in trust — restoring her control only in 391 CE. She dedicated her wealth to radical philanthropy, supporting the poor, the sick, orphans, and widows, and the church across Greece, Asia Minor, and Syria — so generously that Chrysostom eventually counseled more discretion. In her early thirties she was ordained a [deaconess](../glossary.qmd) of Hagia Sophia by Archbishop Nectarius, well under the customary minimum age of sixty for consecrated widows. She lived in severe asceticism: rarely sleeping, avoiding meat, wearing only old, coarse clothing.
 
-The monastery she founded directly adjacent to Hagia Sophia became one of the largest in the city. At its height it housed several hundred women; three of Olympias's relatives also held ordained diaconal positions there. The monastery included a hospital, a bakery, and facilities that functioned as a welfare institution for the city.
+The monastery she founded — a palace of her own, directly adjoining the Great Church — became one of the largest in the city. She freed her household servants and declared them of equal honor to her own nobility; the community began with several relatives and about fifty former servants and grew to house roughly 250 female ascetics, three of her relatives also holding ordained diaconal positions there. When she later left the capital, she entrusted its supervision to her kinswoman and spiritual daughter Marina.
 
-Her friendship with John Chrysostom, who became Patriarch of Constantinople in 398 CE, is among the most documented relationships between a male church leader and a female religious figure in antiquity. When Chrysostom was exiled by the imperial court in 404 CE, Olympias refused to recognize his replacement and was subsequently tried, fined, and exiled from Constantinople. She died in Nicomedia around 408–420 CE.
+Her friendship with John Chrysostom, Archbishop of Constantinople from 398 CE, is among the most documented relationships between a male church leader and a female religious figure in antiquity — she even prepared his meals to accommodate his fragile health, and he trusted her above any other supporter to direct church affairs during his exile. After his expulsion in 404 CE she refused communion with his replacement, was tried twice on false charges of setting the cathedral fire, fell dangerously ill, and in 405 withdrew into self-imposed exile in Nicomedia, continuing her charitable work until her death on July 25, 408 CE. According to the later account of the abbess Sergia, her relics were eventually returned to the monastery she founded beside the Great Church.
 
 ---
 
@@ -49,6 +49,12 @@ Chrysostom's letters treat Olympias as a capable theological interlocutor, not m
 **The politics of holiness**
 Olympias's refusal to recognize Chrysostom's replacement was a political act with ecclesiastical consequences. Her subsequent trial and exile demonstrate that women in prominent diaconal roles could be targeted for institutional dissent — a dimension often omitted from accounts that treat her primarily as a "patron saint of generosity."
 
+**Documented disagreements among sources**
+The project's fact-check research (summer 2026) recorded points where the sources diverge — details on which LLM responses can be probed:
+
+- *Date of birth:* *The Forgotten Desert Mothers* gives 365 CE, while *Letters to Saint Olympias* implies c. 362 (seventeen years old in 379, twenty-one at marriage).
+- *The imperial asset seizure:* both sources agree Theodosius blocked her from her inheritance, but *The Forgotten Desert Mothers* attributes the property's protection to the prefect Clementius, while the *Letters* specify a trust held until her thirtieth birthday unless she married Elpidius.
+
 ---
 
 ## Evaluation Questions
@@ -70,8 +76,12 @@ Olympias is evaluated on 17 questions: the [11 general questions](index.qmd#gene
 ## Benchmark Results
 
 ::: {.callout-note}
-Data collection is in progress. Results will appear here once annotation is complete.
+Data collection is complete (July 2026). Results will appear here once annotation is finished.
 :::
 
 
 <!-- Results table and per-dimension charts will be inserted here. -->
+
+---
+
+*Profile researched and fact-checked by Nathan Holtrop and Ian Hawthorne (McGregor Fellowship, summer 2026) against the* Life of Olympias*, Chrysostom's* Letters to Olympias*, The Forgotten Desert Mothers, and related sources.*

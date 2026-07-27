@@ -6,7 +6,7 @@ description: Comparative panel showing how each LLM performed across models, rub
 This page presents the evaluation results as a comparative panel. Results are organized across three views — by model, by rubric dimension, and by figure. Together, they allow readers to see not only which model performed best overall, but where each model's weaknesses lie and which historical figures are most poorly represented.
 
 ::: {.callout-note}
-Data collection and annotation are in progress. Results will populate automatically as annotation is completed.
+Data collection is complete: 210 responses (35 questions × 6 models) were collected in July 2026 at temperature 0. Annotation is now in progress; results will populate as scoring is completed.
 :::
 
 ## How to Read the Results

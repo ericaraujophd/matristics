@@ -5,7 +5,7 @@ subtitle: The project, its historical setting, and prior research
 
 How well do large language models know the women who shaped early Christianity?
 
-This project evaluates multiple LLMs — including Claude, ChatGPT, Gemini, and Grok — on their knowledge of female figures from the first five centuries CE. We ask not only whether models produce factually accurate responses, but whether they reproduce the same androcentric silences and distortions that have long characterized the historical record itself.
+This project evaluates six LLMs — Claude, ChatGPT, Gemini, Grok, DeepSeek, and GLM — on their knowledge of female figures from the first five centuries CE. We ask not only whether models produce factually accurate responses, but whether they reproduce the same androcentric silences and distortions that have long characterized the historical record itself.
 
 The project has three aims:
 

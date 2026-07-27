@@ -13,11 +13,13 @@ Macrina the Younger is one of the most intellectually significant female figures
 
 ## Historical Profile
 
-Macrina was born around 327 CE in Neocaesarea in Pontus (modern northern Turkey), the eldest of ten children of Basil the Elder and Emmelia. Her family was prominent in Cappadocian Christianity: her paternal grandmother was Macrina the Elder, a disciple of Gregory the Wonderworker; her brothers include Basil of Caesarea (architect of cenobitic monasticism in the East and bishop of Caesarea), Gregory of Nyssa (theologian of the Trinity and mystical theology), and Peter of Sebaste (bishop).
+Macrina was born in 327 CE in Cappadocia, the eldest of ten children of Basil the Elder and Emmelia. Her family was prominent in Cappadocian Christianity: her grandmother was Macrina the Elder, a disciple of Gregory Thaumaturgus; her brothers include Basil of Caesarea (architect of cenobitic monasticism in the East and bishop of Caesarea), Gregory of Nyssa (theologian of the Trinity and mystical theology), and Peter of Sebaste (bishop). Gregory records that "Thekla" was Macrina's secret name, revealed to her mother in a vision — and explicitly compares her character both to Thecla and to Socrates.
 
-When her betrothed died before their marriage, Macrina refused further offers and persuaded her mother to dissolve the household's conventional aristocratic structure and establish a monastic community on the family estate at Annisa on the Iris River. This community, which included both women and formerly enslaved members of the household, became a significant spiritual center. Basil, after returning from his studies in Athens and Alexandria, was drawn into monastic life partly through Macrina's influence — a debt Gregory explicitly acknowledges in the *Life of Macrina*.
+Betrothed at twelve to a young man who died before they could wed, Macrina refused all further offers, treating the betrothal as a permanent marriage. Following her father's death (c. 340), she became the operational and spiritual pillar of the family, and persuaded her mother to dissolve the household's conventional aristocratic structure and establish a monastic community on the family estate at Annisa on the Iris River — a self-sustaining "double monastery," with the women gathered around Macrina and Emmelia on one side of the river and the men, led by her brother Peter, on the other. Driven by a radical commitment to equality, Macrina insisted that the household's enslaved maids be freed and treated as sisters; the community supported itself through manual labor, and Macrina personally baked the community's bread and the bread for the Eucharist.
 
-Macrina died around 379 CE. Gregory, who had not seen her for some years, arrived just days before her death and recorded their final conversations in the dialogue *On the Soul and the Resurrection*.
+Known as "the Teacher" for her keen intellect, she famously humbled Basil on his conceited return from university, redirecting him toward the ascetic life — a debt Gregory explicitly acknowledges. She provided clear-headed counsel during regional food shortages and church upheavals, and when her mother died she gave away her personal possessions, her remaining wealth administered exclusively to feed the poor.
+
+Macrina died in 379 CE, suffering a severe asthma attack during Gregory's visit after an eight-year separation — clear-headed to the end, speaking of philosophy and showing no fear of death. Gregory recorded their final conversations in the dialogue *On the Soul and the Resurrection* and buried her in the Church of the Holy Martyrs beside her parents.
 
 ---
 
@@ -46,6 +48,13 @@ Macrina's founding of the Annisa community places her among the most significant
 **The hagiographic problem**
 The *Vita Macrinae* follows conventions of the genre: miracles, ascetic heroism, a holy death. Separating historical fact from hagiographic construction is a standard methodological challenge, but it is heightened in Macrina's case because Gregory is the sole narrative source and had strong reasons — personal, rhetorical, and theological — to shape her portrait.
 
+**Documented disagreements among sources**
+The project's fact-check research (summer 2026) recorded several points where the sources diverge — exactly the kind of detail on which LLM responses can be probed:
+
+- *Founding of the Annisa community:* the *Life of Macrina* supports a likely founding around 352 CE, while *The Story of Christianity* implies the withdrawal to Annisa happened shortly after her father's death (c. 340).
+- *Authorship of "Macrina's Prayer":* one record presents the deathbed prayer as recounted directly, while *The Forgotten Desert Mothers* holds that it was woven together by Gregory in her honor.
+- *Ordination status:* the *Life of Macrina* offers no evidence that Macrina was a deaconess, though other accounts imply the claim circulates.
+
 ---
 
 ## Evaluation Questions
@@ -68,8 +77,12 @@ Macrina is evaluated on 18 questions: the [11 general questions](index.qmd#gener
 ## Benchmark Results
 
 ::: {.callout-note}
-Data collection is in progress. Results will appear here once annotation is complete.
+Data collection is complete (July 2026). Results will appear here once annotation is finished.
 :::
 
 
 <!-- Results table and per-dimension charts will be inserted here. -->
+
+---
+
+*Profile researched and fact-checked by Nathan Holtrop and Ian Hawthorne (McGregor Fellowship, summer 2026) against the* Life of Macrina*,* On the Soul and the Resurrection*, The Forgotten Desert Mothers, and related sources.*
