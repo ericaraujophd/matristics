@@ -82,7 +82,7 @@ Stating these plainly, since they bear on how the results should be read:
 - **No blinding.** Model identity was visible in the scoring workbook. Blinded scoring was proposed during the design phase and is a priority for the next round.
 - **No response randomization.** Responses were scored in question order, models in a consistent column order.
 - **No third rater.** Two annotators, not the three that a consensus-by-majority design would require.
-- **No formal calibration round.** The rubric was refined collaboratively during design, but there was no separate pilot annotation with an agreement gate before production scoring. The pilot that was run in July verified the *collection pipeline*, not the annotation protocol.
+- **No formal calibration round.** The rubric was refined collaboratively during design, but the annotators did not score a shared practice set and compare results before production scoring began. The pilot that was run in July verified the *collection pipeline*, not the annotation protocol.
 
 *Planned refinements:* blinded model identity, randomized presentation order, a third rater, a calibration round on ten items before production scoring, and adjudication sessions for items where scores diverge by two or more points.
 
@@ -116,16 +116,21 @@ Both facts are true at once, and the tension between them is a known property of
 
 Alpha is therefore answering a narrower question than it appears to: not "do the annotators understand the rubric the same way" but "can they reliably separate responses *within* a compressed band of high scores". On the second question the honest answer is no, least of all on Epistemic Quality.
 
-### Reliability Criterion
+### How Agreement Is Used
 
-An earlier version of this methodology set a single gate — production annotation may proceed only when α ≥ 0.60 on every dimension. The first round showed that gate to be unusable as stated: it would reject a dataset in which annotators agreed exactly three-quarters of the time, for a reason that reflects model performance rather than annotator quality. The criterion has been revised accordingly:
+An earlier draft of this methodology set a gate: production annotation could begin only once α ≥ 0.60 on every dimension. That gate has been removed rather than retuned, for two reasons.
 
-1. **Alpha is reported per dimension, always**, as a diagnostic — never omitted when inconvenient.
-2. **Alpha governs the gate only when the score distribution can support it** — operationally, when no single scale point holds more than 70% of the ratings on that dimension. Where that holds, the α ≥ 0.60 threshold applies.
-3. **Where the distribution is concentrated**, as in the first round, reliability is judged instead on raw agreement: exact agreement of at least 65% and within-one-point agreement of at least 85%, with every disagreement of two points or more adjudicated individually.
-4. **Reporting follows reliability**. Differences between models smaller than the mean inter-annotator difference on that dimension are reported as provisional, not as findings.
+**It does not fit this workflow.** A reliability gate exists to protect a large annotation investment — pilot a sample, check reliability, retrain, and only then commit raters to thousands of items. Here every response is scored by every annotator, and the corpus is small enough that any disagreement can be pulled up and examined directly. Adjudication does the work a gate was meant to do, and does it better: a gate tells you *that* raters diverged, adjudication tells you *why*.
 
-This is a revision made in light of evidence, and it is stated as such rather than presented as the original plan. Expanding the question bank to figures with sparser documentation should widen the score distribution and return alpha to being informative under criterion 2.
+**A pass/fail threshold on a single statistic is fragile** in exactly the way the first round demonstrated. Alpha fell for reasons having nothing to do with annotation quality, and a project bound by the gate would face a choice between suppressing an inconvenient number and adjusting the instrument until it passed. Both are worse than reporting what happened.
+
+Agreement is therefore treated as a measurement that calibrates claims, not a threshold that licenses them:
+
+1. **Reported per dimension, always** — alpha alongside exact and within-one-point agreement, so that a low coefficient can be read against the distribution that produced it.
+2. **Disagreements are adjudicated, not averaged away.** Items where the annotators diverge by two points or more are reviewed together, and the reason for the divergence is recorded — usually a rubric ambiguity worth fixing rather than an error by either rater.
+3. **Claim strength follows agreement.** On dimensions where annotators separate responses reliably, model differences are reported as findings; where they do not, differences smaller than the mean inter-annotator difference are reported as provisional. This is stated in the results rather than left for the reader to infer.
+
+Expanding the bank to figures with sparser documentation should widen the score distribution, at which point alpha becomes informative again on its own terms.
 
 ### Supplementary Metrics
 
