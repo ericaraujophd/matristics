@@ -250,6 +250,53 @@ dl dd { margin-left: 1.25rem; }
   color: $ink-soft;
 }
 
+// ---------- Simple horizontal bar chart ----------
+.bar-chart {
+  margin: 1.5rem 0 0.5rem;
+  font-family: $font-family-sans-serif;
+  font-size: 0.85rem;
+}
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+.bar-label {
+  flex: 0 0 9.5rem;
+  text-align: right;
+  color: $ink-soft;
+}
+.bar-track {
+  flex: 1;
+  height: 18px;
+  background: rgba($gold, 0.13);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.bar-fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, $tyrian-deep, $tyrian-bright);
+  border-radius: 3px 0 0 3px;
+}
+.bar-value {
+  flex: 0 0 2.6rem;
+  font-weight: 600;
+  color: $tyrian-deep;
+  font-variant-numeric: tabular-nums;
+}
+.bar-axis {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10.1rem;
+  margin-right: 2.6rem;
+  color: $ink-soft;
+  font-size: 0.75rem;
+  border-top: 1px solid #E2D8C8;
+  padding-top: 0.25rem;
+}
+
 // ---------- Figures carousel ----------
 .fig-carousel-wrap {
   display: flex;

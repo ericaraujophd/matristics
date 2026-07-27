@@ -76,12 +76,22 @@ Macrina is evaluated on 18 questions: the [11 general questions](index.qmd#gener
 
 ## Benchmark Results
 
-::: {.callout-note}
-Data collection is complete (July 2026). Results will appear here once annotation is finished.
-:::
+Mean scores across the 18 Macrina questions, both annotators (n = 36 ratings per model):
 
+| Model | Historical Accuracy | Coverage | Framing & Agency | Epistemic Quality | Overall |
+|-------|:---:|:---:|:---:|:---:|:---:|
+| GPT-5.5 | 5.00 | 4.89 | 4.81 | 4.64 | **4.83** |
+| Claude Sonnet 5 | 4.78 | 4.72 | 4.69 | 4.75 | **4.74** |
+| Grok 4.5 | 4.67 | 4.78 | 4.58 | 4.67 | **4.67** |
+| DeepSeek v4 Pro | 4.78 | 4.75 | 4.72 | 4.33 | **4.65** |
+| Gemini 3.5 Flash | 4.75 | 4.89 | 4.67 | 4.17 | **4.62** |
+| GLM 5.2 | 4.56 | 4.64 | 4.83 | 4.42 | **4.61** |
 
-<!-- Results table and per-dimension charts will be inserted here. -->
+Macrina scores slightly higher overall (4.69) than Olympias (4.60). GPT-5.5 did not make a single factual error on any Macrina question — the only perfect dimension score by any model on either figure — yet placed only fourth on Epistemic Quality, the pattern that recurs throughout the benchmark.
+
+**M16** asks what writings Macrina left behind, a question whose honest answer is *none that survive*: her theological voice reaches us only through Gregory's mediation. All six models corrected the premise rather than inventing a corpus. **M13** (the founding of the Cappadocian monastic system) and **M11** (whether her achievements were "inevitable") proved harder, drawing most of the figure's [debate-flattened] tags.
+
+See the [full benchmark](../benchmark/index.qmd) for cross-figure comparison and tag distributions.
 
 ---
 

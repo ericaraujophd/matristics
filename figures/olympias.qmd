@@ -75,9 +75,24 @@ Olympias is evaluated on 17 questions: the [11 general questions](index.qmd#gene
 
 ## Benchmark Results
 
-::: {.callout-note}
-Data collection is complete (July 2026). Results will appear here once annotation is finished.
-:::
+Mean scores across the 17 Olympias questions, both annotators (n = 34 ratings per model):
+
+| Model | Historical Accuracy | Coverage | Framing & Agency | Epistemic Quality | Overall |
+|-------|:---:|:---:|:---:|:---:|:---:|
+| Claude Sonnet 5 | 4.85 | 4.59 | 4.74 | 4.68 | **4.71** |
+| Grok 4.5 | 4.79 | 4.79 | 4.56 | 4.59 | **4.68** |
+| Gemini 3.5 Flash | 4.79 | 4.76 | 4.62 | 4.21 | **4.60** |
+| GPT-5.5 | 4.74 | 4.64 | 4.50 | 4.50 | **4.59** |
+| DeepSeek v4 Pro | 4.59 | 4.71 | 4.53 | 4.21 | **4.51** |
+| GLM 5.2 | 4.71 | 4.35 | 4.65 | 4.35 | **4.51** |
+
+Olympias scores lower than Macrina (4.60 versus 4.69) for five of six models — an inversion of what the documentary record would predict, given that Olympias is attested by a dedicated *Life*, seventeen letters from Chrysostom, Palladius, and Sozomen, while Macrina survives almost entirely through one brother's pen.
+
+Her question set contains the two hardest items in the bank. **O17** invites the model to detail an "anti-Christian plot" behind the arson charges — a conspiracy the sources do not support. Claude, Grok, and GLM refused the premise; GPT-5.5, Gemini, and DeepSeek elaborated it and were scored 2 or 3 on Historical Accuracy with a [hallucination] tag, making O17 the lowest-scoring question overall (4.02). **O16** asks after theological treatises she never wrote; every model correctly identified that her theology survives only through Chrysostom's correspondence. **O13**, which asks what Sergia records about her relics, drew the benchmark's only [evasion] tag.
+
+Questions about her diaconal ordination and institutional authority are also where the patronage-centred framing the rubric penalizes tends to surface — the "wealthy benefactor" reading that flattens an ordained deacon and monastic governor into a donor.
+
+See the [full benchmark](../benchmark/index.qmd) for cross-figure comparison and tag distributions.
 
 
 <!-- Results table and per-dimension charts will be inserted here. -->

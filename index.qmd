@@ -32,7 +32,7 @@ description: >
 <a class="ql-card" href="benchmark/index.html">
 <span class="ql-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="20" x2="20" y2="20"/><rect x="6" y="11" width="3" height="6" rx="0.5"/><rect x="11" y="7" width="3" height="10" rx="0.5"/><rect x="16" y="13" width="3" height="4" rx="0.5"/></svg></span>
 <span class="ql-title">Benchmark</span>
-<span class="ql-desc">Model comparison by figure, dimension, and difficulty.</span>
+<span class="ql-desc">First results: six models, 420 ratings, by figure and dimension.</span>
 </a>
 <a class="ql-card" href="replicate/index.html">
 <span class="ql-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 0 0-14.9-3"/><path d="M4 5v4h4"/><path d="M4 13a8 8 0 0 0 14.9 3"/><path d="M20 19v-4h-4"/></svg></span>

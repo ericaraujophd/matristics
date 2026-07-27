@@ -134,7 +134,28 @@ All agreement statistics are reported **per dimension**, not only as aggregates.
 
 Agreement is also reported **per figure** for the Macrina and Olympias items, to identify whether certain questions or figures are inherently harder to evaluate consistently.
 
+### Observed Agreement in the First Round
+
+The first scoring round (210 responses, both annotators scoring every item) produced alpha values between 0.09 and 0.24 — well below the 0.60 threshold set above — alongside raw exact agreement of 52% to 75% and within-one-point agreement above 87% on every dimension. Full figures are reported on the [Benchmark](../benchmark/index.qmd#inter-annotator-agreement) page.
+
+This divergence is a **ceiling effect**, not a breakdown of the protocol. Because the models performed uniformly well on this material — 84% of Historical Accuracy ratings were 5 — the expected disagreement that forms alpha's denominator is very small, and a handful of genuine disagreements dominates the coefficient. Alpha is answering a narrow question here: whether the annotators can reliably distinguish responses *within* a compressed band of high scores. They cannot, particularly on Epistemic Quality.
+
+Two consequences follow for how the results are used. Gross patterns — dimension-level gaps, adversarial-question behaviour, tag distributions — are reported as findings; differences of about a tenth of a point between adjacent models are reported as provisional and treated as within annotator noise. For subsequent rounds, adding the third rater the protocol calls for and extending the bank to figures with sparser documentation should widen the score distribution and make alpha informative again.
+
 ### Calculation
 
-<!-- TODO: Add Python code snippet showing how to calculate Krippendorff's alpha
-using the krippendorff package, with example input format. -->
+Krippendorff's alpha is calculated with the ordinal difference metric, which weights a disagreement between 1 and 5 more heavily than one between 4 and 5 — appropriate for the rubric's Likert dimensions. In Python:
+
+```python
+import krippendorff
+import numpy as np
+
+# reliability_data: one row per annotator, one column per unit (question x model),
+# with np.nan for items an annotator did not score.
+alpha = krippendorff.alpha(
+    reliability_data=data,
+    level_of_measurement="ordinal",
+)
+```
+
+Alpha is computed separately for each dimension, and N/A ratings — used when an evasive response leaves nothing substantive to score — are passed as missing values rather than imputed.

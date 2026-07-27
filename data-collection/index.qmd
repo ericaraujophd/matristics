@@ -46,7 +46,7 @@ All responses are stored as newline-delimited JSON (`.jsonl`), one file per mode
 Using `temperature: 0.0` across all models ensures deterministic responses for replication.
 
 ::: {.callout-note title="Data release"}
-The raw response files (210 responses across 6 models) will be released together with the annotation results when scoring is complete.
+All 210 responses have been scored; see the [Benchmark](../benchmark/index.qmd) for results. The raw response files and the full annotation dataset will be released together once the scoring for further figures is under way.
 :::
 
 ## Setting Up Your Own Collection
