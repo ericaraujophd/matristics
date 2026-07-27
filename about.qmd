@@ -29,6 +29,14 @@ This work is supported by the **McGregor Summer Research Fellowship** at Calvin 
 
 ## Image Credits
 
+Portraits on the individual figure pages:
+
+| Image | Source | License |
+|---|---|---|
+| Macrina the Younger — fresco, St Sophia Cathedral, Kyiv, 11th c. | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Macrina_the_Younger.jpg) | Public domain |
+| Olympias the Deaconess — Orthodox icon | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Olimpiada_diakonissa.jpg) | Public domain |
+| *Sancta Olympias*, from *Sacra Eremus Ascetriarum*, 1590–1662 | [Rijksmuseum](http://hdl.handle.net/10934/RM0001.collect.83986) | CC0 |
+
 Portraits in the figures carousel are sourced from [Wikimedia Commons](https://commons.wikimedia.org):
 
 | Figure | Source file | License |

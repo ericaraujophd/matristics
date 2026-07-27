@@ -250,6 +250,47 @@ dl dd { margin-left: 1.25rem; }
   color: $ink-soft;
 }
 
+// ---------- Figure portrait plate ----------
+// A framed devotional image set beside the opening of a figure's profile.
+.portrait-plate {
+  float: right;
+  width: min(270px, 45%);
+  margin: 0.2rem 0 1.1rem 1.6rem;
+  padding: 0.55rem 0.55rem 0.1rem;
+  background: #FFFDF9;
+  border: 1px solid #E7DECD;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(44, 36, 29, 0.12);
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid rgba($gold, 0.7);
+    border-radius: 2px;
+    box-shadow: none;
+  }
+
+  figcaption {
+    font-family: $font-family-sans-serif;
+    font-size: 0.76rem;
+    line-height: 1.45;
+    color: $ink-soft;
+    padding: 0.5rem 0.15rem 0.55rem;
+    border-top: 1px solid rgba($gold, 0.35);
+    margin-top: 0.55rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .portrait-plate {
+    float: none;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 1.5rem;
+  }
+}
+
 // ---------- Simple horizontal bar chart ----------
 .bar-chart {
   margin: 1.5rem 0 0.5rem;

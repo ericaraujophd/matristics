@@ -13,6 +13,13 @@ Olympias of Constantinople is one of the best-documented female figures of the l
 
 ## Historical Profile
 
+```{=html}
+<figure class="portrait-plate">
+  <img src="../_static/figures/portraits/olympias.jpg" alt="Orthodox icon of Saint Olympias the Deaconess against a gold ground, holding a cross and wearing an embroidered deacon's vestment, inscribed in Greek 'Saint Olympias'.">
+  <figcaption>Icon of Saint Olympias the Deaconess, inscribed <span lang="el">Η ΑΓΙΑ ΟΛΥΜΠΙΑΣ</span> and holding the cross of a confessor. <a href="https://commons.wikimedia.org/wiki/File:Olimpiada_diakonissa.jpg">Wikimedia Commons</a>, public domain.</figcaption>
+</figure>
+```
+
 Olympias was born around 362–365 CE in Constantinople into the upper aristocracy: her paternal grandfather Ablabius was a praetorian prefect, consul, and senator under Constantine the Great, whose stupendous fortune eventually passed down to her. Orphaned young, she was raised as a Christian under the guardianship of her uncle Procopius and educated by her governess Theodosia, sister of Bishop Amphilochius of Iconium — an upbringing that left her well-suited for theological debate.
 
 At twenty-one she married Nebridius, the prefect of Constantinople, but he died within twenty months. The Emperor Theodosius I attempted to coerce her into a second marriage to his kinsman Elpidius; when she refused, he ordered her inheritance held in trust — restoring her control only in 391 CE. She dedicated her wealth to radical philanthropy, supporting the poor, the sick, orphans, and widows, and the church across Greece, Asia Minor, and Syria — so generously that Chrysostom eventually counseled more discretion. In her early thirties she was ordained a [deaconess](../glossary.qmd) of Hagia Sophia by Archbishop Nectarius, well under the customary minimum age of sixty for consecrated widows. She lived in severe asceticism: rarely sleeping, avoiding meat, wearing only old, coarse clothing.
@@ -48,6 +55,11 @@ Chrysostom's letters treat Olympias as a capable theological interlocutor, not m
 
 **The politics of holiness**
 Olympias's refusal to recognize Chrysostom's replacement was a political act with ecclesiastical consequences. Her subsequent trial and exile demonstrate that women in prominent diaconal roles could be targeted for institutional dissent — a dimension often omitted from accounts that treat her primarily as a "patron saint of generosity."
+
+**How Olympias has been pictured**
+The reframing this project looks for in model outputs has a long visual history. The engraving below, from a seventeenth-century Netherlandish series on female hermits, is captioned *Sancta Olympias* — but it shows a barefoot penitent kneeling in a cave among the standard props of Western eremitic iconography: a skull, a crucifix, a rosary, an hourglass. Nothing in it records a deacon of the Great Church who governed a monastery of some 250 women, directed relief for a capital city, and was tried twice for refusing communion with an archbishop. Her authority has been converted into solitude and penitence, four centuries after the fact, by an artist who never doubted he was honouring her.
+
+![*Sancta Olympias*, from the series *Sacra Eremus Ascetriarum*, Netherlandish, between 1590 and 1662. [Rijksmuseum](http://hdl.handle.net/10934/RM0001.collect.83986), CC0.](../_static/figures/portraits/olympias-engraving.jpg){width=330 fig-align="center" fig-alt="Seventeenth-century engraving of Saint Olympias kneeling in prayer in a cave, head bowed against her hands, with a skull, crucifix, open book, rosary and hourglass on the ground before her."}
 
 **Documented disagreements among sources**
 The project's fact-check research (summer 2026) recorded points where the sources diverge — details on which LLM responses can be probed:
