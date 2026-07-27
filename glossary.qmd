@@ -49,5 +49,5 @@ Prostatis
 : Greek term used in Romans 16:2 to describe Phoebe. Often translated as "patron" or "helper," but the term in its civic usage denoted a protector or leader with formal authority. The translation choice carries significant implications for our understanding of Phoebe's role.
 
 Reference-Guided Scoring
-: An evaluation paradigm in which LLM responses are assessed against a gold-standard reference answer prepared by domain experts. This approach is used in this project to evaluate factual accuracy.
+: An evaluation paradigm in which LLM responses are assessed against reference material prepared in advance, rather than against each annotator's independent recall. In this project the reference is a researched profile and fact-check sheet per figure, used for the Historical Accuracy and Epistemic Quality dimensions.
 

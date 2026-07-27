@@ -143,9 +143,11 @@ All 210 responses were scored independently by both annotators, so agreement can
 | Epistemic Quality | 0.09 | 51.9% | 87.1% | 0.61 |
 
 ::: {.callout-warning title="How to read these numbers"}
-Raw agreement is high — annotators chose the same score on two-thirds to three-quarters of items, and landed within one point on roughly nine out of ten — yet Krippendorff's alpha falls far below the 0.60 threshold the [methodology](../methodology/index.qmd#inter-annotator-agreement-metrics) sets for production annotation.
+Raw agreement is high — annotators chose the same score on two-thirds to three-quarters of items, and landed within one point on roughly nine out of ten — yet Krippendorff's alpha sits in the range conventionally labelled "slight to fair".
 
-Both facts are true, and the tension between them is a known property of chance-corrected agreement statistics under a ceiling effect. When 84% of ratings on a dimension are the same value (5), the expected disagreement used as alpha's denominator becomes very small, so the handful of real disagreements dominates the coefficient. Alpha is measuring how well the annotators distinguish responses *within* a narrow band of high scores, and on that question it is honest: they do not distinguish them reliably, least of all on Epistemic Quality.
+Both facts are true, and the tension between them is a known property of chance-corrected agreement statistics under a ceiling effect. When 84% of ratings on a dimension are the same value (5), two annotators guessing at random from that distribution would also agree most of the time, so the expected disagreement in alpha's denominator becomes very small and the handful of real disagreements dominates the coefficient. Alpha is measuring how well the annotators distinguish responses *within* a narrow band of high scores, and on that question it is honest: they do not distinguish them reliably, least of all on Epistemic Quality.
+
+By the project's [reliability criterion](../methodology/index.qmd#reliability-criterion), which applies the α ≥ 0.60 gate only where the score distribution can support it, this round is judged on raw agreement — which it meets on every dimension except Epistemic Quality (51.9% exact, against a 65% bar).
 
 The results above should therefore be read as a robust ranking of gross performance and a provisional one for fine distinctions. Differences of a tenth of a point between adjacent models are within annotator noise; the patterns that survive it are the dimension-level gaps, the adversarial-question results, and the tag distributions.
 :::
@@ -157,4 +159,4 @@ Annotator means differ slightly overall — 4.61 and 4.68 — indicating a mild 
 - **Two figures, 35 questions.** These results characterize model behaviour on Macrina and Olympias, not on women in early Christianity generally. The bank expands as figures are added.
 - **Ceiling effect.** The compressed score range limits how much the rankings can bear; see the agreement note above.
 - **One run per model.** Responses were collected once at temperature 0 in July 2026 with pinned model versions (see [Data Collection](../data-collection/index.qmd)). Results are specific to those snapshots.
-- **Two annotators.** The methodology calls for at least three raters per item; this first round was scored by two.
+- **Two annotators, unblinded.** Both scored every response independently, but model identity was visible in the scoring workbook and no third rater adjudicated disagreements. Blinding, randomized presentation, and a third rater are planned for the next round (see [Annotation Protocol](../methodology/index.qmd#controls-not-applied-in-the-first-round)).

@@ -19,7 +19,7 @@ All materials needed to replicate this evaluation are published openly. This pag
 - The rubric definitions and scoring sheet template ([Evaluation Rubric](../methodology/rubric.qmd))
 - All data collection notebooks ([Data Collection](../data-collection/index.qmd))
 - The annotation protocol ([Annotation Protocol](../methodology/index.qmd#annotation-protocol))
-- The reference answer document *(to be published when annotation is complete)*
+- The reference profiles and fact-check sheets for each figure, published in condensed form on the figure pages ([Macrina](../figures/macrina.qmd), [Olympias](../figures/olympias.qmd))
 
 ## What May Require Adaptation
 

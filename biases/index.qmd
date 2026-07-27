@@ -53,7 +53,7 @@ LLMs are trained predominantly on web-scraped text. The major sources — Wikipe
 
 ### Detecting Androcentric Bias in Evaluation
 
-The Framing and Agency dimension of the rubric ([Evaluation Rubric](../methodology/rubric.qmd)) is the primary instrument for detecting androcentric bias. The annotation protocol also includes **paired question design**: for each female figure, a parallel question is asked about a male contemporary of equal or lesser historical significance, allowing systematic comparison of response depth and completeness.
+The Framing and Agency dimension of the rubric ([Evaluation Rubric](../methodology/rubric.qmd)) is the primary instrument for detecting androcentric bias. The question bank supports it with **bias-probe items**: questions flagged in advance as likely to elicit subordinating framing — those touching a figure's relationship to a prominent male contemporary, her ordination or institutional authority, or the sources' own androcentric mediation. In the first scoring round these items scored 4.50 on Framing and Agency against 4.71 for the rest of the bank, indicating that the weakness surfaces under pressure rather than by default (see [Benchmark](../benchmark/index.qmd)).
 
 <!-- TODO: Add results once data collection is complete. -->
 

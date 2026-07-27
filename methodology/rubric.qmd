@@ -7,7 +7,7 @@ Each LLM response is scored on **four dimensions** using a 1–5 Likert scale. B
 
 The rubric design follows the G-Eval framework of @liu2023geval, which uses explicit scoring criteria per dimension to improve alignment between annotators and reduce reliance on annotator background knowledge alone. The four dimensions consolidate an earlier seven-dimension design (Factual Accuracy, Completeness, Gender Bias, Hallucination, Anachronism, Source Awareness, Depth & Nuance) developed through iterative piloting informed by the broader evaluation literature ([@zheng2023judging]); overlapping error types are now captured by per-dimension tags rather than separate scales.
 
-Annotators score each response after reading it against the gold-standard reference answer for the question.
+Annotators score each response against the shared reference material for the figure — a researched profile and fact-check sheet recording the documented facts with their sources, and the points where the sources disagree. See [Reference-Guided Scoring](index.qmd#reference-guided-scoring).
 
 ---
 

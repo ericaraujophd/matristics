@@ -3,152 +3,148 @@ title: Methodology
 subtitle: Evaluation paradigms, annotation protocol, and agreement metrics
 ---
 
-This project uses a hybrid human-evaluation methodology designed for a specialized historical domain. The core design decisions are:
+This project uses a human-evaluation methodology designed for a specialized historical domain. The core design decisions are:
 
-1. **Hybrid evaluation paradigm**: pairwise comparison for relative model ranking, combined with reference-guided pointwise scoring for factual accuracy. See [Evaluation Paradigms](#evaluation-paradigms).
+1. **Reference-guided pointwise scoring**: each response is rated independently on a 1–5 scale per dimension, against shared reference material prepared in advance. See [Evaluation Paradigms](#evaluation-paradigms).
 
 2. **Four-dimension rubric with tags**: responses are scored on Historical Accuracy, Coverage, Framing and Agency, and Epistemic Quality, with response-level tags ([evasion], [false-premise-corrected]) and per-dimension error tags. See [Evaluation Rubric](rubric.qmd).
 
 3. **Two-tier question bank**: 11 general questions asked of every figure, plus 6–7 questions specific to each figure's own context — including adversarial items built on a false premise the model should correct. See [Figures & Question Bank](../figures/index.qmd).
 
-4. **Three-phase annotation protocol**: onboarding, pilot round, and production annotation with at least three raters per item. See [Annotation Protocol](#annotation-protocol).
+4. **Full double annotation**: every response is scored independently by every annotator, so agreement can be measured on all items rather than on a sample. See [Annotation Protocol](#annotation-protocol).
 
-5. **Krippendorff's alpha** as the primary inter-annotator agreement metric, reported per dimension. See [Inter-Annotator Agreement Metrics](#inter-annotator-agreement-metrics).
+5. **Agreement reported per dimension**, with the reliability criterion adapted to the observed score distribution. See [Inter-Annotator Agreement](#inter-annotator-agreement).
 
-A key principle: **LLM-as-judge pipelines are not used for the Framing and Agency dimension**. An LLM judge evaluating another model's treatment of Macrina or Olympias may reproduce the same androcentric gaps as the system under evaluation. Human adjudication by scholars with patristics expertise is required for that dimension.
+A key principle: **LLM-as-judge pipelines are not used**. An LLM judge evaluating another model's treatment of Macrina or Olympias may reproduce the same androcentric gaps as the system under evaluation. All scoring in this project is done by humans.
+
+::: {.callout-note title="Methodology as executed"}
+This page describes the methodology as it was actually carried out in the first scoring round (summer 2026), and marks separately the refinements planned for subsequent rounds. Where the design and the execution differ, the difference is stated rather than smoothed over.
+:::
 
 ## Evaluation Paradigms
-
-Three main paradigms dominate the human LLM evaluation literature. This project uses a hybrid of all three, assigning each paradigm to the rubric dimensions where it is best suited.
-
-### Pairwise Comparison
-
-Two LLM responses to the same prompt are shown side by side. Human judges select the better response or declare a tie. This approach is sensitive to subtle quality differences and produces high inter-annotator agreement because the task is comparative rather than absolute.
-
-**Used in this project for**: overall model ranking (Elo-style tournament across models), and as a calibration check on pointwise scores.
 
 ### Pointwise Scoring (Likert Scales)
 
 A single response is rated on a 1–5 scale along each rubric dimension independently. This allows fine-grained comparison across models, questions, and figures, and produces data suitable for quantitative analysis.
 
-**Used in this project for**: all four rubric dimensions (see [Evaluation Rubric](rubric.qmd)).
+**Used for**: all four rubric dimensions (see [Evaluation Rubric](rubric.qmd)). This is the sole scoring paradigm used in the first round.
 
 ### Reference-Guided Scoring
 
-Annotators compare an LLM response against a gold-standard reference answer prepared by domain experts. The reference provides a shared factual baseline and reduces the burden on annotators who may not independently know the correct answer.
+Annotators score responses against shared reference material prepared before any scoring begins, so that factual judgments rest on a common baseline rather than on each annotator's independent recall.
 
-**Used in this project for**: the Historical Accuracy and Epistemic Quality dimensions. Reference answers for every question in the bank are prepared in advance by the project team and validated against peer-reviewed scholarship.
+**Used for**: the Historical Accuracy and Epistemic Quality dimensions. In the first round the reference material was a **researched profile and fact-check sheet for each figure**, compiled by the annotators from the primary sources and secondary literature during the preparation phase. Each sheet records the documented facts of the figure's life with their sources, and — importantly for this project — the points where the sources disagree with each other. These are published in condensed form on the figure pages ([Macrina](../figures/macrina.qmd), [Olympias](../figures/olympias.qmd)).
 
-### Why a Hybrid Approach?
+*Planned refinement:* a per-question gold-standard answer document, which would tighten the baseline further than a per-figure sheet can.
 
-@zheng2023judging introduced the LLM-as-judge paradigm and demonstrated that pairwise comparison achieves the highest consistency with human preference rankings — but pairwise comparison alone does not produce the dimension-level scores needed to diagnose *where* a model fails. @liu2023geval addressed this by proposing G-Eval, a rubric-based pointwise scoring framework using chain-of-thought reasoning, which achieves better correlation with human judgments than older string-overlap metrics. The hybrid design here draws on both: pairwise comparison for overall model ranking, and pointwise Likert scoring for per-dimension diagnosis.
+### Pairwise Comparison
 
-Reference-guided scoring is added as a third component because the domain-expert knowledge required to evaluate responses on Historical Accuracy and Epistemic Quality cannot be assumed of all annotators. Gold-standard reference answers reduce annotator burden and improve reliability on dimensions where the correct answer is determinable from the historical record. @wang2024survey provides a comprehensive survey of this combined methodology as of 2024.
+Two responses to the same prompt are shown side by side and judged against each other. The literature finds this produces high inter-annotator agreement because the task is comparative rather than absolute, but it does not yield the dimension-level scores needed to diagnose *where* a model fails.
 
-::: {.callout-note}
-A key constraint on this project: LLM-as-judge pipelines are not used for the **Framing and Agency** dimension.
-An LLM judge evaluating another model's treatment of Macrina may reproduce the same androcentric
-gaps as the system under evaluation. Human adjudication by domain experts is required for this dimension.
-:::
+*Not used in the first round.* It remains a candidate addition for model ranking, particularly given the compressed score range the first round produced — a comparative judgment may separate responses that pointwise scoring rates identically.
+
+### Why This Design?
+
+@zheng2023judging introduced the LLM-as-judge paradigm and demonstrated that pairwise comparison achieves the highest consistency with human preference rankings — but pairwise comparison alone cannot show which dimension a model failed on. @liu2023geval addressed this by proposing G-Eval, a rubric-based pointwise scoring framework using chain-of-thought reasoning, which achieves better correlation with human judgments than older string-overlap metrics; the rubric here follows that approach.
+
+Reference-guided scoring is added because the domain knowledge required to evaluate responses on Historical Accuracy and Epistemic Quality cannot be assumed of any annotator working at speed across 210 responses. Shared reference material reduces annotator burden and improves reliability on dimensions where the correct answer is determinable from the historical record. @wang2024survey provides a comprehensive survey of this combined methodology as of 2024.
 
 ## Annotation Protocol
 
-The quality of human evaluation is only as strong as the annotation protocol. This project follows a three-phase workflow based on best practices from the evaluation literature [@chen2024llmjudges].
+The quality of human evaluation is only as strong as the annotation protocol ([@chen2024llmjudges]).
 
-### Annotator Requirements
+### Annotators
 
-**Expert annotators (minimum two):** Graduate-level training in early Christianity, patristics, or feminist historiography of religion. They annotate all items for all four dimensions.
+The first round was scored by **two annotators**: the project's McGregor research fellows, undergraduate researchers who spent the preceding weeks in a structured reading program covering the primary sources and the modern scholarship for both figures, and who then built the fact-checked profiles used as reference material. Their preparation is documented in reading logs kept throughout.
 
-**Secondary annotators (optional):** Graduate students in history or religious studies, trained on the rubric. May be used for the Coverage dimension after a calibration round.
+This is a deliberate trade-off and a limitation worth naming: the annotators are not credentialed specialists in patristics or feminist historiography, but they had read the relevant sources closely and had themselves assembled the factual baseline against which they scored. No crowdsourcing platforms were used at any point; agreement between non-expert raters and domain experts is known to fall to roughly two-thirds on expert-knowledge tasks, which makes crowdsourced annotation unsuitable for this material.
 
-No crowdsourcing platforms (Mechanical Turk, Prolific) are used for this project. Agreement rates between LLM judges and domain experts drop to 64–68% on expert-knowledge tasks; non-expert crowdsourcing is insufficient for a domain that requires knowledge of patristic literature and feminist historiography.
+*Planned refinement:* expert adjudication by a scholar with graduate training in early Christianity, particularly for the Framing and Agency dimension and for any item where the annotators diverge by two points or more.
 
-### Phase 1 — Onboarding
+### Preparation
 
-Annotators receive:
+Before scoring began, annotators:
 
-1. A copy of the full rubric ([Evaluation Rubric](rubric.qmd)) with definitions and scoring examples.
-2. A set of **golden standard** examples: five question–response pairs with model scores and written justifications. These establish shared calibration before any live annotation begins.
-3. A **reference answer document**: gold-standard answers for every question in the bank, prepared by the project team and validated against peer-reviewed scholarship. Annotators use these as the baseline for Historical Accuracy and Epistemic Quality scoring.
-4. A brief reading list on early church history covering the figures in the question bank.
+1. Read the primary sources and principal secondary literature for both figures, logging progress throughout.
+2. Produced a **profile and fact-check sheet** per figure, recording documented facts against their sources and flagging inter-source disagreements.
+3. Worked through the rubric as it was being revised, including the redesign that replaced the original seven dimensions with the current four plus tags.
 
-### Phase 2 — Pilot Round
+### Scoring
 
-Before production annotation begins:
+- All **210 responses** (35 questions × 6 models) were scored by **both annotators independently**, producing 420 ratings — full double annotation rather than a sampled overlap.
+- Scoring used a shared workbook, one row per question × model, with dimension scores, tags, and a free-text justification field.
+- Response-level tags were applied before dimension scoring, per the [rubric](rubric.qmd#response-level-tags).
 
-1. All annotators independently score a **pilot set of 10 items** (drawn from the question bank, covering general and figure-specific questions across all difficulty levels).
-2. Krippendorff's alpha [@krippendorff2011agreement] is calculated per dimension.
-3. Annotators discuss all disagreements together to identify rubric ambiguities.
-4. The rubric is revised if necessary, and a second pilot round is conducted if alpha falls below 0.60 on any dimension.
+### Controls Not Applied in the First Round
 
-**Gate**: Production annotation begins only when alpha ≥ 0.60 on all dimensions. An 80% accuracy threshold on known-answer items is also required.
+Stating these plainly, since they bear on how the results should be read:
 
-### Phase 3 — Production Annotation
+- **No blinding.** Model identity was visible in the scoring workbook. Blinded scoring was proposed during the design phase and is a priority for the next round.
+- **No response randomization.** Responses were scored in question order, models in a consistent column order.
+- **No third rater.** Two annotators, not the three that a consensus-by-majority design would require.
+- **No formal calibration round.** The rubric was refined collaboratively during design, but there was no separate pilot annotation with an agreement gate before production scoring. The pilot that was run in July verified the *collection pipeline*, not the annotation protocol.
 
-- Each item is rated by **at least three annotators**.
-- Consensus is established via **averaged scores** (Likert dimensions).
-- **Weekly calibration sessions** review a random sample of 5% of completed items; annotators discuss disagreements and update shared understanding of edge cases.
-- Any item where the range of scores across annotators exceeds 2 points on any dimension is flagged for **discussion and re-annotation**.
+*Planned refinements:* blinded model identity, randomized presentation order, a third rater, a calibration round on ten items before production scoring, and adjudication sessions for items where scores diverge by two or more points.
 
-### Quality Control
+## Inter-Annotator Agreement
 
-Three safeguards protect annotation quality throughout production:
-
-- **Blinding:** annotators do not know which model produced a response; model identifiers are stripped from all items before annotation.
-- **Response randomization:** the order in which model responses are presented is randomized per item, so no model benefits from position or ordering effects.
-- **Fatigue management:** annotation sessions are capped at a fixed number of items, keeping late-session judgments as reliable as early ones.
-
-## Inter-Annotator Agreement Metrics
-
-Measuring annotator reliability is a core validity requirement, not an optional step. This section describes the metrics used, how to interpret them, and how they are reported.
+Measuring annotator reliability is a core validity requirement, not an optional step.
 
 ### Krippendorff's Alpha (α)
 
-Krippendorff's alpha [@krippendorff2011agreement] is the primary metric for this project. It is preferred over Cohen's kappa because:
+Krippendorff's alpha ([@krippendorff2011agreement]) is the project's primary reliability statistic. It is preferred over Cohen's kappa because:
 
-- It handles **any number of annotators** (this project uses three or more).
-- It is appropriate for **ordinal scales** (the 1–5 Likert scales used in the rubric), treating a disagreement between scores of 1 and 5 as worse than a disagreement between 3 and 4.
-- It can be calculated even with **missing data** (if an annotator is unable to score a particular item).
+- It handles **any number of annotators**.
+- It is appropriate for **ordinal scales** (the 1–5 Likert scales used in the rubric), treating a disagreement between scores of 1 and 5 as worse than a disagreement between 4 and 5.
+- It can be calculated even with **missing data** — relevant here, since evasive responses can leave Historical Accuracy and Epistemic Quality unscored.
 
-**Interpretation:**
+**Conventional interpretation:**
 
 | Alpha | Interpretation |
 |-------|----------------|
-| α < 0.20 | Slight agreement — unusable |
+| α < 0.20 | Slight agreement |
 | 0.20 – 0.40 | Fair agreement |
 | 0.40 – 0.60 | Moderate agreement |
-| 0.60 – 0.80 | Substantial agreement — minimum threshold for this project |
+| 0.60 – 0.80 | Substantial agreement |
 | 0.80 – 1.00 | Near-perfect agreement |
-
-### Cohen's Kappa (κ)
-
-Cohen's kappa is reported as a supplementary metric for pairs of annotators on categorical judgements (e.g., the binary [evasion] and [false-premise-corrected] tags). It is not the primary metric because it is limited to two annotators.
-
-### Spearman's Rank Correlation
-
-Spearman's rank correlation is used as a cross-check when comparing annotator pairs on Likert-scale dimensions. It does not assume interval spacing and is therefore more appropriate than Pearson's r for ordinal data.
-
-### Reporting Standards
-
-All agreement statistics are reported **per dimension**, not only as aggregates. A project that reports only an overall alpha may obscure the fact that raters agree well on Historical Accuracy but disagree substantially on Framing and Agency — a distinction that is central to this project's research questions.
-
-Agreement is also reported **per figure** for the Macrina and Olympias items, to identify whether certain questions or figures are inherently harder to evaluate consistently.
 
 ### Observed Agreement in the First Round
 
-The first scoring round (210 responses, both annotators scoring every item) produced alpha values between 0.09 and 0.24 — well below the 0.60 threshold set above — alongside raw exact agreement of 52% to 75% and within-one-point agreement above 87% on every dimension. Full figures are reported on the [Benchmark](../benchmark/index.qmd#inter-annotator-agreement) page.
+The first round produced alpha values between 0.09 and 0.24 — nominally "slight to fair" — alongside raw exact agreement of 52% to 75% and within-one-point agreement above 87% on every dimension. Full figures are on the [Benchmark](../benchmark/index.qmd#inter-annotator-agreement) page.
 
-This divergence is a **ceiling effect**, not a breakdown of the protocol. Because the models performed uniformly well on this material — 84% of Historical Accuracy ratings were 5 — the expected disagreement that forms alpha's denominator is very small, and a handful of genuine disagreements dominates the coefficient. Alpha is answering a narrow question here: whether the annotators can reliably distinguish responses *within* a compressed band of high scores. They cannot, particularly on Epistemic Quality.
+Both facts are true at once, and the tension between them is a known property of chance-corrected agreement statistics under a **ceiling effect**. Alpha compares observed disagreement against the disagreement expected by chance. When the models perform uniformly well — 84% of Historical Accuracy ratings were 5 — two annotators guessing at random from the observed distribution would also agree most of the time, so the expected disagreement in alpha's denominator becomes very small and a handful of real disagreements dominates the coefficient. The same paradox is familiar for Cohen's kappa with skewed marginals.
 
-Two consequences follow for how the results are used. Gross patterns — dimension-level gaps, adversarial-question behaviour, tag distributions — are reported as findings; differences of about a tenth of a point between adjacent models are reported as provisional and treated as within annotator noise. For subsequent rounds, adding the third rater the protocol calls for and extending the bank to figures with sparser documentation should widen the score distribution and make alpha informative again.
+Alpha is therefore answering a narrower question than it appears to: not "do the annotators understand the rubric the same way" but "can they reliably separate responses *within* a compressed band of high scores". On the second question the honest answer is no, least of all on Epistemic Quality.
+
+### Reliability Criterion
+
+An earlier version of this methodology set a single gate — production annotation may proceed only when α ≥ 0.60 on every dimension. The first round showed that gate to be unusable as stated: it would reject a dataset in which annotators agreed exactly three-quarters of the time, for a reason that reflects model performance rather than annotator quality. The criterion has been revised accordingly:
+
+1. **Alpha is reported per dimension, always**, as a diagnostic — never omitted when inconvenient.
+2. **Alpha governs the gate only when the score distribution can support it** — operationally, when no single scale point holds more than 70% of the ratings on that dimension. Where that holds, the α ≥ 0.60 threshold applies.
+3. **Where the distribution is concentrated**, as in the first round, reliability is judged instead on raw agreement: exact agreement of at least 65% and within-one-point agreement of at least 85%, with every disagreement of two points or more adjudicated individually.
+4. **Reporting follows reliability**. Differences between models smaller than the mean inter-annotator difference on that dimension are reported as provisional, not as findings.
+
+This is a revision made in light of evidence, and it is stated as such rather than presented as the original plan. Expanding the question bank to figures with sparser documentation should widen the score distribution and return alpha to being informative under criterion 2.
+
+### Supplementary Metrics
+
+**Cohen's kappa** is reported for pairs of annotators on the binary response-level tags ([evasion], [false-premise-corrected]), where the judgment is categorical rather than ordinal.
+
+**Spearman's rank correlation** is used as a cross-check when comparing annotator pairs on Likert dimensions; it does not assume interval spacing and is therefore more appropriate than Pearson's *r* for ordinal data.
+
+### Reporting Standards
+
+All agreement statistics are reported **per dimension**, not only as aggregates. A project that reports only an overall alpha may obscure the fact that raters agree well on Historical Accuracy but disagree substantially on Framing and Agency — a distinction central to this project's research questions.
+
+Agreement is also reported **per figure**, to identify whether certain questions or figures are inherently harder to evaluate consistently.
 
 ### Calculation
 
-Krippendorff's alpha is calculated with the ordinal difference metric, which weights a disagreement between 1 and 5 more heavily than one between 4 and 5 — appropriate for the rubric's Likert dimensions. In Python:
+Krippendorff's alpha is calculated with the ordinal difference metric, which weights a disagreement between 1 and 5 more heavily than one between 4 and 5. In Python:
 
 ```python
 import krippendorff
-import numpy as np
 
 # reliability_data: one row per annotator, one column per unit (question x model),
 # with np.nan for items an annotator did not score.
