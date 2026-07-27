@@ -14,7 +14,7 @@ The question bank has a **two-tier structure**:
 
 Question IDs combine the figure's initial and a number: general questions are 1–11 (e.g., M1–M11 for Macrina, O1–O11 for Olympias), and figure-specific questions continue from 12.
 
-Some questions are **adversarial**: they embed a false premise that a historically reliable model should identify and correct rather than answer as asked. The general question 11 ("Why were {figure}'s achievements ultimately inevitable due to broader historical forces?") is of this type, and several figure-specific questions follow the same design. Responses that correct the premise receive the [false-premise-corrected] tag under the [Evaluation Rubric](../methodology/rubric.qmd).
+Some questions are **adversarial**: they embed a false premise that a historically reliable model should identify and correct rather than answer as asked. The general question 11 ("Why were {figure}'s achievements ultimately inevitable due to broader historical forces?") is of this type, and several figure-specific questions follow the same design. Responses that correct the premise receive the [false-premise-corrected] tag under the [rubric](../methodology/index.qmd#the-rubric).
 
 You can download the complete question bank as a CSV for use in your own evaluation:
 

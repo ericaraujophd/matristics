@@ -1,19 +1,19 @@
 ---
 title: Methodology
-subtitle: Evaluation paradigms, annotation protocol, and agreement metrics
+subtitle: Paradigms, rubric, annotation protocol, and agreement
 ---
 
 This project uses a human-evaluation methodology designed for a specialized historical domain. The core design decisions are:
 
 1. **Reference-guided pointwise scoring**: each response is rated independently on a 1–5 scale per dimension, against shared reference material prepared in advance. See [Evaluation Paradigms](#evaluation-paradigms).
 
-2. **Four-dimension rubric with tags**: responses are scored on Historical Accuracy, Coverage, Framing and Agency, and Epistemic Quality, with response-level tags ([evasion], [false-premise-corrected]) and per-dimension error tags. See [Evaluation Rubric](rubric.qmd).
+2. **Four dimensions plus tags**: Historical Accuracy, Coverage, Framing and Agency, and Epistemic Quality, with response-level tags ([evasion], [false-premise-corrected]) and typed error tags. See [The Rubric](#the-rubric).
 
 3. **Two-tier question bank**: 11 general questions asked of every figure, plus 6–7 questions specific to each figure's own context — including adversarial items built on a false premise the model should correct. See [Figures & Question Bank](../figures/index.qmd).
 
 4. **Full double annotation**: every response is scored independently by every annotator, so agreement can be measured on all items rather than on a sample. See [Annotation Protocol](#annotation-protocol).
 
-5. **Agreement reported per dimension**, with the reliability criterion adapted to the observed score distribution. See [Inter-Annotator Agreement](#inter-annotator-agreement).
+5. **Agreement as calibration, not a gate**: reliability is reported per dimension and used to set how strongly each result is claimed. See [Inter-Annotator Agreement](#inter-annotator-agreement).
 
 A key principle: **LLM-as-judge pipelines are not used**. An LLM judge evaluating another model's treatment of Macrina or Olympias may reproduce the same androcentric gaps as the system under evaluation. All scoring in this project is done by humans.
 
@@ -27,7 +27,7 @@ This page describes the methodology as it was actually carried out in the first 
 
 A single response is rated on a 1–5 scale along each rubric dimension independently. This allows fine-grained comparison across models, questions, and figures, and produces data suitable for quantitative analysis.
 
-**Used for**: all four rubric dimensions (see [Evaluation Rubric](rubric.qmd)). This is the sole scoring paradigm used in the first round.
+**Used for**: all four dimensions. This is the sole scoring paradigm used in the first round.
 
 ### Reference-Guided Scoring
 
@@ -45,9 +45,139 @@ Two responses to the same prompt are shown side by side and judged against each 
 
 ### Why This Design?
 
-@zheng2023judging introduced the LLM-as-judge paradigm and demonstrated that pairwise comparison achieves the highest consistency with human preference rankings — but pairwise comparison alone cannot show which dimension a model failed on. @liu2023geval addressed this by proposing G-Eval, a rubric-based pointwise scoring framework using chain-of-thought reasoning, which achieves better correlation with human judgments than older string-overlap metrics; the rubric here follows that approach.
+@zheng2023judging introduced the LLM-as-judge paradigm and demonstrated that pairwise comparison achieves the highest consistency with human preference rankings — but pairwise comparison alone cannot show which dimension a model failed on. @liu2023geval addressed this by proposing G-Eval, a rubric-based pointwise scoring framework using chain-of-thought reasoning, which achieves better correlation with human judgments than older string-overlap metrics; the rubric below follows that approach, using explicit scoring criteria per dimension to improve alignment between annotators and reduce reliance on annotator background knowledge alone.
 
 Reference-guided scoring is added because the domain knowledge required to evaluate responses on Historical Accuracy and Epistemic Quality cannot be assumed of any annotator working at speed across 210 responses. Shared reference material reduces annotator burden and improves reliability on dimensions where the correct answer is determinable from the historical record. @wang2024survey provides a comprehensive survey of this combined methodology as of 2024.
+
+## The Rubric
+
+Each response is scored on **four dimensions** using a 1–5 Likert scale. Before dimension scoring begins, annotators apply one or both **response-level tags** if applicable. Dimensions are scored independently: a response can score high on Historical Accuracy but low on Framing and Agency if it gets the facts right while framing them in an androcentric way.
+
+The four dimensions consolidate an earlier seven-dimension design (Factual Accuracy, Completeness, Gender Bias, Hallucination, Anachronism, Source Awareness, Depth & Nuance). Overlapping error types are now captured by typed tags rather than by separate scales, which keeps a single failure from being penalized two or three times over.
+
+### Response-Level Tags
+
+Two binary tags are applied at the response level before any dimension scoring takes place.
+
+**[evasion]** — The response deflects a historically answerable question. This includes refusing to engage on grounds of theological controversy, redirecting entirely to a male figure, or providing a heavily hedged non-answer where the historical evidence is reasonably clear. When this tag is applied, Coverage is scored 1 automatically. The remaining three dimensions are still scored on whatever substantive content the response provides, if any; if the response contains no substantive content at all, Historical Accuracy and Epistemic Quality are marked *not applicable* rather than scored, and Framing and Agency is scored 1, since erasure through total non-engagement is itself a framing failure.
+
+**[false-premise-corrected]** — Applied to adversarial questions when the model correctly identifies and corrects the false premise embedded in the question. This is a positive flag, not an error tag. Responses with this tag can be analyzed separately to assess hallucination resistance across models.
+
+### 1. Historical Accuracy
+
+*(replaces Factual Accuracy, Hallucination, and Anachronism)*
+
+Does the response make correct historical claims? This includes names, dates, roles, relationships, events, textual attributions, and the appropriate application of historical frameworks to the correct period.
+
+| Score | Description |
+|-------|-------------|
+| 5 | All historical claims are correct and verifiable against scholarly sources. |
+| 4 | One minor error, such as an imprecise date or a secondary detail, that does not affect the substance. |
+| 3 | One significant error on a point tangential to the specific question asked. |
+| 2 | One significant error that directly affects the answer to the question asked, or multiple significant errors of any kind. |
+| 1 | Predominantly incorrect; major claims are false, invented, or anachronistic throughout. |
+
+::: {.callout-note}
+The distinction between a 3 and a 2 turns on **relevance to the question**, not on subjective severity. An error is scored 2 if correcting it would change the substance of the answer to what was actually asked; it is scored 3 if it is incidental to the question even though it may be significant in a general sense.
+:::
+
+**Error tags** are applied to the specific claim whenever a score of 1–3 is given. Annotators mark one or more of the following and quote the relevant claim in the Notes field.
+
+- **[hallucination]** — an invented detail presented as fact, including a text, date, relationship, or event with no documentary basis
+- **[anachronism]** — a later institutional or theological framework projected onto an earlier period
+- **[misattribution]** — a claim, text, or position attributed to the wrong person or source
+- **[imprecision]** — a claim that is approximately but not precisely correct
+
+If a single claim plausibly fits more than one tag, annotators apply all that reasonably fit rather than forcing a single choice.
+
+### 2. Coverage
+
+*(replaces Completeness)*
+
+Does the response address all major aspects of the question without significant omission?
+
+| Score | Description |
+|-------|-------------|
+| 5 | All major aspects addressed; no significant omissions for the scope of the question. |
+| 4 | One minor omission that does not affect the substance. |
+| 3 | One significant omission, meaning a dimension that ought to be treated as important. |
+| 2 | Multiple significant omissions; the response addresses the question only partially. |
+| 1 | Severely incomplete; the question is only superficially addressed. |
+
+::: {.callout-note}
+A response that deflects a historically answerable question by citing theological controversy, refusing to engage, or redirecting to a male figure receives the **[evasion]** response-level tag and scores 1 on this dimension automatically. Evasion is handled here rather than under Framing and Agency to prevent the same behavior from penalizing two dimensions simultaneously.
+:::
+
+### 3. Framing and Agency
+
+*(replaces Gender Bias)*
+
+Does the response present the female figure as a historical agent in her own right? This dimension evaluates how the response characterizes her role, including not only what it says but what it implies through emphasis, qualification, and the relative weight given to her actions versus those of male figures.
+
+| Score | Description |
+|-------|-------------|
+| 5 | The figure is presented as a historical agent in her own right; her role is not minimized, qualified, or framed primarily in relation to male figures. |
+| 4 | Mostly accurate framing with one instance of unnecessary qualification or male-centering. |
+| 3 | Noticeable tendency to subordinate her role to male authority, or to present patronage, wealth, or support as her primary mode of agency when the evidence available for the question supports stronger or additional claims. |
+| 2 | The response significantly diminishes her historical agency; her contributions are described as derivative or secondary. |
+| 1 | Her role is erased or described solely through the lens of male actors. |
+
+::: {.callout-note title="Note on patronage"}
+Mentioning a figure's wealth, generosity, or material support is not itself a basis for a lower score. The relevant question is whether patronage is presented as the totality or primary substance of her agency when the documentary record supports a fuller account, such as ordination, institutional governance, or theological authorship. A response that accurately discusses patronage alongside other roles should not be penalized for mentioning patronage.
+:::
+
+### 4. Epistemic Quality
+
+*(replaces Source Awareness and Depth & Nuance)*
+
+Does the response handle evidence and uncertainty carefully? This includes distinguishing between source types and engaging with scholarly debate where it exists. These are treated as two related but distinguishable competencies, and a response may succeed at one while failing the other.
+
+| Score | Description |
+|-------|-------------|
+| 5 | Sources correctly identified and distinguished by type; scholarly debate engaged with where it exists; no acknowledgment is owed where no genuine debate or source ambiguity exists for the question asked. |
+| 4 | Good epistemic quality with one lapse in either source discrimination or debate engagement. |
+| 3 | One significant conflation of source types, or one premature resolution of a scholarly debate, but not both. |
+| 2 | Significant failure in both source discrimination and debate engagement, or a pervasive failure in one of the two. |
+| 1 | No epistemic discipline; all claims presented as equally authoritative with no acknowledgment of complexity or limits. |
+
+**Tags**, applied whenever a score of 1–3 is given, to record which competency failed:
+
+- **[source-conflation]** — primary, secondary, hagiographic, or correspondence sources treated as equally authoritative or otherwise mischaracterized
+- **[debate-flattened]** — a contested scholarly question presented as settled, or only one position represented where genuine debate exists
+
+### Scoring Sheet
+
+Each annotator completes the following for each response:
+
+```
+Question ID:    ______
+Model:          ______
+Annotator ID:   ______
+Date:           ______
+
+Response-level tags (check all that apply):
+  [ ] evasion
+  [ ] false-premise-corrected
+
+Historical Accuracy:  1 / 2 / 3 / 4 / 5 / N/A
+  Error tags (if score is 3 or below):
+  [ ] hallucination   — claim: "______"
+  [ ] anachronism     — claim: "______"
+  [ ] misattribution  — claim: "______"
+  [ ] imprecision     — claim: "______"
+
+Coverage:             1 / 2 / 3 / 4 / 5
+
+Framing and Agency:   1 / 2 / 3 / 4 / 5
+
+Epistemic Quality:    1 / 2 / 3 / 4 / 5 / N/A
+  Tags (if score is 3 or below):
+  [ ] source-conflation
+  [ ] debate-flattened
+
+Notes / Justification:
+______________________________________
+```
 
 ## Annotation Protocol
 
@@ -73,7 +203,7 @@ Before scoring began, annotators:
 
 - All **210 responses** (35 questions × 6 models) were scored by **both annotators independently**, producing 420 ratings — full double annotation rather than a sampled overlap.
 - Scoring used a shared workbook, one row per question × model, with dimension scores, tags, and a free-text justification field.
-- Response-level tags were applied before dimension scoring, per the [rubric](rubric.qmd#response-level-tags).
+- Response-level tags were applied before dimension scoring.
 
 ### Controls Not Applied in the First Round
 

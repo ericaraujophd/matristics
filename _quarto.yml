@@ -37,10 +37,8 @@ website:
       - index.qmd
       - text: "Background"
         href: background/index.qmd
-      - section: "Methodology"
-        contents:
-          - methodology/index.qmd
-          - methodology/rubric.qmd
+      - text: "Methodology"
+        href: methodology/index.qmd
       - text: "Known LLM Biases"
         href: biases/index.qmd
       - section: "Figures"

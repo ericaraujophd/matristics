@@ -7,25 +7,25 @@ All materials needed to replicate this evaluation are published openly. This pag
 
 ## What You Need
 
-1. **API access** to the models you want to evaluate. See [Data Collection](../data-collection/index.qmd) for setup.
+1. **API access** to the models you want to evaluate — a single OpenRouter key covers all six used here. See [Data Collection](../data-collection/index.qmd) for setup.
 2. **Python 3.10+** and the packages listed in [Environment Setup](../data-collection/setup.qmd).
-3. **Domain-expert annotators** — at minimum two with graduate-level knowledge of early Christianity. See [Annotation Protocol](../methodology/index.qmd#annotation-protocol) for annotator requirements and training materials.
-4. **The rubric** — download from [Evaluation Rubric](../methodology/rubric.qmd).
+3. **At least two annotators** who have read the primary and secondary literature for the figures under evaluation. See [Annotation Protocol](../methodology/index.qmd#annotation-protocol) for how ours were prepared and what that trade-off costs.
+4. **The rubric and scoring sheet** — see [The Rubric](../methodology/index.qmd#the-rubric).
 5. **The question bank** — download from [Figures & Question Bank](../figures/index.qmd).
 
 ## What You Can Reuse Without Modification
 
 - The full question bank (11 general questions per figure plus 6–7 figure-specific ones, [CSV](../figures/question_bank.csv))
-- The rubric definitions and scoring sheet template ([Evaluation Rubric](../methodology/rubric.qmd))
-- All data collection notebooks ([Data Collection](../data-collection/index.qmd))
+- The rubric definitions and scoring sheet template ([The Rubric](../methodology/index.qmd#the-rubric))
+- The collection pipeline and response format ([Data Collection](../data-collection/index.qmd))
 - The annotation protocol ([Annotation Protocol](../methodology/index.qmd#annotation-protocol))
 - The reference profiles and fact-check sheets for each figure, published in condensed form on the figure pages ([Macrina](../figures/macrina.qmd), [Olympias](../figures/olympias.qmd))
 
 ## What May Require Adaptation
 
-- **New models**: add a new notebook following the pattern of the existing API tutorials. The shared system prompt and data format should be used unchanged for comparability.
-- **New figures**: add a new page to the Figures section following the template of [Macrina the Younger](../figures/macrina.qmd). Add three questions (Basic / Intermediate / Advanced) to the question bank CSV.
-- **Different annotators**: re-run the pilot round with your annotators to establish local calibration. Report your inter-annotator alpha alongside any results.
+- **New models**: add the model's pinned version string to the collection script. Temperature 0 and the verbatim prompt text should be used unchanged for comparability.
+- **New figures**: add a page to the Figures section following the template of [Macrina the Younger](../figures/macrina.qmd), ask the 11 general questions with the figure's name substituted, and write 6–7 figure-specific questions — including at least one built on a false premise the record does not support.
+- **Different annotators**: build your own reference profile and fact-check sheet before scoring, and report inter-annotator agreement per dimension alongside any results — alpha together with raw exact and within-one-point agreement, since alpha alone can mislead when scores are concentrated.
 
 ## Submitting Results
 
@@ -37,4 +37,4 @@ can be aggregated into the benchmark panel. -->
 
 If you use the question bank, rubric, or methodology from this project, please cite:
 
-> Araujo, Eric. *LLM Evaluation in Early Church History*. 2026.
+> Araujo, Eric; Rylaarsdam, D.; Holtrop, Nathan; Hawthorne, Ian. *Matristics: LLM Evaluation in Early Church History*. 2026.

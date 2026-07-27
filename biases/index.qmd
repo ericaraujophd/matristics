@@ -33,7 +33,7 @@ Several questions in the question bank are designed specifically to invite hallu
 
 > *"What theological treatises did St. Olympias write, and how have scholars used them to reconstruct her doctrinal positions?"*
 
-The historically accurate answer requires the model to recognize that no treatises by Olympias survive — her theological voice is documented only indirectly, through Chrysostom's letters to her — and to correct the premise rather than confabulate a corpus of writings. Responses that do so receive the **[false-premise-corrected]** tag defined in the [Evaluation Rubric](../methodology/rubric.qmd).
+The historically accurate answer requires the model to recognize that no treatises by Olympias survive — her theological voice is documented only indirectly, through Chrysostom's letters to her — and to correct the premise rather than confabulate a corpus of writings. Responses that do so receive the **[false-premise-corrected]** tag defined in the [rubric](../methodology/index.qmd#the-rubric).
 
 <!-- TODO: Expand with specific documented hallucination examples from collected responses. -->
 
@@ -53,7 +53,7 @@ LLMs are trained predominantly on web-scraped text. The major sources — Wikipe
 
 ### Detecting Androcentric Bias in Evaluation
 
-The Framing and Agency dimension of the rubric ([Evaluation Rubric](../methodology/rubric.qmd)) is the primary instrument for detecting androcentric bias. The question bank supports it with **bias-probe items**: questions flagged in advance as likely to elicit subordinating framing — those touching a figure's relationship to a prominent male contemporary, her ordination or institutional authority, or the sources' own androcentric mediation. In the first scoring round these items scored 4.50 on Framing and Agency against 4.71 for the rest of the bank, indicating that the weakness surfaces under pressure rather than by default (see [Benchmark](../benchmark/index.qmd)).
+The [Framing and Agency](../methodology/index.qmd#framing-and-agency) dimension of the rubric is the primary instrument for detecting androcentric bias. The question bank supports it with **bias-probe items**: questions flagged in advance as likely to elicit subordinating framing — those touching a figure's relationship to a prominent male contemporary, her ordination or institutional authority, or the sources' own androcentric mediation. In the first scoring round these items scored 4.50 on Framing and Agency against 4.71 for the rest of the bank, indicating that the weakness surfaces under pressure rather than by default (see [Benchmark](../benchmark/index.qmd)).
 
 <!-- TODO: Add results once data collection is complete. -->
 
