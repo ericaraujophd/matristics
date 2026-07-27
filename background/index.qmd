@@ -9,9 +9,9 @@ This project evaluates six LLMs — Claude, ChatGPT, Gemini, Grok, DeepSeek, and
 
 The project has three aims:
 
-1. **Establish a replicable evaluation methodology** for assessing LLM outputs on specialized historical content, including a rubric, annotation protocol, and question bank.
+1. **Establish a replicable evaluation methodology** for assessing LLM outputs on specialized historical content — rubric, annotation protocol, and question bank — designed to transfer to other underdocumented historical populations.
 2. **Identify and document bias patterns** specific to early church history: hallucination in sparse historical domains, androcentric training data, conflation of canonical and apocryphal sources, and evasive responses to contested scholarship.
-3. **Build a public benchmark** comparing model performance across figures, rubric dimensions, and question difficulty levels.
+3. **Build a public benchmark** comparing model performance across figures, rubric dimensions, and question difficulty, released openly so that it can be rerun as models evolve.
 
 All materials — methodology, question bank, raw prompts, annotation guidelines, and results — are published here so that other researchers can replicate, extend, or critique the evaluation.
 
@@ -94,8 +94,4 @@ On the bias side, @unesco2023genderai documents alarming evidence of regressive 
 
 ### What This Project Adds
 
-Existing evaluation frameworks measure general capability, and existing bias studies measure stereotyping in contemporary contexts; neither addresses how LLMs represent *historical* women in a domain where the training data itself inherits two millennia of androcentric selection. This project contributes three things that sit at that intersection:
-
-1. **A domain-specific benchmark** for early church history with an explicit gender-bias focus, comparing multiple frontier models on a two-tier question bank — 11 general questions asked of every figure plus 6–7 figure-specific questions each — that expands as figures are added.
-2. **A replicable methodology** — rubric, annotation protocol, reference profiles, and agreement metrics — designed so that other researchers can apply the same design to other underdocumented historical populations.
-3. **A public question bank and dataset**: all prompts, raw model responses, and annotations are released openly, allowing the benchmark to be rerun as models evolve.
+Existing evaluation frameworks measure general capability, and existing bias studies measure stereotyping in contemporary contexts. Neither addresses how LLMs represent *historical* women in a domain where the training data itself inherits two millennia of androcentric selection — where the silences in the model reproduce silences in the archive. The three aims above are pursued at that intersection, and the first results are reported in the [Benchmark](../benchmark/index.qmd).

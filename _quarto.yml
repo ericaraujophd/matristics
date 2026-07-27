@@ -46,13 +46,10 @@ website:
           - figures/index.qmd
           - figures/macrina.qmd
           - figures/olympias.qmd
-      - section: "Data Collection"
-        contents:
-          - data-collection/index.qmd
-          - data-collection/setup.qmd
+      - text: "Data Collection"
+        href: data-collection/index.qmd
       - text: "Benchmark"
         href: benchmark/index.qmd
-      - replicate/index.qmd
       - about.qmd
       - glossary.qmd
       - references.qmd

@@ -290,3 +290,17 @@ alpha = krippendorff.alpha(
 ```
 
 Alpha is computed separately for each dimension, and N/A ratings — used when an evasive response leaves nothing substantive to score — are passed as missing values rather than imputed.
+
+## Replicating This Evaluation
+
+Everything needed to repeat or extend the evaluation is published: the [question bank](../figures/index.qmd) as CSV, the rubric and scoring sheet above, the [collection pipeline](../data-collection/index.qmd), and the reference profiles condensed onto the figure pages ([Macrina](../figures/macrina.qmd), [Olympias](../figures/olympias.qmd)). Three parts of the design will need adaptation rather than reuse.
+
+**Adding models.** Add the model's pinned, dated version string to the collection script. Temperature 0 and verbatim prompt text should be kept unchanged, or results are not comparable with those reported here.
+
+**Adding figures.** Ask the 11 general questions with the new figure's name substituted, then write 6–7 figure-specific questions covering her particular sources, debates, and events. Include at least one item built on a premise the record does not support: the adversarial questions proved the most discriminating in the first round. Build a reference profile and fact-check sheet before scoring begins, recording not only the documented facts but the points where sources disagree.
+
+**Using different annotators.** Reference material is not transferable in the way a question bank is — annotators score more consistently against a baseline they helped assemble. Expect to build your own, and report inter-annotator agreement per dimension alongside any results: alpha together with raw exact and within-one-point agreement, since alpha alone misleads when scores are concentrated (see [How Agreement Is Used](#how-agreement-is-used)).
+
+<!-- TODO: Add instructions for submitting results to a shared dataset repository
+(e.g., Hugging Face Datasets or Zenodo) so that results across research groups
+can be aggregated into the benchmark panel. -->

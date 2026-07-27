@@ -1,6 +1,6 @@
 ---
 title: Data Collection
-description: How LLM responses were collected — pipeline, models, versions, and data format.
+subtitle: Pipeline, models, data format, and how to run it yourself
 ---
 
 Data collection for the current question bank is **complete**. All responses were collected through [OpenRouter](https://openrouter.ai), which provides a single API and a unified request format across model providers — one key, one pipeline, and consistent metadata for every model under evaluation.
@@ -43,12 +43,64 @@ All responses are stored as newline-delimited JSON (`.jsonl`), one file per mode
 }
 ```
 
-Using `temperature: 0.0` across all models ensures deterministic responses for replication.
-
 ::: {.callout-note title="Data release"}
 All 210 responses have been scored; see the [Benchmark](../benchmark/index.qmd) for results. The raw response files and the full annotation dataset will be released together once the scoring for further figures is under way.
 :::
 
-## Setting Up Your Own Collection
+## Running the Pipeline Yourself
 
-See [Environment Setup](setup.qmd) for the environment, API key management, and storage format needed to run the same pipeline on your own question bank.
+### Requirements
+
+Python 3.10 or higher. Collection goes through OpenRouter's OpenAI-compatible API, so a single client library covers every model:
+
+```bash
+pip install openai pandas tqdm
+```
+
+### API Key
+
+One OpenRouter key covers all models under evaluation. Store it as an environment variable — never hardcode it:
+
+```bash
+# Add to your ~/.bashrc, ~/.zshrc, or .env file
+export OPENROUTER_API_KEY="your-key-here"
+```
+
+In Python, point the client at OpenRouter:
+
+```python
+import os
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://openrouter.ai/api/v1",
+    api_key=os.environ["OPENROUTER_API_KEY"],
+)
+
+response = client.chat.completions.create(
+    model="anthropic/claude-sonnet-5-20260630",  # pinned, dated version string
+    temperature=0.0,
+    messages=[{"role": "user", "content": question_text}],
+)
+```
+
+Always request **pinned, dated model versions** (e.g., `anthropic/claude-sonnet-5-20260630`, not `anthropic/claude-sonnet-5`) so collected responses stay attributable to an exact model snapshot.
+
+### Response Storage
+
+Save responses to `data/responses/`, one `.jsonl` file per model, following the format above:
+
+```
+data/
+└── responses/
+    ├── claude.jsonl
+    ├── openai.jsonl
+    ├── gemini.jsonl
+    ├── grok.jsonl
+    ├── deepseek.jsonl
+    └── glm.jsonl
+```
+
+### Costs and Rate Limits
+
+Running the full 35-question bank across all six models (210 responses at temperature 0) is inexpensive — well under typical academic budget thresholds — because prompts are short and responses average a few hundred to ~1,000 tokens. OpenRouter applies each provider's pricing per token and handles provider-side rate limits; a modest delay between requests is sufficient for a bank of this size.
