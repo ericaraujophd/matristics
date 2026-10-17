@@ -1,459 +1,648 @@
 /*-- scss:defaults --*/
 
-// ============================================================
-// Palette — "Tyrian purple + parchment"
-// Rationale (HCI):
-//  - Warm off-white background reduces glare vs. pure white for
-//    long-form reading sessions.
-//  - Warm near-black text gives ~13:1 contrast (WCAG AAA).
-//  - Tyrian purple (#66023C) for links/primary: ~9.5:1 on the
-//    parchment background (AAA), distinct from body text, and
-//    thematically tied to Lydia the purple-dye seller and
-//    Byzantine manuscript culture.
-//  - Gold is decorative only (borders, rules) — never used for
-//    text, where its contrast would be insufficient.
-// ============================================================
+// =====================================================================
+// Mosaic: shared rules for BOTH colour modes.
+//
+// Quarto compiles this file twice, once after theme-dark.scss and once
+// after theme-light.scss, so every $mx-* variable below already holds the
+// value for the mode being compiled. The !default fallbacks only matter
+// if this file is ever compiled on its own.
+//
+// Everything is also exposed as CSS custom properties (--mx-*) so that
+// assets/mx-charts.js can read the live colours and redraw when the
+// reader toggles dark/light.
+//
+// Sections in this file:
+//   1. Fonts and base type          8. Benchmark charts
+//   2. Custom properties            9. Figures grid
+//   3. Navbar, sidebar, footer     10. Report pages
+//   4. Long-form content           11. Accessibility toolbar
+//   5. Buttons and pills           12. Motion (reveal, chart entrances)
+//   6. Panels, stats, cards        13. Reduced motion
+//   7. Home page                   14. Print (the PDF edition)
+// =====================================================================
 
-$parchment:      #FAF7F1;
-$parchment-dark: #F4EEE3;
-$ink:            #2C241D;
-$ink-soft:       #5A4F45;
-$tyrian:         #66023C;
-$tyrian-bright:  #8E2159;
-$tyrian-deep:    #4A1233;
-$gold:           #B08A3E;
+$mx-mode: dark !default;
+$mx-bg: #0E131D !default;
+$mx-surface: #161D2B !default;
+$mx-surface-2: #1B2333 !default;
+$mx-line: #263044 !default;
+$mx-line-2: #33405A !default;
+$mx-text: #ECE5D6 !default;
+$mx-text-2: #C8C0AE !default;
+$mx-muted: #A39C8C !default;
+$mx-faint: #8C8577 !default;
+$mx-gold: #D9B46B !default;
+$mx-gold-strong: #F0D49A !default;
+$mx-on-gold: #0E131D !default;
+$mx-series: #D9B46B !default;
+$mx-series-fill: rgba(176, 136, 62, 0.24) !default;
+$mx-compare: #4F86D9 !default;
+$mx-olympias: #9C7BC6 !default;
+$mx-track: #222B3D !default;
+$mx-heat-0: #1E2638 !default;
+$mx-heat-1: #6B5A36 !default;
+$mx-heat-2: #D9B46B !default;
 
-// Fonts
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=Inter:wght@400..700&family=JetBrains+Mono:wght@400;600&display=swap');
+// 1. Fonts: a display serif for headings and numbers, a humanist sans for
+// everything else. Body text is 17px at the default text size; the
+// accessibility toolbar raises the root size, and everything is in rem.
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
 
-$font-family-sans-serif: "Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
-$font-family-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+$font-family-sans-serif: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
 $font-family-monospace: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-
-// Body text is serif for sustained reading; UI/navigation stays sans.
-$font-family-base: $font-family-serif;
-
-// 18px base + generous leading: comfortable measure for long-form
-// academic prose; ~66–72 characters per line at the 780px body width.
-$font-size-root: 18px;
+$font-family-base: $font-family-sans-serif;
+$mx-display: "Cormorant Garamond", Georgia, serif;
+$font-size-root: 17px;
 $line-height-base: 1.65;
-
-$body-bg: $parchment;
-$body-color: $ink;
-
-$primary: $tyrian;
-$link-color: $tyrian;
-$link-decoration: underline;
-
-$code-bg: #F0E9DD;
-$code-color: #703B14;
-
-$headings-font-family: $font-family-serif;
-$headings-font-weight: 600;
-$headings-color: #241B12;
-
-$table-border-color: #E2D8C8;
-
-$navbar-bg: $tyrian-deep;
-$navbar-fg: #F5EFE6;
-$navbar-hl: #E8C77D;
-
-$sidebar-bg: $parchment-dark;
-$sidebar-fg: $ink;
-
-$footer-bg: $parchment-dark;
-$footer-fg: $ink-soft;
+$headings-font-family: $mx-display;
+$headings-font-weight: 500;
+// $headings-color is set in each mode file: Quarto places this file's defaults
+// BEFORE the mode file's, so $mx-text here would still be the fallback.
 
 /*-- scss:rules --*/
 
-// ---------- Headings: clear hierarchy, extra space above ----------
-h1, .title {
-  font-size: 2rem;
-  letter-spacing: -0.01em;
-  margin-bottom: 1rem;
-}
-h2 {
-  font-size: 1.5rem;
-  margin-top: 2.25rem;
-  padding-bottom: 0.35rem;
-  border-bottom: 2px solid rgba($gold, 0.45);
-}
-h3 { font-size: 1.2rem; margin-top: 1.75rem; }
-h4 { font-size: 1.05rem; font-family: $font-family-sans-serif; font-weight: 600; }
-
-.subtitle {
-  color: $ink-soft;
-  font-style: italic;
-}
-
-// ---------- Links: underlined (don't rely on color alone) ----------
-p a, li a, td a {
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-  &:hover { color: $tyrian-bright; }
-}
-
-// Visible keyboard focus for accessibility
-a:focus-visible, button:focus-visible {
-  outline: 3px solid $tyrian-bright;
-  outline-offset: 2px;
-  border-radius: 2px;
+// ---------------------------------------------------------------------
+// 2. Custom properties (read by the chart script)
+// ---------------------------------------------------------------------
+:root {
+  --mx-bg: #{$mx-bg};
+  --mx-surface: #{$mx-surface};
+  --mx-surface-2: #{$mx-surface-2};
+  --mx-line: #{$mx-line};
+  --mx-line-2: #{$mx-line-2};
+  --mx-text: #{$mx-text};
+  --mx-text-2: #{$mx-text-2};
+  --mx-muted: #{$mx-muted};
+  --mx-faint: #{$mx-faint};
+  --mx-gold: #{$mx-gold};
+  --mx-on-gold: #{$mx-on-gold};
+  --mx-series: #{$mx-series};
+  --mx-series-fill: #{$mx-series-fill};
+  --mx-compare: #{$mx-compare};
+  --mx-olympias: #{$mx-olympias};
+  --mx-track: #{$mx-track};
+  --mx-heat-0: #{$mx-heat-0};
+  --mx-heat-1: #{$mx-heat-1};
+  --mx-heat-2: #{$mx-heat-2};
+  --mx-display: #{$mx-display};
+  --mx-radius: 18px;
 }
 
-// ---------- Navigation is sans-serif: crisper at small sizes ----------
-.navbar, .sidebar, .quarto-secondary-nav,
-nav#TOC, .page-navigation, .breadcrumb {
-  font-family: $font-family-sans-serif;
+// Text-size steps set by the accessibility toolbar (html[data-mx-text]).
+html[data-mx-text="1"] { font-size: 19px; }
+html[data-mx-text="2"] { font-size: 21px; }
+html[data-mx-text="3"] { font-size: 23.5px; }
+
+body { background: $mx-bg; color: $mx-text; }
+
+::selection { background: rgba($mx-gold, 0.3); }
+
+a { text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { color: $mx-gold-strong; }
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid $mx-gold;
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
-.navbar .navbar-brand {
-  font-weight: 600;
-  font-size: 1.02rem;
+// ---------------------------------------------------------------------
+// 3. Navbar, sidebar, footer
+// ---------------------------------------------------------------------
+.navbar {
+  border-bottom: 1px solid $mx-line;
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+  .navbar-brand, .navbar-title {
+    font-family: $mx-display;
+    font-size: 1.65rem;
+    font-weight: 600;
+    color: $mx-text !important;
+    letter-spacing: 0.01em;
+  }
+  .nav-link { font-weight: 500; font-size: 0.92rem; }
+  .nav-link.active { color: $mx-text !important; box-shadow: inset 0 -2px 0 $mx-gold; }
 }
-.navbar .nav-link {
-  font-size: 0.93rem;
+.quarto-color-scheme-toggle .bi::before { filter: none; }
+
+.sidebar nav[role="doc-toc"], #quarto-sidebar {
+  font-size: 0.88rem;
+}
+#quarto-sidebar .sidebar-title { font-family: $mx-display; font-size: 1.35rem; }
+#quarto-sidebar .sidebar-item .active { color: $mx-gold !important; font-weight: 600; }
+
+.nav-footer {
+  border-top: 1px solid $mx-line;
+  font-size: 0.85rem;
+  color: $mx-muted;
+  padding: 1.6rem 0;
+  a { color: $mx-text-2; }
+  strong { font-family: $mx-display; font-size: 1.2rem; font-weight: 600; color: $mx-text; }
+}
+
+// ---------------------------------------------------------------------
+// 4. Long-form content (report sections, figure profiles, about)
+// ---------------------------------------------------------------------
+.quarto-title .title, h1.title {
+  font-family: $mx-display;
   font-weight: 500;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
 }
-
-// Sidebar: slightly smaller, roomy line spacing for scanning
-.sidebar-navigation {
-  font-size: 0.9rem;
-  .sidebar-item { margin-bottom: 0.15rem; }
-  .sidebar-item-section > .sidebar-item-container .menu-text {
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.78rem;
-    letter-spacing: 0.05em;
-    color: $ink-soft;
-  }
-  .active {
-    font-weight: 600;
-    color: $tyrian !important;
-  }
+.quarto-title .subtitle, p.subtitle {
+  font-family: $font-family-sans-serif;
+  font-style: normal;
+  color: $mx-text-2;
+  font-size: 1.05rem;
 }
-
-// Right-hand page TOC
-nav#TOC {
-  font-size: 0.85rem;
-  a.active { color: $tyrian; font-weight: 600; }
+main h2 {
+  font-size: 2rem;
+  margin-top: 2.6rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid $mx-line;
 }
+main h3 { font-size: 1.5rem; margin-top: 2rem; }
+main h4 { font-family: $font-family-sans-serif; font-weight: 700; font-size: 1rem; }
 
-// ---------- Reading aids ----------
 blockquote {
-  border-left: 3px solid $gold;
-  background: rgba($gold, 0.07);
-  padding: 0.6rem 1rem;
-  color: $ink-soft;
-  font-style: italic;
+  border-left: 3px solid $mx-gold;
+  background: $mx-surface;
+  padding: 0.8rem 1.1rem;
+  color: $mx-text-2;
+  border-radius: 0 10px 10px 0;
 }
 
-// Tables: sans-serif headers, zebra striping for row tracking
 table {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   thead th {
-    font-family: $font-family-sans-serif;
-    font-size: 0.82rem;
+    font-size: 0.74rem;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: $ink-soft;
-    border-bottom: 2px solid $gold;
+    letter-spacing: 0.06em;
+    color: $mx-muted;
+    border-bottom: 1px solid $mx-line-2 !important;
   }
-  tbody tr:nth-child(even) { background: rgba($gold, 0.05); }
+  td, th { border-color: $mx-line !important; }
+  tbody tr:nth-child(even) { background: $mx-surface-2; }
+}
+// Wide tables scroll inside their own box on phones instead of widening the page.
+@media (max-width: 760px) {
+  main table:not(.mx-keep) { display: block; overflow-x: auto; }
 }
 
-// Code: readable size, soft warm background
-pre {
-  background: $code-bg;
-  border: 1px solid #E4DACA;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  line-height: 1.55;
-}
-p code, li code, td code {
-  font-size: 0.85em;
-  background: $code-bg;
-  padding: 0.1em 0.35em;
-  border-radius: 4px;
-}
+pre, div.sourceCode { background: $mx-surface-2 !important; border: 1px solid $mx-line; border-radius: 10px; }
+p code, li code, td code { background: $mx-surface-2; padding: 0.1em 0.35em; border-radius: 4px; font-size: 0.86em; }
 
-// Callouts: align with palette
-.callout {
-  border-radius: 6px;
-  font-size: 0.97rem;
-}
-.callout-note { border-left-color: $tyrian !important; }
-.callout-warning { border-left-color: $gold !important; }
+.callout { border-radius: 12px; background: $mx-surface; border-color: $mx-line !important; }
+.callout .callout-header { background: transparent !important; }
 
-// Figures
-figure figcaption {
-  font-family: $font-family-sans-serif;
-  font-size: 0.85rem;
-  color: $ink-soft;
-  margin-top: 0.5rem;
-}
-figure img {
-  border-radius: 4px;
-  box-shadow: 0 2px 12px rgba(44, 36, 29, 0.12);
-}
+dl dt { font-weight: 700; color: $mx-gold; margin-top: 1rem; }
 
-// Definition lists (glossary)
-dl dt {
-  font-family: $font-family-sans-serif;
-  font-weight: 600;
-  color: $tyrian-deep;
-  margin-top: 1rem;
-}
-dl dd { margin-left: 1.25rem; }
+.panel-tabset .nav-tabs { border-color: $mx-line; }
+.panel-tabset .nav-link { color: $mx-text-2; }
+.panel-tabset .nav-link.active { background: $mx-surface; color: $mx-text; border-color: $mx-line $mx-line $mx-surface; }
+.panel-tabset .tab-content { border-color: $mx-line; background: $mx-surface; }
 
-// ---------- Quick-link cards ----------
-.ql-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
-  margin: 1.25rem 0 2rem;
-}
-.ql-card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.4rem;
-  padding: 1.1rem 1.15rem 1.2rem;
-  background: #FFFDF9;
-  border: 1px solid #E7DECD;
-  border-top: 3px solid $gold;
-  border-radius: 8px;
-  text-decoration: none !important;
-  color: $ink;
-  box-shadow: 0 1px 4px rgba(44, 36, 29, 0.06);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-  &:hover, &:focus-visible {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(44, 36, 29, 0.14);
-    border-top-color: $tyrian;
-    color: $ink;
-  }
-}
-.ql-icon {
-  color: $tyrian;
-  svg { width: 34px; height: 34px; }
-}
-.ql-title {
-  font-family: $font-family-sans-serif;
-  font-weight: 600;
-  font-size: 0.98rem;
-  color: $tyrian-deep;
-}
-.ql-desc {
-  font-family: $font-family-sans-serif;
-  font-size: 0.83rem;
-  line-height: 1.45;
-  color: $ink-soft;
-}
-
-// ---------- Figure portrait plate ----------
-// A framed devotional image set beside the opening of a figure's profile.
+// Figure portrait set beside the opening of a profile.
 .portrait-plate {
   float: right;
   width: min(270px, 45%);
   margin: 0.2rem 0 1.1rem 1.6rem;
-  padding: 0.55rem 0.55rem 0.1rem;
-  background: #FFFDF9;
-  border: 1px solid #E7DECD;
-  border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(44, 36, 29, 0.12);
-
-  img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border: 1px solid rgba($gold, 0.7);
-    border-radius: 2px;
-    box-shadow: none;
-  }
-
-  figcaption {
-    font-family: $font-family-sans-serif;
-    font-size: 0.76rem;
-    line-height: 1.45;
-    color: $ink-soft;
-    padding: 0.5rem 0.15rem 0.55rem;
-    border-top: 1px solid rgba($gold, 0.35);
-    margin-top: 0.55rem;
-  }
+  padding: 0.55rem;
+  background: $mx-surface;
+  border: 1px solid $mx-line;
+  border-radius: 12px;
+  img { display: block; width: 100%; height: auto; border-radius: 8px; }
+  figcaption { font-size: 0.75rem; color: $mx-muted; padding: 0.5rem 0.2rem 0.1rem; }
 }
-
 @media (max-width: 700px) {
-  .portrait-plate {
-    float: none;
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto 1.5rem;
-  }
+  .portrait-plate { float: none; width: 100%; max-width: 320px; margin: 0 auto 1.5rem; }
 }
+figure img { border-radius: 10px; }
+figcaption { color: $mx-muted; font-size: 0.82rem; }
 
-// ---------- Simple horizontal bar chart ----------
-.bar-chart {
-  margin: 1.5rem 0 0.5rem;
-  font-family: $font-family-sans-serif;
-  font-size: 0.85rem;
-}
-.bar-row {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin-bottom: 0.4rem;
-}
-.bar-label {
-  flex: 0 0 9.5rem;
-  text-align: right;
-  color: $ink-soft;
-}
-.bar-track {
-  flex: 1;
-  height: 18px;
-  background: rgba($gold, 0.13);
-  border-radius: 3px;
-  overflow: hidden;
-}
-.bar-fill {
-  display: block;
-  height: 100%;
-  background: linear-gradient(90deg, $tyrian-deep, $tyrian-bright);
-  border-radius: 3px 0 0 3px;
-}
-.bar-value {
-  flex: 0 0 2.6rem;
-  font-weight: 600;
-  color: $tyrian-deep;
-  font-variant-numeric: tabular-nums;
-}
-.bar-axis {
-  display: flex;
-  justify-content: space-between;
-  margin-left: 10.1rem;
-  margin-right: 2.6rem;
-  color: $ink-soft;
-  font-size: 0.75rem;
-  border-top: 1px solid #E2D8C8;
-  padding-top: 0.25rem;
-}
-
-// ---------- Figures carousel ----------
-.fig-carousel-wrap {
-  display: flex;
-  align-items: stretch;
-  gap: 0.4rem;
-  margin: 1.25rem 0 2rem;
-}
-.fig-carousel {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 0.35rem 0.2rem 0.85rem;
-  scrollbar-width: thin;
-  scrollbar-color: rgba($gold, 0.6) transparent;
-  flex: 1;
-}
-.fig-card {
-  scroll-snap-align: start;
-  flex: 0 0 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0.45rem;
-  padding: 1.25rem 0.9rem 1.1rem;
-  background: #FFFDF9;
-  border: 1px solid #E7DECD;
-  border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(44, 36, 29, 0.06);
-  text-decoration: none !important;
-  color: $ink;
-}
-a.fig-card {
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-  &:hover, &:focus-visible {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(44, 36, 29, 0.14);
-    color: $ink;
-    .fig-name { color: $tyrian; text-decoration: underline; }
-  }
-}
-.fig-card.planned { opacity: 0.72; }
-.fig-portrait {
-  width: 84px;
-  height: 84px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2.5px solid $gold;
-  box-shadow: 0 1px 6px rgba(44, 36, 29, 0.18);
-  flex: 0 0 auto;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 22%;
-  }
-}
-.fig-medallion {
-  display: flex;
+// ---------------------------------------------------------------------
+// 5. Buttons and pills
+// ---------------------------------------------------------------------
+.mx-btn {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 84px;
-  height: 84px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 32% 28%, #6E2B52, $tyrian-deep);
-  border: 2.5px solid $gold;
-  color: #F3E8D8;
-  font-family: $font-family-serif;
-  font-weight: 600;
-  font-size: 1.5rem;
-  letter-spacing: 0.02em;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0 1.4rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none !important;
+  transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+  &:hover { transform: translateY(-1px); }
 }
-.fig-name {
-  font-family: $font-family-sans-serif;
-  font-weight: 600;
-  font-size: 0.92rem;
-  line-height: 1.3;
-  color: $tyrian-deep;
+.mx-btn-primary { background: $mx-gold; color: $mx-on-gold !important; }
+.mx-btn-primary:hover { background: $mx-gold-strong; color: $mx-on-gold !important; }
+.mx-btn-ghost { border: 1px solid $mx-line-2; color: $mx-text !important; }
+.mx-btn-ghost:hover { border-color: $mx-gold; }
+
+.mx-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; }
+.mx-pills-label {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: $mx-faint; margin-right: 0.35rem;
 }
-.fig-period {
-  font-family: $font-family-sans-serif;
-  font-size: 0.78rem;
-  color: $ink-soft;
-}
-.fig-status {
-  font-family: $font-family-sans-serif;
-  font-size: 0.68rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 0.15rem 0.55rem;
-  border-radius: 20px;
-  margin-top: 0.15rem;
-}
-.status-active { background: rgba($tyrian, 0.12); color: $tyrian; }
-.status-planned { background: rgba($ink-soft, 0.12); color: $ink-soft; }
-.fig-nav {
-  align-self: center;
-  flex: 0 0 auto;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: 1px solid #E7DECD;
-  background: #FFFDF9;
-  color: $tyrian;
-  font-size: 1.5rem;
-  line-height: 1;
+.mx-pill {
+  min-height: 40px;
+  padding: 0 0.9rem;
+  border-radius: 999px;
+  border: 1px solid $mx-line-2;
+  background: transparent;
+  color: $mx-text-2;
+  font: 600 0.8rem $font-family-sans-serif;
   cursor: pointer;
-  box-shadow: 0 1px 4px rgba(44, 36, 29, 0.08);
-  &:hover { background: rgba($tyrian, 0.08); }
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  &:hover { border-color: $mx-gold; color: $mx-text; }
+  &[aria-pressed="true"] { background: $mx-gold; border-color: $mx-gold; color: $mx-on-gold; }
+  &.is-compare[aria-pressed="true"] { background: $mx-compare; border-color: $mx-compare; color: #FFFFFF; }
+}
+.mx-seg {
+  display: inline-flex; gap: 4px; padding: 4px;
+  background: $mx-surface; border: 1px solid $mx-line; border-radius: 999px;
+  .mx-pill { border: 0; min-height: 38px; }
+  .mx-pill[aria-pressed="true"] { background: $mx-text; color: $mx-bg; }
 }
 
-// Footer
-.nav-footer {
-  font-family: $font-family-sans-serif;
-  font-size: 0.83rem;
-  border-top: 1px solid #E2D8C8;
+// ---------------------------------------------------------------------
+// 6. Panels, stats, cards
+// ---------------------------------------------------------------------
+.mx-panel {
+  background: $mx-surface;
+  border: 1px solid $mx-line;
+  border-radius: var(--mx-radius);
+  padding: 1.4rem;
+  min-width: 0;
 }
+.mx-panel h2, .mx-h2 {
+  font-family: $mx-display;
+  font-weight: 500;
+  font-size: 2.1rem;
+  line-height: 1.1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.mx-panel-head {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline;
+  gap: 0.5rem 1rem; margin-bottom: 1rem;
+}
+.mx-sub { font-size: 0.8rem; color: $mx-muted; margin: 0.2rem 0 0; }
+.mx-note { font-size: 0.78rem; color: $mx-faint; margin: 0.8rem 0 0; }
+.mx-eyebrow {
+  margin: 0; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: $mx-gold;
+}
+
+.mx-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid $mx-line;
+  padding-top: 1.1rem;
+  gap: 0.75rem;
+  .mx-stat-n { font-family: $mx-display; font-size: 2.5rem; line-height: 1; color: $mx-text; font-variant-numeric: tabular-nums; }
+  .mx-stat-n small { font-size: 1.3rem; color: $mx-muted; }
+  .mx-stat-l { font-size: 0.78rem; color: $mx-muted; }
+}
+@media (max-width: 560px) { .mx-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.mx-section { padding: 1.5rem 0 3rem; }
+.mx-section-head {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end;
+  gap: 0.5rem 1rem; margin-bottom: 1.2rem;
+  h2 { font-family: $mx-display; font-weight: 500; font-size: 2.5rem; margin: 0; padding: 0; border: 0; line-height: 1.05; }
+  a { font-weight: 700; font-size: 0.88rem; text-decoration: none; }
+}
+
+// Full-page layout helpers for the chart pages (they use page-layout: custom
+// and draw their own heading, so Quarto's title block is hidden).
+.mx-chart-page #title-block-header, .mx-chart-page .quarto-title-block { display: none !important; }
+.mx-wrap { max-width: 1240px; margin: 0 auto; padding: 0 2rem; }
+@media (max-width: 600px) { .mx-wrap { padding: 0 1rem; } }
+
+// ---------------------------------------------------------------------
+// 7. Home page
+// ---------------------------------------------------------------------
+.mx-hero {
+  display: flex; flex-wrap: wrap; gap: 3rem; align-items: center;
+  padding: 4rem 0 3rem;
+}
+.mx-hero-copy { flex: 1 1 26rem; min-width: 0; display: flex; flex-direction: column; gap: 1.4rem; }
+.mx-hero-copy h1 {
+  font-family: $mx-display; font-weight: 500;
+  font-size: clamp(2.6rem, 5.4vw, 4rem);
+  line-height: 1.02; letter-spacing: -0.01em; margin: 0;
+}
+.mx-lede { margin: 0; font-size: 1.08rem; color: $mx-text-2; max-width: 32rem; }
+.mx-hero-chart { flex: 1 1 28rem; min-width: 0; }
+.mx-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+.mx-findings { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1rem; }
+.mx-finding {
+  display: flex; flex-direction: column; gap: 0.85rem;
+  .mx-big { font-family: $mx-display; font-size: 3.2rem; line-height: 1; color: $mx-gold; }
+  .mx-big small { font-size: 1.7rem; color: $mx-muted; }
+  h3 { margin: 0; font-family: $font-family-sans-serif; font-size: 1rem; font-weight: 700; line-height: 1.35; }
+}
+
+.mx-figrow { display: flex; flex-wrap: wrap; gap: 1rem; }
+.mx-figcard {
+  flex: 1 1 19rem;
+  display: flex; gap: 1.1rem; align-items: center;
+  text-decoration: none !important; color: $mx-text !important;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  &:hover { transform: translateY(-3px); border-color: $mx-gold; }
+  img { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; border: 2px solid $mx-gold; flex: 0 0 auto; }
+  .mx-figname { display: block; font-family: $mx-display; font-size: 1.6rem; line-height: 1.1; }
+  .mx-figmeta { font-size: 0.8rem; color: $mx-muted; }
+}
+.mx-figcard.is-olympias img { border-color: $mx-olympias; }
+.mx-planned {
+  flex: 1 1 19rem; padding: 1.2rem 1.4rem; border: 1px dashed $mx-line-2; border-radius: var(--mx-radius);
+  display: flex; flex-direction: column; gap: 0.5rem; justify-content: center;
+  font-size: 0.82rem; color: $mx-muted;
+  strong { color: $mx-text; font-size: 0.9rem; }
+}
+
+.mx-cta {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;
+  padding: 1.8rem 2rem; border: 1px solid $mx-gold; border-radius: var(--mx-radius);
+  text-decoration: none !important; color: $mx-text !important;
+  background: rgba($mx-gold, 0.06);
+  transition: background-color 0.2s ease;
+  &:hover { background: rgba($mx-gold, 0.12); }
+  .mx-cta-title { display: block; font-family: $mx-display; font-size: 1.9rem; line-height: 1.1; }
+  .mx-cta-sub { font-size: 0.88rem; color: $mx-muted; }
+  .mx-cta-go { font-weight: 700; color: $mx-gold; }
+}
+
+// ---------------------------------------------------------------------
+// 8. Benchmark charts (markup produced by assets/mx-charts.js)
+// ---------------------------------------------------------------------
+
+// Bars: the fill width lives in --w and is reached by a transition, so the
+// bar grows when its section scrolls into view (see section 12).
+.mx-bar { display: block; height: 10px; background: $mx-track; border-radius: 6px; overflow: hidden; }
+.mx-bar > span { display: block; height: 100%; width: var(--w); background: $mx-series; border-radius: 6px; }
+.mx-bar.is-thin { height: 7px; }
+.mx-bar.is-accent > span { background: linear-gradient(90deg, rgba($mx-gold, 0.55), $mx-gold); }
+.mx-bar.is-quiet > span { background: $mx-line-2; }
+
+.mx-board { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.mx-row {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1.4rem;
+  padding: 0.95rem 1.3rem; background: $mx-surface; border: 1px solid $mx-line; border-radius: 14px;
+  .mx-rank { width: 2.2rem; font-family: $mx-display; font-size: 1.75rem; color: $mx-gold; }
+  .mx-id { flex: 1 1 11rem; min-width: 0; }
+  .mx-name { display: block; font-weight: 700; }
+  .mx-prov { font-size: 0.78rem; color: $mx-muted; }
+  .mx-bar { flex: 3 1 16rem; }
+  .mx-score { width: 4rem; text-align: right; font-size: 1.35rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+}
+
+.mx-mini { display: flex; flex-direction: column; gap: 0.5rem; }
+.mx-mini-row {
+  display: grid; grid-template-columns: 8.5rem minmax(0, 1fr) 2.6rem; gap: 0.6rem; align-items: center;
+  font-size: 0.8rem;
+  > :first-child { color: $mx-muted; }
+  > :last-child { text-align: right; font-variant-numeric: tabular-nums; }
+}
+.mx-mini-row.no-val { grid-template-columns: 8.5rem minmax(0, 1fr); }
+
+.mx-dots { display: flex; gap: 4px; }
+.mx-dot { width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid $mx-line-2; box-sizing: border-box; }
+.mx-dot.is-on { background: $mx-gold; border-color: $mx-gold; }
+
+// Dumbbell: two markers on a track, joined by a line.
+.mx-dumb { position: relative; height: 16px; }
+.mx-dumb-line { position: absolute; top: 7px; height: 2px; background: $mx-line-2; }
+.mx-dumb-m, .mx-dumb-o {
+  position: absolute; top: 3px; width: 10px; height: 10px; margin-left: -5px; border-radius: 50%;
+}
+.mx-dumb-m { background: $mx-gold; }
+.mx-dumb-o { background: $mx-olympias; }
+.mx-key { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; font-size: 0.8rem; color: $mx-text-2; }
+.mx-key > span { display: inline-flex; align-items: center; gap: 0.5rem; }
+.mx-key i { display: inline-block; }
+.mx-key .k-line { width: 22px; border-top: 2px solid; }
+.mx-key .k-dash { width: 22px; border-top: 2px dashed; }
+.mx-key .k-dot { width: 10px; height: 10px; border-radius: 50%; }
+.mx-key .k-band { width: 14px; height: 5px; border-radius: 3px; }
+
+// Radar: SVG plus HTML labels positioned around it in % so they scale.
+.mx-radar { position: relative; width: 100%; max-width: 620px; margin: 0.5rem auto 0; aspect-ratio: 1 / 1; }
+.mx-radar svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.mx-radar-lbl {
+  position: absolute; transform: translate(-50%, -50%);
+  font-size: 0.6rem; color: $mx-faint; letter-spacing: 0.02em; white-space: nowrap;
+  &.is-flag { color: $mx-gold; font-weight: 700; }
+}
+
+.mx-split { display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: stretch; }
+.mx-split > .mx-main { flex: 999 1 34rem; min-width: 0; }
+.mx-split > .mx-side { flex: 1 1 18rem; min-width: 0; display: flex; flex-direction: column; gap: 1rem; }
+.mx-bignum { font-size: 3.4rem; font-weight: 700; line-height: 1; color: $mx-gold; font-variant-numeric: tabular-nums; }
+.mx-model-name { font-family: $mx-display; font-size: 2.1rem; line-height: 1.1; margin: 0.2rem 0; }
+.mx-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+.mx-fact-l { font-size: 0.74rem; color: $mx-faint; }
+.mx-fact-v { font-size: 1.55rem; font-weight: 700; }
+.mx-fact-v small { font-size: 0.9rem; color: $mx-faint; }
+
+.mx-heat-scroll { overflow-x: auto; }
+.mx-heat { min-width: 920px; display: flex; flex-direction: column; gap: 3px; }
+.mx-heat-row { display: grid; grid-template-columns: 9.5rem repeat(35, minmax(0, 1fr)); gap: 3px; align-items: center; }
+.mx-heat-row.is-head { font-size: 0.55rem; color: $mx-faint; text-align: center; }
+.mx-heat-row.is-head .is-flag { color: $mx-gold; font-weight: 700; }
+.mx-heat-name { font-size: 0.8rem; font-weight: 700; white-space: nowrap; }
+.mx-cell {
+  height: 26px; border-radius: 4px; border: 0; padding: 0; cursor: default;
+  &:hover, &:focus-visible { outline: 2px solid $mx-text; outline-offset: 0; }
+}
+.mx-ramp { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: $mx-muted; }
+.mx-ramp i { width: 120px; height: 8px; border-radius: 4px; background: linear-gradient(90deg, $mx-heat-0, $mx-heat-1, $mx-heat-2); }
+
+.mx-grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr)); gap: 1.25rem; }
+
+// Floating tooltip shared by the heatmap.
+.mx-tip {
+  position: fixed; z-index: 3000; display: none; max-width: 300px;
+  padding: 0.55rem 0.75rem; background: $mx-surface; color: $mx-text;
+  border: 1px solid $mx-line-2; border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, if($mx-mode == dark, 0.45, 0.15));
+  font-size: 0.78rem; line-height: 1.45; pointer-events: none;
+  .q { color: $mx-muted; }
+}
+
+// ---------------------------------------------------------------------
+// 9. Figures grid
+// ---------------------------------------------------------------------
+.mx-fig-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: 1rem; margin: 1.5rem 0 2rem; }
+.mx-fig-tile {
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.45rem;
+  padding: 1.4rem 1rem 1.2rem; background: $mx-surface; border: 1px solid $mx-line; border-radius: var(--mx-radius);
+  text-decoration: none !important; color: $mx-text !important;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  img, .mx-fig-mono {
+    width: 88px; height: 88px; border-radius: 50%; object-fit: cover; object-position: center 22%;
+    border: 2px solid $mx-gold;
+  }
+  .mx-fig-mono { display: inline-flex; align-items: center; justify-content: center; font-family: $mx-display; font-size: 1.6rem; background: $mx-surface-2; }
+  .t { font-family: $mx-display; font-size: 1.35rem; line-height: 1.1; }
+  .p { font-size: 0.78rem; color: $mx-muted; }
+  .s { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.15rem 0.6rem; border-radius: 99px; }
+  .s.on { background: rgba($mx-gold, 0.16); color: $mx-gold; }
+  .s.off { background: $mx-surface-2; color: $mx-muted; }
+}
+a.mx-fig-tile:hover { transform: translateY(-3px); border-color: $mx-gold; }
+.mx-fig-tile.is-planned { opacity: 0.78; img { border-color: $mx-line-2; filter: saturate(0.6); } }
+
+details.mx-details {
+  background: $mx-surface; border: 1px solid $mx-line; border-radius: 14px; padding: 0.9rem 1.2rem; margin: 1rem 0;
+  summary { cursor: pointer; font-weight: 700; }
+  &[open] summary { margin-bottom: 0.6rem; }
+}
+
+// ---------------------------------------------------------------------
+// 10. Report pages
+// ---------------------------------------------------------------------
+.mx-report-hero {
+  display: flex; flex-wrap: wrap; gap: 1.2rem 2rem; align-items: center; justify-content: space-between;
+  padding: 1.4rem 1.6rem; margin: 0.5rem 0 1.6rem;
+  background: $mx-surface; border: 1px solid $mx-line; border-radius: var(--mx-radius);
+  p { margin: 0; flex: 1 1 24rem; color: $mx-text-2; }
+}
+.mx-sec-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: 1rem; }
+.mx-sec-card {
+  display: flex; flex-direction: column; gap: 0.35rem; padding: 1.3rem 1.4rem 1.4rem;
+  background: $mx-surface; border: 1px solid $mx-line; border-radius: var(--mx-radius);
+  text-decoration: none !important; color: $mx-text !important;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  &:hover { transform: translateY(-3px); border-color: $mx-gold; }
+  .mx-sec-num { font-family: $mx-display; font-size: 2.2rem; line-height: 1; color: $mx-gold; }
+  .mx-sec-title { font-family: $mx-display; font-size: 1.55rem; line-height: 1.1; }
+  .mx-sec-desc { font-size: 0.85rem; color: $mx-muted; }
+}
+.mx-report-banner {
+  display: flex; flex-wrap: wrap; gap: 0.6rem 1rem; align-items: center; justify-content: space-between;
+  padding: 0.6rem 0.6rem 0.6rem 1.1rem; margin: 0 0 1.6rem;
+  border: 1px solid $mx-line; border-radius: 999px; font-size: 0.85rem; color: $mx-muted;
+  .mx-btn { min-height: 40px; font-size: 0.82rem; }
+}
+
+// ---------------------------------------------------------------------
+// 11. Accessibility toolbar (built by _includes/site.html into the navbar)
+// ---------------------------------------------------------------------
+.mx-a11y { display: inline-flex; align-items: center; gap: 4px; margin: 0 0.4rem; }
+.mx-a11y button {
+  min-width: 40px; min-height: 40px; padding: 0 0.5rem;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid $mx-line-2; background: transparent; color: $mx-text-2;
+  border-radius: 999px; font: 700 0.8rem $font-family-sans-serif; cursor: pointer;
+  &:hover { border-color: $mx-gold; color: $mx-text; }
+  &[aria-pressed="true"] { background: $mx-gold; color: $mx-on-gold; border-color: $mx-gold; }
+  svg { width: 18px; height: 18px; }
+}
+.mx-a11y .big { font-size: 1rem; }
+.skip-link {
+  position: absolute; left: -999px; top: 8px; z-index: 5000;
+  background: $mx-gold; color: $mx-on-gold; padding: 0.6rem 1rem; border-radius: 8px; font-weight: 700;
+  &:focus { left: 8px; }
+}
+
+// ---------------------------------------------------------------------
+// 12. Motion. Only active once the inline header script has added
+// .mx-js to <html>, so the page is fully visible without JavaScript.
+// ---------------------------------------------------------------------
+@keyframes mx-rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+@keyframes mx-fade { from { opacity: 0; } to { opacity: 1; } }
+
+// Page entrance: the title block and the hero rise in on load.
+html.mx-js #title-block-header, html.mx-js .mx-hero-copy > * {
+  animation: mx-rise 0.7s cubic-bezier(.2, .7, .2, 1) both;
+}
+html.mx-js .mx-hero-copy > :nth-child(2) { animation-delay: 0.08s; }
+html.mx-js .mx-hero-copy > :nth-child(3) { animation-delay: 0.16s; }
+html.mx-js .mx-hero-copy > :nth-child(4) { animation-delay: 0.24s; }
+html.mx-js .mx-hero-copy > :nth-child(5) { animation-delay: 0.32s; }
+html.mx-js .mx-hero-chart { animation: mx-fade 0.9s 0.2s ease both; }
+
+// Scroll reveal: elements marked .mx-reveal rise in when they enter the
+// viewport (site.html adds .is-in via IntersectionObserver).
+html.mx-js .mx-reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.2, .7, .2, 1); }
+html.mx-js .mx-reveal.is-in { opacity: 1; transform: none; }
+
+// Bars grow from zero once their section is in view.
+html.mx-js .mx-reveal .mx-bar > span { width: 0; transition: width 1s cubic-bezier(.2, .7, .2, 1); transition-delay: calc(var(--i, 0) * 70ms + 150ms); }
+html.mx-js .mx-reveal.is-in .mx-bar > span { width: var(--w); }
+
+// Dots and heatmap cells pop in one after another.
+html.mx-js .mx-reveal .mx-dot.is-on, html.mx-js .mx-reveal .mx-cell {
+  opacity: 0; transform: scale(0.4);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  transition-delay: calc(var(--i, 0) * 12ms + 100ms);
+}
+html.mx-js .mx-reveal.is-in .mx-dot.is-on, html.mx-js .mx-reveal.is-in .mx-cell { opacity: 1; transform: none; }
+
+// Dumbbell markers slide in from the left edge.
+html.mx-js .mx-reveal .mx-dumb > span { opacity: 0; transition: opacity 0.6s ease, left 0.9s cubic-bezier(.2, .7, .2, 1), width 0.9s ease; transition-delay: calc(var(--i, 0) * 80ms + 150ms); }
+html.mx-js .mx-reveal.is-in .mx-dumb > span { opacity: 1; }
+
+// Radar: the polygons scale out from the centre the first time they show.
+.mx-radar .mx-poly { transform-origin: 200px 200px; transition: transform 1.1s cubic-bezier(.2, .7, .2, 1), opacity 0.6s ease; }
+html.mx-js .mx-radar:not(.is-drawn) .mx-poly { transform: scale(0.05); opacity: 0; }
+
+// ---------------------------------------------------------------------
+// 13. Reduced motion: the OS setting or the toolbar switch turns off all
+// of the above and shows everything in its final state immediately.
+// ---------------------------------------------------------------------
+@mixin mx-still {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .mx-reveal, .mx-reveal .mx-dot, .mx-reveal .mx-cell, .mx-reveal .mx-dumb > span, .mx-radar .mx-poly { opacity: 1 !important; transform: none !important; }
+  .mx-reveal .mx-bar > span { width: var(--w) !important; }
+}
+@media (prefers-reduced-motion: reduce) { html:not([data-mx-motion="on"]) { @include mx-still; } }
+html[data-mx-motion="off"] { @include mx-still; }
+
+// ---------------------------------------------------------------------
+// 14. Print: the PDF edition (report/print.qmd) and any printed page.
+// Always light, serif headings, no navigation chrome.
+// ---------------------------------------------------------------------
+@media print {
+  :root { --mx-radius: 6px; }
+  html, body { background: #FFFFFF !important; color: #111111 !important; font-size: 10.5pt !important; }
+  .navbar, #quarto-sidebar, .nav-footer, .mx-a11y, .mx-report-banner, #quarto-back-to-top, .quarto-search, nav.page-navigation, .skip-link { display: none !important; }
+  a { color: #5C410B !important; }
+  main h2 { border-color: #BBBBBB; page-break-after: avoid; }
+  h1, h2, h3 { color: #111111 !important; page-break-after: avoid; }
+  figure, .callout, tr { page-break-inside: avoid; }
+  tbody tr:nth-child(even) { background: #F4F4F4 !important; }
+  .callout, blockquote, pre, div.sourceCode, .panel-tabset .tab-content { background: #FAFAFA !important; color: #111111 !important; }
+  // Explicit point sizes: rem-based screen sizes do not survive the
+  // print root size reliably, so the PDF gets its own type scale.
+  body, p, li, td, dd { font-size: 10.5pt !important; line-height: 1.5 !important; }
+  h1.title { font-size: 26pt !important; }
+  h1, .mx-print-section { font-size: 22pt !important; }
+  h2 { font-size: 15pt !important; margin-top: 18pt !important; }
+  h3 { font-size: 12.5pt !important; }
+  h4 { font-size: 11pt !important; }
+  table, table td, table th { font-size: 8.5pt !important; }
+  .mx-print-section { page-break-before: always; border-bottom: 2px solid #9C7424; padding-bottom: 4pt; }
+  #TOC { display: block !important; page-break-after: always; }
+  #TOC ul { list-style: none; padding-left: 0; }
+  #TOC ul ul { padding-left: 14pt; }
+  // Nothing may be wider than the page, or Chromium shrinks every page to fit.
+  #quarto-content, main, .page-columns, .content { display: block !important; width: auto !important; max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
+  pre, pre code { white-space: pre-wrap !important; word-break: break-word; font-size: 8pt !important; }
+  table { width: 100% !important; table-layout: auto; }
+  img { max-width: 100% !important; }
+  p, li, td, a { overflow-wrap: anywhere; }   // long URLs wrap instead of widening the page
+  #TOC a { color: #111111 !important; text-decoration: none; }
+  .mx-reveal { opacity: 1 !important; transform: none !important; }
+}
+// The print edition also reads as a light page on screen, for checking.
+body.mx-print { background: #FFFFFF; color: #111111; }

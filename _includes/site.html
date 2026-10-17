@@ -1,0 +1,157 @@
+<!--
+  Site-wide behaviour, pasted at the end of every page's <body>
+  (see `include-after-body` in _quarto.yml). Four jobs:
+
+    A. a "Skip to content" link for keyboard users;
+    B. the accessibility toolbar in the navbar: text size down / up and a
+       reduce-motion switch, both remembered in localStorage;
+    C. scroll-reveal animations: anything with class .mx-reveal (plus the
+       main sections of long pages) rises in when it enters the viewport;
+    D. a "mx:theme" event whenever the dark/light toggle changes, so the
+       charts in assets/mx-charts.js can redraw in the new colours.
+
+  Kept inline (not a separate .js file) because an include is pasted
+  verbatim, so it works at any folder depth without fixing up paths.
+-->
+<script>
+(function () {
+  "use strict";
+  var root = document.documentElement;
+
+  function store(key, val) {
+    try { if (val == null) localStorage.removeItem(key); else localStorage.setItem(key, val); } catch (e) {}
+  }
+
+  // -------------------------------------------------------------------
+  // A. Skip link
+  // -------------------------------------------------------------------
+  var target = document.getElementById("quarto-document-content") || document.querySelector("main");
+  if (target) {
+    if (!target.id) target.id = "mx-content";
+    var skip = document.createElement("a");
+    skip.className = "skip-link";
+    skip.href = "#" + target.id;
+    skip.textContent = "Skip to content";
+    document.body.insertBefore(skip, document.body.firstChild);
+  }
+
+  // -------------------------------------------------------------------
+  // B. Accessibility toolbar
+  // Text size has four steps (0 = default 17px, up to 3 = 23.5px); the
+  // sizes themselves are defined in theme.scss under html[data-mx-text].
+  // -------------------------------------------------------------------
+  var MAX_STEP = 3;
+  function textStep() { return parseInt(root.getAttribute("data-mx-text") || "0", 10); }
+  function setTextStep(n) {
+    n = Math.max(0, Math.min(MAX_STEP, n));
+    if (n === 0) root.removeAttribute("data-mx-text"); else root.setAttribute("data-mx-text", String(n));
+    store("mx-text", n === 0 ? null : String(n));
+    refreshToolbar();
+    window.dispatchEvent(new Event("resize")); // let charts re-measure
+  }
+
+  // Motion is "off" when the reader switched it off here, or when the OS asks
+  // for reduced motion and the reader has not explicitly switched it on.
+  var osReduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function motionOff() {
+    var m = root.getAttribute("data-mx-motion");
+    return m === "off" || (m !== "on" && osReduce);
+  }
+  function setMotionOff(off) {
+    root.setAttribute("data-mx-motion", off ? "off" : "on");
+    store("mx-motion", off ? "off" : "on");
+    refreshToolbar();
+  }
+
+  var bar, btnDown, btnUp, btnMotion;
+  function button(label, html, onClick) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.setAttribute("aria-label", label);
+    b.title = label;
+    b.innerHTML = html;
+    b.addEventListener("click", onClick);
+    return b;
+  }
+  function refreshToolbar() {
+    if (!bar) return;
+    var s = textStep();
+    btnDown.disabled = s === 0;
+    btnUp.disabled = s === MAX_STEP;
+    btnUp.setAttribute("aria-label", "Larger text (size " + (s + 1) + " of " + (MAX_STEP + 1) + ")");
+    btnMotion.setAttribute("aria-pressed", String(motionOff()));
+  }
+  (function buildToolbar() {
+    bar = document.createElement("div");
+    bar.className = "mx-a11y";
+    bar.setAttribute("role", "group");
+    bar.setAttribute("aria-label", "Display settings");
+    btnDown = button("Smaller text", "A&minus;", function () { setTextStep(textStep() - 1); });
+    btnUp = button("Larger text", '<span class="big">A+</span>', function () { setTextStep(textStep() + 1); });
+    // Icon: a pause symbol inside a circle, meaning "stop movement".
+    btnMotion = button("Reduce motion",
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line x1="10" y1="9" x2="10" y2="15"/><line x1="14" y1="9" x2="14" y2="15"/></svg>',
+      function () { setMotionOff(!motionOff()); });
+    bar.append(btnDown, btnUp, btnMotion);
+    // Place it next to Quarto's own tools (the dark/light toggle), or at the
+    // end of the navbar if that container is missing.
+    var tools = document.querySelector(".quarto-navbar-tools") || document.querySelector(".navbar .container-fluid");
+    if (tools) tools.insertBefore(bar, tools.firstChild);
+    refreshToolbar();
+  })();
+
+  // -------------------------------------------------------------------
+  // C. Scroll reveal
+  // Long pages get gentle section-by-section reveals automatically; the
+  // chart pages mark their own blocks with .mx-reveal. The print edition is
+  // skipped so the PDF never captures a half-faded element.
+  // -------------------------------------------------------------------
+  if (!document.body.classList.contains("mx-print")) {
+    document.querySelectorAll("main section.level2, main .callout, main .portrait-plate, main table")
+      .forEach(function (el) { if (!el.closest(".mx-reveal")) el.classList.add("mx-reveal"); });
+  }
+  var items = document.querySelectorAll(".mx-reveal");
+  function show(el) { el.classList.add("is-in"); }
+  if (!("IntersectionObserver" in window) || motionOff() || document.body.classList.contains("mx-print")) {
+    items.forEach(show);
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } });
+    }, { rootMargin: "0px 0px -4% 0px", threshold: 0.01 });
+    items.forEach(function (el) { io.observe(el); });
+    // Safety net: anything still hidden after 4 s is shown (e.g. very tall
+    // blocks that never reach the threshold on a small screen).
+    setTimeout(function () { items.forEach(show); }, 4000);
+  }
+
+  // Count-up numbers: <span data-count="4.65" data-decimals="2">4.65</span>
+  // The final value is already in the markup, so nothing is lost without JS.
+  function countUp(el) {
+    var end = parseFloat(el.getAttribute("data-count"));
+    var dec = parseInt(el.getAttribute("data-decimals") || "0", 10);
+    if (isNaN(end) || motionOff()) return;
+    var t0 = null, dur = 1100;
+    function frame(t) {
+      if (t0 === null) t0 = t;
+      var p = Math.min(1, (t - t0) / dur), eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = (end * eased).toFixed(dec);
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  document.querySelectorAll("[data-count]").forEach(countUp);
+
+  // -------------------------------------------------------------------
+  // D. Theme-change event for the charts
+  // Quarto marks the active scheme with body.quarto-dark / body.quarto-light.
+  // -------------------------------------------------------------------
+  var last = document.body.className;
+  new MutationObserver(function () {
+    if (document.body.className !== last) {
+      last = document.body.className;
+      // Wait one frame so the swapped stylesheet's CSS variables are live.
+      requestAnimationFrame(function () { window.dispatchEvent(new Event("mx:theme")); });
+    }
+  }).observe(document.body, { attributes: true, attributeFilter: ["class"] });
+})();
+</script>

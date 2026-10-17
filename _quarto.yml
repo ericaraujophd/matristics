@@ -1,6 +1,22 @@
+# ---------------------------------------------------------------------------
+# Matristics site configuration (Quarto 1.6).
+#
+# Design: "Mosaic". Dark is the default theme and is listed FIRST under
+# `theme:` (Quarto treats the first listed mode as the default); the navbar
+# toggle switches to light. Both modes share theme.scss, which holds every
+# rule; theme-dark.scss and theme-light.scss only set the colour variables.
+#
+# Long text lives in report/ (seven sections, plus a print edition that
+# _dev/build_report_pdf.js turns into report/matristics-full-report.pdf).
+# Home and Benchmark are mostly charts, drawn by assets/mx-charts.js.
+# ---------------------------------------------------------------------------
 project:
   type: website
   output-dir: _site
+  resources:
+    - benchmark/benchmark-data.js
+    - assets/*.js
+    - report/matristics-full-report.pdf
 
 execute:
   enabled: false
@@ -16,57 +32,61 @@ website:
   page-navigation: true
   back-to-top-navigation: true
   navbar:
-    background: "#4A1233"
-    foreground: "#F5EFE6"
     left:
-      - text: "Home"
-        href: index.qmd
-      - text: "Methodology"
-        href: methodology/index.qmd
-      - text: "Figures"
-        href: figures/index.qmd
       - text: "Benchmark"
         href: benchmark/index.qmd
+      - text: "Figures"
+        href: figures/index.qmd
+      - text: "Report"
+        href: report/index.qmd
       - text: "About"
         href: about.qmd
   sidebar:
-    style: "docked"
-    background: "#F4EEE3"
-    collapse-level: 1
-    contents:
-      - index.qmd
-      - text: "Background"
-        href: background/index.qmd
-      - text: "Methodology"
-        href: methodology/index.qmd
-      - text: "Known LLM Biases"
-        href: biases/index.qmd
-      - section: "Figures"
-        contents:
-          - figures/index.qmd
-          - figures/macrina.qmd
-          - figures/olympias.qmd
-      - text: "Data Collection"
-        href: data-collection/index.qmd
-      - text: "Benchmark"
-        href: benchmark/index.qmd
-      - about.qmd
-      - glossary.qmd
-      - references.qmd
+    - id: report
+      title: "Full Report"
+      style: "floating"
+      collapse-level: 1
+      contents:
+        - report/index.qmd
+        - report/background.qmd
+        - report/biases.qmd
+        - report/methodology.qmd
+        - report/data-collection.qmd
+        - report/results.qmd
+        - report/agreement.qmd
+        - report/caveats.qmd
+        - glossary.qmd
+        - references.qmd
   page-footer:
-    center: |
-      Matristics · Eric Araújo, Calvin University · CC-BY-4.0
+    left: |
+      **Matristics** · Eric Araújo, Calvin University · CC-BY-4.0
+    right:
+      - text: "Full report (PDF)"
+        href: report/matristics-full-report.pdf
+      - text: "Methodology"
+        href: report/methodology.qmd
+      - text: "Replicate"
+        href: report/data-collection.qmd
+      - text: "Cite"
+        href: about.qmd
 
 bibliography: references.bib
 
 format:
   html:
-    theme: [theme.scss]
+    theme:
+      dark: [theme-dark.scss, theme.scss]
+      light: [theme-light.scss, theme.scss]
     toc: false
     number-sections: false
     link-external-newwindow: true
     smooth-scroll: true
+    # Inlined on every page (an include file is pasted as-is, so it works at
+    # any folder depth): accessibility toolbar, reveal animations, count-ups.
+    include-after-body: _includes/site.html
+    # Applies saved text size / motion settings before first paint.
+    include-in-header: _includes/head.html
     grid:
-      sidebar-width: 290px
-      body-width: 1000px
+      sidebar-width: 260px
+      body-width: 860px
       margin-width: 0px

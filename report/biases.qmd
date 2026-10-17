@@ -1,0 +1,10 @@
+---
+title: "Known LLM Biases"
+subtitle: "What we expected models to get wrong, before collecting any data"
+section-number: 2
+aliases:
+  - /biases/index.html
+---
+{{< include _pdf-banner.qmd >}}
+
+{{< include _sections/biases.qmd >}}

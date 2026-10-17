@@ -1,162 +1,70 @@
 ---
-title: Benchmark
-subtitle: How six models handled 35 questions on Macrina and Olympias
+title: "Benchmark"
+pagetitle: "Benchmark · Matristics"
+description: "Interactive results: six models, 35 questions, 420 ratings."
+page-layout: custom
+title-block-style: none
+body-classes: mx-chart-page
+resources:
+  - benchmark-data.js
+  - ../assets/mx-charts.js
 ---
 
-Six frontier models were asked the same 35 questions about Macrina the Younger and Olympias of Constantinople. Every response was scored independently by two annotators on four rubric dimensions, giving **420 ratings** over 210 responses.
-
-::: {.callout-note}
-Scoring is complete for the first two figures. These results cover Macrina the Younger and Olympias of Constantinople; the benchmark will expand as further figures are added.
-:::
-
-## At a Glance
-
-- **The models are closely bunched.** Overall means span 4.56 to 4.73 on a 1–5 scale — a range of 0.17. No model failed on this material, and no rating of 1 was recorded on any dimension.
-- **Epistemic Quality is the weak dimension.** It averages 4.46 against 4.75 for Historical Accuracy, and accounts for the widest spread between models (4.19 to 4.71). Models know the facts better than they know the limits of the evidence.
-- **Adversarial questions separate the field.** On the five questions built on a false premise, Claude corrected the premise in 10 of 10 ratings and Gemini in 4 of 10.
-- **Olympias scores lower than Macrina** for five of six models, despite being the better-documented figure in the surviving record.
-- **Outright refusal is rare, but flattening is common.** One [evasion] tag was recorded across all 420 ratings; [source-conflation] and [debate-flattened] were applied 25 and 24 times.
-
-## Results
-
-::: {.panel-tabset}
-
-### By Model
-
-Mean score per dimension, averaged over both annotators (n = 70 ratings per model).
-
-| Model | Historical Accuracy | Coverage | Framing & Agency | Epistemic Quality | **Overall** |
-|-------|:---:|:---:|:---:|:---:|:---:|
-| Claude Sonnet 5 | 4.81 | 4.66 | 4.71 | **4.71** | **4.73** |
-| GPT-5.5 | **4.87** | 4.77 | 4.66 | 4.57 | **4.72** |
-| Grok 4.5 | 4.73 | 4.79 | 4.57 | 4.63 | **4.68** |
-| Gemini 3.5 Flash | 4.77 | **4.83** | 4.64 | 4.19 | **4.61** |
-| DeepSeek v4 Pro | 4.69 | 4.73 | 4.63 | 4.27 | **4.58** |
-| GLM 5.2 | 4.63 | 4.50 | **4.74** | 4.39 | **4.56** |
-| *All models* | *4.75* | *4.71* | *4.66* | *4.46* | *4.65* |
-
 ```{=html}
-<div class="bar-chart" role="img" aria-label="Overall mean score by model, from Claude 4.73 down to GLM 4.56, on a truncated axis from 4.0 to 5.0">
-  <div class="bar-row"><span class="bar-label">Claude Sonnet 5</span><span class="bar-track"><span class="bar-fill" style="width:73%"></span></span><span class="bar-value">4.73</span></div>
-  <div class="bar-row"><span class="bar-label">GPT-5.5</span><span class="bar-track"><span class="bar-fill" style="width:72%"></span></span><span class="bar-value">4.72</span></div>
-  <div class="bar-row"><span class="bar-label">Grok 4.5</span><span class="bar-track"><span class="bar-fill" style="width:68%"></span></span><span class="bar-value">4.68</span></div>
-  <div class="bar-row"><span class="bar-label">Gemini 3.5 Flash</span><span class="bar-track"><span class="bar-fill" style="width:61%"></span></span><span class="bar-value">4.61</span></div>
-  <div class="bar-row"><span class="bar-label">DeepSeek v4 Pro</span><span class="bar-track"><span class="bar-fill" style="width:58%"></span></span><span class="bar-value">4.58</span></div>
-  <div class="bar-row"><span class="bar-label">GLM 5.2</span><span class="bar-track"><span class="bar-fill" style="width:56%"></span></span><span class="bar-value">4.56</span></div>
-  <div class="bar-axis"><span>4.0</span><span>4.5</span><span>5.0</span></div>
+<!--
+  Benchmark page: charts only. The interpretation, tables, agreement
+  statistics and caveats are in the Full Report (report/results.qmd and
+  the sections after it). Containers are filled by assets/mx-charts.js.
+-->
+<div class="mx-wrap">
+
+<header class="mx-hero" style="padding:3rem 0 1.5rem;align-items:flex-end;justify-content:space-between;gap:1.2rem">
+  <div class="mx-hero-copy" style="gap:.4rem;flex:1 1 22rem">
+    <h1 style="font-size:clamp(2.6rem,5vw,3.6rem)">Benchmark</h1>
+    <p class="mx-lede" style="font-size:.95rem">6 models · 35 questions · 420 ratings · first round, July 2026</p>
+  </div>
+  <div class="mx-seg" role="group" aria-label="Show questions for" id="mx-figfilter"></div>
+</header>
+
+<section class="mx-reveal is-in" id="mx-explorer" aria-label="Performance profile explorer"></section>
+
+<section class="mx-panel mx-reveal" style="margin-top:1.25rem" aria-labelledby="h-heat">
+  <div class="mx-panel-head">
+    <h2 id="h-heat">Every question, every model</h2>
+    <span class="mx-ramp">3.0 <i></i> 5.0</span>
+  </div>
+  <div id="mx-heat"></div>
+  <p class="mx-note">Gold IDs are bias probes or false-premise questions. O17, an invented arson plot, is the hardest item in the bank. Hover or tab to a cell for the question.</p>
+</section>
+
+<div class="mx-grid-2" style="margin-top:1.25rem">
+  <section class="mx-panel mx-reveal" aria-labelledby="h-dumb">
+    <h2 id="h-dumb" style="font-size:1.8rem">Macrina vs Olympias</h2>
+    <p class="mx-sub" style="margin-bottom:1rem"><span id="mx-dumb-model">The selected model</span>, by rubric dimension · axis 4.0 to 5.0</p>
+    <div id="mx-dumb"></div>
+    <div class="mx-key mx-note"><span><i class="k-dot" style="background:var(--mx-gold)"></i>Macrina</span><span><i class="k-dot" style="background:var(--mx-olympias)"></i>Olympias</span><span>right column: change from Macrina to Olympias</span></div>
+  </section>
+  <section class="mx-panel mx-reveal" aria-labelledby="h-tags">
+    <h2 id="h-tags" style="font-size:1.8rem">How models fail</h2>
+    <p class="mx-sub" style="margin-bottom:1rem">Error tags across all 420 ratings</p>
+    <div id="mx-tags"></div>
+    <p class="mx-note">Over-confidence, not refusal: one evasion in the whole dataset.</p>
+  </section>
 </div>
+
+<section class="mx-section mx-reveal" style="margin-top:1.25rem" aria-labelledby="h-board">
+  <div class="mx-section-head"><h2 id="h-board">Leaderboard</h2></div>
+  <div id="mx-board"></div>
+</section>
+
+<section class="mx-section mx-reveal" style="padding-top:0">
+  <a class="mx-cta" href="../report/results.html">
+    <span><span class="mx-cta-title">Read the full results</span><span class="mx-cta-sub">Detailed tables, agreement statistics, the adversarial items and every caveat</span></span>
+    <span class="mx-cta-go">Open →</span>
+  </a>
+</section>
+
+</div>
+<script src="benchmark-data.js"></script>
+<script src="../assets/mx-charts.js"></script>
 ```
-
-*Axis truncated at 4.0 to make the differences visible; the full scale runs from 1.*
-
-**Reading the ranking.** Claude and GPT-5.5 finish within 0.01 of each other but arrive there differently: GPT-5.5 has the best factual record of any model (4.87) while sitting fourth on Epistemic Quality, whereas Claude is the only model above 4.7 on that dimension. Gemini presents the sharpest profile of all — best-in-field on Coverage (4.83) and last on Epistemic Quality (4.19), a model that says a great deal about each question while distinguishing its sources least reliably. GLM finishes last overall yet leads on Framing and Agency (4.74), a reminder that overall rank conceals which failure a model is prone to.
-
-### By Dimension
-
-Distribution of all 420 ratings on each dimension:
-
-| Dimension | Mean | 5 | 4 | 3 | 2 | Best model | Weakest model |
-|-----------|:----:|:--:|:--:|:--:|:--:|------------|---------------|
-| Historical Accuracy | 4.75 | 84% | 9% | 5% | 2% | GPT-5.5 (4.87) | GLM (4.63) |
-| Coverage | 4.71 | 78% | 16% | 5% | 1% | Gemini (4.83) | GLM (4.50) |
-| Framing & Agency | 4.66 | 72% | 23% | 4% | 1% | GLM (4.74) | Grok (4.57) |
-| Epistemic Quality | 4.46 | 57% | 32% | 10% | 1% | Claude (4.71) | Gemini (4.19) |
-
-No rating of 1 was given on any dimension.
-
-**Epistemic Quality is where the models struggle.** Only 57% of responses earned a 5, against 84% on Historical Accuracy. The pattern behind that number is visible in the tags: [source-conflation] (25 uses) and [debate-flattened] (24 uses) together outnumber every factual error tag combined. Models generally state correct facts, but they present hagiography, correspondence, and modern scholarship as equally authoritative, and they resolve live scholarly debates that the sources leave open.
-
-**Framing and Agency behaves differently from expectation.** It is not the lowest dimension, and its failures are mild — 23% of ratings sit at 4 rather than 5, typically for a single instance of unnecessary qualification or male-centering rather than outright erasure. The dimension does drop measurably on questions designed to probe bias (4.50 versus 4.71 elsewhere), which suggests the framing weakness surfaces under pressure rather than by default.
-
-### By Figure
-
-| Model | Macrina the Younger | Olympias of Constantinople | Difference |
-|-------|:---:|:---:|:---:|
-| Claude Sonnet 5 | 4.74 | 4.71 | −0.02 |
-| GPT-5.5 | 4.83 | 4.59 | **−0.24** |
-| Grok 4.5 | 4.67 | 4.68 | +0.01 |
-| Gemini 3.5 Flash | 4.62 | 4.60 | −0.02 |
-| DeepSeek v4 Pro | 4.65 | 4.51 | −0.14 |
-| GLM 5.2 | 4.61 | 4.51 | −0.10 |
-| **All models** | **4.69** | **4.60** | **−0.09** |
-
-Olympias scores lower than Macrina for five of six models. This is worth dwelling on, because it inverts what documentation alone would predict: Olympias is attested by a dedicated *Life*, seventeen surviving letters from Chrysostom, Palladius, and Sozomen, while Macrina is known almost entirely through two works by a single brother. The gap is widest for GPT-5.5, which is the strongest model on Macrina and only fourth on Olympias.
-
-Two features of the Olympias question set plausibly contribute: it includes the two hardest items in the bank (O17 and O13, both requiring careful source discrimination), and questions about her diaconal ordination and institutional authority invite exactly the patronage-centred framing the rubric penalizes.
-
-### Difficulty & Adversarial Items
-
-Mean overall score by question difficulty:
-
-| Difficulty | Mean | Ratings |
-|------------|:----:|:-------:|
-| Basic | 4.75 | 24 |
-| Intermediate | 4.76 | 96 |
-| General | 4.62 | 264 |
-| Advanced | **4.45** | 36 |
-
-Advanced questions score lowest, as designed. The general template questions sit below Basic and Intermediate largely because they include the two "inevitability" probes (M11, O11) and the misconception questions.
-
-**Bias-probe questions** (flagged items, 96 ratings) average 4.57 against 4.67 for the rest, with the drop concentrated in Framing and Agency (4.50 versus 4.71).
-
-**False-premise correction.** Five questions embed a premise that is not supported by the record — that Macrina left writings (M16), that Olympias wrote theological treatises (O16), that an anti-Christian plot lay behind the arson charges (O17), and that each figure's achievements were historically inevitable (M11, O11). A model that identifies and corrects the premise receives the [false-premise-corrected] tag:
-
-| Model | Premises corrected (of 10) | Mean score on these items |
-|-------|:---:|:---:|
-| Claude Sonnet 5 | **10** | 4.95 |
-| GLM 5.2 | 9 | 4.53 |
-| GPT-5.5 | 8 | 4.43 |
-| Grok 4.5 | 6 | 4.40 |
-| DeepSeek v4 Pro | 6 | 4.38 |
-| Gemini 3.5 Flash | **4** | 4.25 |
-
-O17 — the invented plot behind Olympias's arson trial — is the single hardest item in the bank (mean 4.02). Claude, Grok, and GLM refused the premise and scored 5 on Historical Accuracy; GPT-5.5, Gemini, and DeepSeek elaborated the fabricated conspiracy and were scored 2 or 3 with a [hallucination] tag. This is the clearest demonstration in the data of how sparse documentation converts into confident invention.
-
-:::
-
-## Error and Response Tags
-
-Counts across all 420 ratings. Tags are applied to the specific failing claim or competency whenever a dimension is scored 3 or below.
-
-| Tag | Total | Distribution across models |
-|-----|:-----:|----------------------------|
-| [source-conflation] | 25 | Gemini 9 · DeepSeek 6 · GLM 5 · GPT-5.5 3 · Grok 1 · Claude 1 |
-| [debate-flattened] | 24 | DeepSeek 7 · GPT-5.5 4 · Gemini 4 · Claude 3 · Grok 3 · GLM 3 |
-| [hallucination] | 13 | GLM 4 · Grok 2 · Gemini 2 · DeepSeek 2 · GPT-5.5 2 · Claude 1 |
-| [anachronism] | 6 | Grok 2 · Claude 1 · Gemini 1 · DeepSeek 1 · GLM 1 |
-| [imprecision] | 6 | Gemini 3 · GPT-5.5 2 · DeepSeek 1 |
-| [misattribution] | 3 | GLM 2 · DeepSeek 1 |
-| [evasion] | 1 | Gemini 1 |
-| [false-premise-corrected] | 61 | Claude 13 · GLM 12 · GPT-5.5 11 · Grok 9 · DeepSeek 9 · Gemini 7 |
-
-The single [evasion] tag is a notable result in itself. The project anticipated that questions touching women's ordained ministry would trigger refusals or hedged non-answers on grounds of theological controversy; that did not happen. The epistemic failure in this domain is not silence but over-confidence — flattening contested questions into settled ones rather than declining to answer them.
-
-## Inter-Annotator Agreement
-
-All 210 responses were scored independently by both annotators, so agreement can be measured on every item.
-
-| Dimension | Krippendorff's α | Exact agreement | Within 1 point | Mean difference |
-|-----------|:---:|:---:|:---:|:---:|
-| Historical Accuracy | 0.19 | 74.8% | 92.4% | 0.34 |
-| Coverage | 0.17 | 69.9% | 91.4% | 0.39 |
-| Framing & Agency | 0.24 | 66.2% | 91.9% | 0.42 |
-| Epistemic Quality | 0.09 | 51.9% | 87.1% | 0.61 |
-
-::: {.callout-warning title="How to read these numbers"}
-Raw agreement is high — annotators chose the same score on two-thirds to three-quarters of items, and landed within one point on roughly nine out of ten — yet Krippendorff's alpha sits in the range conventionally labelled "slight to fair".
-
-Both facts are true, and the tension between them is a known property of chance-corrected agreement statistics under a ceiling effect. When 84% of ratings on a dimension are the same value (5), two annotators guessing at random from that distribution would also agree most of the time, so the expected disagreement in alpha's denominator becomes very small and the handful of real disagreements dominates the coefficient. Alpha is measuring how well the annotators distinguish responses *within* a narrow band of high scores, and on that question it is honest: they do not distinguish them reliably, least of all on Epistemic Quality.
-
-The project [does not use an agreement threshold as a gate](../methodology/index.qmd#how-agreement-is-used); agreement is reported so that it can calibrate how strongly each result is claimed. Applied here: the results above are a robust ranking of gross performance and a provisional one for fine distinctions. Differences of a tenth of a point between adjacent models sit within annotator noise. The patterns that survive it are the dimension-level gaps, the adversarial-question results, and the tag distributions.
-
-Epistemic Quality deserves the most caution — it is both the dimension where models varied most and the one where the annotators agreed least (51.9% exact). That combination means the dimension's *direction* is trustworthy, since every measure points the same way, while its precise ordering between adjacent models is not.
-:::
-
-Annotator means differ slightly overall — 4.61 and 4.68 — indicating a mild severity difference rather than a systematic disagreement about what the dimensions mean.
-
-## Caveats
-
-- **Two figures, 35 questions.** These results characterize model behaviour on Macrina and Olympias, not on women in early Christianity generally. The bank expands as figures are added.
-- **Ceiling effect.** The compressed score range limits how much the rankings can bear; see the agreement note above.
-- **One run per model.** Responses were collected once at temperature 0 in July 2026 with pinned model versions (see [Data Collection](../data-collection/index.qmd)). Results are specific to those snapshots.
-- **Two annotators, unblinded.** Both scored every response independently, but model identity was visible in the scoring workbook and no third rater adjudicated disagreements. Blinding, randomized presentation, and a third rater are planned for the next round (see [Annotation Protocol](../methodology/index.qmd#controls-not-applied-in-the-first-round)).

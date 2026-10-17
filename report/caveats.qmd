@@ -1,0 +1,8 @@
+---
+title: "Caveats"
+subtitle: "What these results do and do not show"
+section-number: 7
+---
+{{< include _pdf-banner.qmd >}}
+
+{{< include _sections/caveats.qmd >}}

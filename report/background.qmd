@@ -1,0 +1,10 @@
+---
+title: "Background"
+subtitle: "The project, its historical setting, and prior research"
+section-number: 1
+aliases:
+  - /background/index.html
+---
+{{< include _pdf-banner.qmd >}}
+
+{{< include _sections/background.qmd >}}

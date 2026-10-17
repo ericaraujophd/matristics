@@ -1,0 +1,6 @@
+```{=html}
+<div class="mx-report-banner" role="note">
+  <span>Part of the <a href="index.html">Matristics full report</a>.</span>
+  <a class="mx-btn mx-btn-ghost" href="matristics-full-report.pdf" download>Download PDF</a>
+</div>
+```

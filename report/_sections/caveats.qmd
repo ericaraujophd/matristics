@@ -1,0 +1,5 @@
+- These results describe model behaviour on two figures and 35 questions, Macrina and Olympias, and not on women in early Christianity in general. The bank will grow as figures are added.
+- The compressed score range limits how much weight the rankings can bear (see [Agreement](agreement.qmd)).
+- Each model was run once, at temperature 0, in July 2026, with pinned model versions (see [Data Collection](data-collection.qmd)). The results apply to those snapshots.
+- Both annotators scored every response independently, but model identity was visible in the scoring workbook and no third rater adjudicated disagreements. Blinding, randomized presentation and a third rater are planned for the next round (see [Annotation Protocol](methodology.qmd#controls-not-applied-in-the-first-round)).
+

@@ -1,158 +1,110 @@
 ---
-title: Matristics
-subtitle: Evaluating large language models on the women of the early church
-description: >
-  A comparative evaluation of large language models on their knowledge
-  of women in early Christianity.
+title: "Matristics"
+pagetitle: "Matristics: AI models and the women of the early church"
+description: "An open benchmark of how well large language models know the women of the early church."
+page-layout: custom
+title-block-style: none
+body-classes: mx-chart-page
+resources:
+  - benchmark/benchmark-data.js
+  - assets/mx-charts.js
 ---
 
-![*Fractio Panis* (Breaking of Bread), Greek Chapel, Catacomb of Priscilla, Rome, 2nd–4th century CE. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Catacombe_di_Priscilla,_Rome_-_Fresco_of_a_Christian_Agape_feast_-_Fractio_panis_-_Greek_chapel_-_2nd_-_4th_century.jpg) — public domain.](_static/fractio_panis.jpg){fig-alt="Fractio Panis — fresco from the Greek Chapel of the Catacomb of Priscilla, Rome, 2nd–4th century CE. Seven figures share bread and fish at a communal table."}
-
-**Matristics** — from *mater*, by analogy with *patristics* — asks how well large language models know the women who shaped Christianity's first five centuries. We evaluate six frontier models — Claude, ChatGPT, Gemini, Grok, DeepSeek, and GLM — not only for factual accuracy, but for whether they reproduce the androcentric silences of the historical record itself. Read more in the [Background](background/index.qmd).
-
-## Explore the project
-
 ```{=html}
-<div class="ql-grid">
-<a class="ql-card" href="figures/index.html">
-<span class="ql-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/><circle cx="17" cy="9" r="2.4"/><path d="M15.8 14.3c2.7.2 4.7 2 4.7 4.7"/></svg></span>
-<span class="ql-title">Figures &amp; Question Bank</span>
-<span class="ql-desc">14 female figures and the two-tier question bank used to probe LLM knowledge.</span>
-</a>
-<a class="ql-card" href="methodology/index.html">
-<span class="ql-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l1.5 1.5L8 5"/><path d="M4 12l1.5 1.5L8 11"/><path d="M4 18l1.5 1.5L8 17"/><line x1="11" y1="6.5" x2="20" y2="6.5"/><line x1="11" y1="12.5" x2="20" y2="12.5"/><line x1="11" y1="18.5" x2="20" y2="18.5"/></svg></span>
-<span class="ql-title">Methodology</span>
-<span class="ql-desc">The four-dimension rubric, annotation protocol, and agreement measures.</span>
-</a>
-<a class="ql-card" href="data-collection/index.html">
-<span class="ql-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-6"/><path d="M4.5 11.5v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-6"/></svg></span>
-<span class="ql-title">Data Collection</span>
-<span class="ql-desc">How the 210 responses were gathered, and how to repeat it.</span>
-</a>
-<a class="ql-card" href="benchmark/index.html">
-<span class="ql-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="20" x2="20" y2="20"/><rect x="6" y="11" width="3" height="6" rx="0.5"/><rect x="11" y="7" width="3" height="10" rx="0.5"/><rect x="16" y="13" width="3" height="4" rx="0.5"/></svg></span>
-<span class="ql-title">Benchmark</span>
-<span class="ql-desc">First results: six models, 420 ratings, by figure and dimension.</span>
-</a>
-<a class="ql-card" href="biases/index.html">
-<span class="ql-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5 2.8 19.5h18.4z"/><line x1="12" y1="10" x2="12" y2="14.5"/><circle cx="12" cy="17" r="0.6" fill="currentColor"/></svg></span>
-<span class="ql-title">Known LLM Biases</span>
-<span class="ql-desc">Hallucination, androcentric framing, and flattened scholarly debate.</span>
-</a>
-</div>
-```
+<!--
+  Home page. Kept deliberately short: one claim, the charts, and links into
+  the Benchmark, the Figures and the Full Report, where the text lives.
+  Every chart container (id="mx-…") is filled by assets/mx-charts.js from
+  benchmark/benchmark-data.js; nothing here hard-codes a score except the
+  headline stats, which are written out so they read correctly without JS.
+-->
+<div class="mx-wrap">
 
-## Figures under investigation
+<section class="mx-hero" aria-labelledby="mx-hero-title">
+  <div class="mx-hero-copy">
+    <p class="mx-eyebrow">An open benchmark · women of the early church</p>
+    <h1 id="mx-hero-title">How well do AI models know the women who shaped Christianity?</h1>
+    <p class="mx-lede">Six models, 35 questions on Macrina and Olympias, scored by two annotators on accuracy, coverage, framing and epistemic care.</p>
+    <div class="mx-actions">
+      <a class="mx-btn mx-btn-primary" href="benchmark/index.html">Explore the results</a>
+      <a class="mx-btn mx-btn-ghost" href="report/index.html">Read the full report</a>
+    </div>
+    <div class="mx-stats">
+      <div><div class="mx-stat-n" data-count="6">6</div><div class="mx-stat-l">models</div></div>
+      <div><div class="mx-stat-n" data-count="35">35</div><div class="mx-stat-l">questions</div></div>
+      <div><div class="mx-stat-n" data-count="420">420</div><div class="mx-stat-l">ratings</div></div>
+      <div><div class="mx-stat-n">2<small> / 14</small></div><div class="mx-stat-l">figures scored</div></div>
+    </div>
+  </div>
+  <div class="mx-hero-chart mx-panel" id="mx-hero"></div>
+</section>
 
-The project begins with two figures and will expand as research progresses. Use the arrows to browse.
+<section class="mx-section mx-reveal" aria-labelledby="h-board">
+  <div class="mx-section-head">
+    <h2 id="h-board">Leaderboard</h2>
+    <a href="benchmark/index.html">Full benchmark →</a>
+  </div>
+  <div id="mx-board"></div>
+  <p class="mx-note">Overall mean on a 1 to 5 scale. Bars start at 4.0 so the differences are visible.</p>
+</section>
 
-```{=html}
-<div class="fig-carousel-wrap">
-<button class="fig-nav fig-prev" aria-label="Scroll figures left">&#8249;</button>
-<div class="fig-carousel" id="figCarousel" tabindex="0" aria-label="Female figures under investigation">
-  <a class="fig-card active" href="figures/macrina.html">
-    <span class="fig-portrait"><img src="_static/figures/macrina.jpg" alt="Icon of Macrina the Younger" loading="lazy"></span>
-    <span class="fig-name">Macrina the Younger</span>
-    <span class="fig-period">c. 327–379 CE</span>
-    <span class="fig-status status-active">Active</span>
+<section class="mx-section" aria-labelledby="h-found">
+  <div class="mx-section-head">
+    <h2 id="h-found">What we found</h2>
+    <a href="report/results.html">The numbers in full →</a>
+  </div>
+  <div class="mx-findings">
+    <article class="mx-panel mx-finding mx-reveal">
+      <div class="mx-big">4.46</div>
+      <h3>Models know the facts better than the limits of the evidence</h3>
+      <div class="mx-mini" id="mx-find-dims"></div>
+      <p class="mx-note">Mean per rubric dimension, all models.</p>
+    </article>
+    <article class="mx-panel mx-finding mx-reveal">
+      <div class="mx-big">10 <small>vs</small> 4</div>
+      <h3>False premises split the field</h3>
+      <div class="mx-mini" id="mx-find-premise"></div>
+      <p class="mx-note">Filled: the model corrected a planted false premise (10 ratings each).</p>
+    </article>
+    <article class="mx-panel mx-finding mx-reveal">
+      <div class="mx-big">5 <small>of</small> 6</div>
+      <h3>Models score lower on Olympias, the better-documented figure</h3>
+      <div class="mx-mini" id="mx-find-figs"></div>
+      <div class="mx-key mx-note"><span><i class="k-dot" style="background:var(--mx-gold)"></i>Macrina</span><span><i class="k-dot" style="background:var(--mx-olympias)"></i>Olympias</span><span>axis 4.4 to 4.9</span></div>
+    </article>
+  </div>
+</section>
+
+<section class="mx-section mx-reveal" aria-labelledby="h-figs">
+  <div class="mx-section-head">
+    <h2 id="h-figs">The figures</h2>
+    <a href="figures/index.html">All 14 figures →</a>
+  </div>
+  <div class="mx-figrow">
+    <a class="mx-panel mx-figcard" href="figures/macrina.html">
+      <img src="_static/figures/macrina.jpg" alt="Icon of Macrina the Younger">
+      <span><span class="mx-figname">Macrina the Younger</span><span class="mx-figmeta">c. 327–379 · 18 questions · mean 4.69</span></span>
+    </a>
+    <a class="mx-panel mx-figcard is-olympias" href="figures/olympias.html">
+      <img src="_static/figures/olympias.jpg" alt="Icon of Olympias the Deaconess">
+      <span><span class="mx-figname">Olympias of Constantinople</span><span class="mx-figmeta">c. 360–408 · 17 questions · mean 4.60</span></span>
+    </a>
+    <div class="mx-planned">
+      <strong>12 figures in preparation</strong>
+      <span>Mary Magdalene · Phoebe · Perpetua &amp; Felicitas · Thecla · Junia · Priscilla · Egeria · Melania · Marcella · Maximilla &amp; Priscilla · Nino · Monica</span>
+    </div>
+  </div>
+</section>
+
+<section class="mx-section mx-reveal">
+  <a class="mx-cta" href="report/index.html">
+    <span><span class="mx-cta-title">Read the full report</span><span class="mx-cta-sub">Background, method, results, agreement and caveats, online or as a PDF</span></span>
+    <span class="mx-cta-go">Open →</span>
   </a>
-  <a class="fig-card active" href="figures/olympias.html">
-    <span class="fig-portrait"><img src="_static/figures/olympias.jpg" alt="Icon of Olympias the Deaconess" loading="lazy"></span>
-    <span class="fig-name">Olympias of Constantinople</span>
-    <span class="fig-period">c. 360–408 CE</span>
-    <span class="fig-status status-active">Active</span>
-  </a>
-  <div class="fig-card planned">
-    <span class="fig-portrait"><img src="_static/figures/magdalene.jpg" alt="Icon of Mary Magdalene by Konstantinos Tzanes, 17th century" loading="lazy"></span>
-    <span class="fig-name">Mary Magdalene</span>
-    <span class="fig-period">1st c. CE</span>
-    <span class="fig-status status-planned">Planned</span>
-  </div>
-  <div class="fig-card planned">
-    <span class="fig-portrait"><img src="_static/figures/phoebe.jpg" alt="Illuminated manuscript initial showing Paul entrusting his letter to Phoebe" loading="lazy"></span>
-    <span class="fig-name">Phoebe of Cenchreae</span>
-    <span class="fig-period">1st c. CE</span>
-    <span class="fig-status status-planned">Planned</span>
-  </div>
-  <div class="fig-card planned">
-    <span class="fig-portrait"><img src="_static/figures/perpetua.jpg" alt="Perpetua and Felicitas with companions, Menologion of Basil II" loading="lazy"></span>
-    <span class="fig-name">Perpetua &amp; Felicitas</span>
-    <span class="fig-period">d. 203 CE</span>
-    <span class="fig-status status-planned">Planned</span>
-  </div>
-  <div class="fig-card planned">
-    <span class="fig-portrait"><img src="_static/figures/thecla.jpg" alt="Icon of Saint Thecla, Lebanon, 14th century" loading="lazy"></span>
-    <span class="fig-name">Thecla</span>
-    <span class="fig-period">1st–2nd c. CE</span>
-    <span class="fig-status status-planned">Planned</span>
-  </div>
-  <div class="fig-card planned">
-    <span class="fig-portrait"><img src="_static/figures/junia.jpg" alt="Icon of Junia" loading="lazy"></span>
-    <span class="fig-name">Junia</span>
-    <span class="fig-period">1st c. CE</span>
-    <span class="fig-status status-planned">Planned</span>
-  </div>
-  <div class="fig-card planned">
-    <span class="fig-portrait"><img src="_static/figures/priscilla.jpg" alt="Saints Aquila and Priscilla, engraving" loading="lazy"></span>
-    <span class="fig-name">Priscilla / Prisca</span>
-    <span class="fig-period">1st c. CE</span>
-    <span class="fig-status status-planned">Planned</span>
-  </div>
-  <div class="fig-card planned">
-    <span class="fig-portrait"><img src="_static/figures/egeria.jpg" alt="Fayum-style portrait of a woman, used to represent Egeria" loading="lazy"></span>
-    <span class="fig-name">Egeria</span>
-    <span class="fig-period">4th c. CE</span>
-    <span class="fig-status status-planned">Planned</span>
-  </div>
-  <div class="fig-card planned">
-    <span class="fig-portrait"><img src="_static/figures/melania.jpg" alt="Engraving of Melania the Elder" loading="lazy"></span>
-    <span class="fig-name">Melania the Elder</span>
-    <span class="fig-period">c. 341–410 CE</span>
-    <span class="fig-status status-planned">Planned</span>
-  </div>
-  <div class="fig-card planned">
-    <span class="fig-portrait"><img src="_static/figures/marcella.jpg" alt="Depiction of Marcella of Rome" loading="lazy"></span>
-    <span class="fig-name">Marcella of Rome</span>
-    <span class="fig-period">c. 325–410 CE</span>
-    <span class="fig-status status-planned">Planned</span>
-  </div>
-  <div class="fig-card planned">
-    <span class="fig-medallion">M&amp;P</span>
-    <span class="fig-name">Maximilla &amp; Priscilla</span>
-    <span class="fig-period">2nd c. CE</span>
-    <span class="fig-status status-planned">Planned</span>
-  </div>
-  <div class="fig-card planned">
-    <span class="fig-portrait"><img src="_static/figures/nino.jpg" alt="Icon of Saint Nino holding the grapevine cross" loading="lazy"></span>
-    <span class="fig-name">Nino of Cappadocia</span>
-    <span class="fig-period">c. 296–338 CE</span>
-    <span class="fig-status status-planned">Planned</span>
-  </div>
-  <div class="fig-card planned">
-    <span class="fig-portrait"><img src="_static/figures/monica.jpg" alt="Saint Monica, detail from Ary Scheffer's Saint Augustine and Saint Monica" loading="lazy"></span>
-    <span class="fig-name">Monica of Thagaste</span>
-    <span class="fig-period">c. 331–387 CE</span>
-    <span class="fig-status status-planned">Planned</span>
-  </div>
+  <p class="mx-note" style="margin-top:1.2rem">Cite as: Araújo, E.; Rylaarsdam, D.; Holtrop, N.; Hawthorne, I. <em>Matristics: LLM Evaluation in Early Church History</em>. 2026. ericaraujo.com/matristics</p>
+</section>
+
 </div>
-<button class="fig-nav fig-next" aria-label="Scroll figures right">&#8250;</button>
-</div>
-<script>
-(function () {
-  const track = document.getElementById('figCarousel');
-  const step = () => {
-    const card = track.querySelector('.fig-card');
-    return card ? card.offsetWidth + 16 : 240;
-  };
-  document.querySelector('.fig-prev').addEventListener('click', () =>
-    track.scrollBy({ left: -2 * step(), behavior: 'smooth' }));
-  document.querySelector('.fig-next').addEventListener('click', () =>
-    track.scrollBy({ left: 2 * step(), behavior: 'smooth' }));
-})();
-</script>
+<script src="benchmark/benchmark-data.js"></script>
+<script src="assets/mx-charts.js"></script>
 ```
-
-## How to cite this project
-
-> Araujo, Eric; Rylaarsdam, D.; Holtrop, Nathan; Hawthorne, Ian. *Matristics: LLM Evaluation in Early Church History*. 2026.
-> Available at: ericaraujo.com/matristics

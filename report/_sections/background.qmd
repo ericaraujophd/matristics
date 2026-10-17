@@ -1,0 +1,92 @@
+How well do large language models know the women who shaped early Christianity?
+
+This project evaluates six LLMs (Claude, ChatGPT, Gemini, Grok, DeepSeek and GLM) on their knowledge of female figures from the first five centuries CE. We check whether the models' answers are factually accurate, and also whether they repeat the androcentric silences and distortions that run through the historical record itself.
+
+The project has three aims:
+
+1. Establish a replicable method for evaluating LLM outputs on specialized historical content: a rubric, an annotation protocol and a question bank, designed so they can be reused for other poorly documented historical populations.
+2. Identify and document the bias patterns specific to early church history: hallucination where sources are sparse, androcentric training data, conflation of canonical and apocryphal sources, and evasive answers on contested scholarship.
+3. Build a public benchmark that compares model performance across figures, rubric dimensions and question difficulty, released openly so it can be rerun as models change.
+
+The methodology, question bank, raw prompts, annotation guidelines and results are all published here, so that other researchers can replicate, extend or critique the evaluation.
+
+## Why "Matristics"?
+
+*Matristics* is coined by analogy with *patristics*, the study of the church fathers. It names the study of the church mothers, the women whose leadership, patronage, scholarship and witness shaped Christianity's formative centuries. The name states the project's question: do language models remember these women any better than the historical record did?
+
+## Historical Context: Women in Early Christianity
+
+The first five centuries of Christian history produced a substantial number of women who led communities, developed theology, wrote texts, settled ecclesiastical disputes, funded institutions and exercised prophetic authority. Most of them are unknown to a general audience. Many are known only through sources written by men who had rhetorical, theological or institutional reasons to shape how they were remembered.
+
+This section gives the historical background needed to understand the figures under investigation and the interpretive problems the project faces.
+
+### The Documentary Problem
+
+The sources for women's lives in early Christianity survive unevenly and almost never in women's own words. Of the large surviving corpus, only a handful of texts are plausibly by women, among them Perpetua's prison diary and Egeria's travel journal. What survives was copied, edited and canonized by male church institutions, so hagiographic convention and theological agenda shape even sympathetic portraits such as Gregory of Nyssa's *Life of Macrina*. Apocryphal literature, funerary inscriptions naming women as deacons and patrons, and other archaeological evidence correct part of this picture, but they are fragmentary and contested.
+
+### Women's Roles in the First Three Centuries
+
+In the earliest communities women appear across the full range of leadership roles: house-church leaders (Priscilla, Lydia, Nympha, Chloe), a deacon and patron (Phoebe), apostles and missionaries (Junia, Mary Magdalene, Thecla), and prophets (Philip's daughters, Ammia of Philadelphia, the Montanist prophetesses Maximilla and Priscilla). Martyrdom accounts such as that of Perpetua and Felicitas preserve some of the most vivid evidence of women's religious agency, and the closest to first-person testimony. Women held real authority in this period, and it was contested; the household codes of the later New Testament writings were already narrowing it.
+
+### Women's Roles in the Fourth and Fifth Centuries
+
+Imperial patronage brought institutionalization. Church orders such as the *Didascalia* and the *Apostolic Constitutions* formalized the female diaconate, and Olympias of Constantinople is its best-documented holder. Aristocratic women such as Macrina, Melania the Elder and Paula founded monasteries, and patrons of learning such as Marcella turned Roman households into centers of scholarship. Over the same period, conciliar legislation and episcopal writing progressively restricted the public roles women had held in earlier centuries. Scholars still debate whether this period was a flourishing of women's religious life (through asceticism) or a narrowing of it (through exclusion from office).
+
+### Key Scholarly Literature
+
+These works provide the context for the figures under study.
+
+| Work | Focus |
+|------|-------|
+| [Cohick & Hughes 2017](../references.qmd#ref-cohick2017women) | The most comprehensive recent survey of female figures from the second through fifth centuries. |
+| [Madigan & Osiek 2005](../references.qmd#ref-madigan2005ordained) | Primary sources in translation with critical commentary on ordained women. |
+| [Kraemer & D'Angelo 1999](../references.qmd#ref-kraemer1999women) | Foundational feminist historiography of the period. |
+| [Kraemer 1992](../references.qmd#ref-kraemer1992blessings) | Women's religious lives among pagans, Jews, and Christians across the Greco-Roman world. |
+| [Cooper 2013](../references.qmd#ref-cooper2013band) | Accessible synthesis recovering the world of ordinary early Christian women. |
+| [Elm 1994](../references.qmd#ref-elm1994virgins) | Scholarly analysis of female asceticism in late antiquity. |
+| [Clark 1986](../references.qmd#ref-clark1986ascetic) | Essays on women, asceticism, and piety in late ancient Christianity. |
+| [Torjesen 1993](../references.qmd#ref-torjesen1993women) | Argument for women's formal priestly leadership in early Christianity. |
+| [Clark 1983](../references.qmd#ref-clark1983women) | Patristic primary sources on women in translation, with commentary. |
+| [Clark 1979](../references.qmd#ref-clark1979jerome) | Essays and translations on the women in Jerome's and Chrysostom's circles, including the *Life of Olympias*. |
+| [Hartney 2004](../references.qmd#ref-hartney2004chrysostom) | Chrysostom's preaching and its urban context: the Constantinople of Olympias. |
+| [Swan 2001](../references.qmd#ref-swan2001desert) | Sayings, lives, and stories of early Christian women in the desert tradition. |
+| [Oden 1994](../references.qmd#ref-oden1994words) | Anthology of women's writings across the history of Christian thought. |
+| [Paintner 2012](../references.qmd#ref-paintner2012desert) | Annotated introduction to the sayings of the desert fathers and mothers. |
+
+: {tbl-colwidths="[38,62]"}
+
+## LLM Evaluation Context
+
+People increasingly use large language models as teaching tools, research aids and reference works. The limits of their historical knowledge, and the systematic biases in how that knowledge is distributed, therefore have practical consequences.
+
+### Why Early Church History?
+
+Early church history makes a good test case for the reasons set out in [Known LLM Biases in Early Church History](biases.qmd):
+
+- The primary sources are sparse and contested, so the risk of hallucination is high.
+- The textual tradition is androcentric: men produced almost all of the surviving record.
+- Scholarship on women in this period has been substantially revised over the past four decades, which leaves a gap between older popular accounts and current specialist knowledge.
+- Several questions, such as women's ordained ministry and apostolic authority, are theologically contested in Christianity today, which puts pressure on LLMs to avoid or distort questions that are historically answerable.
+
+### Prior Work on LLM Evaluation
+
+The methodology draws on several papers. @zheng2023judging introduced the LLM-as-judge paradigm and the MT-Bench benchmark, and established pairwise comparison as a scalable way to evaluate. @liu2023geval proposed G-Eval, a rubric-based scoring framework using chain-of-thought reasoning, which informs our dimension rubric. @wang2024survey and @chen2024llmjudges survey the field as of 2024, including the strengths and failure modes of automated evaluation.
+
+<!-- TODO: Expand with discussion of:
+- General LLM evaluation frameworks (HELM, BIG-Bench, MMLU)
+- Domain-specific evaluations (IslamicMMLU, historical knowledge benchmarks)
+-->
+
+### Prior Work on LLM Bias
+
+@unesco2023genderai documents regressive gender stereotypes in major generative AI systems. @kotek2023genderbias shows that LLMs are 3–6 times more likely to assign occupations that match gender stereotypes. @navigli2023biases gives a taxonomy of where bias enters large language models, from the selection of training data to reinforcement learning from human feedback.
+
+<!-- TODO: Expand with discussion of:
+- Cultural and religious bias (differential treatment across traditions)
+- Historical content hallucination
+- The Wikipedia gender gap as a training data problem
+-->
+
+### What This Project Adds
+
+Existing evaluation frameworks measure general capability, and existing bias studies measure stereotyping in contemporary settings. Neither asks how LLMs represent *historical* women in a domain where the training data has inherited two millennia of androcentric selection, so that gaps in the archive can reappear as gaps in the model. The project's three aims sit at that intersection, and the first results are in the [Benchmark](../benchmark/index.qmd).

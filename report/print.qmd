@@ -1,0 +1,47 @@
+---
+title: "Matristics: Evaluating Large Language Models on the Women of the Early Church"
+subtitle: "Full report"
+author: "Eric Araújo, D. Rylaarsdam, Nathan Holtrop, Ian Hawthorne"
+date: last-modified
+page-layout: article
+toc: true
+toc-depth: 2
+toc-title: Contents
+toc-location: body
+number-sections: false
+search: false
+body-classes: mx-print
+---
+
+# 1. Background {#sec-background .mx-print-section}
+
+{{< include _sections/background.qmd >}}
+
+# 2. Known LLM Biases {#sec-biases .mx-print-section}
+
+{{< include _sections/biases.qmd >}}
+
+# 3. Methodology {#sec-methodology .mx-print-section}
+
+{{< include _sections/methodology.qmd >}}
+
+# 4. Data Collection {#sec-data-collection .mx-print-section}
+
+{{< include _sections/data-collection.qmd >}}
+
+# 5. Results {#sec-results .mx-print-section}
+
+{{< include _sections/results.qmd >}}
+
+# 6. Inter-Annotator Agreement {#sec-agreement .mx-print-section}
+
+{{< include _sections/agreement.qmd >}}
+
+# 7. Caveats {#sec-caveats .mx-print-section}
+
+{{< include _sections/caveats.qmd >}}
+
+# References {.mx-print-section}
+
+::: {#refs}
+:::

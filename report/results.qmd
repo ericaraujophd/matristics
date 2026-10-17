@@ -1,0 +1,8 @@
+---
+title: "Results"
+subtitle: "The numbers behind the benchmark charts"
+section-number: 5
+---
+{{< include _pdf-banner.qmd >}}
+
+{{< include _sections/results.qmd >}}
