@@ -3,7 +3,7 @@ title: About
 subtitle: People, credits, and terms of use
 ---
 
-Matristics is a research project at Calvin University evaluating how large language models represent the women of the early church. Its rationale and aims are set out in the [Background](background/index.qmd); this page covers who made it and how to use it.
+Matristics is a research project at Calvin University evaluating how large language models represent the women of the early church. The [Background](background/index.qmd) sets out its rationale and aims; this page says who made it and how to use it.
 
 ## Author
 
@@ -21,7 +21,7 @@ All content on this site is published under [CC BY 4.0](https://creativecommons.
 
 ## Acknowledgements
 
-**Nathan Holtrop** and **Ian Hawthorne** (McGregor Fellows, summer 2026) carried out the project's first research phase: an extensive reading program in the primary and secondary literature, researched and fact-checked profiles of Macrina the Younger and Olympias of Constantinople, the redesign of the question bank and evaluation rubric, and the full data collection run of 210 responses across six models.
+**Nathan Holtrop** and **Ian Hawthorne** (McGregor Fellows, summer 2026) carried out the project's first research phase: a reading program in the primary and secondary literature, researched and fact-checked profiles of Macrina the Younger and Olympias of Constantinople, the redesign of the question bank and evaluation rubric, and the full data collection run of 210 responses across six models.
 
 This work is supported by the **McGregor Summer Research Fellowship** at Calvin University.
 
@@ -33,8 +33,8 @@ Portraits on the individual figure pages:
 
 | Image | Source | License |
 |---|---|---|
-| Macrina the Younger — fresco, St Sophia Cathedral, Kyiv, 11th c. | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Macrina_the_Younger.jpg) | Public domain |
-| Olympias the Deaconess — Orthodox icon | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Olimpiada_diakonissa.jpg) | Public domain |
+| Macrina the Younger, fresco, St Sophia Cathedral, Kyiv, 11th c. | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Macrina_the_Younger.jpg) | Public domain |
+| Olympias the Deaconess, Orthodox icon | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Olimpiada_diakonissa.jpg) | Public domain |
 | *Sancta Olympias*, from *Sacra Eremus Ascetriarum*, 1590–1662 | [Rijksmuseum](http://hdl.handle.net/10934/RM0001.collect.83986) | CC0 |
 
 Portraits in the figures carousel are sourced from [Wikimedia Commons](https://commons.wikimedia.org):

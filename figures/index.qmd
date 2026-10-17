@@ -5,16 +5,16 @@ description: >
   Browse by figure or download the complete question bank.
 ---
 
-Each page in this section profiles one female figure from early Christianity — her historical context, primary sources, scholarly debates — and lists the evaluation questions used to probe LLM knowledge of her.
+Each page in this section profiles one woman from early Christianity (her historical context, the primary sources, and the scholarly debates about her) and lists the questions we used to test what LLMs know about her.
 
-The question bank has a **two-tier structure**:
+The question bank has two tiers:
 
-- **11 general questions**, asked of every figure. These follow a fixed template (biography, sources, community, context, key figures, misconceptions, death, conversion) so that responses are directly comparable across figures.
-- **6–7 figure-specific questions** per figure, probing the debates, sources, and events particular to her own context. These are listed on each figure's page.
+- 11 general questions, asked of every figure. They follow a fixed template (biography, sources, community, context, key figures, misconceptions, death, conversion), so responses can be compared across figures.
+- 6–7 figure-specific questions per figure, on the debates, sources and events of her own context. These are listed on each figure's page.
 
 Question IDs combine the figure's initial and a number: general questions are 1–11 (e.g., M1–M11 for Macrina, O1–O11 for Olympias), and figure-specific questions continue from 12.
 
-Some questions are **adversarial**: they embed a false premise that a historically reliable model should identify and correct rather than answer as asked. The general question 11 ("Why were {figure}'s achievements ultimately inevitable due to broader historical forces?") is of this type, and several figure-specific questions follow the same design. Responses that correct the premise receive the [false-premise-corrected] tag under the [rubric](../methodology/index.qmd#the-rubric).
+Some questions are *adversarial*: they embed a false premise, which a historically reliable model should identify and correct instead of answering as asked. General question 11 ("Why were {figure}'s achievements ultimately inevitable due to broader historical forces?") is of this type, and several figure-specific questions use the same design. Responses that correct the premise receive the [false-premise-corrected] tag under the [rubric](../methodology/index.qmd#the-rubric).
 
 You can download the complete question bank as a CSV for use in your own evaluation:
 
@@ -28,18 +28,18 @@ You can download the complete question bank as a CSV for use in your own evaluat
 |---|---|---|---|---|
 | [Macrina the Younger](macrina.qmd) | c. 327–379 CE | Moderate | Active | M1–M18 (11 general + 7 specific) |
 | [Olympias of Constantinople](olympias.qmd) | c. 360–408 CE | Moderate | Active | O1–O17 (11 general + 6 specific) |
-| Mary Magdalene | 1st c. CE | Well-documented | Planned | — |
-| Phoebe of Cenchreae | 1st c. CE | Well-documented | Planned | — |
-| Perpetua & Felicitas | d. 203 CE | Well-documented | Planned | — |
-| Thecla | 1st–2nd c. CE | Well-documented | Planned | — |
-| Junia | 1st c. CE | Moderate | Planned | — |
-| Priscilla / Prisca | 1st c. CE | Moderate | Planned | — |
-| Egeria | 4th c. CE | Lesser-known | Planned | — |
-| Melania the Elder | c. 341–410 CE | Lesser-known | Planned | — |
-| Marcella of Rome | c. 325–410 CE | Lesser-known | Planned | — |
-| Maximilla & Priscilla (Montanist) | 2nd c. CE | Lesser-known | Planned | — |
-| Nino of Cappadocia | c. 296–338 CE | Lesser-known | Planned | — |
-| Monica of Thagaste | c. 331–387 CE | Moderate | Planned | — |
+| Mary Magdalene | 1st c. CE | Well-documented | Planned | Pending |
+| Phoebe of Cenchreae | 1st c. CE | Well-documented | Planned | Pending |
+| Perpetua & Felicitas | d. 203 CE | Well-documented | Planned | Pending |
+| Thecla | 1st–2nd c. CE | Well-documented | Planned | Pending |
+| Junia | 1st c. CE | Moderate | Planned | Pending |
+| Priscilla / Prisca | 1st c. CE | Moderate | Planned | Pending |
+| Egeria | 4th c. CE | Lesser-known | Planned | Pending |
+| Melania the Elder | c. 341–410 CE | Lesser-known | Planned | Pending |
+| Marcella of Rome | c. 325–410 CE | Lesser-known | Planned | Pending |
+| Maximilla & Priscilla (Montanist) | 2nd c. CE | Lesser-known | Planned | Pending |
+| Nino of Cappadocia | c. 296–338 CE | Lesser-known | Planned | Pending |
+| Monica of Thagaste | c. 331–387 CE | Moderate | Planned | Pending |
 
 Question sets for planned figures will be added as each figure becomes active, following the same two-tier template.
 
@@ -47,7 +47,7 @@ Question sets for planned figures will be added as each figure becomes active, f
 
 ## General Questions (asked of every figure)
 
-The 11 general questions below are asked of each figure, with *{figure}* replaced by her name. Category labels indicate the primary concern each question targets; every response is scored on all four rubric dimensions regardless of category.
+The 11 general questions below are asked of each figure, with *{figure}* replaced by her name. The category label names the main concern of each question. Every response is scored on all four rubric dimensions whatever its category.
 
 | # | Question | Category |
 |---|----------|----------|

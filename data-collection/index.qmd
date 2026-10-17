@@ -3,14 +3,14 @@ title: Data Collection
 subtitle: Pipeline, models, data format, and how to run it yourself
 ---
 
-Data collection for the current question bank is **complete**. All responses were collected through [OpenRouter](https://openrouter.ai), which provides a single API and a unified request format across model providers — one key, one pipeline, and consistent metadata for every model under evaluation.
+Data collection for the current question bank is complete. All responses were collected through [OpenRouter](https://openrouter.ai), which offers a single API and request format across model providers, so one key and one pipeline cover every model and the metadata is consistent.
 
 ## Collection Summary
 
-- **Full run (July 8, 2026):** all 35 questions (M1–M18, O1–O17) × 6 models = **210 responses**.
-- **Pilot run (July 3, 2026):** a 6-question verification batch across all 6 models to validate the pipeline end to end before full collection.
-- **Temperature 0** for every request, for deterministic, replicable responses.
-- Responses stored verbatim as newline-delimited JSON, one file per model.
+- Full run, July 8, 2026: all 35 questions (M1–M18, O1–O17) × 6 models = 210 responses.
+- Pilot run, July 3, 2026: a 6-question batch across all 6 models, to check the pipeline end to end before the full collection.
+- Every request used temperature 0, so responses are deterministic and replicable.
+- Responses are stored verbatim as newline-delimited JSON, one file per model.
 
 ## Models Under Evaluation
 
@@ -23,7 +23,7 @@ Data collection for the current question bank is **complete**. All responses wer
 | DeepSeek v4 Pro | DeepSeek | `deepseek/deepseek-v4-pro-20260423` |
 | GLM 5.2 | Z.ai | `z-ai/glm-5.2-20260616` |
 
-Pinned, dated version strings are recorded with every response so that results remain attributable to an exact model snapshot even after providers update their defaults.
+Every response records a pinned, dated version string, so results stay attributable to an exact model snapshot after providers change their defaults.
 
 ## Data Format
 
@@ -59,7 +59,7 @@ pip install openai pandas tqdm
 
 ### API Key
 
-One OpenRouter key covers all models under evaluation. Store it as an environment variable — never hardcode it:
+One OpenRouter key covers all models under evaluation. Store it as an environment variable; never hardcode it:
 
 ```bash
 # Add to your ~/.bashrc, ~/.zshrc, or .env file
@@ -84,7 +84,7 @@ response = client.chat.completions.create(
 )
 ```
 
-Always request **pinned, dated model versions** (e.g., `anthropic/claude-sonnet-5-20260630`, not `anthropic/claude-sonnet-5`) so collected responses stay attributable to an exact model snapshot.
+Always request pinned, dated model versions (e.g., `anthropic/claude-sonnet-5-20260630`, not `anthropic/claude-sonnet-5`) so collected responses stay attributable to an exact model snapshot.
 
 ### Response Storage
 
@@ -103,4 +103,4 @@ data/
 
 ### Costs and Rate Limits
 
-Running the full 35-question bank across all six models (210 responses at temperature 0) is inexpensive — well under typical academic budget thresholds — because prompts are short and responses average a few hundred to ~1,000 tokens. OpenRouter applies each provider's pricing per token and handles provider-side rate limits; a modest delay between requests is sufficient for a bank of this size.
+Running the full 35-question bank across all six models (210 responses at temperature 0) is inexpensive, well within a typical academic budget, because prompts are short and responses average a few hundred to about 1,000 tokens. OpenRouter charges each provider's per-token price and handles provider-side rate limits; a short delay between requests is enough for a bank of this size.

@@ -121,7 +121,7 @@ No rating of 1 was given on any dimension.
 
 Epistemic Quality is where the models struggle. Only 57% of responses earned a 5 on it, against 84% on Historical Accuracy. The tags show why: [source-conflation] (25 uses) and [debate-flattened] (24 uses) together outnumber all the factual-error tags combined. The models generally state correct facts, but they treat hagiography, correspondence and modern scholarship as equally authoritative, and they settle scholarly debates that the sources leave open.
 
-Framing and Agency did not behave as we expected. It is not the lowest dimension, and its failures are mild: 23% of ratings sit at 4 rather than 5, usually for one instance of unnecessary qualification or of centring a male figure, not for erasure. The dimension does drop on the questions written to probe bias (4.50, against 4.71 on the rest), which suggests the framing weakness appears under pressure more than by default.
+Framing and Agency did not behave as we expected. It is not the lowest dimension, and its failures are mild: 23% of ratings sit at 4 rather than 5, usually for one instance of unnecessary qualification or of centering a male figure, not for erasure. The dimension does drop on the questions written to probe bias (4.50, against 4.71 on the rest), which suggests the framing weakness appears under pressure more than by default.
 
 ### By Figure
 
@@ -137,7 +137,7 @@ Framing and Agency did not behave as we expected. It is not the lowest dimension
 
 Five of the six models score lower on Olympias than on Macrina. Documentation alone would predict the opposite. Olympias is attested by a dedicated *Life*, seventeen surviving letters from Chrysostom, and the accounts of Palladius and Sozomen, while Macrina is known almost entirely through two works by one of her brothers. The gap is widest for GPT-5.5, which is the strongest model on Macrina and fourth on Olympias.
 
-Two features of the Olympias questions probably contribute. The set includes the two hardest items in the bank (O17 and O13, both of which require careful discrimination between sources), and the questions about her ordination as deaconess and her institutional authority invite the patronage-centred framing that the rubric penalizes.
+Two features of the Olympias questions probably contribute. The set includes the two hardest items in the bank (O17 and O13, both of which require careful discrimination between sources), and the questions about her ordination as a deacon and her institutional authority invite the patronage-centered framing that the rubric penalizes.
 
 ### Difficulty & Adversarial Items
 
