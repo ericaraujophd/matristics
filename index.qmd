@@ -1,14 +1,34 @@
 ---
 title: Matristics
+resources:
+  - benchmark/benchmark-data.js
+  - benchmark/benchmark.js
 subtitle: Evaluating large language models on the women of the early church
 description: >
   A comparative evaluation of large language models on their knowledge
   of women in early Christianity.
 ---
 
-![*Fractio Panis* (Breaking of Bread), Greek Chapel, Catacomb of Priscilla, Rome, 2nd–4th century CE. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Catacombe_di_Priscilla,_Rome_-_Fresco_of_a_Christian_Agape_feast_-_Fractio_panis_-_Greek_chapel_-_2nd_-_4th_century.jpg) — public domain.](_static/fractio_panis.jpg){fig-alt="Fractio Panis — fresco from the Greek Chapel of the Catacomb of Priscilla, Rome, 2nd–4th century CE. Seven figures share bread and fish at a communal table."}
+![*Fractio Panis* (Breaking of Bread), Greek Chapel, Catacomb of Priscilla, Rome, 2nd–4th century CE. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Catacombe_di_Priscilla,_Rome_-_Fresco_of_a_Christian_Agape_feast_-_Fractio_panis_-_Greek_chapel_-_2nd_-_4th_century.jpg), public domain.](_static/fractio_panis.jpg){fig-alt="Fractio Panis, fresco from the Greek Chapel of the Catacomb of Priscilla, Rome, 2nd–4th century CE. Seven figures share bread and fish at a communal table."}
 
-**Matristics** — from *mater*, by analogy with *patristics* — asks how well large language models know the women who shaped Christianity's first five centuries. We evaluate six frontier models — Claude, ChatGPT, Gemini, Grok, DeepSeek, and GLM — not only for factual accuracy, but for whether they reproduce the androcentric silences of the historical record itself. Read more in the [Background](background/index.qmd).
+**Matristics** (from *mater*, by analogy with *patristics*) asks how well large language models know the women who shaped the first five centuries of Christianity. We evaluate six frontier models: Claude, ChatGPT, Gemini, Grok, DeepSeek and GLM. We score them for factual accuracy, and also for whether they repeat the androcentric silences of the historical record itself. The [Background](background/index.qmd) page explains the problem in more detail.
+
+## First results
+
+Six models answered 35 questions on Macrina the Younger and Olympias of Constantinople, and two annotators scored all 210 answers. The overall ranking is below; the [Benchmark](benchmark/index.qmd) page has each model's question-by-question profile.
+
+```{=html}
+<div class="mx-stats">
+  <div class="mx-stat"><b>6</b><span>models</span></div>
+  <div class="mx-stat"><b>35</b><span>questions</span></div>
+  <div class="mx-stat"><b>420</b><span>ratings</span></div>
+  <div class="mx-stat"><b>2</b><span>figures scored, 12 planned</span></div>
+</div>
+<div id="mx-leaderboard-mini"></div>
+<p class="mx-note">Overall mean on a 1 to 5 scale, averaged over four rubric dimensions and two annotators.</p>
+<script src="benchmark/benchmark-data.js"></script>
+<script src="benchmark/benchmark.js"></script>
+```
 
 ## Explore the project
 
@@ -44,7 +64,7 @@ description: >
 
 ## Figures under investigation
 
-The project begins with two figures and will expand as research progresses. Use the arrows to browse.
+The project began with two figures and adds more as the historical research for each is completed. Use the arrows to browse.
 
 ```{=html}
 <div class="fig-carousel-wrap">

@@ -457,3 +457,358 @@ a.fig-card {
   font-size: 0.83rem;
   border-top: 1px solid #E2D8C8;
 }
+
+// =====================================================================
+// Benchmark visualisations (drawn by benchmark/benchmark.js)
+// ---------------------------------------------------------------------
+// Class prefix "mx-" (Matristics) keeps these rules from colliding with
+// Quarto or Bootstrap. Colours reuse the palette variables above; the two
+// chart series colours (#8E2159 Tyrian, #0079A8 blue) were checked for
+// colour-blind separation.
+// =====================================================================
+
+$card-bg: #FFFDF9;
+$card-border: #E7DECD;
+$chart-blue: #0079A8;
+
+// ---------- Stat strip (page heads) ----------
+.mx-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.75rem;
+  margin: 1.25rem 0 1.75rem;
+  font-family: $font-family-sans-serif;
+}
+.mx-stat {
+  background: $card-bg;
+  border: 1px solid $card-border;
+  border-radius: 8px;
+  padding: 0.8rem 1rem 0.7rem;
+  b {
+    display: block;
+    font-family: $font-family-serif;
+    font-size: 1.9rem;
+    line-height: 1.1;
+    color: $tyrian-deep;
+    font-variant-numeric: tabular-nums;
+  }
+  span { font-size: 0.78rem; color: $ink-soft; letter-spacing: 0.02em; }
+}
+
+// ---------- Panels: the framed boxes each chart sits in ----------
+.mx-panel {
+  background: $card-bg;
+  border: 1px solid $card-border;
+  border-radius: 10px;
+  padding: 1.25rem 1.35rem 1.1rem;
+  margin: 1rem 0 2rem;
+  box-shadow: 0 1px 4px rgba(44, 36, 29, 0.05);
+  > h3:first-child, > .mx-panel-title { margin-top: 0; }
+}
+.mx-panel-title {
+  font-family: $font-family-sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: $tyrian-deep;
+  margin: 0 0 0.15rem;
+}
+.mx-panel-sub {
+  font-family: $font-family-sans-serif;
+  font-size: 0.85rem;
+  color: $ink-soft;
+  margin: 0 0 1rem;
+}
+.mx-note {
+  font-family: $font-family-sans-serif;
+  font-size: 0.78rem;
+  color: $ink-soft;
+  margin: 0.6rem 0 0;
+}
+
+// ---------- Leaderboard ----------
+.mx-board {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.6rem;
+  font-family: $font-family-sans-serif;
+}
+.mx-card {
+  display: grid;
+  grid-template-columns: 2.6rem minmax(9rem, 1.1fr) 4.6rem minmax(14rem, 2fr);
+  grid-template-areas:
+    "rank id score dims"
+    "rank facts facts dims";
+  align-items: center;
+  column-gap: 1rem;
+  row-gap: 0.2rem;
+  padding: 0.75rem 1rem;
+  background: #FFFFFF;
+  border: 1px solid $card-border;
+  border-left: 4px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  &:hover { box-shadow: 0 3px 12px rgba(44, 36, 29, 0.10); }
+  &.is-selected { border-left-color: $tyrian-bright; background: rgba($tyrian, 0.025); }
+  &:focus-visible { outline: 3px solid $tyrian-bright; outline-offset: 2px; }
+}
+.mx-rank {
+  grid-area: rank;
+  font-family: $font-family-serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: $gold;
+}
+.mx-id { grid-area: id; display: flex; flex-direction: column; line-height: 1.25; }
+.mx-name { font-weight: 600; color: $ink; font-size: 0.98rem; }
+.mx-provider { font-size: 0.76rem; color: $ink-soft; }
+.mx-overall { grid-area: score; text-align: right; line-height: 1.1; }
+.mx-overall-val {
+  display: block;
+  font-family: $font-family-serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: $tyrian-deep;
+  font-variant-numeric: tabular-nums;
+}
+.mx-overall-lbl { font-size: 0.68rem; color: $ink-soft; text-transform: uppercase; letter-spacing: 0.06em; }
+.mx-dims { grid-area: dims; display: grid; gap: 0.22rem; }
+.mx-dim {
+  display: grid;
+  grid-template-columns: 8.4rem 1fr 2.3rem;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.74rem;
+}
+.mx-dim-name { color: $ink-soft; white-space: nowrap; }
+.mx-dim-track { height: 7px; background: rgba($gold, 0.16); border-radius: 4px; overflow: hidden; }
+.mx-dim-fill { display: block; height: 100%; background: $tyrian-bright; border-radius: 4px; }
+.mx-dim-val { text-align: right; font-variant-numeric: tabular-nums; color: $ink; }
+.mx-facts {
+  grid-area: facts;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.9rem;
+  font-size: 0.74rem;
+  color: $ink-soft;
+  b { color: $ink; font-variant-numeric: tabular-nums; }
+}
+
+// Compact board (home page): one line per model.
+.mx-board.is-compact {
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 0.5rem;
+  li { list-style: none; }
+  .mx-card {
+    grid-template-columns: 2.2rem 1fr auto;
+    grid-template-areas: "rank id score";
+    text-decoration: none !important;
+    padding: 0.6rem 0.85rem;
+    &:hover .mx-name { color: $tyrian; }
+  }
+  .mx-rank { font-size: 1.1rem; }
+  .mx-overall-val { font-size: 1.25rem; }
+}
+
+@media (max-width: 760px) {
+  .mx-card {
+    grid-template-columns: 2.2rem 1fr auto;
+    grid-template-areas:
+      "rank id score"
+      "dims dims dims"
+      "facts facts facts";
+    row-gap: 0.55rem;
+  }
+  .mx-dim { grid-template-columns: 7.6rem 1fr 2.2rem; }
+}
+
+// ---------- Profile radar ----------
+.mx-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.75rem 1.1rem;
+  margin-bottom: 0.75rem;
+  font-family: $font-family-sans-serif;
+  label { display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.72rem;
+    color: $ink-soft; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+}
+.mx-select {
+  font-family: $font-family-sans-serif;
+  font-size: 0.9rem;
+  padding: 0.35rem 1.9rem 0.35rem 0.6rem;
+  border: 1px solid #D9CDB8;
+  border-radius: 6px;
+  background-color: #FFFFFF;
+  color: $ink;
+  min-width: 11rem;
+}
+.mx-toggle {
+  font-family: $font-family-sans-serif;
+  font-size: 0.82rem;
+  padding: 0.38rem 0.8rem;
+  border: 1px solid #D9CDB8;
+  border-radius: 20px;
+  background: #FFFFFF;
+  color: $tyrian-deep;
+  cursor: pointer;
+  &[aria-pressed="true"] { background: rgba($tyrian, 0.08); border-color: rgba($tyrian, 0.35); }
+}
+.mx-profile-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 14rem;
+  gap: 1.25rem;
+  align-items: center;
+}
+.mx-radar-wrap { max-width: 640px; width: 100%; margin: 0 auto; }
+// Quarto's page grid assigns named grid-column lines to descendants of the
+// main column. Inside our own grids those names do not exist and would
+// create phantom zero-width tracks, so reset placement explicitly.
+.mx-profile-body > *, .mx-multiples > * { grid-column: auto; }
+.mx-profile-side { font-family: $font-family-sans-serif; font-size: 0.85rem; color: $ink-soft; }
+.mx-profile-summary { margin: 0.9rem 0; line-height: 1.5; strong { color: $ink; } }
+@media (max-width: 760px) {
+  .mx-profile-body { grid-template-columns: 1fr; }
+}
+
+// Legend swatches: a short line, solid or dashed, beside the series name.
+.mx-legend { display: flex; flex-direction: column; gap: 0.35rem; font-family: $font-family-sans-serif;
+  font-size: 0.82rem; color: $ink; }
+.mx-legend-row { flex-direction: row; flex-wrap: wrap; gap: 0.4rem 1.2rem; margin-top: 0.75rem; }
+.mx-leg { display: inline-flex; align-items: center; gap: 0.45rem;
+  i { display: inline-block; width: 22px; border-top: 2.5px solid; }
+  i.is-dashed { border-top-style: dashed; }
+  i.is-band { width: 14px; height: 6px; border: 0; border-radius: 3px; }
+}
+.mx-figkey { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.78rem;
+  span { display: inline-flex; align-items: center; gap: 0.45rem; }
+  i { display: inline-block; width: 14px; height: 6px; border-radius: 3px; }
+}
+
+// ---------- Small multiples ----------
+.mx-multiples {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 0.9rem;
+}
+.mx-mult {
+  margin: 0;
+  padding: 0.6rem 0.6rem 0.2rem;
+  border: 1px solid $card-border;
+  border-radius: 8px;
+  background: #FFFFFF;
+  figcaption {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 0 0.2rem 0.2rem;
+    font-family: $font-family-sans-serif;
+  }
+}
+.mx-mult-name { font-weight: 600; font-size: 0.86rem; color: $ink; }
+.mx-mult-score { font-size: 0.8rem; color: $tyrian-deep; font-variant-numeric: tabular-nums; font-weight: 600; }
+
+// ---------- Heatmap ----------
+.mx-heat-scroll { overflow-x: auto; }
+table.mx-heat {
+  border-collapse: separate;
+  border-spacing: 2px;
+  font-family: $font-family-sans-serif;
+  margin: 0;
+  width: 100%;
+  min-width: 720px;
+  tbody tr:nth-child(even) { background: transparent; }
+  thead th { border-bottom: 0; text-transform: none; letter-spacing: 0; }
+  td {
+    height: 26px;
+    min-width: 15px;
+    border-radius: 3px;
+    padding: 0;
+    cursor: default;
+    &:hover { outline: 2px solid $ink; outline-offset: -1px; }
+  }
+  .fig-start { border-left: 0; box-shadow: -3px 0 0 $card-bg, -5px 0 0 rgba($gold, 0.6); }
+}
+.mx-heat-corner { text-align: left; font-size: 0.7rem !important; color: $ink-soft; }
+.mx-heat-fig {
+  font-size: 0.74rem !important;
+  font-weight: 600;
+  color: $tyrian-deep !important;
+  text-align: left;
+  padding: 0 0 0.15rem 0.1rem !important;
+  border-bottom: 3px solid !important;
+  &.fig-M { border-bottom-color: rgba($gold, 0.55) !important; }
+  &.fig-O { border-bottom-color: rgba($tyrian, 0.35) !important; }
+}
+.mx-heat-q {
+  font-size: 0.6rem !important;
+  font-weight: 500;
+  color: $ink-soft !important;
+  text-align: center;
+  padding: 0.25rem 0 0.2rem !important;
+  position: relative;
+  &.is-flagged::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -2px;
+    width: 5px; height: 5px;
+    margin-left: -2.5px;
+    border-radius: 50%;
+    background: $ink;
+  }
+}
+.mx-heat-model {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: $ink;
+  white-space: nowrap;
+  padding-right: 0.6rem !important;
+  text-align: right;
+}
+.mx-heat-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.75rem;
+  font-family: $font-family-sans-serif;
+  font-size: 0.75rem;
+  color: $ink-soft;
+}
+.mx-heat-ramp { display: inline-block; width: 140px; height: 10px; border-radius: 3px; }
+.mx-heat-flagkey { margin-left: 1.25rem; display: inline-flex; align-items: center; gap: 0.35rem;
+  i { width: 5px; height: 5px; border-radius: 50%; background: $ink; display: inline-block; }
+}
+
+// ---------- Floating tooltip for HTML charts ----------
+.mx-tip {
+  position: fixed;
+  z-index: 2000;
+  display: none;
+  max-width: 300px;
+  padding: 0.55rem 0.7rem;
+  background: $card-bg;
+  border: 1px solid #E2D8C8;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(44, 36, 29, 0.16);
+  font-family: $font-family-sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: $ink;
+  pointer-events: none;
+}
+.mx-tip-q { color: $ink-soft; }
+
+// ---------- Wide data tables on phones ----------
+// Several result tables have 5 to 7 columns. On narrow screens let each
+// table scroll sideways inside its own box instead of widening the page.
+@media (max-width: 760px) {
+  main table:not(.mx-heat) {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}

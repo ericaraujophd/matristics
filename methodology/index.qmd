@@ -3,71 +3,71 @@ title: Methodology
 subtitle: Paradigms, rubric, annotation protocol, and agreement
 ---
 
-This project uses a human-evaluation methodology designed for a specialized historical domain. The core design decisions are:
+This project uses a human-evaluation methodology designed for a specialized historical domain. The main design decisions are these:
 
-1. **Reference-guided pointwise scoring**: each response is rated independently on a 1–5 scale per dimension, against shared reference material prepared in advance. See [Evaluation Paradigms](#evaluation-paradigms).
+1. Reference-guided pointwise scoring. Each response is rated on a 1–5 scale for each dimension, independently, against reference material prepared in advance. See [Evaluation Paradigms](#evaluation-paradigms).
 
-2. **Four dimensions plus tags**: Historical Accuracy, Coverage, Framing and Agency, and Epistemic Quality, with response-level tags ([evasion], [false-premise-corrected]) and typed error tags. See [The Rubric](#the-rubric).
+2. Four dimensions plus tags. The dimensions are Historical Accuracy, Coverage, Framing and Agency, and Epistemic Quality. Response-level tags ([evasion], [false-premise-corrected]) and typed error tags sit alongside them. See [The Rubric](#the-rubric).
 
-3. **Two-tier question bank**: 11 general questions asked of every figure, plus 6–7 questions specific to each figure's own context — including adversarial items built on a false premise the model should correct. See [Figures & Question Bank](../figures/index.qmd).
+3. A two-tier question bank: 11 general questions asked of every figure, plus 6–7 questions specific to each figure's own context. The specific questions include adversarial items built on a false premise that the model should correct. See [Figures & Question Bank](../figures/index.qmd).
 
-4. **Full double annotation**: every response is scored independently by every annotator, so agreement can be measured on all items rather than on a sample. See [Annotation Protocol](#annotation-protocol).
+4. Full double annotation. Every annotator scores every response independently, so agreement can be measured on all items and not only on a sample. See [Annotation Protocol](#annotation-protocol).
 
-5. **Agreement as calibration, not a gate**: reliability is reported per dimension and used to set how strongly each result is claimed. See [Inter-Annotator Agreement](#inter-annotator-agreement).
+5. Agreement used for calibration. Reliability is reported per dimension and sets how strongly each result is claimed; it does not act as a gate. See [Inter-Annotator Agreement](#inter-annotator-agreement).
 
-A key principle: **LLM-as-judge pipelines are not used**. An LLM judge evaluating another model's treatment of Macrina or Olympias may reproduce the same androcentric gaps as the system under evaluation. All scoring in this project is done by humans.
+We do not use LLM-as-judge pipelines. An LLM judging another model's treatment of Macrina or Olympias may reproduce the same androcentric gaps as the system under evaluation, so all scoring in this project is done by people.
 
 ::: {.callout-note title="Methodology as executed"}
-This page describes the methodology as it was actually carried out in the first scoring round (summer 2026), and marks separately the refinements planned for subsequent rounds. Where the design and the execution differ, the difference is stated rather than smoothed over.
+This page describes the methodology as it was carried out in the first scoring round (summer 2026) and marks separately the refinements planned for later rounds. Where the design and the execution differ, we say so.
 :::
 
 ## Evaluation Paradigms
 
 ### Pointwise Scoring (Likert Scales)
 
-A single response is rated on a 1–5 scale along each rubric dimension independently. This allows fine-grained comparison across models, questions, and figures, and produces data suitable for quantitative analysis.
+Each response is rated on a 1–5 scale on each rubric dimension separately. This allows fine-grained comparison across models, questions, and figures, and produces data suitable for quantitative analysis.
 
-**Used for**: all four dimensions. This is the sole scoring paradigm used in the first round.
+**Used for:** all four dimensions. It was the only scoring paradigm in the first round.
 
 ### Reference-Guided Scoring
 
-Annotators score responses against shared reference material prepared before any scoring begins, so that factual judgments rest on a common baseline rather than on each annotator's independent recall.
+Annotators score responses against shared reference material prepared before scoring begins, so that factual judgments rest on a common baseline instead of on each annotator's memory.
 
-**Used for**: the Historical Accuracy and Epistemic Quality dimensions. In the first round the reference material was a **researched profile and fact-check sheet for each figure**, compiled by the annotators from the primary sources and secondary literature during the preparation phase. Each sheet records the documented facts of the figure's life with their sources, and — importantly for this project — the points where the sources disagree with each other. These are published in condensed form on the figure pages ([Macrina](../figures/macrina.qmd), [Olympias](../figures/olympias.qmd)).
+**Used for:** Historical Accuracy and Epistemic Quality. In the first round the reference material was a researched profile and fact-check sheet for each figure, which the annotators compiled from the primary sources and secondary literature during the preparation phase. Each sheet records the documented facts of the figure's life with their sources and, for this project in particular, the points where the sources disagree with each other. Condensed versions are published on the figure pages ([Macrina](../figures/macrina.qmd), [Olympias](../figures/olympias.qmd)).
 
-*Planned refinement:* a per-question gold-standard answer document, which would tighten the baseline further than a per-figure sheet can.
+*Planned refinement:* a gold-standard answer document for each question, which would give a tighter baseline than a sheet for each figure can.
 
 ### Pairwise Comparison
 
-Two responses to the same prompt are shown side by side and judged against each other. The literature finds this produces high inter-annotator agreement because the task is comparative rather than absolute, but it does not yield the dimension-level scores needed to diagnose *where* a model fails.
+Two responses to the same prompt are shown side by side and judged against each other. The literature reports high inter-annotator agreement for this approach because the task is comparative and not absolute. It does not, however, produce the dimension-level scores needed to diagnose *where* a model fails.
 
-*Not used in the first round.* It remains a candidate addition for model ranking, particularly given the compressed score range the first round produced — a comparative judgment may separate responses that pointwise scoring rates identically.
+*Not used in the first round.* It remains a candidate addition for ranking models, especially because the first round produced a compressed score range: a comparative judgment may separate responses that pointwise scoring rates the same.
 
 ### Why This Design?
 
-@zheng2023judging introduced the LLM-as-judge paradigm and demonstrated that pairwise comparison achieves the highest consistency with human preference rankings — but pairwise comparison alone cannot show which dimension a model failed on. @liu2023geval addressed this by proposing G-Eval, a rubric-based pointwise scoring framework using chain-of-thought reasoning, which achieves better correlation with human judgments than older string-overlap metrics; the rubric below follows that approach, using explicit scoring criteria per dimension to improve alignment between annotators and reduce reliance on annotator background knowledge alone.
+@zheng2023judging introduced the LLM-as-judge paradigm and showed that pairwise comparison agrees most consistently with human preference rankings, though pairwise comparison alone cannot show which dimension a model failed on. @liu2023geval addressed this with G-Eval, a rubric-based pointwise scoring framework using chain-of-thought reasoning, which correlates better with human judgments than older string-overlap metrics. The rubric below follows that approach. Explicit scoring criteria for each dimension improve alignment between annotators and reduce their reliance on background knowledge alone.
 
-Reference-guided scoring is added because the domain knowledge required to evaluate responses on Historical Accuracy and Epistemic Quality cannot be assumed of any annotator working at speed across 210 responses. Shared reference material reduces annotator burden and improves reliability on dimensions where the correct answer is determinable from the historical record. @wang2024survey provides a comprehensive survey of this combined methodology as of 2024.
+We add reference-guided scoring because the domain knowledge needed to judge Historical Accuracy and Epistemic Quality cannot be assumed of any annotator working at speed across 210 responses. Shared reference material lightens the annotators' load and improves reliability on dimensions where the correct answer can be determined from the historical record. @wang2024survey surveys this combined methodology as of 2024.
 
 ## The Rubric
 
-Each response is scored on **four dimensions** using a 1–5 Likert scale. Before dimension scoring begins, annotators apply one or both **response-level tags** if applicable. Dimensions are scored independently: a response can score high on Historical Accuracy but low on Framing and Agency if it gets the facts right while framing them in an androcentric way.
+Each response is scored on four dimensions using a 1–5 Likert scale. Before scoring the dimensions, annotators apply one or both response-level tags where they fit. The dimensions are scored independently: a response can score high on Historical Accuracy and low on Framing and Agency if it gets the facts right and frames them in an androcentric way.
 
-The four dimensions consolidate an earlier seven-dimension design (Factual Accuracy, Completeness, Gender Bias, Hallucination, Anachronism, Source Awareness, Depth & Nuance). Overlapping error types are now captured by typed tags rather than by separate scales, which keeps a single failure from being penalized two or three times over.
+The four dimensions consolidate an earlier design with seven (Factual Accuracy, Completeness, Gender Bias, Hallucination, Anachronism, Source Awareness, Depth & Nuance). Overlapping error types are now recorded with typed tags instead of separate scales, so a single failure is not penalized two or three times.
 
 ### Response-Level Tags
 
-Two binary tags are applied at the response level before any dimension scoring takes place.
+Two binary tags are applied to the response as a whole before any dimension is scored.
 
-**[evasion]** — The response deflects a historically answerable question. This includes refusing to engage on grounds of theological controversy, redirecting entirely to a male figure, or providing a heavily hedged non-answer where the historical evidence is reasonably clear. When this tag is applied, Coverage is scored 1 automatically. The remaining three dimensions are still scored on whatever substantive content the response provides, if any; if the response contains no substantive content at all, Historical Accuracy and Epistemic Quality are marked *not applicable* rather than scored, and Framing and Agency is scored 1, since erasure through total non-engagement is itself a framing failure.
+**[evasion]:** the response deflects a historically answerable question. This includes refusing to engage on grounds of theological controversy, redirecting entirely to a male figure, or giving a heavily hedged non-answer where the historical evidence is reasonably clear. When this tag is applied, Coverage is scored 1 automatically. The other three dimensions are still scored on whatever substantive content the response contains. If it contains none at all, Historical Accuracy and Epistemic Quality are marked *not applicable*, and Framing and Agency is scored 1, because total non-engagement erases the figure and that erasure is a framing failure.
 
-**[false-premise-corrected]** — Applied to adversarial questions when the model correctly identifies and corrects the false premise embedded in the question. This is a positive flag, not an error tag. Responses with this tag can be analyzed separately to assess hallucination resistance across models.
+**[false-premise-corrected]:** applied to adversarial questions when the model identifies and corrects the false premise embedded in the question. This is a positive flag, not an error tag. Responses carrying it can be analyzed separately to compare how well models resist hallucination.
 
 ### 1. Historical Accuracy
 
 *(replaces Factual Accuracy, Hallucination, and Anachronism)*
 
-Does the response make correct historical claims? This includes names, dates, roles, relationships, events, textual attributions, and the appropriate application of historical frameworks to the correct period.
+Does the response make correct historical claims? This covers names, dates, roles, relationships, events, textual attributions, and whether historical frameworks are applied to the right period.
 
 | Score | Description |
 |-------|-------------|
@@ -78,17 +78,17 @@ Does the response make correct historical claims? This includes names, dates, ro
 | 1 | Predominantly incorrect; major claims are false, invented, or anachronistic throughout. |
 
 ::: {.callout-note}
-The distinction between a 3 and a 2 turns on **relevance to the question**, not on subjective severity. An error is scored 2 if correcting it would change the substance of the answer to what was actually asked; it is scored 3 if it is incidental to the question even though it may be significant in a general sense.
+The difference between a 3 and a 2 depends on **relevance to the question**, and not on how severe the error feels. An error is scored 2 if correcting it would change the substance of the answer to what was asked. It is scored 3 if it is incidental to the question, even when it would matter in a general sense.
 :::
 
-**Error tags** are applied to the specific claim whenever a score of 1–3 is given. Annotators mark one or more of the following and quote the relevant claim in the Notes field.
+Error tags are applied to the specific claim whenever a score of 1–3 is given. Annotators mark one or more of the following and quote the claim in the Notes field.
 
-- **[hallucination]** — an invented detail presented as fact, including a text, date, relationship, or event with no documentary basis
-- **[anachronism]** — a later institutional or theological framework projected onto an earlier period
-- **[misattribution]** — a claim, text, or position attributed to the wrong person or source
-- **[imprecision]** — a claim that is approximately but not precisely correct
+- **[hallucination]:** an invented detail presented as fact, including a text, date, relationship, or event with no documentary basis
+- **[anachronism]:** a later institutional or theological framework projected onto an earlier period
+- **[misattribution]:** a claim, text, or position attributed to the wrong person or source
+- **[imprecision]:** a claim that is approximately but not precisely correct
 
-If a single claim plausibly fits more than one tag, annotators apply all that reasonably fit rather than forcing a single choice.
+If one claim fits more than one tag, annotators apply every tag that reasonably fits instead of forcing a single choice.
 
 ### 2. Coverage
 
@@ -105,14 +105,14 @@ Does the response address all major aspects of the question without significant 
 | 1 | Severely incomplete; the question is only superficially addressed. |
 
 ::: {.callout-note}
-A response that deflects a historically answerable question by citing theological controversy, refusing to engage, or redirecting to a male figure receives the **[evasion]** response-level tag and scores 1 on this dimension automatically. Evasion is handled here rather than under Framing and Agency to prevent the same behavior from penalizing two dimensions simultaneously.
+A response that deflects a historically answerable question by citing theological controversy, refusing to engage, or redirecting to a male figure receives the **[evasion]** response-level tag and scores 1 on this dimension automatically. Evasion is handled here and not under Framing and Agency, so that the same behavior does not lower two dimensions at once.
 :::
 
 ### 3. Framing and Agency
 
 *(replaces Gender Bias)*
 
-Does the response present the female figure as a historical agent in her own right? This dimension evaluates how the response characterizes her role, including not only what it says but what it implies through emphasis, qualification, and the relative weight given to her actions versus those of male figures.
+Does the response present the female figure as a historical agent in her own right? This dimension evaluates how the response characterizes her role: what it says, and also what it implies through emphasis, qualification, and the relative weight given to her actions and to those of male figures.
 
 | Score | Description |
 |-------|-------------|
@@ -123,14 +123,14 @@ Does the response present the female figure as a historical agent in her own rig
 | 1 | Her role is erased or described solely through the lens of male actors. |
 
 ::: {.callout-note title="Note on patronage"}
-Mentioning a figure's wealth, generosity, or material support is not itself a basis for a lower score. The relevant question is whether patronage is presented as the totality or primary substance of her agency when the documentary record supports a fuller account, such as ordination, institutional governance, or theological authorship. A response that accurately discusses patronage alongside other roles should not be penalized for mentioning patronage.
+Mentioning a figure's wealth, generosity, or material support does not by itself lower the score. What matters is whether patronage is presented as the whole or the main substance of her agency when the documentary record supports a fuller account, such as ordination, institutional governance, or theological authorship. A response that discusses patronage accurately alongside her other roles is not penalized for mentioning it.
 :::
 
 ### 4. Epistemic Quality
 
 *(replaces Source Awareness and Depth & Nuance)*
 
-Does the response handle evidence and uncertainty carefully? This includes distinguishing between source types and engaging with scholarly debate where it exists. These are treated as two related but distinguishable competencies, and a response may succeed at one while failing the other.
+Does the response handle evidence and uncertainty carefully? This covers distinguishing between kinds of source and engaging with scholarly debate where it exists. We treat these as two related competencies that can be told apart, and a response may succeed at one and fail at the other.
 
 | Score | Description |
 |-------|-------------|
@@ -140,10 +140,10 @@ Does the response handle evidence and uncertainty carefully? This includes disti
 | 2 | Significant failure in both source discrimination and debate engagement, or a pervasive failure in one of the two. |
 | 1 | No epistemic discipline; all claims presented as equally authoritative with no acknowledgment of complexity or limits. |
 
-**Tags**, applied whenever a score of 1–3 is given, to record which competency failed:
+Tags are applied whenever a score of 1–3 is given, to record which competency failed:
 
-- **[source-conflation]** — primary, secondary, hagiographic, or correspondence sources treated as equally authoritative or otherwise mischaracterized
-- **[debate-flattened]** — a contested scholarly question presented as settled, or only one position represented where genuine debate exists
+- **[source-conflation]:** primary, secondary, hagiographic, or correspondence sources treated as equally authoritative or otherwise mischaracterized
+- **[debate-flattened]:** a contested scholarly question presented as settled, or only one position represented where genuine debate exists
 
 ### Scoring Sheet
 
@@ -181,52 +181,52 @@ ______________________________________
 
 ## Annotation Protocol
 
-The quality of human evaluation is only as strong as the annotation protocol ([@chen2024llmjudges]).
+Human evaluation is only as good as its annotation protocol ([@chen2024llmjudges]).
 
 ### Annotators
 
-The first round was scored by **two annotators**: the project's McGregor research fellows, undergraduate researchers who spent the preceding weeks in a structured reading program covering the primary sources and the modern scholarship for both figures, and who then built the fact-checked profiles used as reference material. Their preparation is documented in reading logs kept throughout.
+Two annotators scored the first round. They are the project's McGregor research fellows, undergraduate researchers who spent the preceding weeks in a structured reading program on the primary sources and modern scholarship for both figures, and who then built the fact-checked profiles used as reference material. They kept reading logs throughout their preparation.
 
-This is a deliberate trade-off and a limitation worth naming: the annotators are not credentialed specialists in patristics or feminist historiography, but they had read the relevant sources closely and had themselves assembled the factual baseline against which they scored. No crowdsourcing platforms were used at any point; agreement between non-expert raters and domain experts is known to fall to roughly two-thirds on expert-knowledge tasks, which makes crowdsourced annotation unsuitable for this material.
+This is a deliberate trade-off, and a limitation. The annotators are not credentialed specialists in patristics or feminist historiography. They had, however, read the relevant sources closely and had assembled the factual baseline against which they scored. We did not use crowdsourcing platforms at any point: agreement between non-expert raters and domain experts falls to roughly two-thirds on expert-knowledge tasks, which makes crowdsourced annotation unsuitable for this material.
 
-*Planned refinement:* expert adjudication by a scholar with graduate training in early Christianity, particularly for the Framing and Agency dimension and for any item where the annotators diverge by two points or more.
+*Planned refinement:* expert adjudication by a scholar with graduate training in early Christianity, particularly for the Framing and Agency dimension and for any item where the annotators differ by two points or more.
 
 ### Preparation
 
-Before scoring began, annotators:
+Before scoring began, the annotators:
 
-1. Read the primary sources and principal secondary literature for both figures, logging progress throughout.
-2. Produced a **profile and fact-check sheet** per figure, recording documented facts against their sources and flagging inter-source disagreements.
-3. Worked through the rubric as it was being revised, including the redesign that replaced the original seven dimensions with the current four plus tags.
+1. Read the primary sources and principal secondary literature for both figures, logging their progress.
+2. Produced a profile and fact-check sheet for each figure, recording documented facts against their sources and flagging disagreements between sources.
+3. Worked through the rubric while it was being revised, including the redesign that replaced the original seven dimensions with the current four plus tags.
 
 ### Scoring
 
-- All **210 responses** (35 questions × 6 models) were scored by **both annotators independently**, producing 420 ratings — full double annotation rather than a sampled overlap.
-- Scoring used a shared workbook, one row per question × model, with dimension scores, tags, and a free-text justification field.
+- Both annotators scored all 210 responses (35 questions × 6 models) independently, producing 420 ratings. Every item was double-annotated; there was no sampled overlap.
+- Scoring used a shared workbook with one row per question and model, holding dimension scores, tags, and a free-text justification field.
 - Response-level tags were applied before dimension scoring.
 
 ### Controls Not Applied in the First Round
 
-Stating these plainly, since they bear on how the results should be read:
+These omissions affect how the results should be read:
 
-- **No blinding.** Model identity was visible in the scoring workbook. Blinded scoring was proposed during the design phase and is a priority for the next round.
-- **No response randomization.** Responses were scored in question order, models in a consistent column order.
-- **No third rater.** Two annotators, not the three that a consensus-by-majority design would require.
-- **No formal calibration round.** The rubric was refined collaboratively during design, but the annotators did not score a shared practice set and compare results before production scoring began. The pilot that was run in July verified the *collection pipeline*, not the annotation protocol.
+- No blinding. Model identity was visible in the scoring workbook. Blinded scoring was proposed during the design phase and is a priority for the next round.
+- No randomization. Responses were scored in question order, with the models in a fixed column order.
+- No third rater. There were two annotators, not the three that a majority-consensus design requires.
+- No formal calibration round. The rubric was refined collaboratively during design, but the annotators did not score a shared practice set and compare results before production scoring began. The July pilot verified the *collection pipeline*, not the annotation protocol.
 
-*Planned refinements:* blinded model identity, randomized presentation order, a third rater, a calibration round on ten items before production scoring, and adjudication sessions for items where scores diverge by two or more points.
+*Planned refinements:* blinded model identity, randomized presentation order, a third rater, a calibration round on ten items before production scoring, and adjudication sessions for items where scores differ by two or more points.
 
 ## Inter-Annotator Agreement
 
-Measuring annotator reliability is a core validity requirement, not an optional step.
+A study that relies on human judgment has to measure how reliable those judgments are.
 
 ### Krippendorff's Alpha (α)
 
-Krippendorff's alpha ([@krippendorff2011agreement]) is the project's primary reliability statistic. It is preferred over Cohen's kappa because:
+Krippendorff's alpha ([@krippendorff2011agreement]) is the project's primary reliability statistic. We prefer it to Cohen's kappa for three reasons:
 
-- It handles **any number of annotators**.
-- It is appropriate for **ordinal scales** (the 1–5 Likert scales used in the rubric), treating a disagreement between scores of 1 and 5 as worse than a disagreement between 4 and 5.
-- It can be calculated even with **missing data** — relevant here, since evasive responses can leave Historical Accuracy and Epistemic Quality unscored.
+- It handles any number of annotators.
+- It suits ordinal scales such as the rubric's 1–5 Likert scales, treating a disagreement between 1 and 5 as worse than one between 4 and 5.
+- It can be calculated with missing data, which matters here because evasive responses can leave Historical Accuracy and Epistemic Quality unscored.
 
 **Conventional interpretation:**
 
@@ -240,39 +240,39 @@ Krippendorff's alpha ([@krippendorff2011agreement]) is the project's primary rel
 
 ### Observed Agreement in the First Round
 
-The first round produced alpha values between 0.09 and 0.24 — nominally "slight to fair" — alongside raw exact agreement of 52% to 75% and within-one-point agreement above 87% on every dimension. Full figures are on the [Benchmark](../benchmark/index.qmd#inter-annotator-agreement) page.
+The first round produced alpha values between 0.09 and 0.24, nominally "slight to fair", together with raw exact agreement of 52% to 75% and agreement within one point above 87% on every dimension. Full figures are on the [Benchmark](../benchmark/index.qmd#inter-annotator-agreement) page.
 
-Both facts are true at once, and the tension between them is a known property of chance-corrected agreement statistics under a **ceiling effect**. Alpha compares observed disagreement against the disagreement expected by chance. When the models perform uniformly well — 84% of Historical Accuracy ratings were 5 — two annotators guessing at random from the observed distribution would also agree most of the time, so the expected disagreement in alpha's denominator becomes very small and a handful of real disagreements dominates the coefficient. The same paradox is familiar for Cohen's kappa with skewed marginals.
+Both results hold at once. The tension between them is a known property of chance-corrected agreement statistics under a **ceiling effect**. Alpha compares observed disagreement with the disagreement expected by chance. When the models perform uniformly well (84% of Historical Accuracy ratings were 5), two annotators guessing at random from the observed distribution would also agree most of the time. The expected disagreement in alpha's denominator becomes very small, and a few real disagreements dominate the coefficient. Cohen's kappa shows the same paradox with skewed marginals.
 
-Alpha is therefore answering a narrower question than it appears to: not "do the annotators understand the rubric the same way" but "can they reliably separate responses *within* a compressed band of high scores". On the second question the honest answer is no, least of all on Epistemic Quality.
+So alpha answers a narrower question than it seems to. It does not ask whether the annotators understand the rubric the same way; it asks whether they can reliably separate responses *within* a compressed band of high scores. On that question the answer is no, least of all on Epistemic Quality.
 
 ### How Agreement Is Used
 
-An earlier draft of this methodology set a gate: production annotation could begin only once α ≥ 0.60 on every dimension. That gate has been removed rather than retuned, for two reasons.
+An earlier draft of this methodology set a gate: production annotation could begin only once α ≥ 0.60 on every dimension. We removed that gate instead of retuning it, for two reasons.
 
-**It does not fit this workflow.** A reliability gate exists to protect a large annotation investment — pilot a sample, check reliability, retrain, and only then commit raters to thousands of items. Here every response is scored by every annotator, and the corpus is small enough that any disagreement can be pulled up and examined directly. Adjudication does the work a gate was meant to do, and does it better: a gate tells you *that* raters diverged, adjudication tells you *why*.
+First, it does not fit this workflow. A reliability gate protects a large annotation investment: pilot a sample, check reliability, retrain, and only then commit raters to thousands of items. Here every annotator scores every response, and the corpus is small enough that any disagreement can be pulled up and examined directly. Adjudication does the work a gate was meant to do, and does more of it, because a gate shows *that* raters diverged and adjudication shows *why*.
 
-**A pass/fail threshold on a single statistic is fragile** in exactly the way the first round demonstrated. Alpha fell for reasons having nothing to do with annotation quality, and a project bound by the gate would face a choice between suppressing an inconvenient number and adjusting the instrument until it passed. Both are worse than reporting what happened.
+Second, a pass/fail threshold on a single statistic is fragile, and the first round showed how. Alpha fell for reasons unrelated to annotation quality. A project bound by the gate would have had to choose between suppressing an inconvenient number and adjusting the instrument until it passed. Reporting what happened is better than either.
 
-Agreement is therefore treated as a measurement that calibrates claims, not a threshold that licenses them:
+We therefore treat agreement as a measurement that calibrates claims, and not as a threshold that permits them:
 
-1. **Reported per dimension, always** — alpha alongside exact and within-one-point agreement, so that a low coefficient can be read against the distribution that produced it.
-2. **Disagreements are adjudicated, not averaged away.** Items where the annotators diverge by two points or more are reviewed together, and the reason for the divergence is recorded — usually a rubric ambiguity worth fixing rather than an error by either rater.
-3. **Claim strength follows agreement.** On dimensions where annotators separate responses reliably, model differences are reported as findings; where they do not, differences smaller than the mean inter-annotator difference are reported as provisional. This is stated in the results rather than left for the reader to infer.
+1. Agreement is reported per dimension, always: alpha alongside exact and within-one-point agreement, so that a low coefficient can be read against the distribution that produced it.
+2. Disagreements are adjudicated, not averaged away. Items where the annotators differ by two points or more are reviewed together and the reason is recorded. Usually it is an ambiguity in the rubric that should be fixed, and not an error by either rater.
+3. Claim strength follows agreement. Where annotators separate responses reliably, model differences are reported as findings. Where they do not, differences smaller than the mean inter-annotator difference are reported as provisional, and the results say so explicitly.
 
-Expanding the bank to figures with sparser documentation should widen the score distribution, at which point alpha becomes informative again on its own terms.
+Adding figures with sparser documentation should widen the score distribution, and alpha will then be informative on its own terms again.
 
 ### Supplementary Metrics
 
-**Cohen's kappa** is reported for pairs of annotators on the binary response-level tags ([evasion], [false-premise-corrected]), where the judgment is categorical rather than ordinal.
+**Cohen's kappa** is reported for pairs of annotators on the binary response-level tags ([evasion], [false-premise-corrected]), where the judgment is categorical and not ordinal.
 
-**Spearman's rank correlation** is used as a cross-check when comparing annotator pairs on Likert dimensions; it does not assume interval spacing and is therefore more appropriate than Pearson's *r* for ordinal data.
+**Spearman's rank correlation** is used as a cross-check when comparing annotator pairs on the Likert dimensions. It does not assume equal spacing between scores, so it suits ordinal data better than Pearson's *r*.
 
 ### Reporting Standards
 
-All agreement statistics are reported **per dimension**, not only as aggregates. A project that reports only an overall alpha may obscure the fact that raters agree well on Historical Accuracy but disagree substantially on Framing and Agency — a distinction central to this project's research questions.
+All agreement statistics are reported per dimension as well as in aggregate. A single overall alpha could hide that raters agree well on Historical Accuracy and disagree substantially on Framing and Agency, a distinction that bears directly on this project's research questions.
 
-Agreement is also reported **per figure**, to identify whether certain questions or figures are inherently harder to evaluate consistently.
+Agreement is also reported per figure, to show whether some questions or figures are harder to evaluate consistently.
 
 ### Calculation
 
@@ -289,17 +289,17 @@ alpha = krippendorff.alpha(
 )
 ```
 
-Alpha is computed separately for each dimension, and N/A ratings — used when an evasive response leaves nothing substantive to score — are passed as missing values rather than imputed.
+Alpha is computed separately for each dimension. N/A ratings, used when an evasive response leaves nothing substantive to score, are passed as missing values and not imputed.
 
 ## Replicating This Evaluation
 
-Everything needed to repeat or extend the evaluation is published: the [question bank](../figures/index.qmd) as CSV, the rubric and scoring sheet above, the [collection pipeline](../data-collection/index.qmd), and the reference profiles condensed onto the figure pages ([Macrina](../figures/macrina.qmd), [Olympias](../figures/olympias.qmd)). Three parts of the design will need adaptation rather than reuse.
+Everything needed to repeat or extend the evaluation is published: the [question bank](../figures/index.qmd) as CSV, the rubric and scoring sheet above, the [collection pipeline](../data-collection/index.qmd), and the reference profiles condensed onto the figure pages ([Macrina](../figures/macrina.qmd), [Olympias](../figures/olympias.qmd)). Three parts of the design need adapting before reuse.
 
-**Adding models.** Add the model's pinned, dated version string to the collection script. Temperature 0 and verbatim prompt text should be kept unchanged, or results are not comparable with those reported here.
+**Adding models.** Add the model's pinned, dated version string to the collection script. Keep temperature 0 and the verbatim prompt text unchanged, or the results will not be comparable with those reported here.
 
-**Adding figures.** Ask the 11 general questions with the new figure's name substituted, then write 6–7 figure-specific questions covering her particular sources, debates, and events. Include at least one item built on a premise the record does not support: the adversarial questions proved the most discriminating in the first round. Build a reference profile and fact-check sheet before scoring begins, recording not only the documented facts but the points where sources disagree.
+**Adding figures.** Ask the 11 general questions with the new figure's name substituted, then write 6–7 questions specific to her sources, debates, and events. Include at least one item built on a premise the record does not support; in the first round the adversarial questions separated the models most clearly. Build a reference profile and fact-check sheet before scoring begins, and record in it the points where the sources disagree as well as the documented facts.
 
-**Using different annotators.** Reference material is not transferable in the way a question bank is — annotators score more consistently against a baseline they helped assemble. Expect to build your own, and report inter-annotator agreement per dimension alongside any results: alpha together with raw exact and within-one-point agreement, since alpha alone misleads when scores are concentrated (see [How Agreement Is Used](#how-agreement-is-used)).
+**Using different annotators.** Reference material does not transfer the way a question bank does, because annotators score more consistently against a baseline they helped assemble. Expect to build your own. Report inter-annotator agreement per dimension with any results, giving alpha together with raw exact and within-one-point agreement, since alpha alone misleads when scores are concentrated (see [How Agreement Is Used](#how-agreement-is-used)).
 
 <!-- TODO: Add instructions for submitting results to a shared dataset repository
 (e.g., Hugging Face Datasets or Zenodo) so that results across research groups
