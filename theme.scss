@@ -453,6 +453,26 @@ figcaption { color: $mx-muted; font-size: 0.82rem; }
 .mx-fact-v { font-size: 1.55rem; font-weight: 700; }
 .mx-fact-v small { font-size: 0.9rem; color: $mx-faint; }
 
+// Readout under each radar: names the hovered or tapped spoke's question
+// and lists each drawn layer's score on it.
+.mx-radar .mx-hit { cursor: pointer; }
+.mx-radar-readout {
+  min-height: 3.2em; margin: 0.6rem auto 0.4rem; max-width: 34rem; text-align: center;
+  font-size: 0.82rem; line-height: 1.45; color: $mx-text-2;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.2rem 0.9rem;
+  .mx-radar-hint { color: $mx-faint; }
+  .mx-radar-q { flex: 1 1 100%; }
+  .mx-radar-q b { color: $mx-gold; margin-right: 0.3rem; }
+  .mx-radar-val b { font-variant-numeric: tabular-nums; }
+  .mx-radar-val.is-primary b { color: $mx-series; }
+  .mx-radar-val.is-compare b { color: $mx-compare; }
+  .mx-radar-val.is-field { color: $mx-faint; }
+}
+// Phones: the 35 labels collide, so hide them; the readout takes over.
+@media (max-width: 640px) {
+  .mx-radar-lbl { display: none; }
+}
+
 .mx-heat-scroll { overflow-x: auto; }
 .mx-heat { min-width: 920px; display: flex; flex-direction: column; gap: 3px; }
 .mx-heat-row { display: grid; grid-template-columns: 9.5rem repeat(35, minmax(0, 1fr)); gap: 3px; align-items: center; }
