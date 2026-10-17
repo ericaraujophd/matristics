@@ -135,9 +135,63 @@
     this.kinds = "";         // layer kinds currently drawn, e.g. "field,primary"
     this.values = [];        // current values per layer, for tweening
     this.labelSize = opts.labelSize || "";
+    this.layers = [];        // layers currently drawn (for the readout)
+    this.active = -1;        // spoke picked by hover or tap, -1 = none
     host.classList.add("mx-radar");
     host.setAttribute("role", "img");
+
+    // Readout line under the radar. On phones the 35 spoke labels are
+    // hidden (theme.scss, section 8) because they collide, so tapping a
+    // spoke is how a reader finds out which question it is. On larger
+    // screens hovering does the same. The readout sits OUTSIDE the host,
+    // because draw() replaces everything inside the host.
+    this.readout = document.createElement("p");
+    this.readout.className = "mx-radar-readout";
+    this.readout.setAttribute("aria-live", "polite");
+    host.parentNode.insertBefore(this.readout, host.nextSibling);
+    this.hint();
+
+    // One listener on the host for all spokes (event delegation). The
+    // invisible wedges drawn in draw() carry data-i = spoke index.
+    var self = this;
+    function pick(e) {
+      var w = e.target.closest && e.target.closest(".mx-hit");
+      if (w) self.focus(parseInt(w.getAttribute("data-i"), 10));
+    }
+    host.addEventListener("click", pick);                       // tap or click
+    host.addEventListener("pointerover", function (e) {         // mouse hover only
+      if (e.pointerType === "mouse") pick(e);
+    });
+    host.addEventListener("pointerleave", function (e) {
+      if (e.pointerType === "mouse") self.focus(-1);
+    });
   }
+
+  // Default readout text when no spoke is picked.
+  Radar.prototype.hint = function () {
+    this.readout.innerHTML = '<span class="mx-radar-hint">Tap or hover over a spoke to see its question.</span>';
+  };
+
+  // Pick spoke i (or -1 to clear): highlight it and describe it below.
+  Radar.prototype.focus = function (i) {
+    this.active = i;
+    var on = this.host.querySelector(".mx-spoke-on");
+    if (i < 0 || i >= this.ids.length) {
+      if (on) on.setAttribute("opacity", "0");
+      this.hint();
+      return;
+    }
+    var n = this.ids.length, p = this.pt(i, n, 5);
+    if (on) { on.setAttribute("x2", p[0].toFixed(1)); on.setAttribute("y2", p[1].toFixed(1)); on.setAttribute("opacity", "1"); }
+    var id = this.ids[i];
+    var q = Q.filter(function (x) { return x.id === id; })[0];
+    // Model layers first (primary, then compare), the average last.
+    var order = { primary: 0, compare: 1, field: 2 };
+    var vals = this.layers.slice().sort(function (a, b) { return order[a.kind] - order[b.kind]; }).map(function (L) {
+      return '<span class="mx-radar-val is-' + L.kind + '">' + esc(L.kind === "field" ? "Average" : L.name) + " <b>" + f2(L.values[i]) + "</b></span>";
+    }).join("");
+    this.readout.innerHTML = '<span class="mx-radar-q"><b>' + id + "</b> " + esc(q ? q.text : "") + "</span>" + vals;
+  };
 
   // Point for spoke i of n at value v, as [x, y].
   Radar.prototype.pt = function (i, n, v) {
@@ -198,12 +252,29 @@
       return '<span class="mx-radar-lbl' + (flag ? " is-flag" : "") + '" style="left:' + (50 + 47.5 * Math.cos(a)).toFixed(2) + "%;top:" + (50 + 47.5 * Math.sin(a)).toFixed(2) + "%" + (self.labelSize ? ";font-size:" + self.labelSize : "") + '">' + id + "</span>";
     }).join("");
 
+    // Invisible wedge around each spoke: the tap/hover target. A wedge is
+    // the whole angular slice out to just beyond the rim, so even a fat
+    // finger on a phone lands on the intended spoke.
+    var half = Math.PI / n, R = 190, hits = "";
+    for (var k = 0; k < n; k++) {
+      var a = -Math.PI / 2 + (2 * Math.PI * k) / n;
+      hits += '<polygon class="mx-hit" data-i="' + k + '" points="200,200 ' +
+        (200 + R * Math.cos(a - half)).toFixed(1) + "," + (200 + R * Math.sin(a - half)).toFixed(1) + " " +
+        (200 + R * Math.cos(a + half)).toFixed(1) + "," + (200 + R * Math.sin(a + half)).toFixed(1) + '" fill="transparent"/>';
+    }
+    // Highlight line for the picked spoke (moved by focus()).
+    var spokeOn = '<line class="mx-spoke-on" x1="200" y1="200" x2="200" y2="40" stroke="' + tok("text") + '" stroke-width="1.5" opacity="0"/>';
+
     this.host.innerHTML = '<svg viewBox="0 0 400 400" aria-hidden="true">' + rings +
-      '<path d="' + spokes + '" stroke="' + line + '" stroke-width="1" opacity="0.8"/>' + ticks + arcs + polys + "</svg>" + labels;
+      '<path d="' + spokes + '" stroke="' + line + '" stroke-width="1" opacity="0.8"/>' + ticks + arcs + spokeOn + polys + hits + "</svg>" + labels;
     this.host.setAttribute("aria-label", label);
     this.ids = ids.slice();
     this.kinds = layers.map(function (L) { return L.kind; }).join();
     this.values = layers.map(function (L) { return L.values.slice(); });
+    this.layers = layers;
+    // Keep the reader's picked spoke across redraws (theme change) when it
+    // still exists; a new set of spokes (figure filter) clears it.
+    this.focus(this.active < n ? this.active : -1);
     this.reveal();
   };
 
@@ -216,6 +287,7 @@
     var self = this;
     var kinds = layers.map(function (L) { return L.kind; }).join();
     if (ids.join() !== this.ids.join() || kinds !== this.kinds || motionOff()) {
+      if (ids.join() !== this.ids.join()) this.active = -1;   // different spokes: clear the pick
       this.draw(ids, layers, label);
       this.host.classList.add("is-drawn");
       return;
@@ -235,6 +307,8 @@
     requestAnimationFrame(frame);
     layers.forEach(function (L, j) { polys[j].setAttribute("data-name", L.name); });
     this.values = layers.map(function (L) { return L.values.slice(); });
+    this.layers = layers;
+    this.focus(this.active);   // refresh the readout with the new model's scores
     this.host.setAttribute("aria-label", label);
   };
 
