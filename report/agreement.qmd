@@ -1,0 +1,8 @@
+---
+title: "Inter-Annotator Agreement"
+subtitle: "How far the two annotators agreed, and what that licenses"
+section-number: 6
+---
+{{< include _pdf-banner.qmd >}}
+
+{{< include _sections/agreement.qmd >}}

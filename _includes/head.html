@@ -1,0 +1,21 @@
+<!--
+  Runs in <head>, before the page paints, so that:
+    1. the reader's saved text size and motion preference apply with no flash;
+    2. <html> gets the class "mx-js", which is what enables the entrance and
+       scroll animations in theme.scss. Without JavaScript the class is never
+       added and every element simply shows in its final state.
+  The dark/light choice is stored and applied by Quarto itself
+  (localStorage key "quarto-color-scheme").
+-->
+<script>
+(function () {
+  var root = document.documentElement;
+  root.classList.add("mx-js");
+  try {
+    var t = localStorage.getItem("mx-text");
+    if (t && t !== "0") root.setAttribute("data-mx-text", t);
+    var m = localStorage.getItem("mx-motion");
+    if (m) root.setAttribute("data-mx-motion", m);
+  } catch (e) { /* storage blocked: defaults apply */ }
+})();
+</script>

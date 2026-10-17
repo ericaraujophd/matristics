@@ -204,9 +204,11 @@ def main(argv):
     targets = [Path(a) for a in argv if not a.startswith("--")]
     root = Path(__file__).resolve().parent.parent
     if not targets:
+        # Skip build output and tooling folders, but DO include
+        # report/_sections/, which holds most of the site's prose.
+        skip = ("_site", "_dev", "_includes", ".quarto", ".git")
         targets = sorted(p for p in root.rglob("*.qmd")
-                         if not any(part.startswith(("_", ".")) for part in
-                                    p.relative_to(root).parts))
+                         if p.relative_to(root).parts[0] not in skip)
     rows = []
     for p in targets:
         words, counts, pts = lint(p, show)

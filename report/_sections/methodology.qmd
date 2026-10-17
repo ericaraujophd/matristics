@@ -1,8 +1,3 @@
----
-title: Methodology
-subtitle: Paradigms, rubric, annotation protocol, and agreement
----
-
 This project uses a human-evaluation methodology designed for a specialized historical domain. The main design decisions are these:
 
 1. Reference-guided pointwise scoring. Each response is rated on a 1–5 scale for each dimension, independently, against reference material prepared in advance. See [Evaluation Paradigms](#evaluation-paradigms).
@@ -240,7 +235,7 @@ Krippendorff's alpha ([@krippendorff2011agreement]) is the project's primary rel
 
 ### Observed Agreement in the First Round
 
-The first round produced alpha values between 0.09 and 0.24, nominally "slight to fair", together with raw exact agreement of 52% to 75% and agreement within one point above 87% on every dimension. Full figures are on the [Benchmark](../benchmark/index.qmd#inter-annotator-agreement) page.
+The first round produced alpha values between 0.09 and 0.24, nominally "slight to fair", together with raw exact agreement of 52% to 75% and agreement within one point above 87% on every dimension. Full figures are in [Inter-Annotator Agreement](agreement.qmd).
 
 Both results hold at once. The tension between them is a known property of chance-corrected agreement statistics under a **ceiling effect**. Alpha compares observed disagreement with the disagreement expected by chance. When the models perform uniformly well (84% of Historical Accuracy ratings were 5), two annotators guessing at random from the observed distribution would also agree most of the time. The expected disagreement in alpha's denominator becomes very small, and a few real disagreements dominate the coefficient. Cohen's kappa shows the same paradox with skewed marginals.
 
@@ -293,7 +288,7 @@ Alpha is computed separately for each dimension. N/A ratings, used when an evasi
 
 ## Replicating This Evaluation
 
-Everything needed to repeat or extend the evaluation is published: the [question bank](../figures/index.qmd) as CSV, the rubric and scoring sheet above, the [collection pipeline](../data-collection/index.qmd), and the reference profiles condensed onto the figure pages ([Macrina](../figures/macrina.qmd), [Olympias](../figures/olympias.qmd)). Three parts of the design need adapting before reuse.
+Everything needed to repeat or extend the evaluation is published: the [question bank](../figures/index.qmd) as CSV, the rubric and scoring sheet above, the [collection pipeline](data-collection.qmd), and the reference profiles condensed onto the figure pages ([Macrina](../figures/macrina.qmd), [Olympias](../figures/olympias.qmd)). Three parts of the design need adapting before reuse.
 
 **Adding models.** Add the model's pinned, dated version string to the collection script. Keep temperature 0 and the verbatim prompt text unchanged, or the results will not be comparable with those reported here.
 

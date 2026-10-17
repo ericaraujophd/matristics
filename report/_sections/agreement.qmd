@@ -1,0 +1,21 @@
+Both annotators scored all 210 responses, so agreement can be measured on every item.
+
+| Dimension | Krippendorff's α | Exact agreement | Within 1 point | Mean difference |
+|-----------|:---:|:---:|:---:|:---:|
+| Historical Accuracy | 0.19 | 74.8% | 92.4% | 0.34 |
+| Coverage | 0.17 | 69.9% | 91.4% | 0.39 |
+| Framing & Agency | 0.24 | 66.2% | 91.9% | 0.42 |
+| Epistemic Quality | 0.09 | 51.9% | 87.1% | 0.61 |
+
+::: {.callout-warning title="How to read these numbers"}
+Raw agreement is high. The annotators chose the same score on two-thirds to three-quarters of items and were within one point on about nine in ten. Krippendorff's alpha, however, falls in the range usually labelled "slight to fair".
+
+Both are true, and the tension is a known property of chance-corrected agreement statistics under a ceiling effect. When 84% of the ratings on a dimension are 5, two annotators picking at random from that distribution would also agree most of the time. The expected disagreement in alpha's denominator becomes very small, and the few real disagreements dominate the coefficient. Alpha is therefore measuring how well the annotators distinguish responses within a narrow band of high scores, and on that question it is accurate: they do not distinguish them reliably, least of all on Epistemic Quality.
+
+The project [does not use an agreement threshold as a gate](methodology.qmd#how-agreement-is-used). We report agreement to calibrate how strongly each result can be claimed. Here, the results support a ranking of gross performance and only a provisional ranking of fine distinctions. Differences of a tenth of a point between adjacent models are within annotator noise. The dimension-level gaps, the adversarial results and the tag distributions hold up.
+
+Epistemic Quality needs the most caution. It is the dimension on which the models varied most and the annotators agreed least (51.9% exact). Every measure points the same way, so its direction can be trusted, but its ordering of adjacent models cannot.
+:::
+
+The two annotators' overall means are 4.61 and 4.68, a mild difference in severity and no sign of disagreement about what the dimensions mean.
+

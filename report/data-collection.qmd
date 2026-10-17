@@ -1,0 +1,10 @@
+---
+title: "Data Collection"
+subtitle: "Pipeline, models, data format, and how to run it yourself"
+section-number: 4
+aliases:
+  - /data-collection/index.html
+---
+{{< include _pdf-banner.qmd >}}
+
+{{< include _sections/data-collection.qmd >}}

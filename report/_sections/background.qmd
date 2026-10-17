@@ -1,8 +1,3 @@
----
-title: Background
-subtitle: The project, its historical setting, and prior research
----
-
 How well do large language models know the women who shaped early Christianity?
 
 This project evaluates six LLMs (Claude, ChatGPT, Gemini, Grok, DeepSeek and GLM) on their knowledge of female figures from the first five centuries CE. We check whether the models' answers are factually accurate, and also whether they repeat the androcentric silences and distortions that run through the historical record itself.
@@ -66,7 +61,7 @@ People increasingly use large language models as teaching tools, research aids a
 
 ### Why Early Church History?
 
-Early church history makes a good test case for the reasons set out in [Known LLM Biases in Early Church History](../biases/index.qmd):
+Early church history makes a good test case for the reasons set out in [Known LLM Biases in Early Church History](biases.qmd):
 
 - The primary sources are sparse and contested, so the risk of hallucination is high.
 - The textual tradition is androcentric: men produced almost all of the surviving record.

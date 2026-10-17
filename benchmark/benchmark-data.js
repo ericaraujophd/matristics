@@ -386,6 +386,9 @@ window.MATRISTICS = {
     "debate-flattened": 3,
     "source-conflation": 1
    },
+   "responseTags": {
+    "false-premise-corrected": 13
+   },
    "perQuestion": {
     "M1": 4.375,
     "M2": 4.75,
@@ -460,6 +463,9 @@ window.MATRISTICS = {
     "hallucination": 2,
     "debate-flattened": 4,
     "source-conflation": 3
+   },
+   "responseTags": {
+    "false-premise-corrected": 11
    },
    "perQuestion": {
     "M1": 4.375,
@@ -537,6 +543,10 @@ window.MATRISTICS = {
     "source-conflation": 9,
     "debate-flattened": 4
    },
+   "responseTags": {
+    "false-premise-corrected": 7,
+    "evasion": 1
+   },
    "perQuestion": {
     "M1": 5.0,
     "M2": 4.875,
@@ -611,6 +621,9 @@ window.MATRISTICS = {
     "anachronism": 2,
     "debate-flattened": 3,
     "source-conflation": 1
+   },
+   "responseTags": {
+    "false-premise-corrected": 9
    },
    "perQuestion": {
     "M1": 4.125,
@@ -689,6 +702,9 @@ window.MATRISTICS = {
     "debate-flattened": 7,
     "source-conflation": 6
    },
+   "responseTags": {
+    "false-premise-corrected": 9
+   },
    "perQuestion": {
     "M1": 4.5,
     "M2": 4.625,
@@ -764,6 +780,9 @@ window.MATRISTICS = {
     "anachronism": 1,
     "debate-flattened": 3,
     "source-conflation": 5
+   },
+   "responseTags": {
+    "false-premise-corrected": 12
    },
    "perQuestion": {
     "M1": 4.5,

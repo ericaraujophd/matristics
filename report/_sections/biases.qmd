@@ -1,8 +1,3 @@
----
-title: Known LLM Biases in Early Church History
-description: The bias patterns LLMs exhibit when asked about early church history, particularly regarding women, including hallucination, androcentric bias, and contested scholarship.
----
-
 From the way LLMs are trained, and from earlier research on bias, we can predict before collecting any data the kinds of errors models are likely to make about women in early Christianity. Writing these predictions down first does two things. It shapes the rubric and the question bank, and it gives a baseline against which to compare what we actually find.
 
 This page covers three categories of bias:
@@ -33,7 +28,7 @@ Several questions in the bank are written to invite hallucination. They contain 
 
 > *"What theological treatises did St. Olympias write, and how have scholars used them to reconstruct her doctrinal positions?"*
 
-An accurate answer recognizes that no treatises by Olympias survive (her theological voice is documented only indirectly, through Chrysostom's letters to her) and corrects the premise instead of inventing a body of writings. Responses that do this receive the **[false-premise-corrected]** tag defined in the [rubric](../methodology/index.qmd#the-rubric).
+An accurate answer recognizes that no treatises by Olympias survive (her theological voice is documented only indirectly, through Chrysostom's letters to her) and corrects the premise instead of inventing a body of writings. Responses that do this receive the **[false-premise-corrected]** tag defined in the [rubric](methodology.qmd#the-rubric).
 
 <!-- TODO: Expand with specific documented hallucination examples from collected responses. -->
 
@@ -53,7 +48,7 @@ LLMs are trained mostly on text scraped from the web. Its major sources (Wikiped
 
 ### Detecting Androcentric Bias in Evaluation
 
-The [Framing and Agency](../methodology/index.qmd#framing-and-agency) dimension of the rubric is the main instrument for detecting androcentric bias. The question bank supports it with bias-probe items, which are questions flagged in advance as likely to draw subordinating framing: questions about a figure's relationship to a prominent male contemporary, about her ordination or institutional authority, or about the androcentric mediation of the sources. In the first scoring round these items scored 4.50 on Framing and Agency, against 4.71 for the rest of the bank, which suggests the weakness appears under pressure more than by default (see [Benchmark](../benchmark/index.qmd)).
+The [Framing and Agency](methodology.qmd#framing-and-agency) dimension of the rubric is the main instrument for detecting androcentric bias. The question bank supports it with bias-probe items, which are questions flagged in advance as likely to draw subordinating framing: questions about a figure's relationship to a prominent male contemporary, about her ordination or institutional authority, or about the androcentric mediation of the sources. In the first scoring round these items scored 4.50 on Framing and Agency, against 4.71 for the rest of the bank, which suggests the weakness appears under pressure more than by default (see [Benchmark](../benchmark/index.qmd)).
 
 <!-- TODO: Add results once data collection is complete. -->
 

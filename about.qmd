@@ -3,7 +3,7 @@ title: About
 subtitle: People, credits, and terms of use
 ---
 
-Matristics is a research project at Calvin University evaluating how large language models represent the women of the early church. The [Background](background/index.qmd) sets out its rationale and aims; this page says who made it and how to use it.
+Matristics is a research project at Calvin University evaluating how large language models represent the women of the early church. The [Background](report/background.qmd) sets out its rationale and aims; this page says who made it and how to use it.
 
 ## Author
 

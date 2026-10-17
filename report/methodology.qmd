@@ -1,0 +1,10 @@
+---
+title: "Methodology"
+subtitle: "Paradigms, rubric, annotation protocol, and agreement"
+section-number: 3
+aliases:
+  - /methodology/index.html
+---
+{{< include _pdf-banner.qmd >}}
+
+{{< include _sections/methodology.qmd >}}

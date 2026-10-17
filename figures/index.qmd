@@ -1,9 +1,31 @@
 ---
 title: Figures & Question Bank
+subtitle: "Two women scored so far, twelve in preparation"
 description: >
   All female figures under investigation, with their associated evaluation questions.
   Browse by figure or download the complete question bank.
 ---
+
+```{=html}
+<div class="mx-fig-grid mx-reveal">
+<a class="mx-fig-tile" href="macrina.html"><img src="../_static/figures/macrina.jpg" alt="Portrait used for Macrina the Younger" loading="lazy"><span class="t">Macrina the Younger</span><span class="p">c. 327–379 CE</span><span class="s on">Scored</span></a>
+<a class="mx-fig-tile" href="olympias.html"><img src="../_static/figures/olympias.jpg" alt="Portrait used for Olympias of Constantinople" loading="lazy"><span class="t">Olympias of Constantinople</span><span class="p">c. 360–408 CE</span><span class="s on">Scored</span></a>
+<div class="mx-fig-tile is-planned"><img src="../_static/figures/magdalene.jpg" alt="Portrait used for Mary Magdalene" loading="lazy"><span class="t">Mary Magdalene</span><span class="p">1st c. CE</span><span class="s off">Planned</span></div>
+<div class="mx-fig-tile is-planned"><img src="../_static/figures/phoebe.jpg" alt="Portrait used for Phoebe of Cenchreae" loading="lazy"><span class="t">Phoebe of Cenchreae</span><span class="p">1st c. CE</span><span class="s off">Planned</span></div>
+<div class="mx-fig-tile is-planned"><img src="../_static/figures/perpetua.jpg" alt="Portrait used for Perpetua & Felicitas" loading="lazy"><span class="t">Perpetua &amp; Felicitas</span><span class="p">d. 203 CE</span><span class="s off">Planned</span></div>
+<div class="mx-fig-tile is-planned"><img src="../_static/figures/thecla.jpg" alt="Portrait used for Thecla" loading="lazy"><span class="t">Thecla</span><span class="p">1st–2nd c. CE</span><span class="s off">Planned</span></div>
+<div class="mx-fig-tile is-planned"><img src="../_static/figures/junia.jpg" alt="Portrait used for Junia" loading="lazy"><span class="t">Junia</span><span class="p">1st c. CE</span><span class="s off">Planned</span></div>
+<div class="mx-fig-tile is-planned"><img src="../_static/figures/priscilla.jpg" alt="Portrait used for Priscilla / Prisca" loading="lazy"><span class="t">Priscilla / Prisca</span><span class="p">1st c. CE</span><span class="s off">Planned</span></div>
+<div class="mx-fig-tile is-planned"><img src="../_static/figures/egeria.jpg" alt="Portrait used for Egeria" loading="lazy"><span class="t">Egeria</span><span class="p">4th c. CE</span><span class="s off">Planned</span></div>
+<div class="mx-fig-tile is-planned"><img src="../_static/figures/melania.jpg" alt="Portrait used for Melania the Elder" loading="lazy"><span class="t">Melania the Elder</span><span class="p">c. 341–410 CE</span><span class="s off">Planned</span></div>
+<div class="mx-fig-tile is-planned"><img src="../_static/figures/marcella.jpg" alt="Portrait used for Marcella of Rome" loading="lazy"><span class="t">Marcella of Rome</span><span class="p">c. 325–410 CE</span><span class="s off">Planned</span></div>
+<div class="mx-fig-tile is-planned"><span class="mx-fig-mono" aria-hidden="true">M&amp;P</span><span class="t">Maximilla &amp; Priscilla</span><span class="p">2nd c. CE</span><span class="s off">Planned</span></div>
+<div class="mx-fig-tile is-planned"><img src="../_static/figures/nino.jpg" alt="Portrait used for Nino of Cappadocia" loading="lazy"><span class="t">Nino of Cappadocia</span><span class="p">c. 296–338 CE</span><span class="s off">Planned</span></div>
+<div class="mx-fig-tile is-planned"><img src="../_static/figures/monica.jpg" alt="Portrait used for Monica of Thagaste" loading="lazy"><span class="t">Monica of Thagaste</span><span class="p">c. 331–387 CE</span><span class="s off">Planned</span></div>
+</div>
+```
+
+<details class="mx-details"><summary>About the question bank</summary>
 
 Each page in this section profiles one woman from early Christianity (her historical context, the primary sources, and the scholarly debates about her) and lists the questions we used to test what LLMs know about her.
 
@@ -14,15 +36,15 @@ The question bank has two tiers:
 
 Question IDs combine the figure's initial and a number: general questions are 1–11 (e.g., M1–M11 for Macrina, O1–O11 for Olympias), and figure-specific questions continue from 12.
 
-Some questions are *adversarial*: they embed a false premise, which a historically reliable model should identify and correct instead of answering as asked. General question 11 ("Why were {figure}'s achievements ultimately inevitable due to broader historical forces?") is of this type, and several figure-specific questions use the same design. Responses that correct the premise receive the [false-premise-corrected] tag under the [rubric](../methodology/index.qmd#the-rubric).
+Some questions are *adversarial*: they embed a false premise, which a historically reliable model should identify and correct instead of answering as asked. General question 11 ("Why were {figure}'s achievements ultimately inevitable due to broader historical forces?") is of this type, and several figure-specific questions use the same design. Responses that correct the premise receive the [false-premise-corrected] tag under the [rubric](../report/methodology.qmd#the-rubric).
 
 You can download the complete question bank as a CSV for use in your own evaluation:
 
 [Download question_bank.csv](question_bank.csv)
 
----
+</details>
 
-## All Figures
+<details class="mx-details"><summary>All figures, with documentation level</summary>
 
 | Figure | Period | Documentation | Status | Questions |
 |---|---|---|---|---|
@@ -43,7 +65,7 @@ You can download the complete question bank as a CSV for use in your own evaluat
 
 Question sets for planned figures will be added as each figure becomes active, following the same two-tier template.
 
----
+</details>
 
 ## General Questions (asked of every figure)
 

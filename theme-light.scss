@@ -1,0 +1,53 @@
+/*-- scss:defaults --*/
+
+// =====================================================================
+// Mosaic, LIGHT mode. Same structure as theme-dark.scss: tokens only.
+//
+// Gold cannot carry text on white at the dark-mode tint, so text and
+// buttons use a deep bronze (#7E5A12, ~6.4:1 on white) and charts use
+// #9C7424 with blue #2F6FB8 (both passed the colour-blind validator on
+// white).
+// =====================================================================
+
+$mx-mode:        light;
+$mx-bg:          #F6F3EC;
+$mx-surface:     #FFFFFF;
+$mx-surface-2:   #FAF7F0;
+$mx-line:        #E4DCCB;
+$mx-line-2:      #D3C8B2;
+$mx-text:        #1A2030;
+$mx-text-2:      #3E4555;
+$mx-muted:       #5A5F6B;
+$mx-faint:       #6F7380;
+$mx-gold:        #7E5A12;
+$mx-gold-strong: #5C410B;
+$mx-on-gold:     #FFFFFF;
+$mx-series:      #9C7424;
+$mx-series-fill: rgba(156, 116, 36, 0.16);
+$mx-compare:     #2F6FB8;
+$mx-olympias:    #6E4C9A;
+$mx-track:       #EEE7D9;
+$mx-heat-0:      #F5EEDF;
+$mx-heat-1:      #D4B77A;
+$mx-heat-2:      #6E4E0F;
+
+$body-bg:        $mx-bg;
+$body-color:     $mx-text;
+$headings-color: $mx-text;
+$link-color:     $mx-gold;
+$primary:        $mx-gold;
+$secondary:      $mx-muted;
+$navbar-bg:      $mx-bg;
+$navbar-fg:      $mx-text-2;
+$navbar-hl:      $mx-gold;
+$sidebar-bg:     $mx-bg;
+$sidebar-fg:     $mx-text-2;
+$sidebar-hl:     $mx-gold;
+$footer-bg:      $mx-bg;
+$footer-fg:      $mx-muted;
+$border-color:   $mx-line;
+$table-border-color: $mx-line;
+$code-bg:        #F1EADB;
+$code-color:     #6B3E0A;
+$callout-color-note:    $mx-compare;
+$callout-color-warning: $mx-gold;

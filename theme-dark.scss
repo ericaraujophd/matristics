@@ -1,0 +1,63 @@
+/*-- scss:defaults --*/
+
+// =====================================================================
+// Mosaic, DARK mode (the default). Colour tokens only; every rule that
+// uses them lives in theme.scss.
+//
+// Palette idea: the lapis-and-gold of Byzantine mosaics. Contrast checks
+// (WCAG, on $mx-surface #161D2B):
+//   text  #ECE5D6  ~13:1     text-2 #C8C0AE ~9:1     muted #A39C8C ~6:1
+//   gold  #D9B46B  ~8:1 (links, accents)
+// Chart series pair (gold #B0883E fill / blue #4F86D9) passed the dataviz
+// colour-blind validator against this surface.
+// =====================================================================
+
+$mx-mode:        dark;
+$mx-bg:          #0E131D;   // page ground
+$mx-surface:     #161D2B;   // cards and panels
+$mx-surface-2:   #1B2333;   // insets, table stripes
+$mx-line:        #263044;   // hairlines
+$mx-line-2:      #33405A;   // stronger rules, inactive pill borders
+$mx-text:        #ECE5D6;
+$mx-text-2:      #C8C0AE;
+$mx-muted:       #A39C8C;
+$mx-faint:       #8C8577;   // chart labels, captions (not body text)
+$mx-gold:        #D9B46B;   // accent text, links, selected states
+$mx-gold-strong: #F0D49A;   // link hover
+$mx-on-gold:     #0E131D;   // text on a gold button
+$mx-series:      #D9B46B;   // selected model line
+$mx-series-fill: rgba(176, 136, 62, 0.24);
+$mx-compare:     #4F86D9;   // compared model line
+$mx-olympias:    #9C7BC6;   // second figure marker
+$mx-track:       #222B3D;   // empty part of a bar
+$mx-heat-0:      #1E2638;   // heatmap ramp: low (3.0) ...
+$mx-heat-1:      #6B5A36;   // ... middle ...
+$mx-heat-2:      #D9B46B;   // ... high (5.0)
+
+// Bootstrap / Quarto variables
+$body-bg:        $mx-bg;
+$body-color:     $mx-text;
+$headings-color: $mx-text;
+$link-color:     $mx-gold;
+$primary:        $mx-gold;
+$secondary:      $mx-muted;
+$navbar-bg:      $mx-bg;
+$navbar-fg:      $mx-text-2;
+$navbar-hl:      $mx-gold;
+$sidebar-bg:     $mx-bg;
+$sidebar-fg:     $mx-text-2;
+$sidebar-hl:     $mx-gold;
+$footer-bg:      $mx-bg;
+$footer-fg:      $mx-muted;
+$border-color:   $mx-line;
+$table-border-color: $mx-line;
+$code-bg:        $mx-surface-2;
+$code-color:     #E9C98D;
+$input-bg:       $mx-surface;
+$input-color:    $mx-text;
+$input-border-color: $mx-line-2;
+$dropdown-bg:    $mx-surface;
+$dropdown-color: $mx-text;
+$popover-bg:     $mx-surface;
+$callout-color-note:    $mx-compare;
+$callout-color-warning: $mx-gold;

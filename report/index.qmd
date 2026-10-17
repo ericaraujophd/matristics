@@ -1,0 +1,49 @@
+---
+title: "Full Report"
+subtitle: "Everything behind the charts, in seven sections"
+page-layout: full
+---
+
+```{=html}
+<div class="mx-report-hero mx-reveal">
+  <p>The charts on the <a href="../benchmark/index.html">Benchmark</a> page are the short version. This report has the full argument, method, tables and caveats. Read it section by section here, or download it as one PDF.</p>
+  <a class="mx-btn mx-btn-primary" href="matristics-full-report.pdf" download>Download the full report (PDF)</a>
+</div>
+<div class="mx-sec-grid">
+  <a class="mx-sec-card mx-reveal" href="background.html">
+    <span class="mx-sec-num">01</span>
+    <span class="mx-sec-title">Background</span>
+    <span class="mx-sec-desc">Why the women of the early church are a hard test for AI models.</span>
+  </a>
+  <a class="mx-sec-card mx-reveal" href="biases.html">
+    <span class="mx-sec-num">02</span>
+    <span class="mx-sec-title">Known LLM Biases</span>
+    <span class="mx-sec-desc">Hallucination, androcentric framing and flattened scholarly debate.</span>
+  </a>
+  <a class="mx-sec-card mx-reveal" href="methodology.html">
+    <span class="mx-sec-num">03</span>
+    <span class="mx-sec-title">Methodology</span>
+    <span class="mx-sec-desc">The four-dimension rubric, the question bank and how annotators scored.</span>
+  </a>
+  <a class="mx-sec-card mx-reveal" href="data-collection.html">
+    <span class="mx-sec-num">04</span>
+    <span class="mx-sec-title">Data Collection</span>
+    <span class="mx-sec-desc">How the 210 responses were collected, and how to repeat it.</span>
+  </a>
+  <a class="mx-sec-card mx-reveal" href="results.html">
+    <span class="mx-sec-num">05</span>
+    <span class="mx-sec-title">Results</span>
+    <span class="mx-sec-desc">Rankings, dimensions, figures, adversarial items and error tags in full.</span>
+  </a>
+  <a class="mx-sec-card mx-reveal" href="agreement.html">
+    <span class="mx-sec-num">06</span>
+    <span class="mx-sec-title">Inter-Annotator Agreement</span>
+    <span class="mx-sec-desc">Krippendorff’s alpha under a ceiling effect, and how to read it.</span>
+  </a>
+  <a class="mx-sec-card mx-reveal" href="caveats.html">
+    <span class="mx-sec-num">07</span>
+    <span class="mx-sec-title">Caveats</span>
+    <span class="mx-sec-desc">Scope, ceiling effect, single runs and unblinded annotation.</span>
+  </a>
+</div>
+```

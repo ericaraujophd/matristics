@@ -31,7 +31,7 @@ Heresiologist
 : An author who wrote to identify, describe, and refute movements deemed heretical. Heresiological texts (e.g., those of Epiphanius of Salamis, Irenaeus of Lyon) are often the only surviving sources for Gnostic and Montanist communities, in which women's leadership was prominent. These sources are polemical and must be read with care.
 
 Inter-annotator Agreement
-: A measure of how consistently multiple human raters apply the same criteria to the same items. This project reports agreement (Krippendorff's alpha, exact agreement, and agreement within one point) to calibrate how strongly each result is claimed, and does not use it as a pass/fail gate. See [Methodology](methodology/index.qmd#how-agreement-is-used).
+: A measure of how consistently multiple human raters apply the same criteria to the same items. This project reports agreement (Krippendorff's alpha, exact agreement, and agreement within one point) to calibrate how strongly each result is claimed, and does not use it as a pass/fail gate. See [Methodology](report/methodology.qmd#how-agreement-is-used).
 
 Krippendorff's Alpha
 : A statistical measure of inter-annotator agreement that can be applied to any number of annotators and any measurement level (nominal, ordinal, interval). The project uses it because the rubric scores are ordinal (1 to 5) and the measure handles missing ratings. Under a ceiling effect, when most ratings are 5, alpha can be low even when raw agreement is high; the Benchmark page discusses this.

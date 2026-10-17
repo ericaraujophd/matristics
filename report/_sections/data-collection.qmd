@@ -1,8 +1,3 @@
----
-title: Data Collection
-subtitle: Pipeline, models, data format, and how to run it yourself
----
-
 Data collection for the current question bank is complete. All responses were collected through [OpenRouter](https://openrouter.ai), which offers a single API and request format across model providers, so one key and one pipeline cover every model and the metadata is consistent.
 
 ## Collection Summary

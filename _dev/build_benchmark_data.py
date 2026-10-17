@@ -137,6 +137,12 @@ def main(xlsx):
                 "mean": r2(prem["overall"].mean()),
             },
             "tags": tags,
+            # Response-level binary tags (evasion, false-premise corrected),
+            # counted per rating, with spaces turned into hyphens.
+            "responseTags": {str(k).strip().lower().replace(" ", "-"): int(v)
+                             for k, v in m["Response-Level Tag"].dropna().astype(str)
+                             .str.strip().value_counts().items()
+                             if str(k).strip().upper() != "N/A"},
             "perQuestion": {q["id"]: r2(m[m["Question ID"] == q["id"]]["overall"].mean())
                             for q in questions},
             "n": int(len(m)),
