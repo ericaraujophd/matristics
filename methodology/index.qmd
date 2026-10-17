@@ -15,7 +15,7 @@ This project uses a human-evaluation methodology designed for a specialized hist
 
 5. Agreement used for calibration. Reliability is reported per dimension and sets how strongly each result is claimed; it does not act as a gate. See [Inter-Annotator Agreement](#inter-annotator-agreement).
 
-We do not use LLM-as-judge pipelines. An LLM judging another model's treatment of Macrina or Olympias may reproduce the same androcentric gaps as the system under evaluation, so all scoring in this project is done by people.
+We do not use LLM-as-judge pipelines. An LLM judging another model's treatment of Macrina or Olympias may reproduce the same androcentric gaps as the system under evaluation, and in expert-knowledge domains subject-matter experts agreed with LLM judges only 60 to 68% of the time [@szymanski2025limitations]. All scoring in this project is done by people.
 
 ::: {.callout-note title="Methodology as executed"}
 This page describes the methodology as it was carried out in the first scoring round (summer 2026) and marks separately the refinements planned for later rounds. Where the design and the execution differ, we say so.
@@ -187,7 +187,7 @@ Human evaluation is only as good as its annotation protocol ([@chen2024llmjudges
 
 Two annotators scored the first round. They are the project's McGregor research fellows, undergraduate researchers who spent the preceding weeks in a structured reading program on the primary sources and modern scholarship for both figures, and who then built the fact-checked profiles used as reference material. They kept reading logs throughout their preparation.
 
-This is a deliberate trade-off, and a limitation. The annotators are not credentialed specialists in patristics or feminist historiography. They had, however, read the relevant sources closely and had assembled the factual baseline against which they scored. We did not use crowdsourcing platforms at any point: agreement between non-expert raters and domain experts falls to roughly two-thirds on expert-knowledge tasks, which makes crowdsourced annotation unsuitable for this material.
+This is a deliberate trade-off, and a limitation. The annotators are not credentialed specialists in patristics or feminist historiography. They had, however, read the relevant sources closely and had assembled the factual baseline against which they scored. We did not use crowdsourcing platforms at any point. Crowd ratings of generated text have proven unreliable even for general-purpose text [@karpinska2021perils], and this material asks raters to tell hagiography from correspondence and settled facts from open debates, which requires prior reading.
 
 *Planned refinement:* expert adjudication by a scholar with graduate training in early Christianity, particularly for the Framing and Agency dimension and for any item where the annotators differ by two points or more.
 
