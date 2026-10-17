@@ -455,18 +455,41 @@ figcaption { color: $mx-muted; font-size: 0.82rem; }
 
 // Readout under each radar: names the hovered or tapped spoke's question
 // and lists each drawn layer's score on it.
+//
+// FIXED HEIGHT ON PURPOSE. Questions vary from one line to three, and a box
+// that grew and shrank with them made the legend and everything below it
+// jump while the reader moved the mouse across the spokes. The box below is
+// always exactly two question lines plus one score line tall; longer
+// questions are clamped with an ellipsis (the full text is in the heatmap
+// tooltip and on the figure pages).
 .mx-radar .mx-hit { cursor: pointer; }
 .mx-radar-readout {
-  min-height: 3.2em; margin: 0.6rem auto 0.4rem; max-width: 34rem; text-align: center;
+  --mx-ro-lines: 2;                         // question lines shown
+  --mx-ro-vals: 1;                          // lines reserved for the scores
+  box-sizing: content-box;
+  height: calc((var(--mx-ro-lines) + var(--mx-ro-vals)) * 1.45em + 0.5rem);
+  overflow: hidden;
+  margin: 0.6rem auto 0.4rem; max-width: 34rem; text-align: center;
   font-size: 0.82rem; line-height: 1.45; color: $mx-text-2;
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.2rem 0.9rem;
-  .mx-radar-hint { color: $mx-faint; }
-  .mx-radar-q { flex: 1 1 100%; }
+  display: flex; flex-wrap: wrap; justify-content: center; align-content: flex-start; gap: 0.25rem 0.9rem;
+  .mx-radar-hint { color: $mx-faint; align-self: center; margin-top: 1.45em; }
+  .mx-radar-q {
+    flex: 1 1 100%;
+    height: calc(var(--mx-ro-lines) * 1.45em);   // reserve the space even for a one-line question
+    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: var(--mx-ro-lines);
+    overflow: hidden;
+  }
   .mx-radar-q b { color: $mx-gold; margin-right: 0.3rem; }
+  .mx-radar-val { white-space: nowrap; }
   .mx-radar-val b { font-variant-numeric: tabular-nums; }
   .mx-radar-val.is-primary b { color: $mx-series; }
   .mx-radar-val.is-compare b { color: $mx-compare; }
   .mx-radar-val.is-field { color: $mx-faint; }
+}
+// Phones are narrower: three question lines, and two score lines because
+// "model · compared model · average" wraps there. Still a fixed height.
+@media (max-width: 640px) {
+  .mx-radar-readout { --mx-ro-lines: 3; --mx-ro-vals: 2; }
 }
 // Phones: the 35 labels collide, so hide them; the readout takes over.
 @media (max-width: 640px) {
