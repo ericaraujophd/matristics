@@ -19,7 +19,7 @@ Matristics website. It lives in the repository only.
 | `slides/index.html` | **The deck.** One self-contained file (fonts, images and speaker notes are embedded), so it runs offline in any browser. |
 | `AAR2026_Araujo_slides_backup.pdf` | All 22 slides as a PDF, for a machine where the HTML will not open. |
 | `AAR2026_Araujo_paper.pdf` | Large-type reading copy with slide and 15-minute markers. |
-| `AAR2026_Araujo_paper_print.docx` | Printable reading copy (18 pt, black bar at every slide change, red → CLICK lines, tinted 15-minute cuts). Built by `tools/make_docx.js`. |
+| `AAR2026_Araujo_paper_print.docx` | Printable reading copy for black-and-white printing (15.5 pt, about 15 pages; black bar at every slide change, bold → CLICK lines, grey-tinted 15-minute cuts). Built by `tools/make_docx.js`. |
 | `AAR2026_Araujo_paper.md` | The source of the paper. Edit this one. |
 
 ### Presenting from `slides/index.html`
