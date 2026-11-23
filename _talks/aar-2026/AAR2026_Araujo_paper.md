@@ -3,7 +3,7 @@ title: "The Future of the Past: Evaluating Large Language Model Reliability in E
 author: "Eric Araújo, Calvin University"
 subtitle: "AAR Annual Meeting, Denver · History of Christianity Unit, Session A23-217 · Monday 23 November 2026"
 ---
-*Reading text. **[Slide n · time · 15 min: time]** means advance to that slide. The times show where you should be in the 20-minute and the 15-minute versions. **[click]** means advance a build on the same slide. For 15 minutes, leave out the passages between **[15 min: skip ▼]** and **[15 min: resume ▲]**, and press through slide 18. About 2,598 words in full, 1,900 in the 15-minute version.*
+*Reading text. **[Slide n · time · 15 min: time]** means advance to that slide. The times show where you should be in the 20-minute and the 15-minute versions. **[click]** means advance a build on the same slide. For 15 minutes, leave out the passages between **[15 min: skip ▼]** and **[15 min: resume ▲]**, and press through slide 18. About 2,520 words in full, 1,897 in the 15-minute version.*
 
 **[Slide 1 · 0:00 · 15 min: 0:00]**
 
@@ -15,19 +15,13 @@ When people talk about AI, the humanities usually show up as raw material. Our b
 
 Today I'll report on the first two women we studied, Macrina the Younger and Olympias of Constantinople. I'll explain how we tested the models and what we found.
 
-**[15 min: skip ▼]**
-
-The project also produces things others can use. There's an open benchmark of questions with fact-checked profiles, a rubric you can apply to other figures, and exercises for the classroom. All of it is on the project website.
-
-**[15 min: resume ▲]**
-
-**[Slide 2 · 1:45 · 15 min: 1:28]**
+**[Slide 2 · 1:28 · 15 min: 1:28]**
 
 ChatGPT, Claude and Gemini walk into a pub. The bartender asks what they'll have. ChatGPT orders a strawberry lemonade, and adds, helpfully, that strawberry has two r's. Gemini orders a pizza with extra cheese, and an eighth of a cup of non-toxic glue, so the cheese stays on. Claude asks to put it on his tab. He'll come by tomorrow to pay in person, wearing a blue blazer and a red tie.
 
 **[click]** The bartender has one more question. "Can any of you just say 'I don't know'?" All three answer at once. "Absolutely!"
 
-**[Slide 3 · 2:31 · 15 min: 2:14]**
+**[Slide 3 · 2:14 · 15 min: 2:14]**
 
 Every one of those orders comes from a real case. Google's AI Overviews did recommend glue to keep cheese on pizza. And a Claude model running an office snack shop did promise to deliver in person, in a blazer. These mistakes are funny because they come with complete confidence. I wanted to see that confidence at work on early Christian history. So we asked the models who Olympias of Constantinople was, and what she is mainly known for. This is Claude's answer, unedited. It's fluent and mostly accurate, and it says she is "most famously remembered" for her unwavering loyalty to John Chrysostom.
 
@@ -35,11 +29,11 @@ Every one of those orders comes from a real case. Google's AI Overviews did reco
 
 John Chrysostom, it turns out, is the most persistent photobomber of late antiquity. You'll see him again.
 
-**[Slide 4 · 3:31 · 15 min: 3:14]**
+**[Slide 4 · 3:14 · 15 min: 3:14]**
 
 Are these tools good or bad for our field? That's a big question. I want to ask a smaller one, and for teaching it matters more. A tool that makes predictable mistakes can still be used well. So I'm interested in the shape of the mistakes. When these models get early Christian history wrong, what kind of wrong is it? And can we see it coming?
 
-**[Slide 5 · 4:03 · 15 min: 3:46]**
+**[Slide 5 · 3:46 · 15 min: 3:46]**
 
 We picked the first two women on purpose.
 
@@ -55,13 +49,13 @@ On the right is Olympias of Constantinople, who lived from about 368 to 408. She
 
 **[click]** So the pairing gives us a simple test. If what a model knows depends on how much evidence survives, it should do better on Olympias. Keep that prediction in mind. I'll come back to it.
 
-**[Slide 6 · 5:34 · 15 min: 5:06]**
+**[Slide 6 · 5:17 · 15 min: 5:06]**
 
 Each answer got a score from one to five on four dimensions. Historical Accuracy asks whether the facts are right. Coverage asks whether the answer includes what a specialist would expect. Framing and Agency asks whether the woman is the subject of her own life. And Epistemic Quality asks whether the answer handles the sources, and scholarly disagreement, with care. The first two are what any fact-checker would ask. The last two come from our own discipline.
 
 **[click]** Whenever a dimension scored three or lower, the annotator also tagged the claim that caused it, for example as a hallucination, an anachronism, or a flattened debate. Those tags will matter later.
 
-**[Slide 7 · 6:27 · 15 min: 5:59]**
+**[Slide 7 · 6:10 · 15 min: 5:59]**
 
 The question bank has thirty-five questions, eighteen on Macrina and seventeen on Olympias. Eleven are general questions that we'll ask about every woman in the project. The rest are specific to each one. Five of them contain a false premise, to see whether the model notices.
 
@@ -77,15 +71,9 @@ We asked for an exact, dated version of each model, so the results stay tied to 
 
 Two annotators scored every answer, independently. Both are undergraduate research fellows in Calvin's McGregor program.
 
-**[15 min: skip ▼]**
-
-In the weeks before, they read the sources and the secondary literature on both women, and wrote the fact-checked profiles they scored against.
-
-**[15 min: resume ▲]**
-
 In all, that's four hundred and twenty ratings.
 
-**[Slide 8 · 7:52 · 15 min: 6:52]**
+**[Slide 8 · 7:25 · 15 min: 6:52]**
 
 One technical setting needs a quick explanation. A language model writes one word at a time. At each step, it picks from the words most likely to come next. A setting called temperature controls how much chance goes into that pick. At temperature zero, the model always takes the most likely word. So the same question always gets the same answer.
 
@@ -97,25 +85,25 @@ Temperature zero matters for research in two ways. Anyone can rerun our question
 
 **[15 min: resume ▲]**
 
-**[Slide 9 · 9:01 · 15 min: 7:38]**
+**[Slide 9 · 8:34 · 15 min: 7:38]**
 
 This chart shows each model's average score across the four dimensions. Notice that the axis starts at four, which makes the differences look bigger than they are. The averages run from 4.56 for GLM to 4.73 for Claude. That's less than two tenths of a point. The number on the right is how many times any annotator gave any model a one, on any dimension. It's zero.
 
 No model failed on this material. So what follows is a critique of competent tools, and I won't make much of the ranking.
 
-**[Slide 10 · 9:44 · 15 min: 8:20]**
+**[Slide 10 · 9:17 · 15 min: 8:20]**
 
 The four dimensions tell a clearer story. Each bar is all the ratings for one dimension, and the red part is the share of perfect fives. For Historical Accuracy, 84 percent of the ratings were fives, and the average is 4.75. For Epistemic Quality, only 57 percent were fives. The rest were lower, and they pull the average down to 4.46.
 
 In other words, the models do better with the facts than with the limits of the evidence behind them.
 
-**[Slide 11 · 10:22 · 15 min: 8:59]**
+**[Slide 11 · 9:55 · 15 min: 8:59]**
 
 We expected the models to dodge the hard questions, especially the ones about women's ordained ministry. They didn't. Not one of the two hundred and ten answers refused.
 
 **[click]** Like the three in the pub, the models answered everything. Instead of refusing, they flattened.
 
-**[Slide 12 · 10:46 · 15 min: 9:23]**
+**[Slide 12 · 10:19 · 15 min: 9:23]**
 
 This chart counts how often each problem tag was used. The two highlighted bars are source conflation, used 25 times, and debate flattened, used 24 times. That's 49 in all. The four tags for plain factual errors add up to only 28. Those are hallucination, anachronism, imprecision and misattribution.
 
@@ -125,7 +113,7 @@ Source conflation means an answer blends a saint's *Life*, a letter and a modern
 
 **[15 min: resume ▲]**
 
-**[Slide 13 · 11:32 · 15 min: 9:47]**
+**[Slide 13 · 11:05 · 15 min: 9:47]**
 
 Flattening also shapes how the answers frame the women themselves. And here Chrysostom comes back.
 
@@ -139,15 +127,9 @@ Look at the lower right. GLM says she is known for her association with Chrysost
 
 **[15 min: resume ▲]**
 
-**[Slide 14 · 12:51 · 15 min: 10:41]**
+**[Slide 14 · 12:24 · 15 min: 10:41]**
 
 With Macrina, the same pattern shows up in another question. We asked the models about the founding of Cappadocian monasticism. All six answers begin with Basil. In all six, Macrina first appears as "his sister." Across the six answers, Basil is named thirty-eight times, and Macrina eleven.
-
-**[15 min: skip ▼]**
-
-GLM, the model with the best Framing and Agency score overall, names Macrina once.
-
-**[15 min: resume ▲]**
 
 All six answers do mention Macrina's community at Annisa, and most date it before Basil's. So the models have the fact. But they put it inside a story about Basil. One answer calls her community the "incubator" for his vision.
 
@@ -157,13 +139,13 @@ In our proposal we called this association collapse, telling a woman's significa
 
 **[15 min: resume ▲]**
 
-**[Slide 15 · 13:55 · 15 min: 11:22]**
+**[Slide 15 · 13:22 · 15 min: 11:22]**
 
 Is this an error?
 
 **[click]** By an accuracy score, no. "Known for her loyalty to Chrysostom" is a true statement. What the answer decides is whose story she belongs to, and an accuracy benchmark can't see that. The models learn from what we have written about the past, and they repeat its habits in fluent prose. That's one reason historians should be part of evaluating them.
 
-**[Slide 16 · 14:29 · 15 min: 11:56]**
+**[Slide 16 · 13:56 · 15 min: 11:56]**
 
 Now back to the prediction. Olympias is better documented, so the models should have done better on her.
 
@@ -179,7 +161,7 @@ Part of the gap comes from the question bank. Its hardest question, the invented
 
 I think most of it comes from modern reception. Recent scholarship presents Macrina as a philosopher and founder in her own right. Anna Silvas's 2008 study is titled *Macrina the Younger, Philosopher of God*. Olympias has more often been read alongside Chrysostom. Elizabeth Clark's translation of her *Life* appeared in a volume called *Jerome, Chrysostom, and Friends*. And most of her dossier is the seventeen letters he wrote to her. Her letters to him are lost.
 
-**[Slide 17 · 15:41 · 15 min: 12:59]**
+**[Slide 17 · 15:08 · 15 min: 12:59]**
 
 The library catalogues point the same way. I counted the books about each woman in three open catalogues. Each dot here is one book. Thirty-four of the forty-eight have appeared since 1970, and eighteen since 2000. Most of what has been written about these women is recent.
 
@@ -189,7 +171,7 @@ If I'm reading this right, the models reflect what modern scholarship pays atten
 
 **[15 min: resume ▲]**
 
-**[Slide 18 · 16:20 · 15 min: skip]**
+**[Slide 18 · 15:47 · 15 min: skip]**
 
 **[15 min: skip this slide. Press → three times to reach slide 19.]**
 
@@ -199,7 +181,7 @@ The models can also make things up. The hardest question in the bank, with an av
 
 Across all five false-premise questions, Claude caught the premise in all ten of its ratings. Gemini caught it in four of ten.
 
-**[Slide 19 · 17:29 · 15 min: 13:26]**
+**[Slide 19 · 16:56 · 15 min: 13:26]**
 
 So what follows from all this? Students, researchers, and more and more, other machines treat a model's answer as a source of truth. These results say we should treat it as an object of judgment instead, something to read and question like any other source. That's work the humanities already know how to do.
 
@@ -213,9 +195,9 @@ The study has clear limits. Two women and thirty-five questions can't stand for 
 
 **[15 min: resume ▲]**
 
-**[Slide 20 · 19:06 · 15 min: 13:53]**
+**[Slide 20 · 18:32 · 15 min: 13:53]**
 
-Let me go back to the pub. The bartender asked whether any of them could just say "I don't know." All three said, "Absolutely!" That's the joke, and it's also our data. Not one of the two hundred and ten answers declined. The models also rarely get the basic facts wrong. But their errors all lean the same way. They treat different kinds of sources as equally reliable. They present open debates as closed. And they often introduce a woman as someone's friend, or someone's sister.
+Remember the bartender's last question? "Can any of you just say 'I don't know'?" All three answered, "Absolutely!" They answered that question the way they answered all of ours. Not one of the two hundred and ten answers declined. The models also rarely get the basic facts wrong. But their errors all lean the same way. They treat different kinds of sources as equally reliable. They present open debates as closed. And they often introduce a woman as someone's friend, or someone's sister.
 
 Accuracy scores don't catch these errors. Trained readers do, when they ask a chatbot the questions historians ask of any source. Who is speaking? On whose authority? And about whom?
 
