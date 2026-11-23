@@ -202,7 +202,7 @@ th{font-size:24px;color:var(--muted);text-transform:uppercase;letter-spacing:.06
 .srcs b{font:600 27px/1.2 'Public Sans';color:var(--ink)}
 .srcs span{font-size:21px;color:var(--muted)}
 .srcs li.lost b{color:var(--alert)}
-section.on .srcs li{animation:srcIn 1.2s ease forwards;animation-delay:var(--d)}
+section.on .srcs li{animation:srcIn .9s ease forwards;animation-delay:.3s}   /* slide 5: all source lines arrive together (one short animation) */
 @keyframes srcIn{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:none}}
 /* slide 6: rubric cards and tag chips */
 .rubric{display:grid;grid-template-columns:1fr 1fr;gap:28px 40px;margin-top:40px}
