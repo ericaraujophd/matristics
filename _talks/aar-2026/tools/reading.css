@@ -1,0 +1,16 @@
+/* Reading copy for the lectern: large type, wide line spacing, slide cues in maroon. */
+@page { size: Letter; }
+body { font-family: "Libre Baskerville", Georgia, serif; font-size: 15.5pt; line-height: 1.6; color: #1f1a1b; }
+header h1.title { font-size: 19pt; line-height: 1.3; margin: 0 0 6pt; color: #6E1C2E; }
+p.author, p.subtitle { font-family: "Public Sans", sans-serif; font-size: 11pt; margin: 0; color: #4F4448; }
+p { margin: 0 0 11pt; }
+strong { font-family: "Public Sans", sans-serif; color: #6E1C2E; font-size: 12pt; letter-spacing: .02em; }
+h2 { font-size: 15pt; color: #6E1C2E; page-break-before: always; }
+h2 ~ p { font-size: 11pt; line-height: 1.4; }
+hr { border: none; }
+/* The usage note under the title: small, not part of the reading. */
+header + p { font-family: "Public Sans", sans-serif; font-size: 10pt; line-height: 1.4; color: #6E6468; margin: 12pt 0 18pt; }
+header + p em, header + p strong { font-size: 10pt; font-style: normal; }
+/* 15-minute cuts: the markers in grey, and the passages to skip with a grey rule and lighter text. */
+p.cutmark strong { color: #6E6468; font-size: 10.5pt; }
+p.skip { border-left: 4px solid #C9BFC1; padding-left: 12pt; color: #5d5457; }
