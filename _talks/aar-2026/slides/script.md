@@ -123,13 +123,13 @@ These are all six answers to the first question about Olympias, what she is main
 
 Look at the lower right. GLM says she is known for her association with Chrysostom, "who ordained her as a deaconess." In fact Nectarius ordained her, before Chrysostom was bishop of Constantinople, and two of the other models get that right. In GLM's answer, an event in her life has become an event in his.
 
-**[15 min: skip ▼] (still press → once for the build)**
+**[15 min: skip ▼]**
 
-[click] We asked the same question about Macrina. Five of the six models open with her own roles, as ascetic, theologian and founder of a monastery. Only GPT-5.5 starts by calling her "best known as the sister of" Basil and Gregory. So the pattern is stronger for one woman than the other. I'll come back to why.
+We asked the same question about Macrina. Five of the six models open with her own roles, as ascetic, theologian and founder of a monastery. Only GPT-5.5 starts by calling her "best known as the sister of" Basil and Gregory. So the pattern is stronger for one woman than the other. I'll come back to why.
 
 **[15 min: resume ▲]**
 
-## [Slide 14] His sister  ·  12:24  ·  15 min: 10:41
+## [Slide 14] His sister  ·  12:22  ·  15 min: 10:40
 
 With Macrina, the same pattern shows up in another question. We asked the models about the founding of Cappadocian monasticism. All six answers begin with Basil. In all six, Macrina first appears as "his sister." Across the six answers, Basil is named thirty-eight times, and Macrina eleven.
 
@@ -141,13 +141,13 @@ In our proposal we called this association collapse, telling a woman's significa
 
 **[15 min: resume ▲]**
 
-## [Slide 15] Is it wrong?  ·  13:22  ·  15 min: 11:22
+## [Slide 15] Is it wrong?  ·  13:20  ·  15 min: 11:21
 
 Is this an error?
 
 [click] By an accuracy score, no. "Known for her loyalty to Chrysostom" is a true statement. What the answer decides is whose story she belongs to, and an accuracy benchmark can't see that. The models learn from what we have written about the past, and they repeat its habits in fluent prose. That's one reason historians should be part of evaluating them.
 
-## [Slide 16] The gap follows reception  ·  13:56  ·  15 min: 11:56
+## [Slide 16] The gap follows reception  ·  13:54  ·  15 min: 11:55
 
 Now back to the prediction. Olympias is better documented, so the models should have done better on her.
 
@@ -163,7 +163,7 @@ Part of the gap comes from the question bank. Its hardest question, the invented
 
 I think most of it comes from modern reception. Recent scholarship presents Macrina as a philosopher and founder in her own right. Anna Silvas's 2008 study is titled *Macrina the Younger, Philosopher of God*. Olympias has more often been read alongside Chrysostom. Elizabeth Clark's translation of her *Life* appeared in a volume called *Jerome, Chrysostom, and Friends*. And most of her dossier is the seventeen letters he wrote to her. Her letters to him are lost.
 
-## [Slide 17] Most of the books are recent  ·  15:08  ·  15 min: 12:59
+## [Slide 17] Most of the books are recent  ·  15:06  ·  15 min: 12:58
 
 The library catalogues point the same way. I counted the books about each woman in three open catalogues. Each dot here is one book. Thirty-four of the forty-eight have appeared since 1970, and eighteen since 2000. Most of what has been written about these women is recent.
 
@@ -173,7 +173,7 @@ If I'm reading this right, the models reflect what modern scholarship pays atten
 
 **[15 min: resume ▲]**
 
-## [Slide 18] Ask for a conspiracy  ·  15:47  ·  15 min: skip
+## [Slide 18] Ask for a conspiracy  ·  15:45  ·  15 min: skip
 
 **[15 min: skip this slide. Press → three times to reach slide 19.]**
 
@@ -183,7 +183,7 @@ The models can also make things up. The hardest question in the bank, with an av
 
 Across all five false-premise questions, Claude caught the premise in all ten of its ratings. Gemini caught it in four of ten.
 
-## [Slide 19] An object of judgment  ·  16:56  ·  15 min: 13:26
+## [Slide 19] Read it like a source  ·  16:54  ·  15 min: 13:25
 
 So what follows from all this? Students, researchers, and more and more, other machines treat a model's answer as a source of truth. These results say we should treat it as an object of judgment instead, something to read and question like any other source. That's work the humanities already know how to do.
 
@@ -197,7 +197,7 @@ The study has clear limits. Two women and thirty-five questions can't stand for 
 
 **[15 min: resume ▲]**
 
-## [Slide 20] Close  ·  18:32  ·  15 min: 13:53
+## [Slide 20] Close  ·  18:30  ·  15 min: 13:52
 
 Remember the bartender's last question? "Can any of you just say 'I don't know'?" All three answered, "Absolutely!" They answered that question the way they answered all of ours. Not one of the two hundred and ten answers declined. The models also rarely get the basic facts wrong. But their errors all lean the same way. They treat different kinds of sources as equally reliable. They present open debates as closed. And they often introduce a woman as someone's friend, or someone's sister.
 

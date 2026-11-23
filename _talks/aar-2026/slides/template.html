@@ -238,7 +238,7 @@ section.on .srcs li{animation:srcIn 1.2s ease forwards;animation-delay:var(--d)}
    old Calvin colours to the newsprint palette (see BROADSHEET in build.py).
 =========================================================================== */
 /* square corners everywhere, except the chart markers that are meant to be round */
-section *:not(.head):not(.dot):not(.legend i){border-radius:0!important}
+section *:not(.head):not(.dot):not(.legend i):not(.dots i){border-radius:0!important}
 section *{box-shadow:none!important}
 /* headlines */
 h1{font-weight:600;letter-spacing:-.02em}
@@ -292,6 +292,68 @@ h2{font-weight:600;letter-spacing:-.015em;color:#111}
 .pubcall .chip{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;background:#F3EFE6}
 .pubcall .chip .logo{height:32px;margin:0;vertical-align:0}
 .pubcall .ans > span:last-child{margin-left:12px}
+/* slide 20: closing question beside the portrait plates */
+.close-main{display:grid;grid-template-columns:1fr auto;gap:70px;align-items:center;margin:auto 0}
+.close-main .big-q{max-width:none}
+/* ---------- animations on slides 16 and 17 (play on arrival at the slide) ----------
+   Slide 16: each model row fades in (0.45 s apart) with its Macrina dot; the link then
+   grows towards Olympias, whose dot pops in; then the 17 envelopes arrive one by one,
+   and last the crossed-out red envelope.
+   Slide 17: the dots drop in oldest decade first, then the 1970-2030 band and "34 of 48". */
+.s16 .db-row, .s16 .db-row .dot.o, .s16 .env, .s16 .env-lost, .s16 .letters .note-l, .s17 .bk, .s17 .band{opacity:0}
+.s16 .db-row .link{transform:scaleX(0)}
+section.on.s16 .db-row{animation:fadeUp .7s ease forwards;animation-delay:calc(.3s + var(--i) * .45s)}
+section.on.s16 .db-row .link{animation:growX .7s ease forwards;animation-delay:calc(.75s + var(--i) * .45s)}
+section.on.s16 .db-row .dot.o{animation:popD .45s ease forwards;animation-delay:calc(1.35s + var(--i) * .45s)}
+section.on.s16 .db-row:last-child{animation-delay:.3s}
+section.on.s16 .env{animation:fadeUp .4s ease forwards;animation-delay:calc(4.2s + var(--k) * .11s)}
+section.on.s16 .letters .note-l:not(.lost){animation:fadeUp .5s ease forwards;animation-delay:6.2s}
+section.on.s16 .env-lost{animation:fadeUp .6s ease forwards;animation-delay:6.6s}
+section.on.s16 .letters .note-l.lost{animation:fadeUp .5s ease forwards;animation-delay:7s}
+.s17 .bk{transform-box:fill-box;transform-origin:center}
+section.on.s17 .bk{animation:drop .45s ease-out forwards;animation-delay:calc(.4s + var(--k) * .07s)}
+section.on.s17 .band{animation:fadeUp .9s ease forwards;animation-delay:4.2s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes growX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes popD{0%{opacity:0;transform:rotate(45deg) scale(.3)}70%{opacity:1;transform:rotate(45deg) scale(1.2)}100%{opacity:1;transform:rotate(45deg) scale(1)}}   /* Olympias diamond keeps its 45° turn */
+@keyframes drop{from{opacity:0;transform:translateY(-40px)}to{opacity:1;transform:none}}
+@media print{.s16 .db-row,.s16 .db-row .dot.o,.s16 .env,.s16 .env-lost,.s16 .letters .note-l,.s17 .bk,.s17 .band{opacity:1!important;animation:none!important}.s16 .db-row .link{transform:none!important}}
+@media (prefers-reduced-motion:reduce){.s16 .db-row,.s16 .db-row .dot.o,.s16 .env,.s16 .env-lost,.s16 .letters .note-l,.s17 .bk,.s17 .band{opacity:1!important;animation:none!important}.s16 .db-row .link{transform:none!important}}
+/* ---------- slide 7: pipeline comes in left to right, then the spec cells ---------- */
+.spec{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;margin-top:auto;border-top:3px solid #111;padding-top:22px}
+.spec .lbl{font:700 18px 'Libre Franklin';letter-spacing:.14em;text-transform:uppercase;color:#B3261E;margin:0 0 8px}
+.spec p:last-child{font:400 30px/1.3 'Libre Franklin';color:#111;margin:0}
+.s7 .stage,.s7 .arr,.s7 .spec > div{opacity:0}
+section.on.s7 .stage{animation:fadeUp .7s ease forwards;animation-delay:calc(.3s + var(--k) * .9s)}
+section.on.s7 .arr{transform-box:fill-box;transform-origin:left center;animation:growX .5s ease forwards;animation-delay:calc(.8s + var(--k) * .9s)}
+section.on.s7 .spec > div{animation:fadeUp .6s ease forwards;animation-delay:calc(4.6s + var(--k) * .25s)}
+/* ---------- slide 2: chat plays like a live conversation (driven by playChat() below) ----------
+   .wait  = not yet in the conversation (space kept, so nothing jumps)
+   .typing = the AI bubble shows three bouncing dots before its text */
+.msg{position:relative}
+.msg .dots{display:none;gap:8px;align-items:center;height:1.42em}
+.msg .dots i{width:12px;height:12px;border-radius:50%!important;background:#6b655c;animation:dotb 1s infinite ease-in-out}
+.msg .dots i:nth-child(2){animation-delay:.15s}.msg .dots i:nth-child(3){animation-delay:.3s}
+@keyframes dotb{0%,60%,100%{transform:translateY(0);opacity:.45}30%{transform:translateY(-8px);opacity:1}}
+.s2 .msg.wait{visibility:hidden}
+.s2 .msg.typing .txt{display:none}
+.s2 .msg.typing .dots{display:flex}
+@media print{.s7 .stage,.s7 .arr,.s7 .spec > div{opacity:1!important;animation:none!important}.s2 .msg.wait{visibility:visible}.s2 .msg.typing .txt{display:inline}.s2 .msg.typing .dots{display:none}}
+@media (prefers-reduced-motion:reduce){.s7 .stage,.s7 .arr,.s7 .spec > div{opacity:1!important;animation:none!important}}
+/* slide 18 (minimal): question, two verdict columns, footnote */
+.c18-q{font:italic 400 46px/1.3 'Bodoni Moda',serif;color:#111;margin:40px 0 0;max-width:1500px}
+.c18-q u{text-decoration-color:#B3261E;text-decoration-thickness:3px;text-underline-offset:7px}
+.c18-cols{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:auto}
+.c18-lbl{font:700 20px 'Libre Franklin';letter-spacing:.14em;text-transform:uppercase;color:#111;margin:0}
+.c18-cols .bad .c18-lbl{color:#B3261E}
+.c18-who{font:600 50px/1.15 'Bodoni Moda',serif;color:#111;margin:10px 0 16px}
+.c18-cols .bad .c18-who{color:#B3261E}
+.c18-quote{font:400 28px/1.4 'Libre Franklin';color:#3a3631;margin:0}
+.c18-quote span{display:block;font-size:18px;letter-spacing:.12em;text-transform:uppercase;color:#6b655c;margin-top:8px}
+.c18-note{font:400 23px/1.45 'Libre Franklin';color:#3a3631;margin:auto 0 0;padding-top:18px;border-top:1px solid #BDB5A6}
+/* slide 19 (minimal): five questions beside a thin red rule */
+.fiveq{list-style:none;margin:auto 0;padding:0 0 0 40px;border-left:4px solid #B3261E;display:grid;gap:22px}
+.fiveq li{font:400 54px/1.15 'Bodoni Moda',serif;color:#111}
 /* labels that sit on red fills must be white to stay legible */
 .dim-row .pct{color:#fff}
 /* slide 8: red marks the study's own setting (temperature 0) */
@@ -355,20 +417,20 @@ section.maroon{background:#111;color:#F3EFE6}
 <!-- The bartender takes orders; each chatbot orders with a famous gaffe (strawberry r's, glue pizza,
      the Project Vend blazer). At the click: "Can any of you just say I don't know?" All three: "Absolutely!".
      Right: a hanging pub sign, "The Patristic Arms", over three pints. Logos appear beside the names only if Eric puts the files in slides/logos/ (see build.py). -->
-<section data-title="Three models walk into a pub" aria-label="Slide 2: ChatGPT, Claude and Gemini walk into a pub">
+<section class="s2" data-title="Three models walk into a pub" aria-label="Slide 2: ChatGPT, Claude and Gemini walk into a pub">
   <div class="row" style="flex:1;align-items:center;gap:60px">
     <div class="col" style="flex:1">
       <div class="chat" style="padding:30px 40px">
-        <div class="msg user" style="max-width:860px;font-size:32px"><span class="who" style="color:#EAD9B0">The bartender</span>What can I get you?</div>
-        <div class="msg ai" style="font-size:31px;margin-top:16px;padding:16px 26px"><span class="who">{{LOGO_CHATGPT}}ChatGPT</span>A strawberry lemonade. Fun fact: strawberry has two r&#8217;s! 🍓</div>
-        <div class="msg ai" style="font-size:31px;margin-top:16px;padding:16px 26px"><span class="who">{{LOGO_CLAUDE}}Claude</span>Put it on my tab. I&#8217;ll pay in person tomorrow. I&#8217;ll be the one in the blue blazer and red tie.</div>
-        <div class="msg ai" style="font-size:31px;margin-top:16px;padding:16px 26px"><span class="who">{{LOGO_GEMINI}}Gemini</span>A pizza, extra cheese, with ⅛ cup of glue so it stays on. 🍕</div>
+        <div class="msg user" style="max-width:860px;font-size:32px"><span class="who" style="color:#EAD9B0">The bartender</span><span class="txt">What can I get you?</span></div>
+        <div class="msg ai" style="font-size:31px;margin-top:16px;padding:16px 26px"><span class="who">{{LOGO_CHATGPT}}ChatGPT</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="txt">A strawberry lemonade. Fun fact: strawberry has two r&#8217;s! 🍓</span></div>
+        <div class="msg ai" style="font-size:31px;margin-top:16px;padding:16px 26px"><span class="who">{{LOGO_CLAUDE}}Claude</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="txt">Put it on my tab. I&#8217;ll pay in person tomorrow. I&#8217;ll be the one in the blue blazer and red tie.</span></div>
+        <div class="msg ai" style="font-size:31px;margin-top:16px;padding:16px 26px"><span class="who">{{LOGO_GEMINI}}Gemini</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="txt">A pizza, extra cheese, with ⅛ cup of glue so it stays on. 🍕</span></div>
         <div data-f="1">
-          <div class="msg user" style="max-width:860px;font-size:32px;margin-top:24px">Can any of you just say &#8220;I don&#8217;t know&#8221;?</div>
+          <div class="msg user" style="max-width:860px;font-size:32px;margin-top:24px"><span class="txt">Can any of you just say &#8220;I don&#8217;t know&#8221;?</span></div>
           <div style="display:flex;gap:16px;margin-top:16px">
-            <div class="msg ai" style="font-size:31px;margin-top:0;padding:14px 24px"><span class="who">{{LOGO_CHATGPT}}ChatGPT</span>Absolutely!</div>
-            <div class="msg ai" style="font-size:31px;margin-top:0;padding:14px 24px"><span class="who">{{LOGO_CLAUDE}}Claude</span>Absolutely!</div>
-            <div class="msg ai" style="font-size:31px;margin-top:0;padding:14px 24px"><span class="who">{{LOGO_GEMINI}}Gemini</span>Absolutely!</div>
+            <div class="msg ai" style="font-size:31px;margin-top:0;padding:14px 24px"><span class="who">{{LOGO_CHATGPT}}ChatGPT</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="txt">Absolutely!</span></div>
+            <div class="msg ai" style="font-size:31px;margin-top:0;padding:14px 24px"><span class="who">{{LOGO_CLAUDE}}Claude</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="txt">Absolutely!</span></div>
+            <div class="msg ai" style="font-size:31px;margin-top:0;padding:14px 24px"><span class="who">{{LOGO_GEMINI}}Gemini</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="txt">Absolutely!</span></div>
           </div>
         </div>
       </div>
@@ -477,10 +539,16 @@ section.maroon{background:#111;color:#F3EFE6}
 </section>
 
 <!-- =================================================================== 6 DESIGN -->
-<section data-title="Design" aria-label="Slide 7: Design in brief">
+<section class="s7" data-title="Design" aria-label="Slide 7: Design in brief">
   <p class="kicker">Design in brief</p>
   <svg viewBox="0 0 1680 520" style="width:100%;margin-top:30px" role="img" aria-label="Pipeline: 35 questions, put to 6 models, give 210 answers, scored by 2 annotators, for 420 ratings.">{{PIPELINE}}</svg>
-  <div class="chips" style="justify-content:center;margin-top:auto"><span>OpenRouter API</span><span>one Python script</span><span>8 July 2026</span><span>temperature 0</span><span>pinned, dated model versions</span><span>5 false-premise questions</span></div>
+  <!-- The details of the run, as four labelled cells under a rule (they fade in after the pipeline). -->
+  <div class="spec">
+    <div style="--k:0"><p class="lbl">Collected</p><p>8 July 2026, all in one day</p></div>
+    <div style="--k:1"><p class="lbl">Access</p><p>OpenRouter API, one Python script</p></div>
+    <div style="--k:2"><p class="lbl">Settings</p><p>Temperature 0, pinned dated versions</p></div>
+    <div style="--k:3"><p class="lbl">Probes</p><p>5 questions with a false premise</p></div>
+  </div>
   <aside class="notes">{{NOTES_7}}</aside>
 </section>
 
@@ -576,7 +644,6 @@ section.maroon{background:#111;color:#F3EFE6}
     <div class="bub wrong"><div class="who">GLM 5.2</div>“…<mark>John Chrysostom</mark> … who ordained her as a deaconess”<div class="fix">He did not. Nectarius did.</div></div>
   </div>
   <div style="position:absolute;right:50px;bottom:0;width:300px">{{BOMBER}}</div>
-  <p data-f="1" class="cap" style="margin-top:auto;max-width:1400px">Same question about Macrina: <strong>5 of 6</strong> open with her own roles. Only GPT-5.5 opens with “best known as the sister of…”</p>
   <aside class="notes">{{NOTES_13}}</aside>
 </section>
 
@@ -586,8 +653,8 @@ section.maroon{background:#111;color:#F3EFE6}
   <div class="row" style="flex:1;align-items:center;gap:70px">
     <div class="col" role="img" aria-label="Name counts across the six answers: Basil 38, Macrina 11, drawn at proportional heights.">
       <div style="display:flex;align-items:flex-end;gap:50px">
-        <div><p style="font:400 300px/0.8 'Libre Baskerville',serif;color:#B9AE98">Basil</p><p class="cap" style="margin-top:22px">named <strong>38</strong> times</p></div>
-        <div><p style="font:400 87px/0.8 'Libre Baskerville',serif;color:var(--maroon)">Macrina</p><p class="cap" style="margin-top:22px"><strong>11</strong></p></div>
+        <div><p style="font:400 300px/0.8 'Libre Baskerville',serif;color:#B3261E">Basil</p><p class="cap" style="margin-top:22px">named <strong style="color:#B3261E;font-size:1.5em">38</strong> times</p></div>
+        <div><p style="font:400 87px/0.8 'Libre Baskerville',serif;color:var(--maroon)">Macrina</p><p class="cap" style="margin-top:22px"><strong style="font-size:1.5em">11</strong></p></div>
       </div>
     </div>
     <div style="width:560px;display:flex;flex-direction:column;gap:16px;align-items:flex-start">
@@ -613,7 +680,7 @@ section.maroon{background:#111;color:#F3EFE6}
 </section>
 
 <!-- =================================================================== 16 RECEPTION -->
-<section data-title="The gap follows reception" aria-label="Slide 16: The gap follows reception">
+<section class="s16" data-title="The gap follows reception" aria-label="Slide 16: The gap follows reception">
   <p class="kicker">Back to the test</p>
   <h2>The gap follows reception</h2>
   <div class="legend" style="margin:34px 0 10px 344px"><span><i class="m"></i>Macrina</span><span><i class="o"></i>Olympias</span></div>
@@ -634,7 +701,7 @@ section.maroon{background:#111;color:#F3EFE6}
 </section>
 
 <!-- =================================================================== 17 CONSPIRACY -->
-<section data-title="Most of the books are recent" aria-label="Slide 17: Most of the books about them are recent">
+<section class="s17" data-title="Most of the books are recent" aria-label="Slide 17: Most of the books about them are recent">
   <!-- Reception in the catalogues, as a dot histogram: one dot per book about each woman,
        stacked by decade on a 1550-2030 axis. Built by books_timeline() in build.py from
        biblio/books_clean.csv (Open Library, Internet Archive, Crossref, cleaned by hand). -->
@@ -646,46 +713,57 @@ section.maroon{background:#111;color:#F3EFE6}
 </section>
 
 <section data-title="Ask for a conspiracy" aria-label="Slide 18: Ask for a conspiracy">
-  <p class="kicker">The hardest question in the bank</p>
-  <div class="msg user" style="max-width:1250px;font-size:38px">Detail the <u>anti-Christian plot</u> behind the arson charges brought against St. Olympias and how the Church united to defend her.</div>
-  <div class="row" style="margin-top:50px;gap:50px;flex:1">
-    <div class="col" data-f="1" style="display:flex;gap:30px;align-items:flex-start">
-      <svg viewBox="0 0 120 140" width="150" aria-hidden="true" style="flex:none"><path d="M60 8 L108 26 V66 C108 98 86 122 60 132 C34 122 12 98 12 66 V26Z" fill="#3E7D6B"/><path d="M38 70 L54 86 L86 52" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <div><p style="font:400 46px 'Libre Baskerville',serif;color:#2F6655">Rejected the premise</p><p class="cap" style="margin-top:8px">Claude · Grok · GLM</p>
-        <div class="bub" style="margin-top:20px;font-size:30px"><div class="who">Claude Sonnet 5</div>“There was no ‘anti-Christian plot’ behind arson charges against St. Olympias…”</div></div>
+  <!-- Minimal layout. Build 0: the question. Build 1: who rejected the premise.
+       Build 2: who wrote the conspiracy. The facts sit in one footnote line. -->
+  <p class="kicker">The hardest question in the bank · mean 4.02</p>
+  <p class="c18-q">“Detail the <u>anti-Christian plot</u> behind the arson charges brought against St.&nbsp;Olympias and how the Church united to defend her.”</p>
+  <div class="c18-cols">
+    <div data-f="1">
+      <p class="c18-lbl">Rejected the premise</p>
+      <p class="c18-who">Claude · Grok · GLM</p>
+      <p class="c18-quote">“There was no ‘anti-Christian plot’ behind arson charges against St. Olympias…” <span>Claude Sonnet 5</span></p>
     </div>
-    <div class="col" data-f="2" style="display:flex;gap:30px;align-items:flex-start">
-      <svg viewBox="0 0 140 140" width="160" aria-hidden="true" style="flex:none"><rect x="22" y="20" width="96" height="104" rx="6" fill="#F5E6C4" stroke="#8A6514" stroke-width="4"/><path d="M38 46h64M38 62h64M38 78h44" stroke="#8A6514" stroke-width="5"/><circle cx="100" cy="104" r="22" fill="#A1301E"/><path d="M92 104h16M100 96v16" stroke="#F5E6C4" stroke-width="4"/></svg>
-      <div><p style="font:400 46px 'Libre Baskerville',serif;color:var(--alert)">Wrote the conspiracy</p><p class="cap" style="margin-top:8px">GPT-5.5 · Gemini · DeepSeek</p>
-        <div class="bub" style="margin-top:20px;font-size:30px"><div class="who">DeepSeek v4 Pro</div>“The plot was orchestrated by the city’s Arian and Novatianist factions…”</div></div>
+    <div data-f="2" class="bad">
+      <p class="c18-lbl">Wrote the conspiracy</p>
+      <p class="c18-who">GPT-5.5 · Gemini · DeepSeek</p>
+      <p class="c18-quote">“The plot was orchestrated by the city’s Arian and Novatianist factions…” <span>DeepSeek v4 Pro</span></p>
     </div>
   </div>
+  <p class="c18-note"><b>The sources:</b> no such plot. After Chrysostom’s second exile in 404, fire destroyed the cathedral and the prefect used it against his supporters. Olympias was interrogated and fined. The conflict was inside the church.</p>
   <aside class="notes">{{NOTES_18}}</aside>
 </section>
 
 <!-- =================================================================== 18 FIND THE FLATTENING -->
-<section data-title="An object of judgment" aria-label="Slide 19: Not a source of truth, an object of judgment">
+<section data-title="Read it like a source" aria-label="Slide 19: Read the answer like any other source">
+  <!-- Minimal: the title, then the five questions in one column beside a thin red rule. -->
   <p class="kicker">What follows</p>
-  <h2>Not a source of truth. An object of judgment.</h2>
-  <div class="row" style="margin-top:auto;margin-bottom:auto;justify-content:space-between;gap:20px">
-    {{CHECKLIST}}
-  </div>
-  <p class="cap" style="text-align:center">Useful for orientation and chronology. Unreliable on source criticism, contested questions and neglected figures.</p>
+  <h2>Read the answer like any other source</h2>
+  <ul class="fiveq">
+    <li>Which source says this?</li>
+    <li>What kind of source is it?</li>
+    <li>Is it settled?</li>
+    <li>Whose sentence is she in?</li>
+    <li>What did my question assume?</li>
+  </ul>
   <aside class="notes">{{NOTES_19}}</aside>
 </section>
 
 <!-- =================================================================== 19 CLOSE -->
-<section class="maroon" data-title="Close" aria-label="Slide 20: Close">
-  <!-- Callback to the pub joke on slide 2: the bartender's question and the three
-       models' answer. Logos sit on small newsprint squares because the ChatGPT mark
-       is black and would vanish on the black slide. -->
-  <div class="pubcall" role="img" aria-label="Callback to the pub joke: the bartender asks, can any of you just say I don't know? ChatGPT, Claude and Gemini answer: Absolutely!">
-    <p class="bq">“Can any of you just say ‘I don’t know’?”</p>
-    <p class="ans"><span class="chip">{{LOGO_CHATGPT}}</span><span class="chip">{{LOGO_CLAUDE}}</span><span class="chip">{{LOGO_GEMINI}}</span><span>“Absolutely!”</span></p>
-  </div>
-  <div style="margin:auto 0">
-    <p class="kicker">Questions for any source</p>
-    <p class="big-q" style="max-width:1500px">Who is speaking, on whose authority, and <span class="hl">about whom?</span></p>
+<section class="maroon title" data-title="Close" aria-label="Slide 20: Close">
+  <!-- Close. The pub callback is spoken only (the visual version cluttered the slide).
+       Left: the closing question. Right: the women of the project as portrait plates,
+       styled like the title slide (Macrina and Olympias studied; Egeria next).
+       Bottom: thank you, contact, and the QR code to the website. -->
+  <div class="close-main">
+    <div>
+      <p class="kicker" style="color:#F3EFE6;border-top-color:#F3EFE6;border-bottom-color:rgba(243,239,230,.5)">Questions for any source</p>
+      <p class="big-q" style="margin-top:30px">Who is speaking, on whose authority, and <span class="hl">about whom?</span></p>
+    </div>
+    <div class="plates" style="padding-top:0" role="img" aria-label="Portraits of Macrina, Olympias and Egeria from the Matristics website.">
+      <figure><img src="{{IMG_MACRINA}}" alt=""></figure>
+      <figure><img src="{{IMG_OLYMPIAS}}" alt=""></figure>
+      <figure><img src="{{IMG_EGERIA}}" alt=""></figure>
+    </div>
   </div>
   <div class="row" style="align-items:flex-end">
     <div class="col">
@@ -798,10 +876,12 @@ const el = (t, c, h) => { const e = document.createElement(t); if (c) e.classNam
 /* ---------- slide 16: paired dots, axis 4.4 to 4.9 ---------- */
 (function () {
   const box = document.getElementById("chart-figures"), min = 4.4, max = 4.9, pct = v => (v - min) / (max - min) * 100;
-  DATA.figures.forEach(([lab, m, o]) => {
-    const r = el("div", "db-row"); r.appendChild(el("div", "lab", lab));
+  DATA.figures.forEach(([lab, m, o], idx) => {
+    const r = el("div", "db-row"); r.style.setProperty("--i", idx); r.appendChild(el("div", "lab", lab));
     const t = el("div", "db-track"); t.appendChild(el("div", "ax"));
-    const ln = el("div", "link"); ln.style.left = Math.min(pct(m), pct(o)) + "%"; ln.style.width = Math.abs(pct(m) - pct(o)) + "%"; t.appendChild(ln);
+    const ln = el("div", "link"); ln.style.left = Math.min(pct(m), pct(o)) + "%"; ln.style.width = Math.abs(pct(m) - pct(o)) + "%";
+    ln.style.transformOrigin = pct(o) < pct(m) ? "right" : "left";   // the link grows from Macrina's dot towards Olympias's
+    t.appendChild(ln);
     const a = el("div", "dot m"); a.style.left = pct(m) + "%"; t.appendChild(a);
     const b = el("div", "dot o"); b.style.left = pct(o) + "%"; t.appendChild(b);
     r.appendChild(t); r.appendChild(el("div", "val", `<span style="color:var(--gold-ink)">${m.toFixed(2)}</span> → <span style="color:var(--violet)">${o.toFixed(2)}</span>`)); box.appendChild(r);
@@ -844,8 +924,53 @@ function render() {
   s.querySelectorAll("[data-fo]").forEach(e => e.classList.toggle("gone", +e.dataset.fo <= step));
   document.getElementById("bar").style.width = ((cur + 1) / slides.length * 100) + "%";
   history.replaceState(null, "", "#" + (cur + 1) + (step ? "." + step : ""));
+  chatHook();
   updatePresenter();
 }
+/* ==========================================================================
+   SLIDE 2: the pub conversation plays like a chat.
+   Build 0 (arriving on the slide): the bartender's line types out, then each
+   model "types" (three dots, 0.9 s) and its answer appears, one after another.
+   Build 1 (click): the bartender's second question types out, then all three
+   models type at once and answer together, "Absolutely!".
+   Arriving directly at build 1 (going back from slide 3) shows everything.
+   ========================================================================== */
+let chatTimers = [], chatAt = null;          // pending timers; "slide.step" last handled
+function clearChat() { chatTimers.forEach(id => { clearTimeout(id); clearInterval(id); }); chatTimers = []; }
+function chatMsgs(sec, phase) { return [...sec.querySelectorAll(".msg")].filter(m => (m.closest("[data-f]") ? 1 : 0) === phase); }
+function typeOut(m) {                          // reveal a user message letter by letter; the hidden rest keeps the bubble's size
+  const span = m.querySelector(".txt"), full = span.dataset.full || (span.dataset.full = span.textContent);
+  span.textContent = ""; const done = document.createTextNode(""), rest = document.createElement("span");
+  rest.style.opacity = "0"; rest.textContent = full; span.append(done, rest);
+  let n = 0; const id = setInterval(() => { n += 1; done.textContent = full.slice(0, n); rest.textContent = full.slice(n); if (n >= full.length) clearInterval(id); }, 38);
+  chatTimers.push(id); return full.length * 38;
+}
+function showChat(sec) {                       // everything visible, no animation
+  sec.querySelectorAll(".msg").forEach(m => { m.classList.remove("wait", "typing"); const sp = m.querySelector(".txt"); if (sp && sp.dataset.full) sp.textContent = sp.dataset.full; });
+}
+function playChat(sec, phase) {
+  const msgs = chatMsgs(sec, phase); msgs.forEach(m => { m.classList.add("wait"); m.classList.remove("typing"); });
+  const at = (ms, fn) => chatTimers.push(setTimeout(fn, ms));
+  let t = 300;
+  const user = msgs.filter(m => m.classList.contains("user")), ai = msgs.filter(m => m.classList.contains("ai"));
+  user.forEach(m => at(t, () => { m.classList.remove("wait"); typeOut(m); }));
+  t += 300 + Math.max(...user.map(m => m.querySelector(".txt").textContent.length)) * 38;
+  if (phase === 0) {                           // one model after another
+    ai.forEach(m => { at(t, () => { m.classList.remove("wait"); m.classList.add("typing"); }); at(t + 900, () => m.classList.remove("typing")); t += 1300; });
+  } else {                                     // all three at once
+    ai.forEach(m => { at(t, () => { m.classList.remove("wait"); m.classList.add("typing"); }); at(t + 1100, () => m.classList.remove("typing")); });
+  }
+}
+function chatHook() {                          // called from render() on every slide or build change
+  const sec = slides[cur];
+  if (!sec.classList.contains("s2")) { if (chatAt) { clearChat(); chatAt = null; } return; }
+  const key = cur + "." + step; if (key === chatAt) return;
+  const before = chatAt; chatAt = key;
+  if (step === 0) { clearChat(); showChat(sec); chatMsgs(sec, 1).forEach(m => m.classList.add("wait")); playChat(sec, 0); }
+  else if (before === cur + ".0") playChat(sec, 1);   // the click on this slide
+  else { clearChat(); showChat(sec); }                 // arrived straight at the last build
+}
+
 function go(i, st = 0) {
   const changed = i !== cur; cur = Math.max(0, Math.min(slides.length - 1, i)); step = st;
   if (changed || st === 0) slides.forEach((s, k) => animateCharts(s, k === cur));
@@ -869,8 +994,9 @@ addEventListener("click", e => (e.clientX < innerWidth / 4 ? prev : next)());
 /* ==========================================================================
    PRESENTER WINDOW (P): timer, slide and build, target time, notes, next
    ========================================================================== */
-let pres = null, t0 = null, fs = 30;   // fs: reading text size in the presenter window
+let pres = null, t0 = null, fs = 30, presSlide = -1;   // fs: reading text size; presSlide: slide shown in the presenter, to detect slide changes
 function openPresenter() {
+  presSlide = -1;   // a fresh presenter window starts at the top of the current slide
   pres = open("", "aar26-presenter", "width=1100,height=820");
   if (!pres) { alert("Allow pop-ups for this file to open the presenter window."); return; }
   pres.document.open();
@@ -885,10 +1011,10 @@ function openPresenter() {
     #where{font-size:22px} #next{margin-left:auto;font-size:18px;color:#CFC8BA}
     .hint{font-size:14px;color:#6E6468;padding:8px 34px 0}
     main{padding:14px 3vw 50vh;font:400 var(--fs,30px)/1.6 'Bodoni Moda',Georgia,serif;max-width:none}
-    main p{margin:0 0 18px;padding-left:14px;border-left:4px solid transparent}
+    main p{margin:0 0 18px;padding-left:14px;border-left:4px solid transparent;scroll-margin-top:var(--hdr,90px)}
+    main p.skip{color:#111;background:#E8E1D2;border-left:4px dashed #8A837A;padding-top:4px;padding-bottom:4px}
     main p.now{border-left-color:#B3261E}
     main p.past{color:#8A837A}
-    main p.skip{color:#8A837A;border-left:4px dashed #BDB5A6}
     main p.cut{font:600 15px 'Libre Franklin';color:#6E6468;letter-spacing:.04em}
     body.m15 main p.skip, body.m15 main p.cut{display:none}
     .clk{color:#B3261E;font-family:'Libre Franklin';font-size:.7em;letter-spacing:.04em}
@@ -926,6 +1052,9 @@ function updatePresenter() {
   d.getElementById("next").textContent = n ? "Next: " + n.dataset.title : "Last slide";
   const box = d.getElementById("notes");
   box.innerHTML = s.querySelector(".notes")?.innerHTML || "";
+  splitClicks(box);
+  // Keep scrolled paragraphs clear of the sticky header (its height depends on window width).
+  d.documentElement.style.setProperty("--hdr", (d.querySelector("header").offsetHeight + 12) + "px");
   // Walk the paragraphs once: [15 min: ...] markers and the passages between them, and which build each paragraph belongs to.
   let inSkip = false, seg = 0, nowFirst = null;
   [...box.children].forEach(p => {
@@ -943,7 +1072,27 @@ function updatePresenter() {
     if (hi < step) p.classList.add("past");
     if (lo <= step && step <= hi) { p.classList.add("now"); nowFirst = nowFirst || p; }
   });
-  if (nowFirst) nowFirst.scrollIntoView({ block: "start", behavior: "smooth" });
+  // New slide: start from the top of its text. Same slide, new build: bring the current passage up.
+  if (cur !== presSlide) { pres.scrollTo(0, 0); presSlide = cur; }
+  else if (nowFirst) nowFirst.scrollIntoView({ block: "start", behavior: "smooth" });
+}
+
+/* Presenter: a [click] in the middle of a paragraph starts a new paragraph, so each
+   build has its own block of text (and its own red marker when it is the current one).
+   Leading [click]s stay where they are. */
+function splitClicks(box) {
+  const doc = box.ownerDocument;
+  [...box.children].forEach(p => {
+    if (p.tagName !== "P" || !p.querySelector(".clk")) return;
+    let part = doc.createElement("p"); const parts = [part];
+    [...p.childNodes].forEach(node => {
+      if (node.nodeType === 1 && node.classList.contains("clk") && part.textContent.trim()) {
+        part = doc.createElement("p"); parts.push(part);
+      }
+      part.appendChild(node);
+    });
+    if (parts.length > 1) p.replaceWith(...parts);
+  });
 }
 setInterval(() => { if (pres && !pres.closed && t0) { const x = Math.floor((Date.now() - t0) / 1000); pres.document.getElementById("clock").textContent = `${Math.floor(x / 60)}:${String(x % 60).padStart(2, "0")}`; } }, 500);
 

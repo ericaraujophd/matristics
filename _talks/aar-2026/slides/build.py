@@ -139,14 +139,16 @@ def pipeline():
         # rating squares
         lambda x: "".join(f'<rect x="{x-84+(i%5)*35}" y="{70+(i//5)*35}" width="28" height="28" rx="4" fill="{GOLD if i % 4 else PARCH2}"/>' for i in range(20)),
     ]
+    # Each stage (icon + number + label) is one <g class="stage">, each arrow one <g class="arr">,
+    # with --k = position, so slide 7 can bring them in left to right (CSS in template.html).
     out = []
     for k, x in enumerate(xs):
-        out.append(icons[k](x))
-        out.append(f'<text x="{x}" y="340" text-anchor="middle" font-family="Libre Baskerville" font-size="110" fill="{MAROON}">{nums[k]}</text>')
-        out.append(f'<text x="{x}" y="398" text-anchor="middle" font-family="Public Sans" font-size="34" fill="{INK2}">{labs[k]}</text>')
+        out.append(f'<g class="stage" style="--k:{k}">' + icons[k](x)
+                   + f'<text x="{x}" y="340" text-anchor="middle" font-family="Libre Baskerville" font-size="110" fill="{MAROON}">{nums[k]}</text>'
+                   + f'<text x="{x}" y="398" text-anchor="middle" font-family="Public Sans" font-size="34" fill="{INK2}">{labs[k]}</text></g>')
         if k < 4:
             ax = x + 120
-            out.append(f'<path d="M{ax},130 h100 m-18,-14 l18,14 l-18,14" stroke="{GOLD}" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>')
+            out.append(f'<g class="arr" style="--k:{k}"><path d="M{ax},130 h100 m-18,-14 l18,14 l-18,14" stroke="{GOLD}" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>')
     return "".join(out)
 
 def roller():
@@ -183,17 +185,17 @@ def letters_row():
     out = []
     for i in range(17):
         x, y, w, h = i * 60 + 2, 4, 46, 32
-        out.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="#FBF9F4" stroke="#111" stroke-width="2"/>'
-                   f'<path d="M{x},{y} L{x+w/2},{y+h*0.58} L{x+w},{y}" fill="none" stroke="#111" stroke-width="2"/>')
+        out.append(f'<g class="env" style="--k:{i}"><rect x="{x}" y="{y}" width="{w}" height="{h}" fill="#FBF9F4" stroke="#111" stroke-width="2"/>'
+                   f'<path d="M{x},{y} L{x+w/2},{y+h*0.58} L{x+w},{y}" fill="none" stroke="#111" stroke-width="2"/></g>')
     return "".join(out)
 
 def letters_lost():
     """Slide 16, second row: Olympias's letters to Chrysostom. None survive,
     so one dashed red envelope, crossed out (same sign as 'lost' on slide 5)."""
     x, y, w, h = 2, 4, 46, 32
-    return (f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="none" stroke="#B3261E" stroke-width="2" stroke-dasharray="5 4"/>'
+    return ('<g class="env-lost">' + f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="none" stroke="#B3261E" stroke-width="2" stroke-dasharray="5 4"/>'
             f'<path d="M{x},{y} L{x+w/2},{y+h*0.58} L{x+w},{y}" fill="none" stroke="#B3261E" stroke-width="2" stroke-dasharray="5 4"/>'
-            f'<path d="M{x+8},{y-2} L{x+w-8},{y+h+2} M{x+w-8},{y-2} L{x+8},{y+h+2}" stroke="#B3261E" stroke-width="3"/>')
+            f'<path d="M{x+8},{y-2} L{x+w-8},{y+h+2} M{x+w-8},{y-2} L{x+8},{y+h+2}" stroke="#B3261E" stroke-width="3"/>') + '</g>'
 
 # Publication years of the 48 books about each woman found in open library
 # catalogues (Open Library, Internet Archive, Crossref), cleaned by hand.
@@ -217,17 +219,19 @@ def books_timeline():
     x_of = lambda year: X0 + (year - 1550) / 480 * W
     out = []
     # shaded band for 1970-2030 and its label
-    out.append(f'<rect x="{x_of(1970):.1f}" y="40" width="{x_of(2030) - x_of(1970):.1f}" height="{BASE - 40}" fill="#B3261E" opacity=".08"/>')
-    out.append(f'<text x="{x_of(1970) - 14:.1f}" y="70" text-anchor="end" font-family="Bodoni Moda" font-size="40" font-weight="600" fill="#B3261E">34 of 48</text>')
-    out.append(f'<text x="{x_of(1970) - 14:.1f}" y="102" text-anchor="end" font-family="Libre Franklin" font-size="24" fill="#3a3631">books appeared since 1970</text>')
+    out.append(f'<g class="band"><rect x="{x_of(1970):.1f}" y="40" width="{x_of(2030) - x_of(1970):.1f}" height="{BASE - 40}" fill="#B3261E" opacity=".08"/>'
+               f'<text x="{x_of(1970) - 14:.1f}" y="70" text-anchor="end" font-family="Bodoni Moda" font-size="40" font-weight="600" fill="#B3261E">34 of 48</text>'
+               f'<text x="{x_of(1970) - 14:.1f}" y="102" text-anchor="end" font-family="Libre Franklin" font-size="24" fill="#3a3631">books appeared since 1970</text></g>')
     # dots, stacked per decade: Macrina first (bottom), then Olympias
-    stack = {}
+    stack, dots = {}, []
     for fig, color in (("Macrina", "#B3261E"), ("Olympias", "#1F4E79")):
         for y in BOOK_YEARS[fig]:
             d = y // 10 * 10
             k = stack.get(d, 0); stack[d] = k + 1
-            cx = x_of(d) + per_decade / 2
-            out.append(f'<circle cx="{cx:.1f}" cy="{BASE - 14 - k * 25}" r="11" fill="{color}"/>')
+            dots.append((d, k, x_of(d) + per_decade / 2, BASE - 14 - k * 25, color))
+    # Animation order: oldest decade first, bottom of each stack first (--k drives the delay in CSS).
+    for n, (d, k, cx, cy, color) in enumerate(sorted(dots)):
+        out.append(f'<circle class="bk" style="--k:{n}" cx="{cx:.1f}" cy="{cy}" r="11" fill="{color}"/>')
     # axis with a tick and label every 50 years
     out.append(f'<line x1="{X0}" y1="{BASE}" x2="{X0 + W}" y2="{BASE}" stroke="#111" stroke-width="2"/>')
     for yr in range(1550, 2031, 50):
