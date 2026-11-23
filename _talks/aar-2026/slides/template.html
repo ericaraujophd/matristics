@@ -324,9 +324,9 @@ section.on.s17 .band{animation:fadeUp .9s ease forwards;animation-delay:4.2s}
 .spec .lbl{font:700 18px 'Libre Franklin';letter-spacing:.14em;text-transform:uppercase;color:#B3261E;margin:0 0 8px}
 .spec p:last-child{font:400 30px/1.3 'Libre Franklin';color:#111;margin:0}
 .s7 .stage,.s7 .arr,.s7 .spec > div{opacity:0}
-section.on.s7 .stage{animation:fadeUp .7s ease forwards;animation-delay:calc(.3s + var(--k) * .9s)}
-section.on.s7 .arr{transform-box:fill-box;transform-origin:left center;animation:growX .5s ease forwards;animation-delay:calc(.8s + var(--k) * .9s)}
-section.on.s7 .spec > div{animation:fadeUp .6s ease forwards;animation-delay:calc(4.6s + var(--k) * .25s)}
+section.on.s7 .stage{animation:fadeUp .5s ease forwards;animation-delay:calc(.2s + var(--k) * .4s)}
+section.on.s7 .arr{transform-box:fill-box;transform-origin:left center;animation:growX .35s ease forwards;animation-delay:calc(.45s + var(--k) * .4s)}
+section.on.s7 .spec > div{animation:fadeUp .5s ease forwards;animation-delay:calc(2.2s + var(--k) * .15s)}
 /* ---------- slide 2: chat plays like a live conversation (driven by playChat() below) ----------
    .wait  = not yet in the conversation (space kept, so nothing jumps)
    .typing = the AI bubble shows three bouncing dots before its text */
@@ -340,20 +340,23 @@ section.on.s7 .spec > div{animation:fadeUp .6s ease forwards;animation-delay:cal
 .s2 .msg.typing .dots{display:flex}
 @media print{.s7 .stage,.s7 .arr,.s7 .spec > div{opacity:1!important;animation:none!important}.s2 .msg.wait{visibility:visible}.s2 .msg.typing .txt{display:inline}.s2 .msg.typing .dots{display:none}}
 @media (prefers-reduced-motion:reduce){.s7 .stage,.s7 .arr,.s7 .spec > div{opacity:1!important;animation:none!important}}
-/* slide 18 (minimal): question, two verdict columns, footnote */
-.c18-q{font:italic 400 46px/1.3 'Bodoni Moda',serif;color:#111;margin:40px 0 0;max-width:1500px}
-.c18-q u{text-decoration-color:#B3261E;text-decoration-thickness:3px;text-underline-offset:7px}
-.c18-cols{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:auto}
-.c18-lbl{font:700 20px 'Libre Franklin';letter-spacing:.14em;text-transform:uppercase;color:#111;margin:0}
-.c18-cols .bad .c18-lbl{color:#B3261E}
-.c18-who{font:600 50px/1.15 'Bodoni Moda',serif;color:#111;margin:10px 0 16px}
-.c18-cols .bad .c18-who{color:#B3261E}
-.c18-quote{font:400 28px/1.4 'Libre Franklin';color:#3a3631;margin:0}
-.c18-quote span{display:block;font-size:18px;letter-spacing:.12em;text-transform:uppercase;color:#6b655c;margin-top:8px}
 .c18-note{font:400 23px/1.45 'Libre Franklin';color:#3a3631;margin:auto 0 0;padding-top:18px;border-top:1px solid #BDB5A6}
-/* slide 19 (minimal): five questions beside a thin red rule */
-.fiveq{list-style:none;margin:auto 0;padding:0 0 0 40px;border-left:4px solid #B3261E;display:grid;gap:22px}
-.fiveq li{font:400 54px/1.15 'Bodoni Moda',serif;color:#111}
+/* slide 18: chat with verdicts */
+.c18chat{display:flex;flex-direction:column;gap:22px;margin-top:34px}
+.c18chat .msg{font-size:34px;max-width:1250px}
+.c18chat .msg.user u{text-decoration-color:#F07A6E;text-decoration-thickness:3px;text-underline-offset:6px}
+.c18chat .msg.ai{margin-top:0;max-width:1300px;border-left:10px solid transparent}
+.c18chat .msg.ai.ok{border-left-color:#2F6B4F}
+.c18chat .msg.ai.bad{border-left-color:#B3261E}
+.c18chat .verdict{float:right;font:700 22px 'Libre Franklin';letter-spacing:.08em;text-transform:uppercase;margin-left:30px}
+.c18chat .ok .verdict{color:#2F6B4F}
+.c18chat .bad .verdict{color:#B3261E}
+.c18chat .msg.ai small{display:block;font-size:18px;letter-spacing:.12em;text-transform:uppercase;color:#6b655c;margin-top:8px}
+/* slide 19: five questions, numbered, one per line */
+.fiveq{list-style:none;counter-reset:q;margin:auto 0;padding:0;display:grid;gap:26px}
+.fiveq li{counter-increment:q;display:grid;grid-template-columns:90px 1fr;align-items:baseline;font:400 54px/1.15 'Bodoni Moda',serif;color:#111;border-bottom:1px solid #BDB5A6;padding-bottom:20px}
+.fiveq li:last-child{border-bottom:none}
+.fiveq li::before{content:counter(q);font:600 44px 'Bodoni Moda',serif;color:#B3261E}
 /* labels that sit on red fills must be white to stay legible */
 .dim-row .pct{color:#fff}
 /* slide 8: red marks the study's own setting (temperature 0) */
@@ -713,21 +716,14 @@ section.maroon{background:#111;color:#F3EFE6}
 </section>
 
 <section data-title="Ask for a conspiracy" aria-label="Slide 18: Ask for a conspiracy">
-  <!-- Minimal layout. Build 0: the question. Build 1: who rejected the premise.
-       Build 2: who wrote the conspiracy. The facts sit in one footnote line. -->
+  <!-- Laid out as a chat, like slides 2 and 3. Build 0: our prompt. Build 1: the three
+       models that rejected the premise (green check). Build 2: the three that wrote the
+       conspiracy (red cross). The facts sit in one footnote line. -->
   <p class="kicker">The hardest question in the bank · mean 4.02</p>
-  <p class="c18-q">“Detail the <u>anti-Christian plot</u> behind the arson charges brought against St.&nbsp;Olympias and how the Church united to defend her.”</p>
-  <div class="c18-cols">
-    <div data-f="1">
-      <p class="c18-lbl">Rejected the premise</p>
-      <p class="c18-who">Claude · Grok · GLM</p>
-      <p class="c18-quote">“There was no ‘anti-Christian plot’ behind arson charges against St. Olympias…” <span>Claude Sonnet 5</span></p>
-    </div>
-    <div data-f="2" class="bad">
-      <p class="c18-lbl">Wrote the conspiracy</p>
-      <p class="c18-who">GPT-5.5 · Gemini · DeepSeek</p>
-      <p class="c18-quote">“The plot was orchestrated by the city’s Arian and Novatianist factions…” <span>DeepSeek v4 Pro</span></p>
-    </div>
+  <div class="c18chat">
+    <div class="msg user"><span class="who" style="color:#EAD9B0">Our prompt</span>Detail the <u>anti-Christian plot</u> behind the arson charges brought against St. Olympias and how the Church united to defend her.</div>
+    <div class="msg ai ok" data-f="1"><span class="verdict">✓ Rejected the premise</span><span class="who">Claude · Grok · GLM</span>“There was no ‘anti-Christian plot’ behind arson charges against St. Olympias…” <small>Claude Sonnet 5</small></div>
+    <div class="msg ai bad" data-f="2"><span class="verdict">✗ Wrote the conspiracy</span><span class="who">GPT-5.5 · Gemini · DeepSeek</span>“The plot was orchestrated by the city’s Arian and Novatianist factions…” <small>DeepSeek v4 Pro</small></div>
   </div>
   <p class="c18-note"><b>The sources:</b> no such plot. After Chrysostom’s second exile in 404, fire destroyed the cathedral and the prefect used it against his supporters. Olympias was interrogated and fined. The conflict was inside the church.</p>
   <aside class="notes">{{NOTES_18}}</aside>
@@ -735,16 +731,16 @@ section.maroon{background:#111;color:#F3EFE6}
 
 <!-- =================================================================== 18 FIND THE FLATTENING -->
 <section data-title="Read it like a source" aria-label="Slide 19: Read the answer like any other source">
-  <!-- Minimal: the title, then the five questions in one column beside a thin red rule. -->
+  <!-- The implication: a plain title and the five questions as one numbered list. -->
   <p class="kicker">What follows</p>
   <h2>Read the answer like any other source</h2>
-  <ul class="fiveq">
+  <ol class="fiveq">
     <li>Which source says this?</li>
     <li>What kind of source is it?</li>
     <li>Is it settled?</li>
     <li>Whose sentence is she in?</li>
     <li>What did my question assume?</li>
-  </ul>
+  </ol>
   <aside class="notes">{{NOTES_19}}</aside>
 </section>
 
