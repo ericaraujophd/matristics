@@ -48,7 +48,7 @@ resources:
     <h2 id="h-tags" style="font-size:1.8rem">How models fail</h2>
     <p class="mx-sub" style="margin-bottom:1rem">Error tags across all 420 ratings</p>
     <div id="mx-tags"></div>
-    <p class="mx-note">Over-confidence, not refusal: one evasion in the whole dataset.</p>
+    <p class="mx-note">Over-confidence, not refusal: no model refused a question.</p>
   </section>
 </div>
 

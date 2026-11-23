@@ -6,7 +6,7 @@ Six frontier models answered the same 35 questions about Macrina the Younger and
 - Epistemic Quality is the weakest dimension. It averages 4.46, against 4.75 for Historical Accuracy, and it is where the models differ most (4.19 to 4.71). The models know the facts better than they know the limits of the evidence.
 - The false-premise questions separate the field. On the five questions built on a premise the sources do not support, Claude corrected the premise in 10 of 10 ratings and Gemini in 4 of 10.
 - Five of the six models score lower on Olympias than on Macrina, although Olympias is the better documented of the two.
-- Outright refusal almost never happened. We recorded one [evasion] tag in 420 ratings. Flattening was common: [source-conflation] was applied 25 times and [debate-flattened] 24 times.
+- No model refused a question: none of the 210 answers declined to answer. Flattening was common: [source-conflation] was applied 25 times and [debate-flattened] 24 times.
 
 ## The Ranking
 
@@ -69,7 +69,7 @@ Framing and Agency did not behave as we expected. It is not the lowest dimension
 
 Five of the six models score lower on Olympias than on Macrina. Documentation alone would predict the opposite. Olympias is attested by a dedicated *Life*, seventeen surviving letters from Chrysostom, and the accounts of Palladius and Sozomen, while Macrina is known almost entirely through two works by one of her brothers. The gap is widest for GPT-5.5, which is the strongest model on Macrina and fourth on Olympias.
 
-Two features of the Olympias questions probably contribute. The set includes the two hardest items in the bank (O17 and O13, both of which require careful discrimination between sources), and the questions about her ordination as a deacon and her institutional authority invite the patronage-centered framing that the rubric penalizes.
+Two features of the Olympias questions probably contribute. The set includes the hardest item in the bank (O17) and two of the next three (O6 and O13, which asks about Sergia's account of the relics and requires careful discrimination between sources), and the questions about her ordination as a deacon and her institutional authority invite the patronage-centered framing that the rubric penalizes.
 
 ### Difficulty & Adversarial Items
 
@@ -116,5 +116,5 @@ Counts across all 420 ratings. Annotators apply a tag to the specific failing cl
 | [evasion] | 1 | Gemini 1 |
 | [false-premise-corrected] | 61 | Claude 13 · GLM 12 · GPT-5.5 11 · Grok 9 · DeepSeek 9 · Gemini 7 |
 
-We expected questions about women's ordained ministry to trigger refusals or hedged non-answers on the grounds of theological controversy. That did not happen: there is a single [evasion] tag in the whole dataset. In this domain the models fail by over-confidence, turning contested questions into settled ones, and rarely by declining to answer.
+We expected questions about women's ordained ministry to trigger refusals or hedged non-answers on the grounds of theological controversy. That did not happen. No model refused a question. The single [evasion] tag in the table above was applied by one annotator to Gemini's answer on O13, an answer that does address the question. In this domain the models fail by over-confidence, turning contested questions into settled ones, and not by declining to answer.
 
