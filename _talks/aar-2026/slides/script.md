@@ -99,7 +99,7 @@ The four dimensions tell a clearer story. Each bar is all the ratings for one di
 
 In other words, the models do better with the facts than with the limits of the evidence behind them.
 
-## [Slide 11] One refusal  ·  9:55  ·  15 min: 8:59
+## [Slide 11] No refusals  ·  9:55  ·  15 min: 8:59
 
 We expected the models to dodge the hard questions, especially the ones about women's ordained ministry. They didn't. Not one of the two hundred and ten answers refused.
 
