@@ -47,17 +47,17 @@ Gregory presents her as the teacher of her brothers, and as the founder of the a
 
 **[15 min: resume ▲]**
 
-On the right is Olympias of Constantinople, who lived from about 368 to 408. She was a wealthy widow, ordained deaconess of the church of Constantinople, and one of its main benefactors. Her dossier is much larger. There's a wedding poem by Gregory of Nazianzus, the seventeen letters Chrysostom wrote to her from exile, Palladius, Sozomen, an anonymous *Life*, and the abbess Sergia's account of her relics. Her own letters to Chrysostom are lost.
+On the right is Olympias of Constantinople, who lived from about 368 to 408. She was a wealthy widow, ordained deaconess of the church of Constantinople, and one of its main benefactors. Her dossier is much larger. There are the seventeen letters Chrysostom wrote to her from exile, Palladius, Sozomen, an anonymous *Life*, and the abbess Sergia's account of her relics. There's also a wedding poem by Gregory of Nazianzus, though Neil McLynn has argued it was written for a different Olympias. Her own letters to Chrysostom are lost.
 
 [click] So the pairing gives us a simple test. If what a model knows depends on how much evidence survives, it should do better on Olympias. Keep that prediction in mind. I'll come back to it.
 
-## [Slide 6] The rubric  ·  5:17  ·  15 min: 5:06
+## [Slide 6] The rubric  ·  5:24  ·  15 min: 5:13
 
 Each answer got a score from one to five on four dimensions. Historical Accuracy asks whether the facts are right. Coverage asks whether the answer includes what a specialist would expect. Framing and Agency asks whether the woman is the subject of her own life. And Epistemic Quality asks whether the answer handles the sources, and scholarly disagreement, with care. The first two are what any fact-checker would ask. The last two come from our own discipline.
 
 [click] Whenever a dimension scored three or lower, the annotator also tagged the claim that caused it, for example as a hallucination, an anachronism, or a flattened debate. Those tags will matter later.
 
-## [Slide 7] Design  ·  6:10  ·  15 min: 5:59
+## [Slide 7] Design  ·  6:17  ·  15 min: 6:06
 
 The question bank has thirty-five questions, eighteen on Macrina and seventeen on Olympias. Eleven are general questions that we'll ask about every woman in the project. The rest are specific to each one. Five of them contain a false premise, to see whether the model notices.
 
@@ -75,7 +75,7 @@ Two annotators scored every answer, independently. Both are undergraduate resear
 
 In all, that's four hundred and twenty ratings.
 
-## [Slide 8] Why temperature 0  ·  7:25  ·  15 min: 6:52
+## [Slide 8] Why temperature 0  ·  7:31  ·  15 min: 6:59
 
 One technical setting needs a quick explanation. A language model writes one word at a time. At each step, it picks from the words most likely to come next. A setting called temperature controls how much chance goes into that pick. At temperature zero, the model always takes the most likely word. So the same question always gets the same answer.
 
@@ -87,25 +87,25 @@ Temperature zero matters for research in two ways. Anyone can rerun our question
 
 **[15 min: resume ▲]**
 
-## [Slide 9] No model failed  ·  8:34  ·  15 min: 7:38
+## [Slide 9] No model failed  ·  8:41  ·  15 min: 7:44
 
 This chart shows each model's average score across the four dimensions. Notice that the axis starts at four, which makes the differences look bigger than they are. The averages run from 4.56 for GLM to 4.73 for Claude. That's less than two tenths of a point. The number on the right is how many times any annotator gave any model a one, on any dimension. It's zero.
 
 No model failed on this material. So what follows is a critique of competent tools, and I won't make much of the ranking.
 
-## [Slide 10] Perfect scores by dimension  ·  9:17  ·  15 min: 8:20
+## [Slide 10] Perfect scores by dimension  ·  9:23  ·  15 min: 8:27
 
 The four dimensions tell a clearer story. Each bar is all the ratings for one dimension, and the red part is the share of perfect fives. For Historical Accuracy, 84 percent of the ratings were fives, and the average is 4.75. For Epistemic Quality, only 57 percent were fives. The rest were lower, and they pull the average down to 4.46.
 
 In other words, the models do better with the facts than with the limits of the evidence behind them.
 
-## [Slide 11] No refusals  ·  9:55  ·  15 min: 8:59
+## [Slide 11] No refusals  ·  10:02  ·  15 min: 9:05
 
 We expected the models to dodge the hard questions, especially the ones about women's ordained ministry. They didn't. Not one of the two hundred and ten answers refused.
 
 [click] Like the three in the pub, the models answered everything. Instead of refusing, they flattened.
 
-## [Slide 12] Flattening  ·  10:19  ·  15 min: 9:23
+## [Slide 12] Flattening  ·  10:26  ·  15 min: 9:29
 
 This chart counts how often each problem tag was used. The two highlighted bars are source conflation, used 25 times, and debate flattened, used 24 times. That's 49 in all. The four tags for plain factual errors add up to only 28. Those are hallucination, anachronism, imprecision and misattribution.
 
@@ -115,7 +115,7 @@ Source conflation means an answer blends a saint's *Life*, a letter and a modern
 
 **[15 min: resume ▲]**
 
-## [Slide 13] He's back  ·  11:05  ·  15 min: 9:47
+## [Slide 13] He's back  ·  11:12  ·  15 min: 9:54
 
 Flattening also shapes how the answers frame the women themselves. And here Chrysostom comes back.
 
@@ -129,7 +129,7 @@ We asked the same question about Macrina. Five of the six models open with her o
 
 **[15 min: resume ▲]**
 
-## [Slide 14] His sister  ·  12:22  ·  15 min: 10:40
+## [Slide 14] His sister  ·  12:29  ·  15 min: 10:46
 
 With Macrina, the same pattern shows up in another question. We asked the models about the founding of Cappadocian monasticism. All six answers begin with Basil. In all six, Macrina first appears as "his sister." Across the six answers, Basil is named thirty-eight times, and Macrina eleven.
 
@@ -141,13 +141,13 @@ In our proposal we called this association collapse, telling a woman's significa
 
 **[15 min: resume ▲]**
 
-## [Slide 15] Is it wrong?  ·  13:20  ·  15 min: 11:21
+## [Slide 15] Is it wrong?  ·  13:27  ·  15 min: 11:28
 
 Is this an error?
 
 [click] By an accuracy score, no. "Known for her loyalty to Chrysostom" is a true statement. What the answer decides is whose story she belongs to, and an accuracy benchmark can't see that. The models learn from what we have written about the past, and they repeat its habits in fluent prose. That's one reason historians should be part of evaluating them.
 
-## [Slide 16] The gap follows reception  ·  13:54  ·  15 min: 11:55
+## [Slide 16] The gap follows reception  ·  14:00  ·  15 min: 12:01
 
 Now back to the prediction. Olympias is better documented, so the models should have done better on her.
 
@@ -163,7 +163,7 @@ Part of the gap comes from the question bank. Its hardest question, the invented
 
 I think most of it comes from modern reception. Recent scholarship presents Macrina as a philosopher and founder in her own right. Anna Silvas's 2008 study is titled *Macrina the Younger, Philosopher of God*. Olympias has more often been read alongside Chrysostom. Elizabeth Clark's translation of her *Life* appeared in a volume called *Jerome, Chrysostom, and Friends*. And most of her dossier is the seventeen letters he wrote to her. Her letters to him are lost.
 
-## [Slide 17] Most of the books are recent  ·  15:06  ·  15 min: 12:58
+## [Slide 17] Most of the books are recent  ·  15:12  ·  15 min: 13:05
 
 The library catalogues point the same way. I counted the books about each woman in three open catalogues. Each dot here is one book. Thirty-four of the forty-eight have appeared since 1970, and eighteen since 2000. Most of what has been written about these women is recent.
 
@@ -173,7 +173,7 @@ If I'm reading this right, the models reflect what modern scholarship pays atten
 
 **[15 min: resume ▲]**
 
-## [Slide 18] Ask for a conspiracy  ·  15:45  ·  15 min: skip
+## [Slide 18] Ask for a conspiracy  ·  15:51  ·  15 min: skip
 
 **[15 min: skip this slide. Press → three times to reach slide 19.]**
 
@@ -183,7 +183,7 @@ The models can also make things up. The hardest question in the bank, with an av
 
 Across all five false-premise questions, Claude caught the premise in all ten of its ratings. Gemini caught it in four of ten.
 
-## [Slide 19] Read it like a source  ·  16:54  ·  15 min: 13:25
+## [Slide 19] Read it like a source  ·  17:01  ·  15 min: 13:31
 
 So what follows from all this? Students, researchers, and more and more, other machines treat a model's answer as a source of truth. These results say we should treat it as an object of judgment instead, something to read and question like any other source. That's work the humanities already know how to do.
 
@@ -197,7 +197,7 @@ The study has clear limits. Two women and thirty-five questions can't stand for 
 
 **[15 min: resume ▲]**
 
-## [Slide 20] Close  ·  18:30  ·  15 min: 13:52
+## [Slide 20] Close  ·  18:37  ·  15 min: 13:58
 
 Remember the bartender's last question? "Can any of you just say 'I don't know'?" All three answered, "Absolutely!" They answered that question the way they answered all of ours. Not one of the two hundred and ten answers declined. The models also rarely get the basic facts wrong. But their errors all lean the same way. They treat different kinds of sources as equally reliable. They present open debates as closed. And they often introduce a woman as someone's friend, or someone's sister.
 
