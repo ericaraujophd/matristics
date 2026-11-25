@@ -26,7 +26,7 @@ Here I report on the first two women we studied, Macrina the Younger and Olympia
 
 ## Three models walk into a pub
 
-ChatGPT, Claude and Gemini walk into a pub. The bartender asks what they'll have. ChatGPT orders a strawberry lemonade, and adds, helpfully, that strawberry has two r's. Gemini orders a pizza with extra cheese, and an eighth of a cup of non-toxic glue, so the cheese stays on. Claude asks to put it on his tab. He'll come by tomorrow to pay in person, wearing a blue blazer and a red tie.
+ChatGPT, Claude and Gemini walk into a pub. The bartender asks what they'll have. ChatGPT orders a strawberry lemonade, and adds, helpfully, that strawberry has two r's.[^berry] Gemini orders a pizza with extra cheese, and an eighth of a cup of non-toxic glue, so the cheese stays on. Claude asks to put it on his tab. He'll come by tomorrow to pay in person, wearing a blue blazer and a red tie.
 
 The bartender has one more question. "Can any of you just say 'I don't know'?" All three answer at once. "Absolutely!"
 
@@ -50,11 +50,11 @@ We picked the first two women on purpose (Table 1).
 
 The first is Macrina the Younger, who lived from about 327 to 379. Almost everything we know about her comes from her brother, Gregory of Nyssa. We know her through his *Life of Macrina*, his dialogue *On the Soul and the Resurrection*, and his Letter 19. None of her own writing survives. Gregory presents her as the teacher of her brothers, and as the founder of the ascetic community at Annisa, on the family estate in Pontus.
 
-The second is Olympias of Constantinople, who lived from about 368 to 408. She was a wealthy widow, ordained deaconess of the church of Constantinople, and one of its main benefactors. Her dossier is much larger. There's a wedding poem by Gregory of Nazianzus, the seventeen letters Chrysostom wrote to her from exile, Palladius, Sozomen, an anonymous *Life*, and the abbess Sergia's account of her relics. Her own letters to Chrysostom are lost.
+The second is Olympias of Constantinople, who lived from about 368 to 408. She was a wealthy widow, ordained deaconess of the church of Constantinople, and one of its main benefactors. Her dossier is much larger. There's a wedding poem by Gregory of Nazianzus,[^poem] the seventeen letters Chrysostom wrote to her from exile, Palladius, Sozomen, an anonymous *Life*, and the abbess Sergia's account of her relics. Her own letters to Chrysostom are lost.
 
 | Macrina the Younger (c. 327–379) | Olympias of Constantinople (c. 368–408) |
 |:---|:---|
-| Gregory of Nyssa, *Life of Macrina* (c. 380) | Gregory of Nazianzus, poem for her wedding (c. 384) |
+| Gregory of Nyssa, *Life of Macrina* (c. 380) | Gregory of Nazianzus, poem for her wedding (c. 384, identification disputed) |
 | Gregory of Nyssa, *On the Soul and the Resurrection* (c. 380) | John Chrysostom, seventeen letters to her from exile (404–407) |
 | Gregory of Nyssa, Letter 19 | Palladius, *Dialogue on the Life of Chrysostom* (c. 408) |
 | | Anonymous *Life of Olympias* (5th century) |
@@ -198,26 +198,46 @@ Accuracy scores don't catch these errors. Trained readers do, when they ask a ch
 
 Our students are now studying two more women. One is Egeria, the late fourth-century pilgrim. The other is Junia, whom Paul greets in Romans as prominent among the apostles. Their results will join the benchmark. The question bank, the rubric and the results are all on the project website, [ericaraujo.com/matristics](https://ericaraujo.com/matristics).
 
-[^glue]: Chris Morris, "Google's AI search wants you to glue cheese to your pizza," *Fortune*, 23 May 2024. The answer suggested mixing "about 1/8 cup of non-toxic glue into the sauce."
+[^berry]: Eaton 2024.
 
-[^vend]: Anthropic and Andon Labs, "Project Vend: Can Claude run a small shop?" 27 June 2025, [anthropic.com/research/project-vend-1](https://www.anthropic.com/research/project-vend-1). The shopkeeper, a Claude model, said it would deliver products in person in a blue blazer and a red tie.
+[^poem]: Tradition identifies the bride of this poem (*Carm.* 2.2.6) with Olympias of Constantinople. Neil McLynn has argued that she was another Olympias, the daughter of Vitalianus, a notable of Nazianzus (McLynn 1998). If he is right, Olympias's dossier loses one item and still has five sources to Macrina's three.
+
+[^glue]: Morris 2024. The answer suggested mixing "about 1/8 cup of non-toxic glue into the sauce."
+
+[^vend]: Anthropic and Andon Labs 2025. The shopkeeper, a Claude model, said it would deliver products in person in a blue blazer and a red tie.
 
 [^1]: Question M13, "Analyze the founding of the Cappadocian monastic system." The counts leave out the title *Life of Macrina*.
 
 ## References {.refs}
 
-Bender, Emily M., Timnit Gebru, Angelina McMillan-Major, and Shmargaret Shmitchell. "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?" *Proceedings of FAccT* 2021.
+Anthropic and Andon Labs. "Project Vend: Can Claude Run a Small Shop? (And Why Does That Matter?)" 27 June 2025. [anthropic.com/research/project-vend-1](https://www.anthropic.com/research/project-vend-1).
 
-Clark, Elizabeth A. *Jerome, Chrysostom, and Friends: Essays and Translations*. New York: Edwin Mellen Press, 1979.
+Bender, Emily M., Timnit Gebru, Angelina McMillan-Major, and Shmargaret Shmitchell. "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?" In *Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency (FAccT '21)*, 610–23. New York: ACM, 2021. [doi.org/10.1145/3442188.3445922](https://doi.org/10.1145/3442188.3445922).
 
-Elm, Susanna. *Virgins of God: The Making of Asceticism in Late Antiquity*. Oxford: Clarendon Press, 1994.
+Clark, Elizabeth A. *Jerome, Chrysostom, and Friends: Essays and Translations*. Studies in Women and Religion 2. New York: Edwin Mellen Press, 1979. Includes translations of the anonymous *Life of Olympias* and of Sergia's *Narration* concerning Olympias.
 
-Gregory of Nyssa. *Life of Macrina* and *On the Soul and the Resurrection*.
+Eaton, Kit. "How Many R's in 'Strawberry'? This AI Doesn't Know." *Inc.*, 28 August 2024.
+
+Elm, Susanna. *'Virgins of God': The Making of Asceticism in Late Antiquity*. Oxford Classical Monographs. Oxford: Clarendon Press, 1994.
+
+Gregory of Nyssa. *The Letters*. Introduction, translation and commentary by Anna M. Silvas. Supplements to Vigiliae Christianae 83. Leiden: Brill, 2007.
+
+Gregory of Nyssa. *On the Soul and the Resurrection*. Translated by Catharine P. Roth. Popular Patristics 12. Crestwood, NY: St Vladimir's Seminary Press, 1993.
 
 Hartney, Aideen M. *John Chrysostom and the Transformation of the City*. London: Duckworth, 2004.
 
-Krippendorff, Klaus. *Content Analysis: An Introduction to Its Methodology*. 4th ed. Thousand Oaks, CA: Sage, 2019.
+John Chrysostom. *Lettres à Olympias*. Edited and translated by Anne-Marie Malingrey. 2nd ed. Sources chrétiennes 13 bis. Paris: Cerf, 1968.
 
-Silvas, Anna M. *Macrina the Younger, Philosopher of God*. Turnhout: Brepols, 2008.
+Krippendorff, Klaus. *Content Analysis: An Introduction to Its Methodology*. 4th ed. Los Angeles: SAGE, 2019.
 
-Matristics. Benchmark, methodology and question bank. [ericaraujo.com/matristics](https://ericaraujo.com/matristics).
+McLynn, Neil. "The Other Olympias: Gregory Nazianzen and the Family of Vitalianus." *Zeitschrift für Antikes Christentum* 2 (1998): 227–46.
+
+Morris, Chris. "Google's AI Search Wants You to Glue Cheese to Your Pizza. It's Just the Tip of Its Bad-Idea Iceberg." *Fortune*, 23 May 2024.
+
+Palladius. *Dialogue on the Life of St. John Chrysostom*. Translated by Robert T. Meyer. Ancient Christian Writers 45. New York: Newman Press, 1985.
+
+Silvas, Anna M. *Macrina the Younger, Philosopher of God*. Medieval Women: Texts and Contexts 22. Turnhout: Brepols, 2008. Translations of all the sources for Macrina's life, including the *Life of Macrina* and Gregory of Nyssa's Letter 19.
+
+Sozomen. *The Ecclesiastical History*. Translated by Edward Walford, revised by Chester D. Hartranft. Nicene and Post-Nicene Fathers, 2nd series, vol. 2. New York: Christian Literature Company, 1890. Olympias appears in Book 8, chapters 9 and 24.
+
+Matristics: Evaluating Large Language Models on the Women of the Early Church. Benchmark, methodology and question bank. [ericaraujo.com/matristics](https://ericaraujo.com/matristics).
