@@ -33,7 +33,14 @@ page = SRC.read_text(encoding="utf-8")
 
 # 1. Speaker notes: keep the empty <aside> so the deck's script still finds
 #    the element it expects, but drop its content.
-page, n_notes = re.subn(r'(<aside class="notes">).*?(</aside>)', r"\1\2", page, flags=re.S)
+#    CAREFUL: the deck's header comment also contains the text
+#    '<aside class="notes">' (it explains what the blocks are). A plain
+#    non-greedy match would start there and delete everything up to the first
+#    real </aside>, including all the CSS. So the content of a match may not
+#    contain a '<section' or another '<aside': a real notes block never does,
+#    and the comment's mention always runs into the first slide's <section>.
+page, n_notes = re.subn(r'(<aside class="notes">)((?:(?!<section|<aside).)*?)(</aside>)',
+                        r"\1\3", page, flags=re.S)
 
 # 2. The P key. In the deck's keydown handler this is the line
 #       else if (k === "p" || k === "P") openPresenter();
@@ -43,6 +50,11 @@ page, n_key = re.subn(r'else if \(k === "p" \|\| k === "P"\) openPresenter\(\);'
 
 # 3. The key hint shown at the bottom of the screen.
 page, n_hint = re.subn(r" · P presenter view", "", page)
+
+if len(page) < 0.9 * len(SRC.read_text(encoding="utf-8")) - 60000:
+    # The notes are about 20 KB. If much more than that disappeared, a match
+    # ran past a notes block: stop rather than publish a broken deck.
+    raise SystemExit("make_web_slides.py: removed far more than the notes; check the regular expression.")
 
 for what, n in (("speaker notes", n_notes), ("P key handler", n_key), ("P in the key hint", n_hint)):
     if n == 0:
