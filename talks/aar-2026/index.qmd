@@ -1,0 +1,43 @@
+---
+title: "The Future of the Past"
+subtitle: "Evaluating Large Language Model Reliability in Early Christian Historical Studies"
+page-layout: article
+---
+
+<!--
+  Talk page for the AAR 2026 paper.
+
+  What is on this page, and where each piece comes from:
+    * slides.html  : copy of _talks/aar-2026/slides/index.html (the single-file
+                     deck). After rebuilding the deck, copy it here again.
+    * Araujo_AAR2026_slides.pdf : copy of _talks/aar-2026/AAR2026_Araujo_slides_backup.pdf
+    * Araujo_AAR2026_The_Future_of_the_Past.pdf : made by _talks/aar-2026/tools/make_reader.py
+    * figures/*.svg : made by _talks/aar-2026/tools/make_figures.py
+    * _paper.md    : the reader text, included below (the leading underscore
+                     keeps Quarto from rendering it as a page of its own).
+  The three files are listed under `resources:` in _quarto.yml so Quarto
+  copies them to the site even though no Markdown link points at them.
+-->
+
+```{=html}
+<div class="mx-talk-hero">
+  <p class="mx-eyebrow">AAR Annual Meeting · Denver · Monday 23 November 2026 · History of Christianity Unit, session A23-217</p>
+  <p class="mx-lede">Do large language models know the women of the early church, and when they get them wrong, what kind of wrong is it? A report on six models, two women (Macrina the Younger and Olympias of Constantinople) and 420 ratings by trained readers.</p>
+  <div class="mx-actions">
+    <a class="mx-btn mx-btn-primary" href="Araujo_AAR2026_The_Future_of_the_Past.pdf" download>Read the paper (PDF)</a>
+    <a class="mx-btn mx-btn-ghost" href="slides.html" target="_blank" rel="noopener">Open the slides</a>
+    <a class="mx-btn mx-btn-ghost" href="Araujo_AAR2026_slides.pdf" download>Slides as PDF</a>
+  </div>
+</div>
+
+<figure class="mx-deck">
+  <div class="mx-deck-frame">
+    <iframe src="slides.html" title="Slides: The Future of the Past (AAR 2026)" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <figcaption>Click the slides, then use → and ← to move through them. <a href="slides.html" target="_blank" rel="noopener">Open them full screen</a> for the best view.</figcaption>
+</figure>
+```
+
+::: {.mx-talk}
+{{< include _paper.md >}}
+:::

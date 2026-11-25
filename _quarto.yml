@@ -17,6 +17,9 @@ project:
     - benchmark/benchmark-data.js
     - assets/*.js
     - report/matristics-full-report.pdf
+    # AAR 2026 talk: the single-file deck and the two PDFs (see talks/aar-2026/index.qmd)
+    - talks/aar-2026/slides.html
+    - talks/aar-2026/*.pdf
 
 execute:
   enabled: false
@@ -39,6 +42,8 @@ website:
         href: figures/index.qmd
       - text: "Report"
         href: report/index.qmd
+      - text: "Talks"
+        href: talks/index.qmd
       - text: "About"
         href: about.qmd
   sidebar:

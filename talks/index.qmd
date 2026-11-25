@@ -1,0 +1,22 @@
+---
+title: "Talks"
+subtitle: "Papers and slides from presentations of the Matristics project"
+page-layout: full
+---
+
+<!--
+  One card per talk. To add a talk: make a folder talks/<name>/ with an
+  index.qmd (copy talks/aar-2026/index.qmd as a model) and add a card below,
+  newest first. The card classes (mx-sec-grid, mx-sec-card ...) are the same
+  ones the Report page uses, so no new styles are needed.
+-->
+
+```{=html}
+<div class="mx-sec-grid">
+  <a class="mx-sec-card mx-reveal" href="aar-2026/index.html">
+    <span class="mx-sec-num">Nov 2026</span>
+    <span class="mx-sec-title">The Future of the Past</span>
+    <span class="mx-sec-desc">AAR Annual Meeting, Denver. How six AI models answer questions about Macrina and Olympias, and why they flatten more than they err. Paper, slides and figures.</span>
+  </a>
+</div>
+```

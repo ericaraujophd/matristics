@@ -10,7 +10,8 @@ slide 17.
 
 The folder name starts with an underscore on purpose. Quarto skips files and
 folders whose names start with `_`, so nothing here is rendered into the
-Matristics website. It lives in the repository only.
+Matristics website. The public version of the talk lives in `talks/aar-2026/`
+(see "On the website" below).
 
 ## What to open
 
@@ -80,6 +81,34 @@ Notes on the scripts:
   before regenerating.
 * The backup PDF is made from screenshots of each slide (Playwright, 1920×1080),
   not by a script kept here.
+
+## On the website (`talks/aar-2026/`)
+
+The site has a Talks page (navbar → Talks) with this talk at
+`talks/aar-2026/index.html`: the deck embedded, buttons for the PDFs, and the
+paper as a web page.
+
+| File in `talks/aar-2026/` | What it is | Made by |
+|---|---|---|
+| `_paper.md` | **Reader edition** of the paper: no slide cues, the full 20-minute text, figures and tables where the audience saw the screen. Edit this one for the web and reader PDF. | by hand, from `AAR2026_Araujo_paper.md` |
+| `figures/fig1…fig5.svg` | The five result charts | `tools/make_figures.py` |
+| `Araujo_AAR2026_The_Future_of_the_Past.pdf` | Reader PDF (11 pages) | `tools/make_reader.py` |
+| `slides.html` | Copy of `slides/index.html` | `cp` (see below) |
+| `Araujo_AAR2026_slides.pdf` | Copy of `AAR2026_Araujo_slides_backup.pdf` | `cp` |
+| `index.qmd` | The talk page; includes `_paper.md` | by hand |
+
+Rebuild the website copies:
+
+```
+cd _talks/aar-2026
+python3 tools/make_figures.py   # needs matplotlib, fonttools, brotli
+python3 tools/make_reader.py    # needs pandoc and Playwright (Chromium)
+cp slides/index.html ../../talks/aar-2026/slides.html
+cp AAR2026_Araujo_slides_backup.pdf ../../talks/aar-2026/Araujo_AAR2026_slides.pdf
+```
+
+`AAR2026_Araujo_paper.md` stays the podium text. A change to the argument has to
+be made in both files.
 
 ## Slide 17: the catalogue count (`biblio/`)
 
