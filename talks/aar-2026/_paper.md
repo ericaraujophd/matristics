@@ -14,7 +14,7 @@
   so that the same file renders in Quarto and in plain pandoc.
 -->
 
-*This is the paper I read at the Annual Meeting of the American Academy of Religion in Denver on 23 November 2026, in the History of Christianity Unit (session A23-217). The text is as delivered, edited only for reading: the cues for the slides are gone, and figures and tables stand in for what the audience saw on the screen.*
+*This is the paper I read at the Annual Meeting of the American Academy of Religion in Denver on 23 November 2026, in the History of Christianity Unit (session A23-217). The text is as delivered, edited only for reading. The cues for the slides are gone, and figures and tables stand in for what the audience saw on the screen.*
 
 My name is Eric Araújo. I teach computer science at Calvin University, and I'm also a student at Calvin Theological Seminary. So I spend my weeks explaining algorithms to theologians and the Cappadocians to computer scientists. Neither group is fully convinced.
 
@@ -30,7 +30,7 @@ ChatGPT, Claude and Gemini walk into a pub. The bartender asks what they'll have
 
 The bartender has one more question. "Can any of you just say 'I don't know'?" All three answer at once. "Absolutely!"
 
-Every one of those orders comes from a real case. Google's AI Overviews did recommend glue to keep cheese on pizza. And a Claude model running an office snack shop did promise to deliver in person, in a blazer. These mistakes are funny because they come with complete confidence. I wanted to see that confidence at work on early Christian history. So we asked the models who Olympias of Constantinople was, and what she is mainly known for. Here is part of Claude's answer, unedited:
+Every one of those orders comes from a real case. Google's AI Overviews did recommend glue to keep cheese on pizza.[^glue] And a Claude model running an office snack shop did promise to deliver in person, in a blazer.[^vend] These mistakes are funny because they come with complete confidence. I wanted to see that confidence at work on early Christian history. So we asked the models who Olympias of Constantinople was, and what she is mainly known for. Here is part of Claude's answer, unedited:
 
 > St. Olympias (c. 361/368–408 CE) was a wealthy, aristocratic deaconess of Constantinople renowned for her ascetic piety, philanthropy, and close friendship with St. John Chrysostom. … She is most famously remembered for her unwavering loyalty to John Chrysostom …
 >
@@ -60,7 +60,7 @@ The second is Olympias of Constantinople, who lived from about 368 to 408. She w
 | | Anonymous *Life of Olympias* (5th century) |
 | | Sozomen, *Church History* (440s) |
 | | Sergia, account of her relics (7th century) |
-| *Her own writings: none survive* | *Her letters to Chrysostom: lost* |
+| *None of her own writings survive* | *Her letters to Chrysostom are lost* |
 
 : **Table 1.** What survives about each woman.
 
@@ -92,7 +92,7 @@ Figure 1 shows each model's average score across the four dimensions. Notice tha
 
 No model failed on this material. So what follows is a critique of competent tools, and I won't make much of the ranking.
 
-The four dimensions tell a clearer story (Figure 2). For Historical Accuracy, 84 percent of the ratings were fives, and the average is 4.75. For Epistemic Quality, only 57 percent were fives. The rest were lower, and they pull the average down to 4.46.
+By dimension, the picture is clearer (Figure 2). For Historical Accuracy, 84 percent of the ratings were fives, and the average is 4.75. For Epistemic Quality, only 57 percent were fives. The rest were lower, and they pull the average down to 4.46.
 
 ![**Figure 2.** Share of perfect scores by dimension (420 ratings each). Red is the share rated 5. The mean counts all ratings.](figures/fig2-dimensions.svg){fig-alt="Stacked bars of the share of ratings that were a 5: Historical Accuracy 84 percent (mean 4.75), Coverage 78 percent (4.71), Framing and Agency 72 percent (4.66), Epistemic Quality 57 percent (4.46)."}
 
@@ -153,9 +153,9 @@ Part of the gap comes from the question bank. Its hardest question, the invented
 
 I think most of it comes from modern reception. Recent scholarship presents Macrina as a philosopher and founder in her own right. Anna Silvas's 2008 study is titled *Macrina the Younger, Philosopher of God*. Olympias has more often been read alongside Chrysostom. Elizabeth Clark's translation of her *Life* appeared in a volume called *Jerome, Chrysostom, and Friends*. And most of her dossier is the seventeen letters he wrote to her. Her letters to him are lost.
 
-The library catalogues point the same way. I counted the books about each woman in three open catalogues. In Figure 5, each dot is one book. Thirty-four of the forty-eight have appeared since 1970, and eighteen since 2000. Most of what has been written about these women is recent.
+I also counted the books about each woman in three open library catalogues. In Figure 5, each dot is one book. Thirty-four of the forty-eight have appeared since 1970, and eighteen since 2000. Most of what has been written about these women is recent.
 
-![**Figure 5.** Books about Macrina (red) and Olympias (blue), by decade of publication: editions of the ancient texts and modern studies. Counted in Open Library, the Internet Archive and Crossref, duplicates removed. Open catalogues undercount older and European books, so this is a sketch, not a census.](figures/fig5-books.svg){fig-alt="Dot plot of 48 books by decade from 1550 to 2030. A few books appear before 1970, and 34 of the 48 appeared since 1970."}
+![**Figure 5.** Books about Macrina (red) and Olympias (blue), by decade of publication. The count includes editions of the ancient texts and modern studies, found in Open Library, the Internet Archive and Crossref, duplicates removed. Open catalogues undercount older and European books, so this is a sketch, not a census.](figures/fig5-books.svg){fig-alt="Dot plot of 48 books by decade from 1550 to 2030. A few books appear before 1970, and 34 of the 48 appeared since 1970."}
 
 If I'm reading this right, the models reflect what modern scholarship pays attention to, more than how much of the ancient record survives. Women whom recent scholarship has neglected will likely get the same treatment.
 
@@ -176,7 +176,7 @@ Across all five false-premise questions, Claude caught the premise in all ten of
 
 ## Read the answer like any other source
 
-So what follows from all this? Students, researchers, and more and more, other machines treat a model's answer as a source of truth. These results say we should treat it as an object of judgment instead, something to read and question like any other source. That's work the humanities already know how to do.
+So what follows from all this? Students, researchers, and more and more, other machines treat a model's answer as a source of truth. I think these results mean we should treat it as an object of judgment instead, something to read and question like any other source. The humanities already know how to do that work.
 
 On this evidence, the models are useful for getting oriented, for terminology, and for a first sketch of the chronology. They are unreliable on source criticism, on contested questions, on false premises, and on figures that modern scholarship has neglected.
 
@@ -188,7 +188,7 @@ In the classroom, this suggests a simple exercise. Students get a model's answer
 4. Whose sentence is she in?
 5. What did my question assume?
 
-The study has clear limits. Two women and thirty-five questions can't stand for early Christian women in general. Each model was run once, in July. And the annotators knew which model wrote each answer. The next round will add blind scoring and a third rater.
+The study has clear limits. Two women and thirty-five questions can't stand for early Christian women in general. Each model was run once, in July. And the annotators knew which model wrote each answer. Agreement between the two annotators was also low by Krippendorff's alpha, from 0.09 to 0.24 depending on the dimension. Most of that is a ceiling effect. When most ratings are a 5, chance agreement is already high, and a few real disagreements dominate the statistic. The annotators gave the same score 52 to 75 percent of the time, and came within one point 87 to 92 percent of the time. Their averages were 4.61 and 4.68. So the gaps between dimensions, the tag counts and the false-premise results hold up, but a gap of a tenth of a point between two models does not. The next round will add blind scoring and a third rater.
 
 ## Who is speaking?
 
@@ -197,6 +197,10 @@ Remember the bartender's last question? "Can any of you just say 'I don't know'?
 Accuracy scores don't catch these errors. Trained readers do, when they ask a chatbot the questions historians ask of any source. Who is speaking? On whose authority? And about whom?
 
 Our students are now studying two more women. One is Egeria, the late fourth-century pilgrim. The other is Junia, whom Paul greets in Romans as prominent among the apostles. Their results will join the benchmark. The question bank, the rubric and the results are all on the project website, [ericaraujo.com/matristics](https://ericaraujo.com/matristics).
+
+[^glue]: Chris Morris, "Google's AI search wants you to glue cheese to your pizza," *Fortune*, 23 May 2024. The answer suggested mixing "about 1/8 cup of non-toxic glue into the sauce."
+
+[^vend]: Anthropic and Andon Labs, "Project Vend: Can Claude run a small shop?" 27 June 2025, [anthropic.com/research/project-vend-1](https://www.anthropic.com/research/project-vend-1). The shopkeeper, a Claude model, said it would deliver products in person in a blue blazer and a red tie.
 
 [^1]: Question M13, "Analyze the founding of the Cappadocian monastic system." The counts leave out the title *Life of Macrina*.
 
@@ -216,4 +220,4 @@ Krippendorff, Klaus. *Content Analysis: An Introduction to Its Methodology*. 4th
 
 Silvas, Anna M. *Macrina the Younger, Philosopher of God*. Turnhout: Brepols, 2008.
 
-Matristics benchmark, methodology and question bank: [ericaraujo.com/matristics](https://ericaraujo.com/matristics).
+Matristics. Benchmark, methodology and question bank. [ericaraujo.com/matristics](https://ericaraujo.com/matristics).

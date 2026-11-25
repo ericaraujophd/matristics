@@ -8,8 +8,9 @@ page-layout: article
   Talk page for the AAR 2026 paper.
 
   What is on this page, and where each piece comes from:
-    * slides.html  : copy of _talks/aar-2026/slides/index.html (the single-file
-                     deck). After rebuilding the deck, copy it here again.
+    * slides.html  : made by _talks/aar-2026/tools/make_web_slides.py from the
+                     podium deck, with the speaker notes removed and the
+                     presenter window (key P) disabled.
     * Araujo_AAR2026_slides.pdf : copy of _talks/aar-2026/AAR2026_Araujo_slides_backup.pdf
     * Araujo_AAR2026_The_Future_of_the_Past.pdf : made by _talks/aar-2026/tools/make_reader.py
     * figures/*.svg : made by _talks/aar-2026/tools/make_figures.py

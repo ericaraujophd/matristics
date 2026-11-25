@@ -93,7 +93,7 @@ paper as a web page.
 | `_paper.md` | **Reader edition** of the paper: no slide cues, the full 20-minute text, figures and tables where the audience saw the screen. Edit this one for the web and reader PDF. | by hand, from `AAR2026_Araujo_paper.md` |
 | `figures/fig1…fig5.svg` | The five result charts | `tools/make_figures.py` |
 | `Araujo_AAR2026_The_Future_of_the_Past.pdf` | Reader PDF (11 pages) | `tools/make_reader.py` |
-| `slides.html` | Copy of `slides/index.html` | `cp` (see below) |
+| `slides.html` | Website copy of the deck: speaker notes removed, P (presenter window) disabled | `tools/make_web_slides.py` |
 | `Araujo_AAR2026_slides.pdf` | Copy of `AAR2026_Araujo_slides_backup.pdf` | `cp` |
 | `index.qmd` | The talk page; includes `_paper.md` | by hand |
 
@@ -103,7 +103,7 @@ Rebuild the website copies:
 cd _talks/aar-2026
 python3 tools/make_figures.py   # needs matplotlib, fonttools, brotli
 python3 tools/make_reader.py    # needs pandoc and Playwright (Chromium)
-cp slides/index.html ../../talks/aar-2026/slides.html
+python3 tools/make_web_slides.py  # slides.html without notes or presenter window
 cp AAR2026_Araujo_slides_backup.pdf ../../talks/aar-2026/Araujo_AAR2026_slides.pdf
 ```
 
